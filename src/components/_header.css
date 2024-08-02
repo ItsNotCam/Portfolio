@@ -1,0 +1,3 @@
+.window-button {
+	@apply size-window-buttons rounded-full;
+}

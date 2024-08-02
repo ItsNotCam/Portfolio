@@ -1,0 +1,40 @@
+.sidebar {
+	@apply w-40 bg-custom-off-dark-800 h-full flex-grow;
+}
+
+.footer {
+	@apply w-full h-header flex flex-row gap-1 items-center;
+}
+
+.footer > * {
+	@apply h-full flex text-center items-center justify-center bg-custom-off-dark-800;
+}
+
+.blinking-text {
+	animation: blinking-text 1s infinite;
+}
+.bg-img {
+	background: url("/images/background.png") no-repeat center center fixed;
+	background-size: cover;
+}
+
+.home-title {
+	font-size: clamp(4rem, 13svw, 11rem);
+	line-height: clamp(3.5rem, 11svw, 9.6rem);
+}
+
+.home-subtitle {
+	font-size: clamp(1.25rem, 2.5svw, 3rem);
+	margin-top: 1rem;
+}
+
+.text-code {
+	font-size: clamp(1rem, 1.3svw, 1.125rem);
+}
+
+@keyframes blinking-text {
+	0%   { opacity: 1; }
+	49%  { opacity: 1; }
+	50%  { opacity: 0; }
+	100% { opacity: 0; }
+}
