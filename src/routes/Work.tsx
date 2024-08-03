@@ -6,7 +6,7 @@ export default function About() {
       <div id="work"></div>
       <Footer>
         <span className="text-custom-text-300">
-          cam@portfolio:/home/cam/_Work <strong>{` > `}</strong>{" "}
+          cam@portfolio:/home/cam/_work <strong>{` > `}</strong>{" "}
           <strong className="blinking-text">_</strong>
         </span>
       </Footer>

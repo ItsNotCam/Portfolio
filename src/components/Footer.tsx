@@ -1,6 +1,6 @@
 // import MailIcon from '../assets/icon-Mail.svg';
 import { ReactNode } from "react";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "../assets/icons";
+import { GitHubIcon as GitHubIcon, LinkedInIcon, MailIcon } from "../assets/icons"
 
 import links from '../data/links';
 

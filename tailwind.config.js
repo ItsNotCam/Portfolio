@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
 			screens: {
-				"ok": "1650px"
+				"ok": "1650px",
+				"nav": "850px"
 			},
 			colors: {
 				'custom': {

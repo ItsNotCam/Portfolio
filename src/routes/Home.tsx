@@ -4,17 +4,17 @@ import "./_common.css";
 
 const Title: ReactNode = (
   <>
-    <p className="home-title font-semibold tracking-wide text-custom-text-300 w-max flex flex-col">
-      <span className="text-start  lg:pr-16 md:pr-8">
-        <span className="text-custom-off-dark-300">{`<`}</span>
+    <p className="home-title font-semibold tracking-wide text-custom-text-300 w-max flex flex-col max-ok:text-center max-ok:justify-center">
+      <span className="text-start max-ok:text-center lg:pr-16 max-ok:pr-0">
+        <span className="text-custom-off-dark-300 max-ok:hidden">{`<`}</span>
         <span className="text-custom-orange text-start">CAM</span>
         <span>ERON</span>
       </span>
-      <span className="text-end max-ok:text-start">
-        YOUNG<span className="text-custom-off-dark-300">{`>`}</span>
+      <span className="text-end max-ok:text-center">
+        YOUNG<span className="text-custom-off-dark-300 max-ok:hidden">{`>`}</span>
       </span>
     </p>
-    <p className="text-custom-text-300 home-subtitle font-medium text-end md:mr-16 sm:mr-0">
+    <p className="text-custom-text-300 home-subtitle font-medium text-end lg:pr-14 max-ok:pr-0">
 			SOFTWARE, BIKES, AND <span className="text-custom-orange">COFFEE</span>
     </p>
   </>
@@ -37,7 +37,7 @@ const Message: ReactNode = (
       <span className="text-custom-pink"> Cameron Young</span>. I wrote my
       <span className="text-custom-off-blue"> my first program</span> when I was
       <span className="text-custom-off-blue"> 12 years old</span>, and since
-      then
+      then I have been a
       <span className="text-custom-pink"> Software Engineer</span>.
       <br />
       <br />I am a Senior at
@@ -56,7 +56,7 @@ const Message: ReactNode = (
       <br />
       When I am not
       <span className="text-custom-off-blue"> designing </span>or
-      <span className="text-custom-off-blue"> programming </span>I am usually
+      <span className="text-custom-off-blue"> programming </span>something, I am usually
       riding my
       <span className="text-custom-pink"> motorcycle</span>.
     </div>
@@ -70,7 +70,7 @@ export default function Home() {
     <>
       <div id="Home" className="flex-1 relative w-full flex flex-row justify-around flex-wrap items-center">
         <div className="flex flex-row max-ok:flex-col gap-4 items-center">
-          <div className="p-2">{Title}</div>
+          <div className="p-2 max-ok:flex max-ok:flex-col max-ok:justify-center max-ok:items-center">{Title}</div>
           <div className="flex flex-row gap-2 font-semibold text-lg leading-snug mb-8">
             <div className="text-custom-text-300/50 text-end flex flex-col border-r-2 border-h border-custom-text-300/50 pr-3 text-code max-sm:hidden">
               {arr.map((idx) => (<span key={`home-code-${idx}`}>{idx}<br /></span>))}
