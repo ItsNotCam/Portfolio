@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       screens: {
-        ok: "1650px",
+        ok: "1400px",
         nav: "850px",
       },
       colors: {
@@ -30,7 +30,7 @@ export default {
       },
       spacing: {
         "window-buttons": "0.9rem",
-        header: "3rem",
+        "header": "3rem",
       },
     },
   },

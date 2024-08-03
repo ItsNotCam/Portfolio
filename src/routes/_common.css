@@ -21,7 +21,8 @@
 }
 
 .text-code {
-	font-size: clamp(1rem, 1.3svw, 1.125rem);
+	font-size: 1.125rem;
+	/* font-size: clamp(1rem, 1.3svw, 1.125rem); */
 }
 
 @keyframes blinking-text {

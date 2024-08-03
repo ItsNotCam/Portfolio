@@ -2,6 +2,15 @@ import { ReactNode } from "react";
 import Footer from "../components/Footer";
 import "./_common.css";
 import CodeSegment from "../components/CodeSegment";
+import {
+  Blue,
+  Yellow,
+  Orange,
+  Pink,
+  Red,
+  LightGreen,
+  OffBlue,
+} from "../components/ColoredText";
 
 const PageTitle = (): ReactNode => (
   <>
@@ -12,11 +21,12 @@ const PageTitle = (): ReactNode => (
         <span>ERON</span>
       </span>
       <span className="text-end max-ok:text-center">
-        YOUNG<span className="text-custom-off-dark-300 max-ok:hidden">{`>`}</span>
+        YOUNG
+        <span className="text-custom-off-dark-300 max-ok:hidden">{`>`}</span>
       </span>
     </p>
     <p className="text-custom-text-300 home-subtitle font-medium text-end lg:pr-14 max-ok:pr-0">
-			SOFTWARE, BIKES, AND <span className="text-custom-orange">COFFEE</span>
+      SOFTWARE, BIKES, AND <span className="text-custom-orange">COFFEE</span>
     </p>
   </>
 );
@@ -24,58 +34,73 @@ const PageTitle = (): ReactNode => (
 const CodeMessage = (): ReactNode => (
   <div className="text-code text-custom-text-300 font-normal max-w-[31rem] mx-4">
     <br />
-    <span className="text-custom-red font-semibold">{`<introduction>`}</span>
+    <Red className="font-semibold italic">{`<introduction>`}</Red>
 
     <br />
     <br />
 
-    <span className="text-custom-blue ">void </span>
-    <span className="text-custom-yellow">hello</span>
-    <span className="text-custom-orange">{`() {`}</span>
+    <Blue>void </Blue>
+    <Yellow>hello</Yellow>
+    <Orange>{`() {`}</Orange>
 
     <div className="ml-4">
       My name is
-      <span className="text-custom-pink"> Cameron Young</span>. I wrote 
-      <span className="text-custom-off-blue"> my first program</span> when I was
-      <span className="text-custom-off-blue"> 12 years old</span>, and since
-      then I have been a
-      <span className="text-custom-pink"> Software Engineer</span>.
-      <br />
-      <br />I am a Senior at
-      <span className="text-custom-pink"> George Mason University </span>
+      <Pink> Cameron Young</Pink>. 
+			I wrote
+      <Blue> my first program </Blue> 
+			when I was
+      <Blue> 12 years old</Blue>, 
+			and since then I have been a
+      <Pink> Software Engineer</Pink>.
+
+      <br/><br/>
+
+			I am a Senior at
+      <Pink> George Mason University </Pink>
       and in
-      <span className="text-custom-pink"> May </span>of{" "}
-      <span className="text-custom-pink"> 2025 </span>I will be{" "}
-      <span className="text-custom-red"> graduating </span>with my
-      <span className="text-custom-light-green"> Bachelor's </span>
-      of Science in <span className="text-custom-light-green">Information</span>
-      <span className="text-custom-light-green"> Technology </span>
+      <Pink> May </Pink>
+			of 
+			<Pink> 2025 </Pink>
+			I will be 
+			<Red> graduating </Red>
+      with my
+      <LightGreen> Bachelor's </LightGreen>
+      of Science in 
+			<LightGreen> Information Technology </LightGreen>
       and my
-      <span className="text-custom-off-blue"> Minor </span> in{" "}
-      <span className="text-custom-off-blue"> Computer Science</span>.
-      <br />
-      <br />
+      <Blue> Minor </Blue> 
+			in 
+			<Blue> Computer Science</Blue>.
+
+      <br/><br/>
+
       When I am not
-      <span className="text-custom-off-blue"> designing </span>or
-      <span className="text-custom-off-blue"> programming </span>something, I am usually
-      riding my
-      <span className="text-custom-pink"> motorcycle</span>.
+      <OffBlue> designing </OffBlue>
+			or
+      <OffBlue> programming </OffBlue>
+			something, I am usually riding my
+      <Pink> motorcycle</Pink>.
     </div>
-    <span className="text-custom-orange">{`}`}</span>
+    <Orange>{`}`}</Orange>
+
+    <br/><br/>
   </div>
 );
 
 export default function Home() {
   return (
     <>
-      <div id="Home" className="flex-1 relative w-full flex flex-row justify-around flex-wrap items-center">
+      <div
+        id="Home"
+        className="flex-1 relative w-full flex flex-row justify-around flex-wrap items-center"
+      >
         <div className="flex flex-row max-ok:flex-col gap-4 items-center">
           <div className="p-2 max-ok:flex max-ok:flex-col max-ok:justify-center max-ok:items-center">
-						<PageTitle />
-					</div>
-					<CodeSegment keyPrefix="home" lineCount={17}>
-					 	<CodeMessage />
-					</CodeSegment>
+            <PageTitle />
+          </div>
+          <CodeSegment keyPrefix="home" lineCount={17}>
+            <CodeMessage />
+          </CodeSegment>
         </div>
       </div>
       <Footer>
