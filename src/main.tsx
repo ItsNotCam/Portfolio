@@ -19,31 +19,47 @@ import Work from "./routes/Work.tsx";
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="flex flex-col justify-between items-center min-h-screen w-full">
     <div className="flex flex-col gap-1 w-full">
-			<Header />
-			<Nav />
+      <Header />
+      <Nav />
     </div>
-		{props.children}
+    {props.children}
   </div>
 );
 
 export const routes = [
   {
     path: "/Home",
-    element: <Wrapper><Home /></Wrapper> 
+    element: (
+      <Wrapper>
+        <Home />
+      </Wrapper>
+    ),
   },
   {
     path: "/About",
-    element: <Wrapper><About /></Wrapper> ,
+    element: (
+      <Wrapper>
+        <About />
+      </Wrapper>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/Skills",
-    element: <Wrapper><Skills /></Wrapper> ,
+    element: (
+      <Wrapper>
+        <Skills />
+      </Wrapper>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/Work",
-    element: <Wrapper><Work /></Wrapper> ,
+    element: (
+      <Wrapper>
+        <Work />
+      </Wrapper>
+    ),
     errorElement: <ErrorPage />,
   },
 ];
@@ -58,7 +74,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<React.StrictMode>
-		<RouterProvider router={router} />
-	</React.StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
