@@ -5,7 +5,7 @@ export default {
     extend: {
       screens: {
         ok: "1400px",
-        nav: "850px",
+        nav: "1060px",
       },
       colors: {
         custom: {

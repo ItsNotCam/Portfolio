@@ -1,23 +1,23 @@
 import { ReactNode } from "react";
 
-export const Pink = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const Pink = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-pink ${props.className || ""}`}>{props.children}</span>;
 };
-export const OffBlue = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const OffBlue = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-off-blue ${props.className || ""}`}>{props.children}</span>;
 };
-export const Blue = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const Blue = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-blue ${props.className || ""}`}>{props.children}</span>;
 };
-export const Yellow = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const Yellow = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-yellow ${props.className || ""}`}>{props.children}</span>;
 };
-export const Orange = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const Orange = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-orange ${props.className || ""}`}>{props.children}</span>;
 };
-export const Red = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const Red = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-red ${props.className || ""}`}>{props.children}</span>;
 };
-export const LightGreen = (props: { children: ReactNode; className?: string}): ReactNode => {
+export const LightGreen = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-light-green ${props.className || ""}`}>{props.children}</span>;
 };
