@@ -31,6 +31,7 @@ export default {
       spacing: {
         "window-buttons": "0.9rem",
         "header": "3rem",
+        "footer": "3.5rem",
       },
     },
   },

@@ -1831,3 +1831,20 @@ export const JiraIcon = (props: {
     </svg>
   );
 };
+export const Hamburger = (props: {
+	height?: string,
+	width?: string,
+	color?: string,
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={props.height || "24px"}
+      viewBox="0 -960 960 960"
+      width={props.height || "24px"}
+      fill={props.color || "#e8eaed"}
+    >
+      <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+    </svg>
+  );
+};

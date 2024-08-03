@@ -10,15 +10,15 @@
 	background-size: cover;
 }
 
-.home-title {
+/* .home-title {
 	font-size: clamp(4rem, 13svw, 9rem);
 	line-height: clamp(3.5rem, 11svw, 8rem);
-}
+} */
 
-.home-subtitle {
+/* .home-subtitle {
 	font-size: clamp(1.25rem, 3.8svw, 2.35rem);
 	margin-top: 1rem;
-}
+} */
 
 .text-code {
 	font-size: 1.125rem;

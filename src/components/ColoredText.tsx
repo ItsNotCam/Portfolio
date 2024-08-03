@@ -21,3 +21,9 @@ export const Red = (props: { children?: ReactNode; className?: string}): ReactNo
 export const LightGreen = (props: { children?: ReactNode; className?: string}): ReactNode => {
 	return <span className={`text-custom-light-green ${props.className || ""}`}>{props.children}</span>;
 };
+export const OffDark300 = (props: { children?: ReactNode; className?: string}): ReactNode => {
+	return <span className={`text-custom-off-dark-300 ${props.className || ""}`}>{props.children}</span>;
+};
+export const Light = (props: { children?: ReactNode; className?: string}): ReactNode => {
+	return <span className={`text-custom-text-300 ${props.className || ""}`}>{props.children}</span>;
+};

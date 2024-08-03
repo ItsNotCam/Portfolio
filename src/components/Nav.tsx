@@ -1,33 +1,35 @@
 import { routes } from "../main";
 import { Link, useLocation } from "react-router-dom";
 
+import './_nav.css'
+import { Light } from "./ColoredText";
+import { useState } from "react";
+import { Hamburger } from "./Icons";
+
 export default function Nav() {
   const location = useLocation();
   const { pathname } = location;
 
+	const [droppedDown, setDroppedDown] = useState<boolean>(false);
+
   return (
-    <div id="nav" className="w-full flex flex-row gap-1">
-      <nav className="flex flex-row gap-1 max-nav:flex-grow" role="navigation">
+    <div id="nav" className="nav-wrapper">
+			<div className="nav-dropdown" onClick={() => setDroppedDown(!droppedDown)}>
+				<Hamburger color={droppedDown ? "#F0B65A" : "#AFAFAF"} />
+			</div>
+      <nav className="nav" data-dropped-down={droppedDown}>
         {routes.map((route) => (
           <Link
             key={`nav-${route.path.replace("/", "")}`}
-            className={
-              `nav:w-52 max-nav:flex-grow bg-custom-off-dark-800 text-center ` +
-              `p-1 cursor-pointer border-t-4 pb-2 ` +
-              `transition-all duration-200 ` +
-              `${
-                route.path.toLowerCase() === pathname.toLowerCase()
-                  ? " border-custom-red text-custom-orange"
-                  : " border-transparent text-custom-text-300 hover:text-custom-orange "
-              }`
-            }
+            className={`nav-item ${route.path.toLowerCase() === pathname.toLowerCase() && "nav-item-selected"}`}
             to={route.path}
+						onClick={() => setDroppedDown(false)}
           >
             {route.path.replace("/", "_").toLowerCase()}
           </Link>
         ))}
       </nav>
-      <div className="w-auto flex-grow bg-custom-off-dark-800 border-t-4 border-transparent max-nav:hidden" />
+      <div className="nav-relief" />
     </div>
   );
 }

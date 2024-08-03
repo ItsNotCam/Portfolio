@@ -1,0 +1,31 @@
+.footer {
+	@apply w-full h-footer flex flex-row gap-1 items-center;
+}
+
+.footer > * {
+	@apply h-full flex text-center items-center justify-center bg-custom-off-dark-800;
+}
+
+@media screen and (max-width: 640px) {
+	.footer-path {
+		display: none;
+	}
+
+	.footer-title {
+		@apply flex-grow;
+	}
+
+	.footer a {
+		width: 5rem;
+	}
+}
+
+@media screen and (max-width: 430px) {
+	.footer-path, .footer-title {
+		display: none;
+	}
+
+	.footer a {
+		flex-grow: 1;
+	}
+}

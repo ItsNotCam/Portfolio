@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  font-family: "JetBrainsMono", monospace;
+  font-family: "JetBrainsMono", "courier mono", monospace;
   /* font-family: "Ubuntu Mono", monospace; */
   font-weight: 00;
   font-style: normal;
@@ -23,7 +23,7 @@ body {
 
 @font-face {
 	font-family: 'UbuntuMono';
-	src: url('/fonts/UbuntuMono-Bold.ttf');
+	src: url('/fonts/UbuntuMono-Regular.ttf');
 }
 
 .ubuntu-mono-regular {
