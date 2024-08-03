@@ -1,0 +1,11 @@
+.window-button {
+	@apply size-window-buttons rounded-full;
+}
+
+.footer {
+	@apply w-full h-header flex flex-row gap-1 items-center;
+}
+
+.footer > * {
+	@apply h-full flex text-center items-center justify-center bg-custom-off-dark-800;
+}

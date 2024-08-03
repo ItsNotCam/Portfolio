@@ -2,14 +2,6 @@
 	@apply w-40 bg-custom-off-dark-800 h-full flex-grow;
 }
 
-.footer {
-	@apply w-full h-header flex flex-row gap-1 items-center;
-}
-
-.footer > * {
-	@apply h-full flex text-center items-center justify-center bg-custom-off-dark-800;
-}
-
 .blinking-text {
 	animation: blinking-text 1s infinite;
 }

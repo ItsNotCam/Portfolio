@@ -28,7 +28,7 @@ export default function Footer(props: { children: ReactNode }) {
         <GitHubIcon height="2.25rem" width="2.25rem" color="#AEADB8" />
       </a>
       <div className="flex-grow bg-custom-off-dark-800 justify-start pl-4">
-        <div className="max-sm:hidden">{props.children}</div>
+        <div className="max-sm:hidden w-full flex">{props.children}</div>
       </div>
     </div>
   );
