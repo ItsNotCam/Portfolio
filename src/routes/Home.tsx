@@ -34,7 +34,7 @@ const Message: ReactNode = (
 
     <div className="ml-4">
       My name is
-      <span className="text-custom-pink"> Cameron Young</span>. I wrote my
+      <span className="text-custom-pink"> Cameron Young</span>. I wrote 
       <span className="text-custom-off-blue"> my first program</span> when I was
       <span className="text-custom-off-blue"> 12 years old</span>, and since
       then I have been a
