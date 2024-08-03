@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import Footer from "../components/Footer";
 import "./_common.css";
+import CodeSegment from "../components/CodeSegment";
 
-const Title: ReactNode = (
+const PageTitle = (): ReactNode => (
   <>
     <p className="home-title font-semibold tracking-wide text-custom-text-300 w-max flex flex-col max-ok:text-center max-ok:justify-center">
       <span className="text-start max-ok:text-center lg:pr-16 max-ok:pr-0">
@@ -20,7 +21,7 @@ const Title: ReactNode = (
   </>
 );
 
-const Message: ReactNode = (
+const CodeMessage = (): ReactNode => (
   <div className="text-code text-custom-text-300 font-normal max-w-[31rem] mx-4">
     <br />
     <span className="text-custom-red font-semibold">{`<introduction>`}</span>
@@ -65,18 +66,16 @@ const Message: ReactNode = (
 );
 
 export default function Home() {
-  const arr: number[] = Array.from({ length: 17 }, (_, i) => i + 1);
   return (
     <>
       <div id="Home" className="flex-1 relative w-full flex flex-row justify-around flex-wrap items-center">
         <div className="flex flex-row max-ok:flex-col gap-4 items-center">
-          <div className="p-2 max-ok:flex max-ok:flex-col max-ok:justify-center max-ok:items-center">{Title}</div>
-          <div className="flex flex-row gap-2 font-semibold text-lg leading-snug mb-8">
-            <div className="text-custom-text-300/50 text-end flex flex-col border-r-2 border-h border-custom-text-300/50 pr-3 text-code max-sm:hidden">
-              {arr.map((idx) => (<span key={`home-code-${idx}`}>{idx}<br /></span>))}
-            </div>
-            {Message}
-          </div>
+          <div className="p-2 max-ok:flex max-ok:flex-col max-ok:justify-center max-ok:items-center">
+						<PageTitle />
+					</div>
+					<CodeSegment keyPrefix="home" lineCount={17}>
+					 	<CodeMessage />
+					</CodeSegment>
         </div>
       </div>
       <Footer>
