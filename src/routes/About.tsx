@@ -188,20 +188,25 @@ const AboutText = (props: { page: string }): ReactNode => {
                   <Light>:</Light>
                 </div>
                 <div className="ml-8">
-                  By <Blue>May of 2025</Blue> I will have <Red>graduated</Red>, <Red>moved out-of-state</Red>, and
-                  started my first <Red>Software Engineer</Red> position. I will use my
-                  <LightGreen> skills</LightGreen> to <LightGreen>provide business value</LightGreen> and I will 
-									<Blue> learn</Blue> the <Yellow>fundamentals </Yellow>of working in a 
-									<Yellow> fast paced</Yellow>, <Yellow>Agile environment</Yellow>.
+                  By <Blue>May of 2025</Blue> I will have <Red>graduated</Red>,{" "}
+                  <Red>moved out-of-state</Red>, and started my first{" "}
+                  <Red>Software Engineer</Red> position. I will use my
+                  <LightGreen> skills</LightGreen> to{" "}
+                  <LightGreen>provide business value</LightGreen> and I will
+                  <Blue> learn</Blue> the <Yellow>fundamentals </Yellow>of
+                  working in a<Yellow> fast paced</Yellow>,{" "}
+                  <Yellow>Agile environment</Yellow>.
                 </div>
                 <br />
 
                 <Red className="italic font-bold ml-2">5_YEAR</Red>
                 <Light>:</Light>
                 <div className="ml-8">
-                  By <Blue>May of 2030</Blue> I will have become a <Red>Senior-level Software
-                  Engineer</Red> and I will <LightGreen>help incoming Interns and new hires</LightGreen> to
-                  become the <Yellow>best engineers</Yellow> that they can be.
+                  By <Blue>May of 2030</Blue> I will have become a{" "}
+                  <Red>Senior-level Software Engineer</Red> and I will{" "}
+                  <LightGreen>help incoming Interns and new hires</LightGreen>{" "}
+                  to become the <Yellow>best engineers</Yellow> that they can
+                  be.
                   <br />
                   <br />
                 </div>
@@ -209,10 +214,13 @@ const AboutText = (props: { page: string }): ReactNode => {
                 <Red className="italic font-bold ml-2">10_YEAR</Red>
                 <Light>:</Light>
                 <div className="ml-8">
-                  By <Blue>May of 2035</Blue> I will use all of the <LightGreen>collective knowledge</LightGreen> that
-                  I have acquired while programming as well as the <Pink>leadership </Pink>
-                  and <Pink>supporting skills</Pink> that I have acquired while training
-                  others to <Red>oversee large software engineering efforts</Red>.
+                  By <Blue>May of 2035</Blue> I will use all of the{" "}
+                  <LightGreen>collective knowledge</LightGreen> that I have
+                  acquired while programming as well as the{" "}
+                  <Pink>leadership </Pink>
+                  and <Pink>supporting skills</Pink> that I have acquired while
+                  training others to{" "}
+                  <Red>oversee large software engineering efforts</Red>.
                 </div>
 
                 <Orange>{`}`}</Orange>
@@ -277,17 +285,17 @@ export default function About(): ReactNode {
       children: [
         {
           name: "credits.md",
-          icon: <InfoIcon color="#68A9F6"/>,
+          icon: <InfoIcon color="#68A9F6" />,
           onClick: () => updateSelection("credits.md"),
         },
         {
           name: "inspiration.md",
           onClick: () => updateSelection("inspiration.md"),
-          icon: <InfoIcon color="#68A9F6"/>,
+          icon: <InfoIcon color="#68A9F6" />,
         },
         {
           name: "design.md",
-          icon: <InfoIcon color="#68A9F6"/>,
+          icon: <InfoIcon color="#68A9F6" />,
           onClick: () => updateSelection("design.md"),
         },
         {
