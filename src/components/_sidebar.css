@@ -1,5 +1,10 @@
 .sidebar {
-	@apply w-52 pt-4 bg-custom-off-dark-800/85 flex flex-col gap-2;
+	@apply flex flex-row flex-shrink-0;
+}
+
+.sidebar-content {
+	transition: width 200ms;
+	@apply w-52 bg-custom-off-dark-800 pt-4 overflow-hidden ;
 }
 
 .indent {
@@ -11,5 +16,56 @@
 
 	& > *:hover {
 		@apply bg-custom-off-dark-300;
+	}
+}
+
+.sidebar__foldout-button {
+	display: none;
+	height: 2rem;
+	width: 2rem;
+	@apply bg-custom-off-dark-800;
+
+	& > svg {
+		transition: transform 1s;
+	}
+
+	&[data-folded-out="false"] > svg {
+		transform: rotate(0deg);
+	}
+
+	&[data-folded-out="true"] > svg {
+		transform: rotate(180deg);
+	}
+
+	& > svg {
+		transition: background-color 200ms;
+		@apply rounded-full;
+		
+		&:hover {
+			@apply bg-custom-off-dark-300 rounded-full;
+		}
+	}
+}
+
+
+@media screen and (max-width: 750px) {
+	.sidebar {
+		/* @apply w-0; */
+		position: absolute;
+		/* @apply h-full; */
+		height: calc(100% - 6.5rem);
+		/* @apply bg-custom-off-dark-800; */
+	}
+
+	.sidebar-content[data-folded-out="false"] {
+		@apply w-0;
+	}
+
+	.sidebar__foldout-button {
+		@apply h-max flex text-custom-text-300 w-max p-2 rounded-r cursor-pointer z-30
+	}
+
+	.sidebar-content[data-folded-out="true"] {
+		@apply w-52;
 	}
 }

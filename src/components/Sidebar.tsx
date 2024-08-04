@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import "./_sidebar.css";
+import { Chevron } from "./Icons";
 
 export type DirectoryItem = {
   name: string;
@@ -10,11 +11,26 @@ export type DirectoryItem = {
   children?: DirectoryItem[];
 };
 
-export default function SideBar(props: { tree: DirectoryItem[], title: string }): ReactNode {
+export default function SideBar(props: {
+  tree: DirectoryItem[];
+  title: string;
+}): ReactNode {
+  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(false);
   return (
     <div className="sidebar">
-			<h1 className="w-max mx-auto text-custom-off-dark-300 text-center">{props.title}</h1>
-      <Tree tree={props.tree} />
+			<div className="sidebar-content" data-folded-out={sidebarFoldedOut}>
+				<h1 className="w-max mx-auto text-custom-off-dark-300 text-center">
+					{props.title}
+				</h1>
+				<Tree tree={props.tree} />
+			</div>
+      <div
+        className="sidebar__foldout-button"
+				data-folded-out={sidebarFoldedOut}
+        onClick={() => setSidebarFoldedOut(!sidebarFoldedOut)}
+      >
+				<Chevron />
+      </div>
     </div>
   );
 }
@@ -35,7 +51,7 @@ export const Tree = (props: {
         name={item.name}
         indent={`${depth}rem`}
         disabled={item.disabled}
-				selected={item.selected}
+        selected={item.selected}
         functional={item.onClick !== undefined}
       />
       {item.children &&
@@ -51,27 +67,37 @@ export const Tree = (props: {
 };
 
 const Span = (props: {
-  icon: JSX.Element,
-  name: string,
-  className?: string,
-  color?: string,
-  selected?: boolean,
-  indent?: string,
-  disabled?: boolean,
-  functional?: boolean
+  icon: JSX.Element;
+  name: string;
+  className?: string;
+  color?: string;
+  selected?: boolean;
+  indent?: string;
+  disabled?: boolean;
+  functional?: boolean;
 }) => {
   let color: string = props.color || "custom-text-300";
   color = props.selected ? "custom-orange" : color;
 
   return (
     <div
-      className={`cursor-default ${!props.disabled && props.functional && "hover:bg-custom-off-dark-300 cursor-pointer"} ${props.selected && "bg-custom-off-dark-300"}`}
+      className={`cursor-default ${
+        !props.disabled &&
+        props.functional &&
+        "hover:bg-custom-off-dark-300 cursor-pointer"
+      } ${props.selected && "bg-custom-off-dark-300"}`}
     >
       <span
-        className={`flex flex-row items-center gap-1 relative ${props.className} p-1 ${!props.disabled && props.functional && "hover:text-custom-orange"} text-${props.disabled ? "custom-off-dark-300" : color}`}
+        className={`flex flex-row items-center gap-1 relative ${
+          props.className
+        } p-1 ${
+          !props.disabled && props.functional && "hover:text-custom-orange"
+        } text-${props.disabled ? "custom-off-dark-300" : color}`}
         style={{ marginLeft: props.indent || "0px" }}
       >
-				{props.selected && <div className="absolute -left-1 h-[80%] w-[0.18rem] bg-custom-red"></div>}
+        {props.selected && (
+          <div className="absolute -left-1 h-[80%] w-[0.18rem] bg-custom-red"></div>
+        )}
         {props.icon}
         {props.name}
       </span>
@@ -79,15 +105,24 @@ const Span = (props: {
   );
 };
 
-
-
-export const updateSelectedItem = (dirTree: DirectoryItem[], selectionName: string): DirectoryItem[] => {
-	for(let i = 0; i < dirTree.length; i++) {
-		dirTree[i].selected = dirTree[i].name === selectionName;
-
-		if(dirTree[i].children !== undefined) {
-			dirTree[i].children = updateSelectedItem(dirTree[i].children as DirectoryItem[], selectionName)
+export const updateSelectedItem = (
+  dirTree: DirectoryItem[],
+  selectionName: string,
+  setSelectedPage: (newPage: DirectoryItem) => void
+): DirectoryItem[] => {
+  for (let i = 0; i < dirTree.length; i++) {
+    dirTree[i].selected = dirTree[i].name === selectionName;
+		if(dirTree[i].selected) {
+			setSelectedPage(dirTree[i]);
 		}
-	}
-	return dirTree;
-}
+
+    if (dirTree[i].children !== undefined) {
+      dirTree[i].children = updateSelectedItem(
+        dirTree[i].children as DirectoryItem[],
+        selectionName,
+				setSelectedPage
+      );
+    }
+  }
+  return dirTree;
+};

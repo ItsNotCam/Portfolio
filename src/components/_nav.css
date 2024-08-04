@@ -63,7 +63,7 @@ screen and (max-width: 1050px) {
 		position: absolute;
 		right: 0;
 		height: auto;
-		width: 100%;
+		width: 40%;
 		gap: 0.1rem;
 		@apply bg-custom-off-dark-300;
 	}
@@ -95,5 +95,11 @@ screen and (max-width: 1050px) {
 	.nav-item-selected, .nav-item:hover {
 		border-right: 5px solid orange;
 		@apply border-custom-red text-custom-orange;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.nav {
+		width: 100%;
 	}
 }

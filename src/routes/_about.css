@@ -1,0 +1,21 @@
+.about-code-segment {
+	@apply max-w-[800px] mt-8 ml-8;
+}
+
+.about-sidebar {
+	transition: width 200ms;
+	@apply w-52 flex-shrink-0 overflow-hidden bg-custom-off-dark-800/85 ;
+}
+
+@media screen and (max-width: 850px) {
+	.about-code-segment {
+		@apply ml-4;
+	}	
+}
+
+
+@media screen and (max-width: 640px) {
+	.about-code-segment {
+		@apply ml-0;
+	}	
+}
