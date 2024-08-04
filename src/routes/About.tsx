@@ -325,10 +325,6 @@ export default function About(): ReactNode {
             [ {selectedName} ]
           </h1>
           <AboutText page={selectedName} />
-          {/* <img
-            src="images/2001.jpg"
-            className="absolute right-5 bottom-5 h-[300px] -z-10"
-          ></img> */}
         </div>
       </div>
       <Footer>
