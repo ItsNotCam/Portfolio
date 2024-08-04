@@ -1,7 +1,7 @@
 import { routes } from "../main";
 import { Link, useLocation } from "react-router-dom";
 
-import './_nav.css'
+import "./_nav.css";
 import { useState } from "react";
 import { Hamburger } from "./Icons";
 
@@ -9,20 +9,26 @@ export default function Nav() {
   const location = useLocation();
   const { pathname } = location;
 
-	const [droppedDown, setDroppedDown] = useState<boolean>(false);
+  const [droppedDown, setDroppedDown] = useState<boolean>(false);
 
   return (
     <div id="nav" className="nav-wrapper">
-			<div className="nav-dropdown" onClick={() => setDroppedDown(!droppedDown)}>
-				<Hamburger color={droppedDown ? "#F0B65A" : "#AFAFAF"} />
-			</div>
+      <div
+        className="nav-dropdown"
+        onClick={() => setDroppedDown(!droppedDown)}
+      >
+        <Hamburger color={droppedDown ? "#F0B65A" : "#AFAFAF"} />
+      </div>
       <nav className="nav" data-dropped-down={droppedDown}>
         {routes.map((route) => (
           <Link
             key={`nav-${route.path.replace("/", "")}`}
-            className={`nav-item ${route.path.toLowerCase() === pathname.toLowerCase() && "nav-item-selected"}`}
+            className={`nav-item ${
+              route.path.toLowerCase() === pathname.toLowerCase() &&
+              "nav-item-selected"
+            }`}
             to={route.path}
-						onClick={() => setDroppedDown(false)}
+            onClick={() => setDroppedDown(false)}
           >
             {route.path.replace("/", "_").toLowerCase()}
           </Link>

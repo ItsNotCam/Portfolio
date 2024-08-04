@@ -1,62 +1,62 @@
 .sidebar {
-	@apply flex flex-row flex-shrink-0 z-30;
+  @apply flex flex-row flex-shrink-0 z-30;
 }
 
 .sidebar-content {
-	transition: width 200ms;
-	@apply w-52 bg-custom-off-dark-800 pt-4 overflow-hidden;
+  transition: width 200ms;
+  @apply w-52 bg-custom-off-dark-800 pt-4 overflow-hidden;
 }
 
 .indent {
-	@apply flex flex-col gap-1;
+  @apply flex flex-col gap-1;
 
-	& > * {
-		@apply cursor-pointer
-	}
+  & > * {
+    @apply cursor-pointer;
+  }
 
-	& > *:hover {
-		@apply bg-custom-off-dark-300;
-	}
+  & > *:hover {
+    @apply bg-custom-off-dark-300;
+  }
 }
 
 .sidebar__foldout-button {
-	display: none;
-	height: 2rem;
-	width: 2rem;
-	@apply bg-custom-off-dark-800;
+  display: none;
+  height: 2rem;
+  width: 2rem;
+  @apply bg-custom-off-dark-800;
 
-	& svg {
-		transition: transform 200ms, background-color 200ms;
-		@apply rounded-full;
-	}
+  & svg {
+    transition: transform 200ms, background-color 200ms;
+    @apply rounded-full;
+  }
 
-	&[data-folded-out="false"] > svg {
-		transform: rotate(0deg);
-	}
+  &[data-folded-out="false"] > svg {
+    transform: rotate(0deg);
+  }
 
-	&[data-folded-out="true"] > svg {
-		transform: rotate(180deg);
-	}
+  &[data-folded-out="true"] > svg {
+    transform: rotate(180deg);
+  }
 
-	&:hover svg {
-		@apply bg-custom-off-dark-300;
-	}
+  &:hover svg {
+    @apply bg-custom-off-dark-300;
+  }
 }
 
 @media screen and (max-width: 750px) {
-	.sidebar {
-		@apply absolute h-[calc(100%-6.5rem)];
-	}
+  .sidebar {
+    @apply absolute h-[calc(100%-6.5rem)];
+  }
 
-	.sidebar__foldout-button {
-		@apply flex text-custom-text-300 h-max w-max p-2 rounded-r-md cursor-pointer
-	}
+  .sidebar__foldout-button {
+    @apply flex text-custom-text-300 h-max w-max p-2 rounded-r-md cursor-pointer;
+  }
 
-	.sidebar-content[data-folded-out="false"] {
-		@apply w-0;
-	}
+  .sidebar-content[data-folded-out="false"] {
+    @apply w-0;
+  }
 
-	.sidebar-content[data-folded-out="true"] {
-		@apply w-52;
-	}
+  .sidebar-content[data-folded-out="true"] {
+    @apply w-52;
+  }
 }

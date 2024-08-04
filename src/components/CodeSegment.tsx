@@ -82,10 +82,12 @@ export const Breakpoint = (props: {
   spacing?: string;
 }): ReactNode => (
   <div
-    style={{
-			"--after-left":  props.spacing || "-5.75em",
-			"--before-left": props.spacing || "-5.75em",
-		} as any}
+    style={
+      {
+        "--after-left": props.spacing || "-5.75em",
+        "--before-left": props.spacing || "-5.75em",
+      } as any
+    }
     className={`breakpoint ${props.className ? props.className : ""}`}
   >
     <span>{props.children}</span>

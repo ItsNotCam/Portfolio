@@ -18,18 +18,18 @@ export default function SideBar(props: {
   const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(false);
   return (
     <div className="sidebar">
-			<div className="sidebar-content" data-folded-out={sidebarFoldedOut}>
-				<h1 className="w-max mx-auto text-custom-off-dark-300 text-center">
-					{props.title}
-				</h1>
-				<Tree tree={props.tree} />
-			</div>
+      <div className="sidebar-content" data-folded-out={sidebarFoldedOut}>
+        <h1 className="w-max mx-auto text-custom-off-dark-300 text-center">
+          {props.title}
+        </h1>
+        <Tree tree={props.tree} />
+      </div>
       <div
         className="sidebar__foldout-button"
-				data-folded-out={sidebarFoldedOut}
+        data-folded-out={sidebarFoldedOut}
         onClick={() => setSidebarFoldedOut(!sidebarFoldedOut)}
       >
-				<Chevron />
+        <Chevron />
       </div>
     </div>
   );
@@ -40,7 +40,7 @@ export const Tree = (props: {
   depth?: number;
 }): ReactNode => {
   const depth: number = props.depth || 1;
-  return props.tree.map((item, idx) => (
+  return props.tree.map((item) => (
     <div
       className="flex flex-col gap-1"
       onClick={item.onClick}
@@ -112,15 +112,15 @@ export const updateSelectedItem = (
 ): DirectoryItem[] => {
   for (let i = 0; i < dirTree.length; i++) {
     dirTree[i].selected = dirTree[i].name === selectionName;
-		if(dirTree[i].selected) {
-			setSelectedPage(dirTree[i]);
-		}
+    if (dirTree[i].selected) {
+      setSelectedPage(dirTree[i]);
+    }
 
     if (dirTree[i].children !== undefined) {
       dirTree[i].children = updateSelectedItem(
         dirTree[i].children as DirectoryItem[],
         selectionName,
-				setSelectedPage
+        setSelectedPage
       );
     }
   }

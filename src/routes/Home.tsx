@@ -49,8 +49,7 @@ const CodeMessage = (): ReactNode => (
       <Blue> 12 years old</Blue>, and since then I have been a
       <Pink> Software Engineer</Pink>.
       <br />
-      <br />
-			I am a Senior at
+      <br />I am a Senior at
       <Pink> George Mason University </Pink>
       and in
       <Pink> May </Pink>

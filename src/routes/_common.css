@@ -1,25 +1,33 @@
 .blinking-text {
-	animation: blinking-text 1s infinite;
+  animation: blinking-text 1s infinite;
 }
 .bg-img {
-	background: url("/images/background.png") no-repeat center center fixed;
-	background-size: cover;
+  background: url("/images/background.png") no-repeat center center fixed;
+  background-size: cover;
 }
 
 .text-code {
-	font-size: 1.125rem;
+  font-size: 1.125rem;
 }
 
 @keyframes blinking-text {
-	0%   { opacity: 1; }
-	49%  { opacity: 1; }
-	50%  { opacity: 0; }
-	100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .row > * {
-	display: flex;
-	flex-direction: row;
-	gap: 0.15rem;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 0.15rem;
+  align-items: center;
 }
