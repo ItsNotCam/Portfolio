@@ -166,13 +166,13 @@ const AboutText = (props: { page: string }): ReactNode => {
               <Red className="font-bold italic">{`<about_me>`}</Red>
               <br />
               <br />
-							<Orange>static void </Orange>
-							<Yellow> achieve</Yellow>
-							<Orange>(</Orange>
-							<LightGreen>YEAR </LightGreen>
-							<Blue> year</Blue>
-							<Orange>) </Orange>
-							<Orange>{`{`}</Orange>
+              <Orange>static void </Orange>
+              <Yellow> achieve</Yellow>
+              <Orange>(</Orange>
+              <LightGreen>YEAR </LightGreen>
+              <Blue> year</Blue>
+              <Orange>) </Orange>
+              <Orange>{`{`}</Orange>
               <CodeIndent>
                 <Pink>switch</Pink>
                 <Orange>{`(`}</Orange>
@@ -180,7 +180,7 @@ const AboutText = (props: { page: string }): ReactNode => {
                 <Orange>{`) {`}</Orange>
                 <br />
                 <CodeIndent>
-                  <Breakpoint spacing="-5.75em">
+                  <Breakpoint spacing="-6.25em">
                     <Red>1_YEAR</Red>
                     <Light>:</Light>
                   </Breakpoint>

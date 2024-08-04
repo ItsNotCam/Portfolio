@@ -21,7 +21,7 @@
   );
   @apply h-full w-full absolute -z-10;
 }
-/*-4.25rem*/
+
 .breakpoint::before {
 	content: '';
 	left: var(--before-left);

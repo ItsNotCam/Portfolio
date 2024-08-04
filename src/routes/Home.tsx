@@ -2,28 +2,29 @@ import { ReactNode } from "react";
 import Footer from "../components/Footer";
 import "./_common.css";
 import "./_home.css";
-import CodeSegment from "../components/CodeSegment";
+import CodeSegment, { CodeIndent } from "../components/CodeSegment";
 import {
-  Blue as B,
-  Yellow as Y,
-  Orange as O,
-  Pink as P,
-  Red as R,
-  LightGreen as LG,
-  OffBlue as OB,
-	Light,
+  Blue,
+  Yellow,
+  Orange,
+  Pink,
+  Red,
+  LightGreen,
+  OffBlue,
+  Light,
 } from "../components/ColoredText";
 
 const PageTitle = (): ReactNode => (
   <>
     <p className="home-title__full-name">
       <span className="home-title__first-name">
-        <O>CAM</O><Light>ERON</Light>
+        <Orange>CAM</Orange>
+        <Light>ERON</Light>
       </span>
-			<Light className="home-title__last-name">YOUNG</Light>
+      <Light className="home-title__last-name">YOUNG</Light>
     </p>
     <Light className="home-subtitle">
-      SOFTWARE, BIKES, AND <O>COFFEE</O>
+      SOFTWARE, BIKES, AND <Orange>COFFEE</Orange>
     </Light>
   </>
 );
@@ -31,56 +32,52 @@ const PageTitle = (): ReactNode => (
 const CodeMessage = (): ReactNode => (
   <div className="home-code-message">
     <br />
-    <R className="font-semibold italic">{`<introduction>`}</R>
+    <Red className="font-semibold italic">{`<introduction>`}</Red>
 
     <br />
     <br />
 
-    <B>void </B>
-    <Y>hello</Y>
-    <O>{`() {`}</O>
+    <Blue>void </Blue>
+    <Yellow>hello</Yellow>
+    <Orange>{`() {`}</Orange>
 
-    <div className="ml-4">
+    <CodeIndent>
       My name is
-      <P> Cameron Young</P>. 
-			I wrote
-      <B> my first program </B> 
-			when I was
-      <B> 12 years old</B>, 
-			and since then I have been a
-      <P> Software Engineer</P>.
-
-      <br/><br/>
-
+      <Pink> Cameron Young</Pink>. I wrote
+      <Blue> my first program </Blue>
+      when I was
+      <Blue> 12 years old</Blue>, and since then I have been a
+      <Pink> Software Engineer</Pink>.
+      <br />
+      <br />
 			I am a Senior at
-      <P> George Mason University </P>
+      <Pink> George Mason University </Pink>
       and in
-      <P> May </P>
-			of 
-			<P> 2025 </P>
-			I will be 
-			<R> graduating </R>
+      <Pink> May </Pink>
+      of
+      <Pink> 2025 </Pink>I will be
+      <Red> graduating </Red>
       with my
-      <LG> Bachelor's </LG>
-      of Science in 
-			<LG> Information Technology </LG>
+      <LightGreen> Bachelor's </LightGreen>
+      of Science in
+      <LightGreen> Information Technology </LightGreen>
       and my
-      <B> Minor </B> 
-			in 
-			<B> Computer Science</B>.
-
-      <br/><br/>
-
+      <Blue> Minor </Blue>
+      in
+      <Blue> Computer Science</Blue>.
+      <br />
+      <br />
       When I am not
-      <OB> designing </OB>
-			or
-      <OB> programming </OB>
-			something, I am usually riding my
-      <P> motorcycle</P>.
-    </div>
-    <O>{`}`}</O>
+      <OffBlue> designing </OffBlue>
+      or
+      <OffBlue> programming </OffBlue>
+      something, I am usually riding my
+      <Pink> motorcycle</Pink>.
+    </CodeIndent>
+    <Orange>{`}`}</Orange>
 
-    <br/><br/>
+    <br />
+    <br />
   </div>
 );
 
@@ -98,11 +95,11 @@ export default function Home() {
           <div className="home-title">
             <PageTitle />
           </div>
-					<div className="code-segment-wrapper">
-          	<CodeSegment keyPrefix="home">
-							<CodeMessage />
-						</CodeSegment>
-					</div>
+          <div className="code-segment-wrapper">
+            <CodeSegment keyPrefix="home">
+              <CodeMessage />
+            </CodeSegment>
+          </div>
         </div>
       </div>
       <Footer>

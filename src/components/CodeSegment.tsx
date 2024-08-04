@@ -56,7 +56,7 @@ export default function CodeSegment(props: {
   }
 
   return (
-    <div className="flex flex-row gap-2 font-semibold leading-snug mb-8">
+    <div className="flex flex-row gap-4 font-semibold leading-snug mb-8">
       <div
         style={{ fontSize: fontSize, order: align === "right" ? 1 : 0 }}
         className={`text-custom-text-300/50 flex flex-col ${
