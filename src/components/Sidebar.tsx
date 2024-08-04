@@ -78,3 +78,16 @@ const Span = (props: {
     </div>
   );
 };
+
+
+
+export const updateSelectedItem = (dirTree: DirectoryItem[], selectionName: string): DirectoryItem[] => {
+	for(let i = 0; i < dirTree.length; i++) {
+		dirTree[i].selected = dirTree[i].name === selectionName;
+
+		if(dirTree[i].children !== undefined) {
+			dirTree[i].children = updateSelectedItem(dirTree[i].children as DirectoryItem[], selectionName)
+		}
+	}
+	return dirTree;
+}
