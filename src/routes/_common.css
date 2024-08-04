@@ -6,19 +6,8 @@
 	background-size: cover;
 }
 
-/* .home-title {
-	font-size: clamp(4rem, 13svw, 9rem);
-	line-height: clamp(3.5rem, 11svw, 8rem);
-} */
-
-/* .home-subtitle {
-	font-size: clamp(1.25rem, 3.8svw, 2.35rem);
-	margin-top: 1rem;
-} */
-
 .text-code {
 	font-size: 1.125rem;
-	/* font-size: clamp(1rem, 1.3svw, 1.125rem); */
 }
 
 @keyframes blinking-text {
@@ -33,9 +22,4 @@
 	flex-direction: row;
 	gap: 0.15rem;
 	align-items: center;
-}
-
-
-.directory-selected {
-	@apply bg-custom-off-dark-300 px-2 py-1 text-custom-orange;
 }

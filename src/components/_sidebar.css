@@ -25,8 +25,9 @@
 	width: 2rem;
 	@apply bg-custom-off-dark-800;
 
-	& > svg {
-		transition: transform 1s;
+	& svg {
+		transition: transform 200ms, background-color 200ms;
+		@apply rounded-full;
 	}
 
 	&[data-folded-out="false"] > svg {
@@ -37,32 +38,23 @@
 		transform: rotate(180deg);
 	}
 
-	& > svg {
-		transition: background-color 200ms;
-		@apply rounded-full;
-		
-		&:hover {
-			@apply bg-custom-off-dark-300 rounded-full;
-		}
+	&:hover svg {
+		@apply bg-custom-off-dark-300;
 	}
 }
 
 
 @media screen and (max-width: 750px) {
 	.sidebar {
-		/* @apply w-0; */
-		position: absolute;
-		/* @apply h-full; */
-		height: calc(100% - 6.5rem);
-		/* @apply bg-custom-off-dark-800; */
+		@apply absolute h-[calc(100%-6.5rem)];
+	}
+
+	.sidebar__foldout-button {
+		@apply flex text-custom-text-300 h-max w-max p-2 rounded-r-md cursor-pointer
 	}
 
 	.sidebar-content[data-folded-out="false"] {
 		@apply w-0;
-	}
-
-	.sidebar__foldout-button {
-		@apply h-max flex text-custom-text-300 w-max p-2 rounded-r cursor-pointer z-30
 	}
 
 	.sidebar-content[data-folded-out="true"] {
