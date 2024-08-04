@@ -7,11 +7,12 @@
 	overflow: hidden;
 	transition-property: max-height;
 	transition-duration: 500ms;
-	@apply flex flex-row gap-1;
+	@apply flex flex-row gap-1 mt-1;
 }
 
 .nav-item {
-	width: 12.25rem;
+	@apply w-52;
+	/* width: 12.25rem; */
 }
 
 .nav-relief {
@@ -19,7 +20,7 @@
 	width: auto;
 	flex-grow: 1;
 	border-top: 4px solid transparent;
-	@apply bg-custom-off-dark-800;
+	@apply bg-custom-off-dark-800 mt-1;
 }
 
 .nav-item {
@@ -41,7 +42,7 @@
 }
 
 @media 
-screen and (max-width: 1150px) {
+screen and (max-width: 1050px) {
 	.nav {
 		flex-grow: 1;
 	}

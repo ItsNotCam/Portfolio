@@ -19,7 +19,7 @@ import Resume from "./routes/Resume.tsx";
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="flex flex-col justify-between items-center min-h-screen w-full gap-1">
-    <div className="flex flex-col gap-1 w-full">
+    <div className="flex flex-col w-full">
       <Header />
       <Nav />
     </div>

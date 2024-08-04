@@ -1,5 +1,5 @@
 .sidebar {
-	@apply w-[15rem]  bg-custom-off-dark-800 h-full flex flex-col flex-grow gap-2 justify-center;
+	@apply w-52 pt-4 bg-custom-off-dark-800/85 flex flex-col gap-2;
 }
 
 .indent {
