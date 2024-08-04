@@ -1,5 +1,5 @@
 .sidebar {
-	@apply flex flex-row flex-shrink-0;
+	@apply flex flex-row flex-shrink-0 z-30;
 }
 
 .sidebar-content {

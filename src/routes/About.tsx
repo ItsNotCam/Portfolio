@@ -4,7 +4,15 @@ import SideBar, {
   DirectoryItem,
   updateSelectedItem,
 } from "../components/Sidebar";
-import { Chevron, FileIcon, FolderIcon } from "../components/Icons";
+import {
+  CSharpIcon,
+  Chevron,
+  FileIcon,
+  FolderIcon,
+  InfoIcon,
+  Python3Icon,
+  TypeScriptIcon,
+} from "../components/Icons";
 import {
   Blue,
   Green,
@@ -20,7 +28,8 @@ import CodeSegment from "../components/CodeSegment";
 import "./_about.css";
 
 const AboutText = (props: { page: string }): ReactNode => {
-  switch (props.page) {
+  const page = props.page.replace(/\.[^/.]+$/, "");
+  switch (page) {
     case "passion":
       return (
         <div className="about-code-segment">
@@ -150,6 +159,71 @@ const AboutText = (props: { page: string }): ReactNode => {
           </CodeSegment>
         </div>
       );
+    case "goals":
+      return (
+        <div className="about-code-segment">
+          <CodeSegment keyPrefix="goals">
+            <span className="font-normal text-custom-text-300">
+              <br />
+              <Red className="font-bold italic">{`<about_me>`}</Red>
+              <br />
+              <br />
+              <Orange>static void</Orange>
+              <Yellow> achieve</Yellow>
+              <Orange>(</Orange>
+              <LightGreen>YEAR</LightGreen>
+              <Blue> year</Blue>
+              <Orange>) </Orange>
+              <Orange>{`{`}</Orange>
+              <br />
+              <div className="ml-4">
+                <Pink>switch</Pink>
+                <Orange>{`(`}</Orange>
+                <Blue>year</Blue>
+                <Orange>{`) {`}</Orange>
+                <br />
+                <div className="breakpoint">
+                  <div className="breakpoint-break"></div>
+                  <Red className="italic font-bold breakpoint-text">1_YEAR</Red>
+                  <Light>:</Light>
+                </div>
+                <div className="ml-8">
+                  By <Blue>May of 2025</Blue> I will have <Red>graduated</Red>, <Red>moved out-of-state</Red>, and
+                  started my first <Red>Software Engineer</Red> position. I will use my
+                  <LightGreen> skills</LightGreen> to <LightGreen>provide business value</LightGreen> and I will 
+									<Blue> learn</Blue> the <Yellow>fundamentals </Yellow>of working in a 
+									<Yellow> fast paced</Yellow>, <Yellow>Agile environment</Yellow>.
+                </div>
+                <br />
+
+                <Red className="italic font-bold ml-2">5_YEAR</Red>
+                <Light>:</Light>
+                <div className="ml-8">
+                  By <Blue>May of 2030</Blue> I will have become a <Red>Senior-level Software
+                  Engineer</Red> and I will <LightGreen>help incoming Interns and new hires</LightGreen> to
+                  become the <Yellow>best engineers</Yellow> that they can be.
+                  <br />
+                  <br />
+                </div>
+
+                <Red className="italic font-bold ml-2">10_YEAR</Red>
+                <Light>:</Light>
+                <div className="ml-8">
+                  By <Blue>May of 2035</Blue> I will use all of the <LightGreen>collective knowledge</LightGreen> that
+                  I have acquired while programming as well as the <Pink>leadership </Pink>
+                  and <Pink>supporting skills</Pink> that I have acquired while training
+                  others to <Red>oversee large software engineering efforts</Red>.
+                </div>
+
+                <Orange>{`}`}</Orange>
+              </div>
+              <Orange>{`}`}</Orange>
+            </span>
+            <br />
+            <br />
+          </CodeSegment>
+        </div>
+      );
   }
 
   return "";
@@ -175,20 +249,20 @@ export default function About(): ReactNode {
       icon: <FolderIcon />,
       children: [
         {
-          name: "passion",
-          icon: <FileIcon />,
+          name: "passion.py",
+          icon: <Python3Icon />,
           selected: true,
-          onClick: () => updateSelection("passion"),
+          onClick: () => updateSelection("passion.py"),
         },
         {
-          name: "hobbies",
-          icon: <FileIcon />,
-          onClick: () => updateSelection("hobbies"),
+          name: "hobbies.ts",
+          icon: <TypeScriptIcon />,
+          onClick: () => updateSelection("hobbies.ts"),
         },
         {
-          name: "goals",
-          icon: <FileIcon />,
-          onClick: () => updateSelection("goals"),
+          name: "goals.cs",
+          icon: <CSharpIcon />,
+          onClick: () => updateSelection("goals.cs"),
         },
         {
           name: "..",
@@ -202,19 +276,19 @@ export default function About(): ReactNode {
       icon: <FolderIcon />,
       children: [
         {
-          name: "credits",
-          icon: <FileIcon />,
-          onClick: () => updateSelection("credits"),
+          name: "credits.md",
+          icon: <InfoIcon color="#68A9F6"/>,
+          onClick: () => updateSelection("credits.md"),
         },
         {
-          name: "inspiration",
-          onClick: () => updateSelection("inspiration"),
-          icon: <FileIcon />,
+          name: "inspiration.md",
+          onClick: () => updateSelection("inspiration.md"),
+          icon: <InfoIcon color="#68A9F6"/>,
         },
         {
-          name: "design",
-          icon: <FileIcon />,
-          onClick: () => updateSelection("design"),
+          name: "design.md",
+          icon: <InfoIcon color="#68A9F6"/>,
+          onClick: () => updateSelection("design.md"),
         },
         {
           name: "..",
@@ -239,11 +313,15 @@ export default function About(): ReactNode {
     <>
       <div id="about" className="w-full h-full flex flex-grow">
         <SideBar tree={directoryTree} title="~/_about/" />
-        <div className="p-4 flex-grow">
+        <div className="p-4 flex-grow flex flex-col relative">
           <h1 className="text-2xl text-bold italic text-custom-red uppercase max-[750px]:text-center">
             [ {selectedName} ]
           </h1>
           <AboutText page={selectedName} />
+          {/* <img
+            src="images/2001.jpg"
+            className="absolute right-5 bottom-5 h-[300px] -z-10"
+          ></img> */}
         </div>
       </div>
       <Footer>
@@ -252,7 +330,7 @@ export default function About(): ReactNode {
           {pagesInMeSection.includes(selectedName) ? "_me" : "_site"}{" "}
           <strong>
             {` > vim ./`}
-            <Orange>{selectedName}</Orange>.*{" "}
+            <Orange>{selectedName}</Orange>{" "}
             <span className="blinking-text">_</span>
           </strong>
         </span>
