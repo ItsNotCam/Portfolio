@@ -1,5 +1,5 @@
 import useResizeObserver from "@react-hook/resize-observer";
-import React, { CSSProperties, useState } from "react";
+import React, { useState } from "react";
 import { ReactNode, useEffect, useRef } from "react";
 
 import "./_code-segment.css";
