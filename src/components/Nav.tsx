@@ -2,7 +2,6 @@ import { routes } from "../main";
 import { Link, useLocation } from "react-router-dom";
 
 import './_nav.css'
-import { Light } from "./ColoredText";
 import { useState } from "react";
 import { Hamburger } from "./Icons";
 

@@ -8,7 +8,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import "./globals.css";
 import ErrorPage from "./error-page.tsx";
 import Header from "./components/Header.tsx";
 import Nav from "./components/Nav.tsx";
@@ -16,6 +15,8 @@ import About from "./routes/About.tsx";
 import Skills from "./routes/Skills.tsx";
 import Work from "./routes/Work.tsx";
 import Resume from "./routes/Resume.tsx";
+
+import './globals.css';
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="flex flex-col justify-between items-center min-h-screen w-full gap-1">
