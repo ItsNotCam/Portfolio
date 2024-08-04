@@ -1,5 +1,17 @@
 .sidebar {
-	@apply w-40 bg-custom-off-dark-800 h-full flex-grow;
+	@apply w-[15rem]  bg-custom-off-dark-800 h-full flex flex-col flex-grow gap-2 justify-center;
+}
+
+.indent {
+	@apply flex flex-col gap-1;
+
+	& > *{
+		@apply cursor-pointer
+	}
+
+	& > *:hover {
+		@apply bg-custom-off-dark-300;
+	}
 }
 
 .blinking-text {
@@ -30,4 +42,16 @@
 	49%  { opacity: 1; }
 	50%  { opacity: 0; }
 	100% { opacity: 0; }
+}
+
+.row > * {
+	display: flex;
+	flex-direction: row;
+	gap: 0.15rem;
+	align-items: center;
+}
+
+
+.directory-selected {
+	@apply bg-custom-off-dark-300 px-2 py-1 text-custom-orange;
 }

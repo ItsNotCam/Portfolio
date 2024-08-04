@@ -1,5 +1,5 @@
 .footer {
-	@apply w-full h-footer flex flex-row gap-1 items-center;
+	@apply w-full h-header flex flex-row gap-1 items-center;
 }
 
 .footer > * {
