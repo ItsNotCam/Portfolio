@@ -1,0 +1,38 @@
+.code-indent {
+	@apply ml-[1.2em];
+}
+
+.breakpoint {
+	--before-left: -5.75em;
+	--after-left: -5.75em;
+	@apply relative flex flex-row items-center;
+}
+
+.breakpoint::after {
+	content: '';
+	left: var(--after-left);
+  background: rgb(241, 109, 112);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 109, 112, 0.2) 0%,
+    rgba(241, 109, 112, 0.5) 3%,
+    rgba(241, 109, 112, 0.4) 50%,
+    rgba(241, 109, 112, 0) 100%
+  );
+  @apply h-full w-full absolute -z-10;
+}
+/*-4.25rem*/
+.breakpoint::before {
+	content: '';
+	left: var(--before-left);
+	@apply bg-custom-red absolute p-2 h-1 w-1 rounded-full;
+}
+
+@media screen and (max-width: 640px) {
+	.breakpoint::before {
+		left: -1.5rem;
+	}
+	.breakpoint::after {
+		left: -1.75rem;
+	}
+}

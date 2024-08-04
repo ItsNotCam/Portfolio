@@ -4,13 +4,13 @@
 
 .sidebar-content {
 	transition: width 200ms;
-	@apply w-52 bg-custom-off-dark-800 pt-4 overflow-hidden ;
+	@apply w-52 bg-custom-off-dark-800 pt-4 overflow-hidden;
 }
 
 .indent {
 	@apply flex flex-col gap-1;
 
-	& > *{
+	& > * {
 		@apply cursor-pointer
 	}
 
@@ -42,7 +42,6 @@
 		@apply bg-custom-off-dark-300;
 	}
 }
-
 
 @media screen and (max-width: 750px) {
 	.sidebar {

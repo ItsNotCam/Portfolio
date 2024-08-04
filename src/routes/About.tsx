@@ -6,8 +6,6 @@ import SideBar, {
 } from "../components/Sidebar";
 import {
   CSharpIcon,
-  Chevron,
-  FileIcon,
   FolderIcon,
   InfoIcon,
   Python3Icon,
@@ -23,7 +21,7 @@ import {
   Red,
   Yellow,
 } from "../components/ColoredText";
-import CodeSegment from "../components/CodeSegment";
+import CodeSegment, { Breakpoint, CodeIndent } from "../components/CodeSegment";
 
 import "./_about.css";
 
@@ -118,7 +116,7 @@ const AboutText = (props: { page: string }): ReactNode => {
               <Light>:</Light> <Blue> void </Blue>
               <Orange>{`{`}</Orange>
               <br />
-              <div className="ml-4">
+              <CodeIndent>
                 I love <Red>riding my motorcycle</Red> as much as possible,
                 enjoying the
                 <LightGreen> escape</LightGreen> and{" "}
@@ -151,7 +149,7 @@ const AboutText = (props: { page: string }): ReactNode => {
                 <Red>3D modelling</Red>, <Red>texturing</Red>, and
                 <Red> programming</Red> sides of <Red>game development</Red>.
                 <br />
-              </div>
+              </CodeIndent>
               <Orange>{`}`}</Orange>
             </span>
             <br />
@@ -168,64 +166,65 @@ const AboutText = (props: { page: string }): ReactNode => {
               <Red className="font-bold italic">{`<about_me>`}</Red>
               <br />
               <br />
-              <Orange>static void</Orange>
-              <Yellow> achieve</Yellow>
-              <Orange>(</Orange>
-              <LightGreen>YEAR</LightGreen>
-              <Blue> year</Blue>
-              <Orange>) </Orange>
-              <Orange>{`{`}</Orange>
-              <br />
-              <div className="ml-4">
+							<Orange>static void </Orange>
+							<Yellow> achieve</Yellow>
+							<Orange>(</Orange>
+							<LightGreen>YEAR </LightGreen>
+							<Blue> year</Blue>
+							<Orange>) </Orange>
+							<Orange>{`{`}</Orange>
+              <CodeIndent>
                 <Pink>switch</Pink>
                 <Orange>{`(`}</Orange>
                 <Blue>year</Blue>
                 <Orange>{`) {`}</Orange>
                 <br />
-                <div className="breakpoint">
-                  <div className="breakpoint-break"></div>
-                  <Red className="italic font-bold breakpoint-text">1_YEAR</Red>
+                <CodeIndent>
+                  <Breakpoint spacing="-5.75em">
+                    <Red>1_YEAR</Red>
+                    <Light>:</Light>
+                  </Breakpoint>
+                  <CodeIndent>
+                    By <Blue>May of 2025</Blue> I will have <Red>graduated</Red>
+                    , <Red>moved out-of-state</Red>, and started my first{" "}
+                    <Red>Software Engineer</Red> position. I will use my
+                    <LightGreen> skills</LightGreen> to{" "}
+                    <LightGreen>provide business value</LightGreen> and I will
+                    <Blue> learn</Blue> the <Yellow>fundamentals </Yellow>of
+                    working in a<Yellow> fast paced</Yellow>,{" "}
+                    <Yellow>Agile environment</Yellow>.
+                  </CodeIndent>
+                  <br />
+
+                  <Red>5_YEAR</Red>
                   <Light>:</Light>
-                </div>
-                <div className="ml-8">
-                  By <Blue>May of 2025</Blue> I will have <Red>graduated</Red>,{" "}
-                  <Red>moved out-of-state</Red>, and started my first{" "}
-                  <Red>Software Engineer</Red> position. I will use my
-                  <LightGreen> skills</LightGreen> to{" "}
-                  <LightGreen>provide business value</LightGreen> and I will
-                  <Blue> learn</Blue> the <Yellow>fundamentals </Yellow>of
-                  working in a<Yellow> fast paced</Yellow>,{" "}
-                  <Yellow>Agile environment</Yellow>.
-                </div>
-                <br />
+                  <CodeIndent>
+                    By <Blue>May of 2030</Blue> I will have become a{" "}
+                    <Red>Senior-level Software Engineer</Red> and I will{" "}
+                    <LightGreen>help incoming Interns and new hires</LightGreen>{" "}
+                    to become the <Yellow>best engineers</Yellow> that they can
+                    be.
+                    <br />
+                    <br />
+                  </CodeIndent>
 
-                <Red className="italic font-bold ml-2">5_YEAR</Red>
-                <Light>:</Light>
-                <div className="ml-8">
-                  By <Blue>May of 2030</Blue> I will have become a{" "}
-                  <Red>Senior-level Software Engineer</Red> and I will{" "}
-                  <LightGreen>help incoming Interns and new hires</LightGreen>{" "}
-                  to become the <Yellow>best engineers</Yellow> that they can
-                  be.
+                  <Red>10_YEAR</Red>
+                  <Light>:</Light>
                   <br />
-                  <br />
-                </div>
+                  <CodeIndent>
+                    By <Blue>May of 2035</Blue> I will use all of the{" "}
+                    <LightGreen>collective knowledge</LightGreen> that I have
+                    acquired while programming as well as the{" "}
+                    <Pink>leadership </Pink>
+                    and <Pink>supporting skills</Pink> that I have acquired
+                    while training others to{" "}
+                    <Red>oversee large software engineering efforts</Red>.
+                  </CodeIndent>
 
-                <Red className="italic font-bold ml-2">10_YEAR</Red>
-                <Light>:</Light>
-                <div className="ml-8">
-                  By <Blue>May of 2035</Blue> I will use all of the{" "}
-                  <LightGreen>collective knowledge</LightGreen> that I have
-                  acquired while programming as well as the{" "}
-                  <Pink>leadership </Pink>
-                  and <Pink>supporting skills</Pink> that I have acquired while
-                  training others to{" "}
-                  <Red>oversee large software engineering efforts</Red>.
-                </div>
-
-                <Orange>{`}`}</Orange>
-              </div>
-              <Orange>{`}`}</Orange>
+                  <Orange>{"}"}</Orange>
+                </CodeIndent>
+              </CodeIndent>
+              <Orange>{"}"}</Orange>
             </span>
             <br />
             <br />

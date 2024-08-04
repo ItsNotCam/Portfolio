@@ -1,6 +1,8 @@
 import useResizeObserver from "@react-hook/resize-observer";
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { ReactNode, useEffect, useRef } from "react";
+
+import "./_code-segment.css";
 
 const useSize = (target: any) => {
   const [size, setSize] = React.useState();
@@ -73,3 +75,28 @@ export default function CodeSegment(props: {
     </div>
   );
 }
+
+export const Breakpoint = (props: {
+  children?: ReactNode;
+  className?: string;
+  spacing?: string;
+}): ReactNode => (
+  <div
+    style={{
+			"--after-left":  props.spacing || "-5.75em",
+			"--before-left": props.spacing || "-5.75em",
+		} as any}
+    className={`breakpoint ${props.className ? props.className : ""}`}
+  >
+    <span>{props.children}</span>
+  </div>
+);
+
+export const CodeIndent = (props: {
+  children?: ReactNode;
+  className?: string;
+}): ReactNode => (
+  <div className={`code-indent ${props.className ? props.className : ""}`}>
+    {props.children}
+  </div>
+);
