@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import { FileIcon, FolderIcon } from "./Icons";
 
+import "./_sidebar.css";
+
 export enum DirItemType {
   FOLDER,
   FILE,
@@ -8,7 +10,7 @@ export enum DirItemType {
 
 export type DirectoryItem = {
   name: string;
-  type: DirItemType;
+  icon: JSX.Element;
   disabled?: boolean;
   onClick?: () => void;
   children?: DirectoryItem[];
@@ -28,12 +30,13 @@ export const Tree = (props: {
 }): ReactNode => {
   const depth: number = props.depth || 0;
   return props.tree.map((item) => (
-    <div className="flex flex-col gap-1">
-      <Spanner
-        icon={item.type === DirItemType.FILE ? <FileIcon /> : <FolderIcon />}
+    <div className="flex flex-col gap-1" onClick={item.onClick}>
+      <Span
+        icon={item.icon}
         name={item.name}
         indent={`${depth}rem`}
         disabled={item.disabled}
+        functional={item.onClick !== undefined}
       />
       {item.children &&
         item.children.map((child) => <Tree tree={[child]} depth={depth + 1} />)}
@@ -41,7 +44,7 @@ export const Tree = (props: {
   ));
 };
 
-const Spanner = (props: {
+const Span = (props: {
   icon: JSX.Element;
   name: string;
   className?: string;
@@ -49,19 +52,21 @@ const Spanner = (props: {
   selected?: boolean;
   indent?: string;
   disabled?: boolean;
+  functional?: boolean;
 }) => {
   let color: string = props.color || "custom-text-300";
   color = props.selected ? "custom-orange" : color;
   return (
     <div
       className={`cursor-default ${
-        !props.disabled && "hover:bg-custom-off-dark-300"
+        !props.disabled && props.functional &&
+        "hover:bg-custom-off-dark-300 cursor-pointer"
       }`}
     >
       <span
         className={`
 					text-${color} flex flex-row items-center gap-1 ${props.className} 
-					p-1 ${!props.disabled && "hover:text-custom-orange"}
+					p-1 ${!props.disabled && props.functional && "hover:text-custom-orange"}
 				`}
         style={{ marginLeft: props.indent || "0px" }}
       >

@@ -1,59 +1,63 @@
 import { ReactNode, useState } from "react";
 import Footer from "../components/Footer";
 import SideBar, { DirItemType, DirectoryItem } from "../components/Sidebar";
+import { FileIcon, FolderIcon } from "../components/Icons";
 
 const DirectoryTree: DirectoryItem[] = [
   {
     name: "..",
-    type: DirItemType.FOLDER,
+    icon: <FolderIcon />,
     disabled: true,
   },
   {
     name: "_me",
-    type: DirItemType.FOLDER,
+    icon: <FolderIcon />,
     children: [
       {
         name: "passion",
-        type: DirItemType.FILE,
+        icon: <FileIcon />,
         onClick: () => console.log("clicked passion"),
       },
       {
         name: "hobbies",
-        type: DirItemType.FILE,
+        icon: <FileIcon />,
         onClick: () => console.log("clicked hobbies"),
       },
       {
         name: "goals",
-        type: DirItemType.FILE,
+        icon: <FileIcon />,
         onClick: () => console.log("clicked passion"),
       },
       {
         name: "..",
-        type: DirItemType.FOLDER,
+        icon: <FolderIcon />,
         disabled: true,
       },
     ],
   },
   {
     name: "_site",
-    type: DirItemType.FOLDER,
+    icon: <FolderIcon />,
     disabled: false,
     children: [
       {
         name: "credits",
-        type: DirItemType.FILE,
+        icon: <FileIcon />,
+        onClick: () => console.log("clicked credits"),
       },
       {
         name: "inspiration",
-        type: DirItemType.FILE,
+        onClick: () => console.log("clicked inspiration"),
+        icon: <FileIcon />,
       },
       {
         name: "design",
-        type: DirItemType.FILE,
+        icon: <FileIcon />,
+        onClick: () => console.log("clicked design"),
       },
       {
         name: "..",
-        type: DirItemType.FOLDER,
+        icon: <FolderIcon />,
         disabled: true,
       },
     ],

@@ -1,0 +1,15 @@
+.sidebar {
+	@apply w-[15rem]  bg-custom-off-dark-800 h-full flex flex-col flex-grow gap-2 justify-center;
+}
+
+.indent {
+	@apply flex flex-col gap-1;
+
+	& > *{
+		@apply cursor-pointer
+	}
+
+	& > *:hover {
+		@apply bg-custom-off-dark-300;
+	}
+}

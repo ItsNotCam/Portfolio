@@ -1832,9 +1832,9 @@ export const JiraIcon = (props: {
   );
 };
 export const Hamburger = (props: {
-	height?: string,
-	width?: string,
-	color?: string,
+  height?: string;
+  width?: string;
+  color?: string;
 }) => {
   return (
     <svg
