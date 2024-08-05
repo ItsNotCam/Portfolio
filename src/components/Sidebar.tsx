@@ -76,8 +76,8 @@ const Span = (props: {
   disabled?: boolean;
   functional?: boolean;
 }) => {
-  let color: string = props.color || "custom-text-300";
-  color = props.selected ? "custom-orange" : color;
+  let color: string = props.color || "text-custom-text-300";
+  color = props.selected ? "text-custom-orange" : color;
 
   return (
     <div
@@ -92,7 +92,7 @@ const Span = (props: {
           props.className
         } p-1 ${
           !props.disabled && props.functional && "hover:text-custom-orange"
-        } text-${props.disabled ? "custom-off-dark-300" : color}`}
+        } ${props.disabled ? "text-custom-off-dark-300" : color}`}
         style={{ marginLeft: props.indent || "0px" }}
       >
         {props.selected && (
@@ -108,11 +108,11 @@ const Span = (props: {
 export const updateSelectedItem = (
   dirTree: DirectoryItem[],
   selectionName: string,
-  setSelectedPage: (newPage: DirectoryItem) => void
+  setSelectedPage?: (newPage: DirectoryItem) => void
 ): DirectoryItem[] => {
   for (let i = 0; i < dirTree.length; i++) {
     dirTree[i].selected = dirTree[i].name === selectionName;
-    if (dirTree[i].selected) {
+    if (dirTree[i].selected && setSelectedPage !== undefined) {
       setSelectedPage(dirTree[i]);
     }
 

@@ -12,6 +12,42 @@ export const Chevron = () => {
   );
 };
 
+export const ListView = (props: {
+  height?: string;
+  width?: string;
+  color?: string;
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={props.width || "1em"}
+      viewBox="0 -960 960 960"
+      width={props.width || "1em"}
+      fill={props.color || "currentColor"}
+    >
+      <path d="M320-280q17 0 28.5-11.5T360-320q0-17-11.5-28.5T320-360q-17 0-28.5 11.5T280-320q0 17 11.5 28.5T320-280Zm0-160q17 0 28.5-11.5T360-480q0-17-11.5-28.5T320-520q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440Zm0-160q17 0 28.5-11.5T360-640q0-17-11.5-28.5T320-680q-17 0-28.5 11.5T280-640q0 17 11.5 28.5T320-600Zm120 320h240v-80H440v80Zm0-160h240v-80H440v80Zm0-160h240v-80H440v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+    </svg>
+  );
+};
+
+export const GridView = (props: {
+  height?: string;
+  width?: string;
+  color?: string;
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height={props.height || "1em"}
+      viewBox="0 -960 960 960"
+      width={props.width || "1em"}
+      fill={props.color || "currentColor"}
+    >
+      <path d="M666-440 440-666l226-226 226 226-226 226Zm-546-80v-320h320v320H120Zm400 400v-320h320v320H520Zm-400 0v-320h320v320H120Zm80-480h160v-160H200v160Zm467 48 113-113-113-113-113 113 113 113Zm-67 352h160v-160H600v160Zm-400 0h160v-160H200v160Zm160-400Zm194-65ZM360-360Zm240 0Z" />
+    </svg>
+  );
+};
+
 export const InfoIcon = (props: {
   height?: string;
   width?: string;
@@ -37,10 +73,10 @@ export const ExploreIcon = (props: {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={props.height || "24px"}
+      height={props.height || "1.5em"}
       viewBox="0 -960 960 960"
-      width={props.width || "24px"}
-      fill="#e8eaed"
+      width={props.width || "1.5em"}
+      fill={props.color || "currentColor"}
     >
       <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q146 0 255.5 91.5T872-559h-82q-19-73-68.5-130.5T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h80v120h-40L168-552q-3 18-5.5 36t-2.5 36q0 131 92 225t228 95v80Zm364-20L716-228q-21 12-45 20t-51 8q-75 0-127.5-52.5T440-380q0-75 52.5-127.5T620-560q75 0 127.5 52.5T800-380q0 27-8 51t-20 45l128 128-56 56ZM620-280q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Z" />
     </svg>
@@ -53,8 +89,8 @@ export const FolderIcon = (props: {
 }) => {
   return (
     // <svg
-    //   width={props.width || "24"}
-    //   height={props.height || "25"}
+    //   width={props.width || "1.5em"}
+    //   height={props.height || "1.5em"}
     //   viewBox="0 0 24 25"
     //   fill="none"
     //   xmlns="http://www.w3.org/2000/svg"
@@ -68,36 +104,35 @@ export const FolderIcon = (props: {
       focusable="false"
       aria-hidden="true"
       viewBox="0 0 24 24"
-      data-testid="FolderIcon"
-      fill="currentColor"
-      height={props.height || "24"}
-      width={props.width || "24"}
+      fill={props.color || "currentColor"}
+      height={props.height || "1.5em"}
+      width={props.width || "1.5em"}
     >
       <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"></path>
     </svg>
   );
 };
-export const FileIcon = (props: { height?: string; width?: string }) => {
+export const FileIcon = (props: { height?: string; width?: string, color?: string }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 25"
-      fill="currentColor"
+      fill={props.color || "currentColor"}
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_82_1589)">
         <path
           d="M8 16.6966H16V18.6609H8V16.6966ZM8 12.7679H16V14.7323H8V12.7679ZM14 2.94629H6C4.9 2.94629 4 3.83024 4 4.91062V20.6253C4 21.7056 4.89 22.5896 5.99 22.5896H18C19.1 22.5896 20 21.7056 20 20.6253V8.83928L14 2.94629ZM18 20.6253H6V4.91062H13V9.82145H18V20.6253Z"
-          fill="currentColor"
+          fill={props.color || "currentColor"}
         />
       </g>
       <defs>
         <clipPath id="clip0_82_1589">
           <rect
-            width={props.width || "24"}
-            height={props.height || "23.572"}
-            fill="currentColor"
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
+            fill={props.color || "currentColor"}
             transform="translate(0 0.981934)"
           />
         </clipPath>
@@ -112,15 +147,15 @@ export const MailIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "36"}
-      height={props.height || "36"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M6 30C5.175 30 4.46875 29.7063 3.88125 29.1188C3.29375 28.5312 3 27.825 3 27V9C3 8.175 3.29375 7.46875 3.88125 6.88125C4.46875 6.29375 5.175 6 6 6H30C30.825 6 31.5313 6.29375 32.1188 6.88125C32.7063 7.46875 33 8.175 33 9V27C33 27.825 32.7063 28.5312 32.1188 29.1188C31.5313 29.7063 30.825 30 30 30H6ZM18 19.5L6 12V27H30V12L18 19.5ZM18 16.5L30 9H6L18 16.5ZM6 12V9V27V12Z"
-        fill={props.color || "#615E6E"}
+        fill={props.color || "currentColor"}
       />
     </svg>
   );
@@ -132,8 +167,8 @@ export const LinkedInIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "22"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -152,8 +187,8 @@ export const BashIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "23"}
-      height={props.height || "24"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 23 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -218,8 +253,8 @@ export const CSS3Icon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "69"}
-      height={props.height || "69"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 69 69"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -250,8 +285,8 @@ export const MySQLIconLarge = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "106"}
-      height={props.height || "74"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 106 74"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -282,8 +317,8 @@ export const GitHubIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "36"}
-      height={props.height || "36"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -302,8 +337,8 @@ export const PostgreSQLIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "23"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -329,8 +364,8 @@ export const PostgreSQLIcon = (props: {
       <defs>
         <clipPath id="clip0_80_1050">
           <rect
-            width={props.width || "22.163"}
-            height={props.height || "22.163"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.903809 0.533325)"
           />
@@ -346,8 +381,8 @@ export const WebpackIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "20"}
-      height={props.height || "23"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 20 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -374,8 +409,8 @@ export const Material_UIIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "22"}
-      height={props.height || "23"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 22 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -391,8 +426,8 @@ export const Material_UIIcon = (props: {
       <defs>
         <clipPath id="clip0_80_996">
           <rect
-            width={props.width || "20.8593"}
-            height={props.height || "22.163"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.51123 0.459229)"
           />
@@ -408,16 +443,15 @@ export const JQueryIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "59"}
-      height={props.height || "60"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 59 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M34.9408 4.48112C34.8176 4.49937 34.6944 4.53588 34.5758 4.59064C33.5718 5.08807 32.4309 6.56665 32.2118 6.85871C32.1982 6.87697 32.1845 6.89522 32.1753 6.91348C31.0481 8.60198 30.4458 10.578 30.4229 12.6361C30.4093 14.1786 30.7104 15.7074 31.322 17.1814C32.7458 20.5995 35.7029 23.4289 39.2214 24.7523C39.3401 24.7934 39.4542 24.8344 39.6595 24.9075C39.6778 24.9166 39.8512 24.9713 39.8786 24.9759L40.0063 25.0215C40.1889 25.0809 40.376 25.1402 40.5585 25.1767C41.4849 25.3638 42.3885 25.4688 43.2373 25.4962C43.3834 25.4962 43.5294 25.5007 43.6754 25.5007C50.078 25.5007 52.5606 20.9828 53.3866 19.4769C53.4687 19.3308 53.5281 19.2122 53.5828 19.1392C53.5828 19.1346 53.5828 19.1346 53.5874 19.13C53.9479 18.5961 53.811 17.8705 53.2771 17.5054C52.7477 17.1449 52.0221 17.2818 51.657 17.8157H51.6525C49.9457 20.3302 47.025 21.0924 42.9772 20.0884C42.676 20.0154 42.3474 19.9013 42.0554 19.7917C41.672 19.6548 41.2887 19.4951 40.9327 19.3217C40.2254 18.9703 39.5591 18.5505 38.9567 18.085C35.3972 15.3241 34.0053 9.57857 36.0863 6.26089C36.3647 5.81823 36.3145 5.24322 35.9631 4.85533C35.6984 4.56326 35.315 4.43092 34.9408 4.48112ZM24.5908 6.80851C24.3261 6.80395 24.0568 6.89066 23.8378 7.0732C22.0717 8.51071 20.2645 10.8655 20.187 10.9613C20.1778 10.9796 20.1687 10.9933 20.155 11.0115C16.9605 15.6618 16.7187 22.2789 19.5435 27.8692C19.9862 28.7545 20.4881 29.5988 21.0221 30.3746L21.1818 30.6027C21.6336 31.2644 22.1401 32.0129 22.7882 32.597C23.0118 32.8526 23.2536 33.099 23.4909 33.3363L23.605 33.4549L23.7009 33.5508C23.9427 33.7835 24.1892 34.0208 24.4447 34.249H24.4493C24.4675 34.2764 24.4949 34.2946 24.5177 34.3174C24.8052 34.573 25.0973 34.8149 25.4852 35.1206L25.5902 35.1982C25.8914 35.4401 26.1971 35.6683 26.512 35.8919C26.5439 35.9147 26.5759 35.9375 26.6078 35.9603C26.7174 36.0333 26.8269 36.1018 26.9364 36.1794L27.0459 36.2524L27.1737 36.3345C27.4065 36.4897 27.6346 36.6312 27.9586 36.8183C28.1686 36.946 28.3922 37.0738 28.5382 37.1468C28.6021 37.1833 28.6705 37.2198 28.8303 37.3066L29.1862 37.4937C29.2045 37.5028 29.2866 37.5393 29.3049 37.5484C29.5376 37.6671 29.7795 37.7812 30.0214 37.8907L30.391 38.055C30.6329 38.1599 30.8793 38.2603 31.1805 38.3744L31.3174 38.4246C31.3265 38.4338 31.4406 38.4748 31.4497 38.4794C31.6688 38.557 31.8924 38.6345 32.116 38.7076L32.6271 38.8764C32.8827 38.9631 33.1793 39.0635 33.5033 39.1183C35.096 39.383 36.643 39.5199 38.1079 39.5199C38.2813 39.5199 38.4547 39.5153 38.6236 39.5153C51.5201 39.2324 54.8743 28.2753 54.9063 28.1658C55.066 27.6136 54.8059 27.0249 54.2856 26.7785C53.7654 26.5321 53.1447 26.7055 52.8207 27.1801C49.5532 31.9535 43.3742 33.9706 37.0811 32.3095C36.7891 32.2365 36.5061 32.1543 36.1547 32.0402C36.0954 32.022 36.0452 32.0037 35.9494 31.9672C35.744 31.9033 35.5432 31.8349 35.315 31.7482L34.991 31.625C34.8039 31.552 34.6168 31.4789 34.3886 31.3785L34.238 31.3101C33.9597 31.1914 33.6904 31.0591 33.4486 30.9404L32.7823 30.5936C32.6317 30.5206 32.4993 30.4385 32.294 30.3152L32.1799 30.2513L32.0658 30.1829C31.897 30.0825 31.7281 29.9775 31.573 29.868L31.4634 29.7996C31.4543 29.795 31.363 29.7311 31.3539 29.722C31.217 29.6353 31.0847 29.5486 30.9569 29.4664C30.6739 29.2656 30.3956 29.0557 30.0716 28.8001L29.9438 28.6952C26.9318 26.2902 24.7048 23.0775 23.6598 19.632C22.6878 16.4695 23.4088 12.3304 25.5902 8.56091C25.8731 8.07261 25.7681 7.45197 25.3346 7.08689C25.1201 6.90435 24.8554 6.80851 24.5908 6.80851ZM11.7353 10.3133C11.4569 10.3133 11.174 10.4137 10.9504 10.6145C8.71881 12.6179 7.04856 15.2145 6.86602 15.5112C2.09257 22.4614 3.01441 33.2633 6.29102 39.8667C6.35491 40.0036 6.42336 40.1359 6.49181 40.2683L6.53745 40.3413C6.59677 40.4736 6.66523 40.6105 6.68804 40.6379C6.72455 40.7246 6.77931 40.8205 6.80213 40.8479C6.85689 40.9619 6.91166 41.0623 7.01205 41.2358L7.38626 41.8792C7.44102 41.9659 7.49579 42.0572 7.51404 42.0891C7.58706 42.2078 7.66464 42.331 7.74222 42.4542L7.92476 42.7463C7.97952 42.833 8.03428 42.9106 8.07079 42.9562C8.25333 43.2391 8.43587 43.5221 8.63667 43.7913C8.6458 43.805 8.65492 43.8141 8.66405 43.8233L8.73707 43.9237C8.90135 44.161 9.0702 44.3892 9.2208 44.5763L9.88707 45.4205C9.8962 45.4296 9.96922 45.5163 9.97378 45.5255L10.0696 45.635C10.2704 45.8814 10.4849 46.1279 10.6994 46.3652C10.7313 46.4017 10.7633 46.4336 10.7952 46.4701C11.0006 46.6937 11.2105 46.9173 11.4295 47.1501L11.6395 47.3509C11.8129 47.5334 11.9863 47.7114 12.1688 47.8802C12.1688 47.8848 12.2555 47.967 12.2555 47.967L12.4381 48.1358C12.6571 48.3457 12.8853 48.5556 13.0587 48.7017C13.0679 48.7154 13.2321 48.8568 13.2458 48.866C13.4603 49.0576 13.6748 49.2402 13.8939 49.4182L15.0119 50.3035C15.199 50.4404 15.3907 50.5773 15.6097 50.737C15.6828 50.7918 15.7603 50.8465 15.8379 50.8967C15.8699 50.9241 15.9064 50.9515 15.9292 50.9652L16.7689 51.5265C17.0746 51.7273 17.3804 51.9144 17.7546 52.138L17.9554 52.2521C18.1881 52.389 18.4254 52.5259 18.649 52.6446C18.7814 52.7176 18.9137 52.7815 19.0278 52.8408C19.1875 52.9275 19.361 53.0233 19.6256 53.1511C19.6485 53.1648 19.8356 53.2561 19.8584 53.2652C20.1231 53.3976 20.3923 53.5208 20.73 53.6714C20.73 53.6759 20.8395 53.7261 20.8395 53.7261C21.1499 53.8585 21.451 53.9862 21.8481 54.146C21.912 54.1734 21.9759 54.1962 21.9895 54.2007C22.2725 54.3103 22.5691 54.4198 22.811 54.5065C22.8338 54.5156 22.957 54.5658 22.9798 54.5749C23.3038 54.6845 23.6233 54.7894 24.034 54.9172C24.1025 54.94 24.1755 54.9628 24.1846 54.9628L24.4173 55.0359C24.7003 55.1226 24.9832 55.2138 25.289 55.2732C27.4612 55.6702 29.5833 55.8755 31.5912 55.8755H31.5958C48.3302 55.8755 53.6604 42.4086 53.7152 42.2717C53.9205 41.7286 53.6969 41.1171 53.1858 40.8342C52.6838 40.5558 52.0449 40.6881 51.689 41.149C47.3947 46.8033 39.2944 48.9025 30.0214 46.7713C29.7977 46.7165 29.5696 46.6527 29.3459 46.5842L28.9079 46.4519C28.6112 46.3606 28.3146 46.2602 28.0271 46.1598C28.0225 46.1598 27.8902 46.1096 27.8902 46.1096C27.6346 46.0229 27.3791 45.9225 27.1555 45.8358L26.8999 45.7354C26.617 45.6213 26.334 45.5027 26.0602 45.3794L25.9005 45.311C25.6541 45.1969 25.4168 45.0874 25.1795 44.9687C25.1612 44.9596 24.9741 44.8683 24.9558 44.8638C24.7915 44.7816 24.6273 44.6949 24.4173 44.5808L23.4636 44.0697C23.3677 44.0058 23.2673 43.9465 23.1715 43.8963C22.884 43.7183 22.5874 43.5403 22.2953 43.3532C22.2268 43.3122 22.1675 43.2665 22.0534 43.1889C21.8526 43.0612 21.6564 42.9288 21.3689 42.728L21.2548 42.6459C21.0586 42.509 20.8669 42.3629 20.7072 42.2443C20.6068 42.1713 20.5064 42.0891 20.3421 41.9659C20.1961 41.8518 20.05 41.7423 19.9131 41.6328L19.6576 41.4229C19.4431 41.2494 19.2423 41.0669 19.0324 40.8889C19.005 40.8615 18.9822 40.8433 18.9502 40.8205C18.7175 40.606 18.4802 40.3915 18.1973 40.1223L17.3713 39.3008C17.1705 39.0955 16.9697 38.8855 16.7415 38.6345C16.5316 38.4018 16.3308 38.1691 16.0615 37.8496L15.5687 37.2472C15.5093 37.1605 15.4454 37.0738 15.3679 36.9825C15.199 36.7544 15.0302 36.5308 14.8613 36.2935C10.316 30.0323 9.12953 16.9624 12.6708 12.1752C13.0268 11.6961 12.9629 11.0206 12.5157 10.6145C12.2966 10.4137 12.0137 10.3133 11.7353 10.3133Z"
-        fill="#D5D5D5"
-        fill-opacity="0.3"
+        fill={props.color || "currentColor"}
       />
     </svg>
   );
@@ -429,8 +463,8 @@ export const Adobe_CCIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "20"}
-      height={props.height || "20"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -462,8 +496,8 @@ export const MongoDBIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "16"}
-      height={props.height || "22"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 16 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -482,8 +516,8 @@ export const PostCSSIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "23"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -517,8 +551,8 @@ export const PostCSSIcon = (props: {
       <defs>
         <clipPath id="clip0_80_1072">
           <rect
-            width={props.width || "22.163"}
-            height={props.height || "22.163"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.903809 0.362915)"
           />
@@ -575,8 +609,8 @@ export const BitBucketIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "63"}
-      height={props.height || "57"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 63 57"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -612,8 +646,8 @@ export const M365Icon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "20"}
-      height={props.height || "21"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 20 21"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -720,8 +754,8 @@ export const ExpressJSIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "166"}
-      height={props.height || "166"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 166 166"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -741,8 +775,8 @@ export const NextJSIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "28"}
-      height={props.height || "27"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 28 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -761,8 +795,8 @@ export const HTML5Icon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "64"}
-      height={props.height || "64"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -793,8 +827,8 @@ export const VMWareIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "25"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -821,8 +855,8 @@ export const UbuntuIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "19"}
-      height={props.height || "19"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 19 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -840,8 +874,8 @@ export const UbuntuIcon = (props: {
       <defs>
         <clipPath id="clip0_80_764">
           <rect
-            width={props.width || "18.2519"}
-            height={props.height || "18.2519"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.0371094 0.666626)"
           />
@@ -857,8 +891,8 @@ export const SQLiteIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "24"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -890,8 +924,8 @@ export const JavaIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "28"}
-      height={props.height || "27"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 28 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -934,8 +968,8 @@ export const PowerShellIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "25"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -953,8 +987,8 @@ export const PowerShellIcon = (props: {
       <defs>
         <clipPath id="clip0_80_877">
           <rect
-            width={props.width || "23.4667"}
-            height={props.height || "23.4667"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.733398 0.548096)"
           />
@@ -1010,8 +1044,8 @@ export const GitLabIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "22"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1049,8 +1083,8 @@ export const GitLabIcon = (props: {
       <defs>
         <clipPath id="clip0_80_955">
           <rect
-            width={props.width || "23.4667"}
-            height={props.height || "20.8593"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.20752 0.629639)"
           />
@@ -1066,8 +1100,8 @@ export const JavascriptIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "27"}
-      height={props.height || "26"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 27 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1090,8 +1124,8 @@ export const VIMIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "23"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1100,64 +1134,64 @@ export const VIMIcon = (props: {
         d="M11.8664 1.52051L1.88867 11.5116L11.8248 21.4611L21.8025 11.47L11.8664 1.52051Z"
         fill="#019833"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M11.8249 1.56221V0.687988L0.974121 11.5533H1.88874L11.8249 1.56221Z"
         fill="#66FE98"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M11.7993 1.56221V0.687988L22.6501 11.5533H21.7354L11.7993 1.56221Z"
         fill="#45FE02"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M11.8249 21.5192V22.3934L0.974121 11.5281H1.88874L11.8249 21.5192Z"
         fill="#017D17"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M2.98655 1.7915H9.98306L10.4093 2.21833V3.52826L10.0712 3.94037H9.30692V10.4459L15.8919 3.94037H14.8042L14.422 3.52826V2.14474L14.7748 1.82094H21.8595L22.2122 2.17418V3.46939L6.19084 19.9244H4.36822L3.84065 19.6194V3.8815H2.95716L2.63379 3.5577V2.17418L2.98655 1.7915Z"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M11.7993 21.5192V22.3934L22.6501 11.5281H21.7354L11.7993 21.5192Z"
         fill="#005D04"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M11.7954 0.607422L0.903809 11.5136L11.75 22.3744L22.6415 11.4682L11.7954 0.607422Z"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M10.0575 2.4573L10.4524 2.24915L10.0471 1.84326H2.98992L2.63135 2.20232V3.56048L3.0289 3.95857L3.21858 3.56048L2.96914 3.3107V2.35322L3.15622 2.18671H9.89116L10.0575 2.4573Z"
         fill="#FEFEFE"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M15.0471 2.14478L14.7979 2.39429V3.3104L15.0161 3.52896H16.1693V4.41411L8.54103 12.1564V3.53989H9.80877L10.0689 3.27944V2.3524L9.82877 2.16663H3.15723L2.93896 2.38519V3.33226L3.16086 3.55446H4.32129V19.4216L4.53955 19.6401H5.85822L21.8441 3.12281V2.39429L21.5949 2.14478H15.0471Z"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M4.30951 3.52808V19.4238L4.51529 19.6593L4.35391 19.9673L3.89795 19.5121V3.94019L4.30951 3.52808Z"
         fill="#FEFEFE"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M3.16983 3.52808L3.05225 3.91075H3.90476L4.37511 3.52808H3.16983Z"
         fill="#808080"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M14.88 3.95795L15.0671 3.57287L14.7969 3.32309V2.46969L15.1087 2.15747H21.615L21.8644 2.4905L22.2178 2.24072L21.854 1.87646H14.8592L14.5111 2.22511V3.59369L14.8722 3.93453M9.21951 10.506L8.54004 12.1569L16.2104 4.45542V3.53957L9.21951 10.506Z"
@@ -1166,44 +1200,44 @@ export const VIMIcon = (props: {
       <path
         d="M14.88 3.95795L15.0671 3.57287L14.7969 3.32309V2.46969L15.1087 2.15747H21.615L21.8644 2.4905L22.2178 2.24072L21.854 1.87646H14.8592L14.5111 2.22511V3.59369L14.8722 3.93453M9.21951 10.506L8.54004 12.1569L16.2104 4.45542V3.53957L9.21951 10.506Z"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M10.0417 2.4095L10.3798 2.18872V3.52808L9.99029 3.91812H9.23331V10.5193L8.54248 12.153V3.52808H9.80656L10.0417 3.33675V2.4095Z"
         fill="#808080"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M15.0471 2.14478L14.7979 2.39429V3.3104L15.0161 3.52896H16.1693V4.41411L8.54103 12.1564V3.53989H9.80877L10.0689 3.27944V2.3524L9.82877 2.16663H3.15723L2.93896 2.38519V3.33226L3.16086 3.55446H4.32129V19.4216L4.53955 19.6401H5.85822L21.8441 3.12281V2.39429L21.5949 2.14478H15.0471Z"
         fill="#CCCCCC"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M21.8648 2.41547L22.2198 2.21021V3.49783L6.11641 19.9751H4.40674L4.57008 19.6501H5.87965L21.844 3.14398L21.8648 2.41547Z"
         fill="#808080"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M16.1788 3.55029L15.8186 3.92561H14.8779L15.0984 3.55029C15.1058 3.55029 16.1788 3.55029 16.1788 3.55029Z"
         fill="#808080"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
       />
       <path
         d="M12.3387 12.8402C12.3266 12.8428 12.3153 12.8484 12.306 12.8566L11.9968 13.1225C11.9876 13.1309 11.9807 13.1416 11.9768 13.1535L11.6676 14.0204C11.663 14.0331 11.6621 14.0469 11.665 14.0601C11.6679 14.0733 11.6745 14.0854 11.684 14.0951L11.9204 14.3319C11.9341 14.345 11.9524 14.3522 11.9713 14.3519H12.9262C12.9452 14.3522 12.9635 14.345 12.9772 14.3319L13.2263 14.0805C13.2349 14.0719 13.2412 14.0613 13.2445 14.0496L13.5101 13.1371C13.5137 13.1247 13.5139 13.1116 13.5107 13.0991C13.5075 13.0866 13.501 13.0752 13.4919 13.0661L13.2864 12.8602C13.2727 12.8471 13.2544 12.8399 13.2354 12.8402H12.3533C12.3485 12.8397 12.3436 12.8397 12.3387 12.8402ZM10.589 15.2844C10.5759 15.2872 10.5638 15.2937 10.5542 15.303C10.5445 15.3123 10.5377 15.3242 10.5344 15.3372L10.4162 15.8071C10.4136 15.8177 10.4134 15.8287 10.4156 15.8393C10.4179 15.8499 10.4225 15.8599 10.4291 15.8685C10.4358 15.8771 10.4443 15.8841 10.454 15.8889C10.4638 15.8937 10.4745 15.8963 10.4853 15.8963H11.0474L9.65412 19.8795C9.65052 19.8903 9.64951 19.9017 9.65117 19.9129C9.65283 19.9241 9.65712 19.9348 9.66368 19.944C9.67025 19.9533 9.6789 19.9608 9.68893 19.9661C9.69896 19.9713 9.71009 19.9741 9.72141 19.9742H11.7494C11.7647 19.9744 11.7796 19.9698 11.792 19.961C11.8044 19.9521 11.8137 19.9395 11.8185 19.9251L11.9513 19.4971C11.9546 19.4863 11.9553 19.4749 11.9534 19.4637C11.9515 19.4526 11.947 19.4421 11.9402 19.4331C11.9335 19.424 11.9248 19.4167 11.9147 19.4117C11.9046 19.4067 11.8935 19.4041 11.8822 19.4042H11.4239L12.8025 15.3791C12.8061 15.3684 12.8072 15.3569 12.8055 15.3457C12.8038 15.3345 12.7995 15.3238 12.793 15.3146C12.7864 15.3054 12.7778 15.2978 12.7677 15.2926C12.7577 15.2873 12.7466 15.2845 12.7352 15.2844H10.6036C10.5987 15.2839 10.5938 15.2839 10.589 15.2844ZM17.0423 15.299C17.0267 15.3022 17.0126 15.3105 17.0023 15.3226L16.5803 15.7998H15.9091L15.4617 15.3354C15.4551 15.3285 15.4472 15.3231 15.4384 15.3193C15.4297 15.3156 15.4203 15.3136 15.4108 15.3135H13.8084C13.7937 15.3136 13.7793 15.3181 13.7673 15.3266C13.7552 15.3351 13.7461 15.347 13.7411 15.3609L13.5937 15.8016C13.5901 15.8124 13.5891 15.8238 13.5908 15.835C13.5925 15.8463 13.5968 15.8569 13.6033 15.8662C13.6099 15.8754 13.6185 15.8829 13.6286 15.8882C13.6386 15.8934 13.6497 15.8962 13.661 15.8963H14.0903L12.7553 19.8358C12.7517 19.8466 12.7506 19.858 12.7523 19.8692C12.754 19.8804 12.7583 19.8911 12.7648 19.9003C12.7714 19.9096 12.78 19.9171 12.7901 19.9224C12.8001 19.9276 12.8112 19.9304 12.8226 19.9305H14.5286C14.5433 19.9305 14.5577 19.9259 14.5697 19.9175C14.5818 19.909 14.5909 19.897 14.5959 19.8832L14.7269 19.4989C14.7305 19.4881 14.7315 19.4767 14.7298 19.4655C14.7282 19.4543 14.7239 19.4436 14.7173 19.4344C14.7108 19.4251 14.7021 19.4176 14.6921 19.4123C14.682 19.4071 14.6709 19.4043 14.6596 19.4042H14.3613L15.2125 16.7214H16.7531L15.7818 19.8376C15.7785 19.8484 15.7778 19.8598 15.7797 19.8709C15.7817 19.8821 15.7862 19.8926 15.7929 19.9016C15.7996 19.9106 15.8084 19.918 15.8185 19.923C15.8286 19.928 15.8397 19.9306 15.8509 19.9305H17.497C17.511 19.9304 17.5246 19.9262 17.5363 19.9185C17.5479 19.9107 17.557 19.8997 17.5625 19.8868L17.7098 19.5335C17.7141 19.5227 17.7157 19.511 17.7145 19.4994C17.7133 19.4879 17.7093 19.4768 17.7028 19.4671C17.6964 19.4574 17.6877 19.4495 17.6775 19.4439C17.6673 19.4383 17.6559 19.4353 17.6443 19.4351H17.346L18.2118 16.7068H19.6778L18.692 19.8376C18.6887 19.8484 18.688 19.8598 18.6899 19.8709C18.6918 19.8821 18.6963 19.8926 18.7031 19.9016C18.7098 19.9106 18.7186 19.918 18.7286 19.923C18.7387 19.928 18.7498 19.9306 18.7611 19.9305H20.569C20.5835 19.9306 20.5977 19.9263 20.6097 19.9182C20.6218 19.9101 20.631 19.8985 20.6363 19.885L20.7837 19.5007C20.7876 19.4898 20.7889 19.4782 20.7874 19.4667C20.7859 19.4553 20.7817 19.4444 20.7751 19.4349C20.7685 19.4254 20.7597 19.4177 20.7495 19.4123C20.7393 19.407 20.7279 19.4042 20.7164 19.4042H20.3581L21.4475 15.8617C21.4511 15.8507 21.452 15.839 21.4501 15.8276C21.4482 15.8162 21.4436 15.8054 21.4366 15.7962L21.0983 15.3409C21.0914 15.3321 21.0826 15.325 21.0725 15.3203C21.0623 15.3156 21.0513 15.3132 21.0401 15.3135H19.7469C19.7371 15.3134 19.7274 15.3152 19.7183 15.319C19.7092 15.3227 19.701 15.3283 19.6942 15.3354L19.2868 15.7834H18.5738L18.1518 15.3208C18.145 15.3138 18.1368 15.3082 18.1277 15.3044C18.1186 15.3007 18.1089 15.2988 18.099 15.299H17.0568C17.052 15.2985 17.0471 15.2985 17.0423 15.299Z"
         fill="#CCCCCC"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
         stroke-miterlimit="10"
       />
       <path
         d="M12.3526 12.9111L12.0434 13.177L11.7342 14.044L11.9706 14.2807H12.9255L13.1747 14.0294L13.4403 13.1169L13.2347 12.9111H12.3526ZM10.6028 15.3553L10.4846 15.8252H11.1467L9.7207 19.9031H11.7487L11.8815 19.4751H11.3231L12.7345 15.3553H10.6028ZM17.0561 15.3699L16.6141 15.8707H15.8793L15.4101 15.3845H13.8077L13.6603 15.8252H14.1896L12.8218 19.8594H14.5279L14.6589 19.4751H14.2624L15.1591 16.6503H16.8506L15.8502 19.8594H17.4963L17.6436 19.506H17.2471L18.1584 16.6357H19.7753L18.7604 19.8594H20.5683L20.7157 19.4751H20.2591L21.3777 15.8398L21.0394 15.3845H19.7462L19.3188 15.8543H18.5403L18.0983 15.3699H17.0561Z"
         fill="#CCCCCC"
         stroke="black"
-        stroke-width={props.width || "0.5"}
+        stroke-width={props.width || "1.5em"}
         stroke-miterlimit="10"
       />
     </svg>
@@ -1216,8 +1250,8 @@ export const UnityIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "21"}
-      height={props.height || "20"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 21 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1236,8 +1270,8 @@ export const ReactJSIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "27"}
-      height={props.height || "27"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 27 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1256,8 +1290,8 @@ export const WindowsIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1276,8 +1310,8 @@ export const BootstrapIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "24"}
-      height={props.height || "26"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 24 26"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1300,8 +1334,8 @@ export const BlenderIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "25"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1324,8 +1358,8 @@ export const GitIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "25"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1344,8 +1378,8 @@ export const Visual_StudioIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "22"}
-      height={props.height || "22"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 22 22"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1442,8 +1476,8 @@ export const Tailwind_CSSIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "27"}
-      height={props.height || "27"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 27 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1457,8 +1491,8 @@ export const Tailwind_CSSIcon = (props: {
       <defs>
         <clipPath id="clip0_80_361">
           <rect
-            width={props.width || "26.0741"}
-            height={props.height || "26.0741"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.125977 0.607422)"
           />
@@ -1474,8 +1508,8 @@ export const DockerIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "28"}
-      height={props.height || "27"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 28 27"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1518,8 +1552,8 @@ export const MySQLIconSmall = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "41"}
-      height={props.height || "29"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 41 29"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1533,8 +1567,8 @@ export const MySQLIconSmall = (props: {
       <defs>
         <clipPath id="clip0_80_1040">
           <rect
-            width={props.width || "40.4148"}
-            height={props.height || "28.6815"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.385254 0.207397)"
           />
@@ -1550,8 +1584,8 @@ export const FlaskIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "25"}
-      height={props.height || "24"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 25 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1691,8 +1725,8 @@ export const FlaskIcon = (props: {
         </linearGradient>
         <clipPath id="clip0_80_897">
           <rect
-            width={props.width || "23.4667"}
-            height={props.height || "23.4667"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.733398 0.377686)"
           />
@@ -1756,8 +1790,8 @@ export const NodeJSIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "32"}
-      height={props.height || "32"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1787,8 +1821,8 @@ export const NodeJSIcon = (props: {
       <defs>
         <clipPath id="clip0_80_861">
           <rect
-            width={props.width || "31.2889"}
-            height={props.height || "31.2889"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.125977 0.222168)"
           />
@@ -1804,8 +1838,8 @@ export const JiraIcon = (props: {
 }) => {
   return (
     <svg
-      width={props.width || "25"}
-      height={props.height || "25"}
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
       viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1859,8 +1893,8 @@ export const JiraIcon = (props: {
       <defs>
         <clipPath id="clip0_80_919">
           <rect
-            width={props.width || "23.4667"}
-            height={props.height || "23.4667"}
+            width={props.width || "1.5em"}
+            height={props.height || "1.5em"}
             fill="white"
             transform="translate(0.733398 0.79248)"
           />
@@ -1877,9 +1911,9 @@ export const Hamburger = (props: {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height={props.height || "24px"}
+      height={props.height || "1.5em"}
       viewBox="0 -960 960 960"
-      width={props.height || "24px"}
+      width={props.height || "1.5em"}
       fill={props.color || "#e8eaed"}
     >
       <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
