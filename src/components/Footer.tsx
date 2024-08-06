@@ -13,23 +13,23 @@ export default function Footer(props: { children: ReactNode }) {
       </h1>
       <a
         href={links.email}
-        className="w-header bg-custom-off-dark-800 p-2 flex-shrink-0"
+        className="w-header bg-custom-off-dark-800  text-custom-text-300 p-2 flex-shrink-0 hover:text-custom-text-100 transition-colors"
       >
-        <MailIcon height="2.25rem" width="2.25rem" color="#AEADB8" />
+        <MailIcon height="2.25rem" width="2.25rem" />
       </a>
       <a
         href={links.linkedIn}
-        className="w-header bg-custom-off-dark-800 p-2  flex-shrink-0"
+        className="w-header bg-custom-off-dark-800  text-custom-text-300 p-2 flex-shrink-0 hover:text-custom-text-100 transition-colors"
         target="_blank"
       >
-        <LinkedInIcon height="1.5rem" width="1.5rem" color="#AEADB8" />
+        <LinkedInIcon height="1.5rem" width="1.5rem" />
       </a>
       <a
         href={links.gitHub}
-        className="w-header bg-custom-off-dark-800 p-2 flex-shrink-0"
+        className="w-header bg-custom-off-dark-800 text-custom-text-300 p-2 flex-shrink-0 hover:text-custom-text-100 transition-colors"
         target="_blank"
       >
-        <GitHubIcon height="2.25rem" width="2.25rem" color="#AEADB8" />
+        <GitHubIcon height="2.25rem" width="2.25rem" />
       </a>
       <div className="footer-path flex-grow bg-custom-off-dark-800 justify-start pl-4 max-w-[100%] overflow-hidden">
         <div className="w-full flex text-nowrap">{props.children}</div>

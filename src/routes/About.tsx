@@ -318,7 +318,7 @@ export default function About(): ReactNode {
 
   return (
     <>
-      <div id="about" className="w-full h-full flex flex-grow">
+      <div id="about" className="flex flex-grow overflow-auto">
         <SideBar tree={directoryTree} title="~/_about/" />
         <div className="p-4 flex-grow flex flex-col relative">
           <h1 className="text-2xl text-bold italic text-custom-red uppercase max-[750px]:text-center">

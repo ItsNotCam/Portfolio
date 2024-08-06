@@ -88,7 +88,7 @@ export default function Home() {
     <>
       <div
         id="Home"
-        className="flex-1 relative w-full flex flex-row justify-around flex-wrap items-center"
+        className="flex flex-grow overflow-auto flex-1 relative w-full flex flex-row justify-around flex-wrap items-center"
       >
         <div className="home-hero">
           <div className="home-title">

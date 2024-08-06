@@ -1,10 +1,10 @@
 .sidebar {
-  @apply flex flex-row flex-shrink-0 z-30;
+  @apply flex flex-row flex-shrink-0 z-30 sticky my-1 top-[0.25rem] overflow-auto bg-custom-off-dark-800;
 }
 
 .sidebar-content {
   transition: width 200ms;
-  @apply w-52 bg-custom-off-dark-800 pt-4 overflow-hidden;
+  @apply w-52 pt-4;
 }
 
 .indent {
@@ -44,19 +44,34 @@
 }
 
 @media screen and (max-width: 750px) {
-  .sidebar {
-    @apply absolute h-[calc(100%-6.5rem)];
-  }
+	.sidebar {
+		/* @apply overflow-x-hidden absolute mt-[3rem] h-[calc(100%-6.5rem)]; */
+		@apply absolute mt-[3rem] h-[calc(100%-6.5rem)];
+		/* @apply ml-2; */
+		
+	}
+
+	/* .sidebar-content {
+		@apply absolute;
+
+		& * {
+			opacity: 1;
+		}
+	} */
 
   .sidebar__foldout-button {
     @apply flex text-custom-text-300 h-max w-max p-2 rounded-r-md cursor-pointer;
   }
 
   .sidebar-content[data-folded-out="false"] {
-    @apply w-0;
+    @apply w-0 bg-transparent;
+
+		& * {
+			opacity: 0;
+		}
   }
 
-  .sidebar-content[data-folded-out="true"] {
-    @apply w-52;
-  }
+  /* .sidebar-content[data-folded-out="true"] {
+    @apply translate-x-52;
+  } */
 }

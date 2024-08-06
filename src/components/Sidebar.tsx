@@ -17,21 +17,37 @@ export default function SideBar(props: {
 }): ReactNode {
   const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(false);
   return (
-    <div className="sidebar">
-      <div className="sidebar-content" data-folded-out={sidebarFoldedOut}>
-        <h1 className="w-max mx-auto text-custom-off-dark-300 text-center">
-          {props.title}
-        </h1>
-        <Tree tree={props.tree} />
-      </div>
+    <>
       <div
-        className="sidebar__foldout-button"
-        data-folded-out={sidebarFoldedOut}
+        className={
+          `cursor-pointer text-custom-text-100 fixed top-[4rem] z-50 left-[0.5rem] p-1 hover:bg-custom-off-dark-300 rounded-full` +
+          ` ${sidebarFoldedOut ? "left-2" : "bg-custom-off-dark-300/60 rounded-r-md rounded-l-none pl-4 py-2 -left-2"}`
+        }
         onClick={() => setSidebarFoldedOut(!sidebarFoldedOut)}
+        style={{
+          transition: "transform 0.2s",
+          transform: sidebarFoldedOut ? "translateX(10rem)" : "translateX(0)",
+        }}
       >
-        <Chevron />
+        <Chevron style={{ rotate: sidebarFoldedOut ? "180deg" : "0deg", }}
+          height="1.5em"
+          width="1.5em"
+        />
       </div>
-    </div>
+      <div className="sidebar">
+        <div className="relative">
+          <div className="absolute right-20 top-0 text-custom-text-100">
+            <Chevron />
+          </div>
+        </div>
+        <div className="sidebar-content" data-folded-out={sidebarFoldedOut}>
+          <h1 className="w-max mx-auto text-custom-off-dark-300 text-center">
+            {props.title}
+          </h1>
+          <Tree tree={props.tree} />
+        </div>
+      </div>
+    </>
   );
 }
 

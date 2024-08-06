@@ -19,11 +19,12 @@ import Resume from "./routes/Resume.tsx";
 import "./globals.css";
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
-  <div className="flex flex-col justify-between items-center min-h-screen w-full gap-1">
-    <div className="flex flex-col w-full">
+  <div className="h-full w-full flex justify-between flex-col">
+  {/* <div className="flex flex-col justify-between items-center h-full w-full gap-1"> */}
+    {/* <div className="flex flex-col w-full"> */}
       <Header />
       <Nav />
-    </div>
+    {/* </div> */}
     {props.children}
   </div>
 );
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.body!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>

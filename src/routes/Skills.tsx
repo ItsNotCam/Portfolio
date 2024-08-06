@@ -255,7 +255,7 @@ const StartingSkills: Skill[] = [
     name: "Unity",
     skillType: SkillType.Software,
   },
-].sort((a, b) => (a.skillType > b.skillType ? 1 : -1));
+].sort((a, b) => (a.name > b.name ? 1 : -1));
 
 export default function About() {
 	const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
@@ -303,7 +303,7 @@ export default function About() {
   const filterSkills = (type: SkillType) => {
 		setSelectedFilter(type);
     if (type === SkillType.ALL) {
-      setDirectoryTree((oldTree) => updateSelectedItem(oldTree, "All Skills"));
+      setDirectoryTree((oldTree) => updateSelectedItem(oldTree, "all_skills"));
       setSkills(StartingSkills);
     } else {
       setDirectoryTree((oldTree) => updateSelectedItem(oldTree, type));
@@ -313,7 +313,7 @@ export default function About() {
 
   return (
     <>
-      <div id="skills" className="w-full h-full flex flex-grow">
+      <div id="skills" className="flex flex-grow overflow-auto">
         <SideBar tree={directoryTree} title="~/skills/" />
         <div className="p-4 w-full h-full flex-grow">
           <div className="flex flex-row justify-between items-center">
