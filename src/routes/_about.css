@@ -1,5 +1,5 @@
 .about-code-segment {
-  @apply max-w-[850px] mt-8 ml-8;
+  @apply max-w-[850px] mt-8 ml-4 p-4;
 }
 
 .about-sidebar {

@@ -30,7 +30,7 @@ const AboutText = (props: { page: string }): ReactNode => {
   switch (page) {
     case "passion":
       return (
-        <div className="about-code-segment">
+        <div className="about-code-segment bg-custom-dark/50 rounded-md backdrop-blur-sm">
           <CodeSegment keyPrefix="passion">
             <span className="font-normal">
               <br />
@@ -103,7 +103,7 @@ const AboutText = (props: { page: string }): ReactNode => {
       );
     case "hobbies":
       return (
-        <div className="about-code-segment">
+        <div className="about-code-segment bg-custom-dark/50 rounded-md backdrop-blur-sm">
           <CodeSegment keyPrefix="hobbies">
             <span className="font-normal text-custom-text-300">
               <br />
@@ -159,7 +159,7 @@ const AboutText = (props: { page: string }): ReactNode => {
       );
     case "goals":
       return (
-        <div className="about-code-segment">
+        <div className="about-code-segment bg-custom-dark/50 rounded-md backdrop-blur-sm">
           <CodeSegment keyPrefix="goals">
             <span className="font-normal text-custom-text-300">
               <br />

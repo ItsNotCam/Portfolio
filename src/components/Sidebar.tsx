@@ -20,8 +20,8 @@ export default function SideBar(props: {
     <>
       <div
         className={
-          `cursor-pointer text-custom-text-100 fixed top-[4rem] z-50 left-[0.5rem] p-1 hover:bg-custom-off-dark-300 rounded-full` +
-          ` ${sidebarFoldedOut ? "left-2" : "bg-custom-off-dark-300/60 rounded-r-md rounded-l-none pl-4 py-2 -left-2"}`
+          `cursor-pointer text-custom-text-100 fixed top-[4rem] z-50 left-[0.5rem] p-1 hover:bg-custom-off-dark-300 rounded-full min-[750px]:hidden` +
+          ` ${sidebarFoldedOut ? "left-2" : "bg-custom-off-dark-300/60 rounded-r-md rounded-l-none pl-4 py-2 -left-[0.25rem]"}`
         }
         onClick={() => setSidebarFoldedOut(!sidebarFoldedOut)}
         style={{
