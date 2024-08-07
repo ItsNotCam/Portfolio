@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import "./_sidebar.css";
 import { Chevron } from "./Icons";
 
@@ -15,7 +15,17 @@ export default function SideBar(props: {
   tree: DirectoryItem[];
   title: string;
 }): ReactNode {
-  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(false);
+  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(true);
+
+	useEffect(() => {
+		const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+		document.addEventListener("click", (e) => {
+			if (e.clientX > (13 * fontSize) && sidebarFoldedOut) {
+				setSidebarFoldedOut(false);
+			}
+		});
+	},[])
+
   return (
     <>
       <div
@@ -29,12 +39,13 @@ export default function SideBar(props: {
           transform: sidebarFoldedOut ? "translateX(10rem)" : "translateX(0)",
         }}
       >
-        <Chevron style={{ rotate: sidebarFoldedOut ? "180deg" : "0deg", }}
-          height="1.5em"
-          width="1.5em"
-        />
+				<Chevron style={{ rotate: sidebarFoldedOut ? "180deg" : "0deg", }}
+					height="1.5em"
+					width="1.5em"
+					className="z-30"
+				/>
       </div>
-      <div className="sidebar">
+      <div className="sidebar" id="sidebar">
         <div className="relative">
           <div className="absolute right-20 top-0 text-custom-text-100">
             <Chevron />

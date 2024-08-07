@@ -3,6 +3,7 @@ export const Chevron = (props: {
   width?: string;
   color?: string;
   style?: React.CSSProperties;
+	className?: string;
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -11,6 +12,7 @@ export const Chevron = (props: {
     width={props.width || "1em"}
     fill={props.color || "currentcolor"}
 		style={props.style || {}}
+		className={props.className || ""}
   >
     <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
   </svg>
