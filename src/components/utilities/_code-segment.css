@@ -28,11 +28,12 @@
   @apply bg-custom-red absolute p-2 h-1 w-1 rounded-full;
 }
 
-@media screen and (max-width: 640px) {
-  .breakpoint::before {
-    left: -1.5rem;
-  }
-  .breakpoint::after {
-    left: -1.75rem;
-  }
+/* 640px */
+@media screen and (max-width: 40rem) {
+	.breakpoint::before {
+		left: -1.5rem;
+	}
+	.breakpoint::after {
+		left: -1.75rem;
+	}
 }

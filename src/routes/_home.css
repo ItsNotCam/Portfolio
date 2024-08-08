@@ -56,7 +56,8 @@
   @apply text-custom-text-100;
 }
 
-@media screen and (max-width: 1400px) {
+/* 1400px */
+@media screen and (max-width: 87.5rem) {
   .home-title {
     font-size: 6rem;
   }
@@ -66,7 +67,8 @@
   }
 }
 
-@media screen and (max-width: 1150px) {
+/* 1150px */
+@media screen and (max-width: 71.875rem) {
   .home-hero {
     flex-direction: column;
   }
@@ -113,14 +115,16 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+/* 650px */
+@media screen and (max-width: 40.625rem) {
   .code-segment-wrapper {
     width: 100%;
     padding-inline: 1rem;
   }
 }
 
-@media screen and (max-width: 430px) {
+/* 430px */
+@media screen and (max-width: 26.875rem) {
   .home-title {
     font-size: 4.5rem;
   }

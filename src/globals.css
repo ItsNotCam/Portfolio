@@ -35,6 +35,12 @@ body {
   background-size: cover;
   /* @apply bg-custom-dark; */
 	height: 100vh;
+	width: 100%;
+}
+
+#root {
+	height: 100%;
+	width: 100%;
 }
 
 @font-face {

@@ -1,0 +1,46 @@
+#project-list:has(>:hover) {
+	/* & > :hover {
+		position: fixed;
+	} */
+
+	& > :not(:hover) {
+  	opacity: 0.5;
+	}
+}
+
+.project-item {
+	transition: opacity 200ms;
+}
+
+.project-skill-item-list {
+	gap: 0.5rem 0;
+	@apply flex flex-row flex-wrap rounded-lg h-min;
+}
+
+.project-skill-item {
+	transition: all 350ms;
+	/* transition: bg-opacity 500ms, bg-color 500ms, opacity 500ms, margin 200ms; */
+	@apply overflow-hidden flex flex-row items-center text-lg h-[1.5rem] mr-2;
+}
+
+.project-skill-title {
+	transition: all 350ms;
+	@apply max-w-0 ml-2;
+}
+
+#project-list > *:hover {
+	@apply rounded-lg bg-custom-off-dark-300/35 shadow-xl;
+
+	& .project-skill-title {
+		@apply max-w-[32rem];
+	}
+
+	& .project-skill-item {
+		@apply mr-4;
+	}
+
+	& .project-item {
+		position: absolute;
+		transition: height 0.3s ease;
+	}
+}

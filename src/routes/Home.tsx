@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Footer from "../components/Footer";
 import "./_common.css";
 import "./_home.css";
-import CodeSegment, { CodeIndent } from "../components/CodeSegment";
+import CodeSegment, { CodeIndent } from "../components/utilities/CodeSegment";
 import {
   Blue,
   Yellow,
@@ -12,7 +12,7 @@ import {
   LightGreen,
   OffBlue,
   Light,
-} from "../components/ColoredText";
+} from "../components/utilities/ColoredText";
 
 const PageTitle = (): ReactNode => (
   <>
@@ -88,7 +88,7 @@ export default function Home() {
     <>
       <div
         id="Home"
-        className="flex flex-grow overflow-auto flex-1 relative w-full flex flex-row justify-around flex-wrap items-center"
+        className="flex flex-grow overflow-auto flex-1 relative w-full flex-row justify-around flex-wrap items-center"
       >
         <div className="home-hero">
           <div className="home-title">

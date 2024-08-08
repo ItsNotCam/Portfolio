@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./_nav.css";
 import { useState } from "react";
-import { Hamburger } from "./Icons";
+import { Hamburger } from "./utilities/Icons";
 
 export default function Nav() {
   const location = useLocation();

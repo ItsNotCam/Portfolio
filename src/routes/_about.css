@@ -1,5 +1,5 @@
 .about-code-segment {
-  @apply max-w-[850px] mt-8 ml-4 p-4;
+  @apply max-w-[53.125rem] mt-8 ml-4 p-4;
 }
 
 .about-sidebar {
@@ -7,13 +7,15 @@
   @apply w-52 flex-shrink-0 overflow-hidden bg-custom-off-dark-800/85;
 }
 
-@media screen and (max-width: 850px) {
+/* 850px */
+@media screen and (max-width: 53.125rem) {
   .about-code-segment {
     @apply ml-4;
   }
 }
 
-@media screen and (max-width: 640px) {
+/* 640px */
+@media screen and (max-width: 40rem) {
   .about-code-segment {
     @apply ml-0;
   }

@@ -6,7 +6,8 @@
   @apply h-full flex text-center items-center justify-center bg-custom-off-dark-800;
 }
 
-@media screen and (max-width: 640px) {
+/* 640px */
+@media screen and (max-width: 40rem) {
   .footer-path {
     display: none;
   }
@@ -20,7 +21,8 @@
   }
 }
 
-@media screen and (max-width: 460px) {
+/* 460px */
+@media screen and (max-width: 28.75rem) {
   .footer-path,
   .footer-title {
     display: none;

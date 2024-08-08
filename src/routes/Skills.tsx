@@ -5,257 +5,21 @@ import SideBar, {
   updateSelectedItem,
 } from "../components/Sidebar";
 import {
-  Adobe_CCIcon,
-  BashIcon,
-  BlenderIcon,
-  BootstrapIcon,
-  CSharpIcon,
-  CSS3Icon,
-  DockerIcon,
-  ExpressJSIcon,
-  FlaskIcon,
   FolderIcon,
-  GitHubIcon,
-  GitIcon,
   GridView,
-  HTML5Icon,
-  JavaIcon,
-  JavascriptIcon,
   JiraIcon,
-  JQueryIcon,
   ListView,
   M365Icon,
-  Material_UIIcon,
   MongoDBIcon,
-  MySQLIconSmall,
   NextJSIcon,
-  NodeJSIcon,
-  PostCSSIcon,
-  PostgreSQLIcon,
-  PowerShellIcon,
   Python3Icon,
-  ReactJSIcon,
-  SQLiteIcon,
-  Tailwind_CSSIcon,
-  TypeScriptIcon,
   UbuntuIcon,
-  UnityIcon,
-  Visual_StudioIcon,
-  VMWareIcon,
-  WebpackIcon,
-  WindowsIcon,
-} from "../components/Icons";
+} from "../components/utilities/Icons";
 
 import "./_skills.css";
-import CodeSegment, { CodeIndent } from "../components/CodeSegment";
-import { Blue, Light, LightGreen, Orange, Red, Yellow } from "../components/ColoredText";
-
-enum SkillType {
-  Languages = "languages",
-  Frameworks = "frameworks",
-  Software = "software",
-  Database = "database",
-  Tools = "tools",
-  OS = "platforms",
-  ALL = "all_skills",
-}
-
-type Skill = {
-  icon: JSX.Element;
-  name: string;
-  skillType: SkillType;
-};
-
-const StartingSkills: Skill[] = [
-  {
-    icon: <Tailwind_CSSIcon />,
-    name: "Tailwind",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <HTML5Icon />,
-    name: "HTML",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <CSS3Icon />,
-    name: "CSS",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <JavascriptIcon />,
-    name: "JavaScript",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <TypeScriptIcon />,
-    name: "TypeScript",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <ReactJSIcon />,
-    name: "React",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <NextJSIcon />,
-    name: "NextJS",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <GitIcon />,
-    name: "Git",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <DockerIcon />,
-    name: "Docker",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <WindowsIcon />,
-    name: "Windows",
-    skillType: SkillType.OS,
-  },
-  {
-    icon: <UbuntuIcon />,
-    name: "Ubuntu",
-    skillType: SkillType.OS,
-  },
-  {
-    icon: <Visual_StudioIcon />,
-    name: "Visual Studio",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <BashIcon />,
-    name: "Shell",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <CSharpIcon />,
-    name: "C#",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <VMWareIcon />,
-    name: "VMWare",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <NodeJSIcon />,
-    name: "NodeJS",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <PowerShellIcon />,
-    name: "PowerShell",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <Python3Icon />,
-    name: "Python 3",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <FlaskIcon />,
-    name: "Flask",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <JiraIcon />,
-    name: "Atlassian Products",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <MongoDBIcon />,
-    name: "MongoDB",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: (
-      <span className="text-custom-text-100">
-        <GitHubIcon color="currentColor" />
-      </span>
-    ),
-    name: "GitHub",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: (
-      <span className="text-custom-blue">
-        <JQueryIcon color="currentColor" />
-      </span>
-    ),
-    name: "JQuery",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <Material_UIIcon />,
-    name: "Material UI",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <BootstrapIcon />,
-    name: "Bootstrap",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <BlenderIcon />,
-    name: "Blender",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <ExpressJSIcon />,
-    name: "Express",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <MySQLIconSmall />,
-    name: "MySQL",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: <PostgreSQLIcon />,
-    name: "PostgreSQL",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: <SQLiteIcon />,
-    name: "SQLite",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: <PostCSSIcon />,
-    name: "PostCSS",
-    skillType: SkillType.Tools,
-  },
-  {
-    icon: <WebpackIcon />,
-    name: "Webpack",
-    skillType: SkillType.Tools,
-  },
-  {
-    icon: <JavaIcon />,
-    name: "Java",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <Adobe_CCIcon />,
-    name: "Adobe CC",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <M365Icon />,
-    name: "M365",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <UnityIcon />,
-    name: "Unity",
-    skillType: SkillType.Software,
-  },
-].sort((a, b) => (a.name > b.name ? 1 : -1));
+import CodeSegment, { CodeIndent } from "../components/utilities/CodeSegment";
+import { Blue, Light, LightGreen, Orange, Red, Yellow } from "../components/utilities/ColoredText";
+import { Skill, SkillType, StartingSkills } from "../data/skills";
 
 export default function About() {
 	const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
@@ -344,9 +108,7 @@ export default function About() {
           </div>
           <div className="flex flex-row gap-1 mt-4">
             <div
-              className={`flex flex-wrap flex-grow-0 w-[60%] p-4 ${
-                compactView ? "gap-2" : "gap-3"
-              } flex-grow-0 overflow-auto w-auto`}
+              className={`grid grid-cols-4 gap-2`}
               style={{ fontSize: compactView ? "1.25em" : "2em" }}
             >
               {skills.map((skill, index) => (
@@ -361,7 +123,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-						<div className="border-l-2 border-custom-text-300 px-4 mt-4 w-[40%]">
+						{/* <div className="border-l-2 border-custom-text-300 px-4 mt-4 w-[40%]">
 							<CodeSegment keyPrefix="skills">
 								<br />
 								<br />
@@ -387,7 +149,7 @@ export default function About() {
 								<br />
 								<br />
 							</CodeSegment>
-						</div>
+						</div> */}
 						{/* <img src="/public/images/2001.jpg" className="w-[300px]"></img> */}
           </div>
         </div>

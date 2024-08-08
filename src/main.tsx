@@ -17,14 +17,12 @@ import Work from "./routes/Work.tsx";
 import Resume from "./routes/Resume.tsx";
 
 import "./globals.css";
+import Projects from "./routes/Projects.tsx";
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="h-full w-full flex justify-between flex-col">
-  {/* <div className="flex flex-col justify-between items-center h-full w-full gap-1"> */}
-    {/* <div className="flex flex-col w-full"> */}
-      <Header />
-      <Nav />
-    {/* </div> */}
+		<Header />
+		<Nav />
     {props.children}
   </div>
 );
@@ -52,6 +50,15 @@ export const routes = [
     element: (
       <Wrapper>
         <Skills />
+      </Wrapper>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/Projects",
+    element: (
+      <Wrapper>
+        <Projects />
       </Wrapper>
     ),
     errorElement: <ErrorPage />,
@@ -85,7 +92,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.body!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>

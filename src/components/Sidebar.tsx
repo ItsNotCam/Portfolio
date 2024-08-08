@@ -1,10 +1,10 @@
 import { ReactNode, useEffect, useState } from "react";
 import "./_sidebar.css";
-import { Chevron } from "./Icons";
+import { Chevron } from "./utilities/Icons";
 
 export type DirectoryItem = {
-  name: string;
-  icon: JSX.Element;
+  name: string | undefined;
+  icon: JSX.Element | undefined;
   disabled?: boolean;
   selected?: boolean;
   onClick?: () => void;
@@ -14,6 +14,7 @@ export type DirectoryItem = {
 export default function SideBar(props: {
   tree: DirectoryItem[];
   title: string;
+	fontSize?: string
 }): ReactNode {
   const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(true);
 
@@ -31,7 +32,7 @@ export default function SideBar(props: {
       <div
         className={
           `cursor-pointer text-custom-text-100 fixed top-[4rem] z-50 left-[0.5rem] p-1 hover:bg-custom-off-dark-300 rounded-full min-[750px]:hidden` +
-          ` ${sidebarFoldedOut ? "left-2" : "bg-custom-off-dark-300/60 rounded-r-md rounded-l-none pl-4 py-2 -left-[0.5rem]"}`
+          ` ${sidebarFoldedOut ? "left-2" : "bg-custom-off-dark-300/60 rounded-r-md rounded-l-none pl-4 py-2 -left-[0.8rem]"}`
         }
         onClick={() => setSidebarFoldedOut(!sidebarFoldedOut)}
         style={{
@@ -51,8 +52,8 @@ export default function SideBar(props: {
             <Chevron />
           </div>
         </div>
-        <div className="sidebar-content" data-folded-out={sidebarFoldedOut}>
-          <h1 className="w-max mx-auto text-custom-off-dark-300 text-center">
+        <div className="sidebar-content" data-folded-out={sidebarFoldedOut} style={{fontSize: props.fontSize || "1rem"}}>
+          <h1 className="w-max mx-auto text-custom-off-dark-300 text-center mb-2">
             {props.title}
           </h1>
           <Tree tree={props.tree} />
@@ -94,8 +95,8 @@ export const Tree = (props: {
 };
 
 const Span = (props: {
-  icon: JSX.Element;
-  name: string;
+  icon: JSX.Element | undefined;
+  name: string | undefined;
   className?: string;
   color?: string;
   selected?: boolean;

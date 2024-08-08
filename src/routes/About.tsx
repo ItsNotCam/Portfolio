@@ -10,7 +10,7 @@ import {
   InfoIcon,
   Python3Icon,
   TypeScriptIcon,
-} from "../components/Icons";
+} from "../components/utilities/Icons";
 import {
   Blue,
   Green,
@@ -20,8 +20,8 @@ import {
   Pink,
   Red,
   Yellow,
-} from "../components/ColoredText";
-import CodeSegment, { Breakpoint, CodeIndent } from "../components/CodeSegment";
+} from "../components/utilities/ColoredText";
+import CodeSegment, { Breakpoint, CodeIndent } from "../components/utilities/CodeSegment";
 
 import "./_about.css";
 
@@ -239,12 +239,10 @@ const AboutText = (props: { page: string }): ReactNode => {
 export default function About(): ReactNode {
   const updateSelection = (selectionName: string): void => {
     setSelectedName(selectionName);
-    setDirectoryTree((old) => {
-      return updateSelectedItem(old, selectionName, setSelectedPage);
-    });
+    setDirectoryTree((old) => updateSelectedItem(old, selectionName, setSelectedPage));
   };
 
-  const [selectedName, setSelectedName] = useState<string>("passion");
+  const [selectedName, setSelectedName] = useState<string>("passion.py");
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
     {
       name: "..",
@@ -313,7 +311,7 @@ export default function About(): ReactNode {
   // this is used so that the footer text can be updated with the correct pathing
   // automatically with the use of the directory tree object
   const pagesInMeSection: string[] = (directoryTree[1].children || [])?.map(
-    (child) => child.name
+    (child) => child.name || ""
   );
 
   return (
