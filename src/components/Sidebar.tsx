@@ -14,9 +14,12 @@ export type DirectoryItem = {
 export default function SideBar(props: {
   tree: DirectoryItem[];
   title: string;
-	fontSize?: string
+	fontSize?: string;
+	alwaysVisible?: boolean;
 }): ReactNode {
-  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(false);
+	const alwaysVisible: boolean = true;
+	// const alwaysVisible: boolean = (props.alwaysVisible === undefined) ? true : props.alwaysVisible;
+  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(alwaysVisible);
 
 	useEffect(() => {
 		const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -26,6 +29,7 @@ export default function SideBar(props: {
 			}
 		});
 	},[])
+
 
   return (
     <>
@@ -46,7 +50,7 @@ export default function SideBar(props: {
 					className="z-30"
 				/>
       </div>
-      <div className="sidebar" id="sidebar">
+      <div className="sidebar" id="sidebar" data-always-visible={alwaysVisible} >
         <div className="sidebar-content" data-folded-out={sidebarFoldedOut} style={{fontSize: props.fontSize || "1rem"}}>
           <h1 className="w-max mx-auto text-custom-off-dark-300 text-center mb-2">
             {props.title}

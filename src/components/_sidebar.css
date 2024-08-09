@@ -2,6 +2,22 @@
 	@apply flex flex-row flex-shrink-0 z-30 sticky my-1 top-[0.25rem] overflow-x-hidden overflow-y-auto bg-custom-off-dark-800;
 }
 
+.sidebar[data-always-visible="false"] {
+	@apply absolute mt-[3rem] h-[calc(100%-6.5rem)] overflow-hidden;
+
+	& .sidebar__foldout-button {
+		@apply flex text-custom-text-300 h-max w-max p-2 rounded-r-md cursor-pointer;
+	}
+
+	& .sidebar-content[data-folded-out="false"] {
+		@apply w-0 bg-transparent -ml-8;
+
+		& * {
+			opacity: 0;
+		}
+	}
+}
+
 .sidebar-content {
 	transition: width 200ms;
 	@apply w-52 pt-4;

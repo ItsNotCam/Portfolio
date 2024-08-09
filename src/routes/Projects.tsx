@@ -21,6 +21,7 @@ export default function About() {
   const [selectedProject, setSelectedProject] = useState<string>("");
 	const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
 	const [editedProjects, setEditedProjects] = useState<(Project & {commit_count?: string})[]>([]);
+	const [data, setData] = useState<string>(`# ${ProjectList[0].name}\n` + "No additional information available.");
 
 	useEffect(() => {
 		let items: DirectoryItem[] = [{
@@ -32,7 +33,7 @@ export default function About() {
 			items.push({
 				icon: undefined,
 				name: project.name,
-				onClick: () => updateSelection(project.name, project.readmeLink),
+				onClick: () => updateSelection(project),
 				selected: selectedProject === project.name,
 			})
 		});
@@ -70,24 +71,24 @@ export default function About() {
 		fetchCommits();
 	}, []);
 
-	const [data, setData] = useState<string>("");
-	const [displayData, setDisplayData] = useState<boolean>(false);
-
-	const fetchData = async (url: string): Promise<void> => {
+	const fetchReadme = async (url: string): Promise<void> => {
 		try {
 			const response = await fetch(url);
 			const result = await response.text();
 			setData(result);
-			setDisplayData(true);
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		}
 	};
 
-  const updateSelection = (selectionName: string, readmeLink: string | undefined): void => {
-    setSelectedProject(selectionName);
-    setSidebarItems((old) => updateSelectedItem(old, selectionName));
-		const element = document.getElementById(`project-item-${selectionName}`);
+  const updateSelection = (project: Project): void => {
+		const projectName: string = project.name;
+		const readmeLink: string | undefined = project.readmeLink;
+		const additionalContent: string | undefined = project.additionalContent;
+
+    setSelectedProject(projectName);
+    setSidebarItems((old) => updateSelectedItem(old, projectName));
+		const element = document.getElementById(`project-item-${projectName}`);
 		if(element) {
 			element.scrollIntoView({ behavior: "smooth", block: "center" });
 			
@@ -99,73 +100,69 @@ export default function About() {
 		}
 
 		if(readmeLink) {
-			fetchData(readmeLink);
+			fetchReadme(readmeLink);
+		} else if(additionalContent) {
+			setData(`# ${projectName}\n` + (additionalContent || ""));
+		} else {
+			setData(`# ${projectName}\n` + "No additional information available.");
 		}
-
   };
-
-	const RenderReadme = (): ReactNode => {
-		return (
-		<div className={`transition-all duration-500 sticky top-8 markdown flex flex-col text-custom-text-300 z-50 w-1/2 flex-grow-0 mr-8 bg-custom-off-dark-300/5 backdrop-blur-lg mt-8 ${displayData ? "w-[790px]" : "w-0"}`}>
-			<div className="overflow-auto p-4">
-				<Markdown remarkPlugins={[remarkGfm]}>{data}</Markdown>
-			</div>
-		</div>
-		)
-	}
 
   return (
     <>
       <div id="projects" className="flex flex-grow overflow-auto">
-        <SideBar tree={sidebarItems} title="~/projects/" fontSize="0.9rem" />
-        <div className={`flex flex-col gap-4 text-custom-text-300 mx-4 my-8 cursor-default `} id="project-list">
-          {editedProjects.map((project, index) => (
-						<div className="transition-opacity duration-300 flex flex-row gap-4 rounded-lg" id={`project-item-${project.name}`}>
-							<div className="text-custom-text-200 pl-4 mt-1">{project.timeframe || "2024"}</div>
-							<div id="divider" className="flex flex-col justify-center items-center gap-2 pt-2">
-								<div className="project-item__circle w-4 h-4 bg-custom-orange rounded-full shadow-xl" />
-								<div className="w-[2px] h-auto flex-grow bg-custom-text-100" />
-							</div>
-							<div id="card" className="p-4 project-item flex flex-col gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`}>
-								<div className="flex flex-row items-center gap-1" onClick={() => updateSelection(project.name, project.readmeLink)}>
-									
-								<div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
-										<h2 className="text-xl text-custom-blue transition-colors duration-200 hover:underline ">{project.name}</h2>
-										<div className="project-item-expand-icon text-sm ml-2 transition-colors">
-											<NorthEast />
+        <SideBar tree={sidebarItems} title="~/projects/" fontSize="0.9rem" alwaysVisible={false}/>
+				<div className="project-grid gap-1 w-full overflow-x-hidden">
+					<div className={`project-grid__projects overflow-y-scroll flex flex-col flex-grow-0 gap-4 text-custom-text-300 p-2 mr-2 cursor-default `} id="project-list">
+						{editedProjects.map((project, index) => (
+							<div className="transition-opacity duration-300 flex flex-row flex-grow gap-4 rounded-md" id={`project-item-${project.name}`}>
+								<div id="timeframe" className="text-custom-text-200 pl-4 mt-1">{project.timeframe || "2024"}</div>
+								<div id="divider" className="flex flex-col justify-center items-center gap-2 pt-2">
+									<div className="project-item__circle w-4 h-4 bg-custom-orange rounded-full shadow-xl" />
+									<div className="w-[2px] h-auto flex-grow bg-custom-text-100" />
+								</div>
+								<div id="card" className="p-4 project-item transition-all rounded-sm flex flex-col flex-grow gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`}>
+									<div className="flex flex-row items-center gap-1" onClick={() => updateSelection(project)}>
+										{project.githubLink &&
+											<a target="_blank" href={project.githubLink} className="relative text-custom-text-300 ">
+												{project.commit_count && <span className="absolute -top-4 text-xs text-center w-full">{project.commit_count}</span>}
+												<GitHubIcon height="1.5em" width="1.5em" className="hover:text-custom-text-100 transition-colors"/>
+											</a>
+										}
+										{project.demoLink && 
+											<a target="_blank" href={project.demoLink} className="text-custom-text-300 hover:text-custom-text-100 transition-colors" >
+												<ExploreIcon height="1.5em" width="1.5em" />
+											</a>
+										}
+										{project.readmeLink &&
+											<button className="text-custom-text-300 hover:text-custom-text-100 transition-colors" onClick={() => fetchReadme(project.readmeLink!)}>
+												<SummarizeOutlined style={{height: "1em", width: "1em"}}/>
+											</button>
+										}
+										<div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
+											<h2 className="text-lg text-custom-blue transition-colors duration-200 hover:underline ">{project.name}</h2>
+											<div className="project-item-expand-icon text-sm ml-2 transition-colors">
+												<NorthEast style={{height: "1rem", width: "1rem"}} />
+											</div>
 										</div>
 									</div>
-									{project.demoLink && 
-										<a target="_blank" href={project.demoLink} className="text-custom-text-300 hover:text-custom-text-100 transition-colors" >
-											<ExploreIcon height="2rem" width="2rem" />
-										</a>
-									}
-									{project.readmeLink &&
-										<button className="text-custom-text-300 hover:text-custom-text-100 transition-colors" onClick={() => fetchData(project.readmeLink!)}>
-											<SummarizeOutlined style={{height: "2rem", width: "2rem"}}/>
-										</button>
-									}
-									{project.githubLink &&
-										<a target="_blank" href={project.githubLink} className="relative text-custom-text-300 ">
-											{project.commit_count && <span className="absolute -top-4 text-xs text-center w-full">{project.commit_count}</span>}
-											<GitHubIcon height="2rem" width="2rem" className="hover:text-custom-text-100 transition-colors"/>
-										</a>
-									}
+									<div className="project-item-content transition-colors duration-1000 text-sm">{project.content}</div>
+									<ul className="project-skill-item-list">
+										{project.skills.map((skill, index) => (
+											<li key={index} className="project-skill-item" title={skill.name} id={skill.name}>
+												<span className="project-skill-icon">{skill.icon}</span>
+												<span className="project-skill-title">{skill.name}</span>
+											</li>
+										))}
+									</ul>
 								</div>
-								<p className="project-item-content transition-colors duration-1000">{project.content}</p>
-								<ul className="project-skill-item-list">
-									{project.skills.map((skill, index) => (
-										<li key={index} className="project-skill-item" title={skill.name} id={skill.name}>
-											<span className="project-skill-icon">{skill.icon}</span>
-											<span className="project-skill-title">{skill.name}</span>
-										</li>
-									))}
-								</ul>
 							</div>
+						))}
 					</div>
-          ))}
-        </div>
-				<RenderReadme />
+					<div className={`project-grid__markdown top-0 text-custom-text-300 z-50 mr-8 bg-custom-off-dark-300/5 backdrop-blur-lg my-4 max-h-screen overflow-auto p-4 markdown `}>
+						<Markdown remarkPlugins={[remarkGfm]}>{data}</Markdown>
+					</div>
+				</div>
       </div>
       <Footer>
         <span className="text-custom-text-300">
