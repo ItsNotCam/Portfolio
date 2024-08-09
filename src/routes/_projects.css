@@ -11,7 +11,7 @@
 } */
 
 .project-item {
-	transition: all 200ms;
+	transition: all 500ms;
 	/*opacity 200ms, max-width 200ms;*/
 	@apply rounded-lg;
 }
@@ -42,10 +42,22 @@
 	@apply max-w-0 ml-2;
 }
 
-.project-item:hover {
-	& .project-item-expand-icon {
-		transform: translate(0.35rem, -0.35rem);
+.project-item__header-link:hover {
+	@apply hover:text-blue-300 ;
+
+	& h2 {
+		@apply underline;
 	}
+
+	& .project-item-expand-icon {
+		transform: translate(0.2rem, -0.35rem);
+	}
+}
+
+.project-item:hover {
+	/* & .project-item-expand-icon {
+		transform: translate(0.35rem, -0.35rem);
+	} */
 
 	@apply bg-custom-off-dark-300/35 shadow-xl;
 
