@@ -35,10 +35,10 @@ export default function About(): ReactNode {
 
   useEffect(() => {
     let items: DirectoryItem[] = [{
-			icon: <FolderIcon />,
-			name: "..",
-			disabled: true,
-		}];
+      icon: <FolderIcon />,
+      name: "..",
+      disabled: true,
+    }];
 
     ProjectList.forEach((project) => {
       items.push({
@@ -51,39 +51,39 @@ export default function About(): ReactNode {
     setSidebarItems(items);
 
     /*
-		async function fetchCommits() {
-			const extractUsernameAndRepoName = (githubLink: string): {username: string, repoName: string} => {
-				const regex = /github\.com\/(?<username>[^/]+)\/(?<repoName>[^/]+)/;
-				const match = githubLink.match(regex);
-				const { username, repoName } = match?.groups || {};
-				return { username, repoName };
-			}
-	
-			const extractPageCountFromLinkHeader = (linkHeader: string | null): string => {
-				const regex = /&page=(?<page_count>\d+)>; rel="last"/;
-				const match = linkHeader?.match(regex);
-				const pageCount = match?.groups?.page_count || "0";
-				return pageCount;
-			}
-			// return
-			// const updatedProjects: ProjectTypeDisplay = await Promise.all(
-			// 	ProjectList.map(async (project) => {
-			// 		if(project.githubLink === undefined) 
-			// 			return project as ProjectTypeDisplay;
+    async function fetchCommits() {
+      const extractUsernameAndRepoName = (githubLink: string): {username: string, repoName: string} => {
+        const regex = /github\.com\/(?<username>[^/]+)\/(?<repoName>[^/]+)/;
+        const match = githubLink.match(regex);
+        const { username, repoName } = match?.groups || {};
+        return { username, repoName };
+      }
+  
+      const extractPageCountFromLinkHeader = (linkHeader: string | null): string => {
+        const regex = /&page=(?<page_count>\d+)>; rel="last"/;
+        const match = linkHeader?.match(regex);
+        const pageCount = match?.groups?.page_count || "0";
+        return pageCount;
+      }
+      // return
+      // const updatedProjects: ProjectTypeDisplay = await Promise.all(
+      //   ProjectList.map(async (project) => {
+      //     if(project.githubLink === undefined) 
+      //       return project as ProjectTypeDisplay;
 
-			// 		// const { username, repoName } = extractUsernameAndRepoName(project.githubLink);
-			// 		// const url = `https://api.github.com/repos/${username}/${repoName}/commits?sha=master&per_page=1&page=1`;
-			// 		// const response = await fetch(url);
-			// 		// const linkHeader = response.headers.get("link");
-			// 		// const pageCount = extractPageCountFromLinkHeader(linkHeader);
-			// 		// return { ...project, commit_count: pageCount };
-			// 		return { ...project, commit_count: 0 };
-			// 	})
-			// );
-			setEditedProjects(ProjectList);
-		}
-		fetchCommits();
-		*/
+      //     // const { username, repoName } = extractUsernameAndRepoName(project.githubLink);
+      //     // const url = `https://api.github.com/repos/${username}/${repoName}/commits?sha=master&per_page=1&page=1`;
+      //     // const response = await fetch(url);
+      //     // const linkHeader = response.headers.get("link");
+      //     // const pageCount = extractPageCountFromLinkHeader(linkHeader);
+      //     // return { ...project, commit_count: pageCount };
+      //     return { ...project, commit_count: 0 };
+      //   })
+      // );
+      setEditedProjects(ProjectList);
+    }
+    fetchCommits();
+    */
 
     async function fetchReadmes() {
       const updatedProjects = await Promise.all(
@@ -93,7 +93,7 @@ export default function About(): ReactNode {
               console.log("Fetching readme:", project.readmeLink);
               const response = await fetch(project.readmeLink);
               const readmeContent = await response.text();
-							console.log(readmeContent)
+              console.log(readmeContent)
               return { ...project, readmeContent: readmeContent };
             } catch (error) {
               console.error("Error fetching readme:", error);
@@ -132,10 +132,10 @@ export default function About(): ReactNode {
       }
     }
 
-		if(project.readmeLink) {
-			setData(`# ${projectName}\n` + `Loading Content...`);
-			fetch(project.readmeLink).then(r => r.text()).then(t => setData(t));
-		} else if (additionalContent) {
+    if(project.readmeLink) {
+      setData(`# ${projectName}\n` + `Loading Content...`);
+      fetch(project.readmeLink).then(r => r.text()).then(t => setData(t));
+    } else if (additionalContent) {
       setData(`# ${projectName}\n` + (additionalContent || ""));
     } else {
       setData(`# ${projectName}\n` + "No additional information available.");
@@ -214,24 +214,24 @@ export default function About(): ReactNode {
           alwaysVisible={false}
         />
         <div className="project-grid gap-1 w-full overflow-x-hidden">
-				<div id="project-list" className={`project-grid__projects overflow-y-scroll flex flex-col flex-grow-0 gap-4 text-custom-text-300 p-2 mr-2 cursor-default `}>
-					{editedProjects.map((project, index) => (
-						<div id={`project-item-${project.name}`} className="transition-opacity duration-300 flex flex-row flex-grow gap-4 rounded-md">
-							<ProjectBefore project={project} />
-							<div id={`card=${project.name}`} className="p-4 project-item transition-all rounded-sm flex flex-col flex-grow gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`}>
-								<div id={`project-header-${project.name}`} className="flex flex-row items-center gap-1" onClick={() => updateSelection(project)}>
-									<GitHubLink project={project} />
-									<ReadmeLink project={project} />
-									<ProjectTitle project={project} />
-								</div>
-								<div className="project-item-content transition-colors duration-1000 text-sm">
-									{project.content}
-								</div>
-								<ProjectSkills project={project} />
-							</div>
-						</div>
-					))}
-				</div>
+        <div id="project-list" className={`project-grid__projects overflow-y-scroll flex flex-col flex-grow-0 gap-4 text-custom-text-300 p-2 mr-2 cursor-default `}>
+          {editedProjects.map((project, index) => (
+            <div id={`project-item-${project.name}`} className="transition-opacity duration-300 flex flex-row flex-grow gap-4 rounded-md">
+              <ProjectBefore project={project} />
+              <div id={`card=${project.name}`} className="p-4 project-item transition-all rounded-sm flex flex-col flex-grow gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`}>
+                <div id={`project-header-${project.name}`} className="flex flex-row items-center gap-1" onClick={() => updateSelection(project)}>
+                  <GitHubLink project={project} />
+                  <ReadmeLink project={project} />
+                  <ProjectTitle project={project} />
+                </div>
+                <div className="project-item-content transition-colors duration-1000 text-sm">
+                  {project.content}
+                </div>
+                <ProjectSkills project={project} />
+              </div>
+            </div>
+          ))}
+        </div>
           <div ref={readmeRef} className={`project-grid__markdown top-0 text-custom-text-300 z-50 mr-8 bg-custom-off-dark-300/5 backdrop-blur-lg my-4 max-h-screen overflow-auto p-4 markdown `}>
             <Markdown remarkPlugins={[remarkGfm]}>{data}</Markdown>
           </div>

@@ -3,7 +3,7 @@ export const Chevron = (props: {
   width?: string;
   color?: string;
   style?: React.CSSProperties;
-	className?: string;
+  className?: string;
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -11,8 +11,8 @@ export const Chevron = (props: {
     viewBox="0 -960 960 960"
     width={props.width || "1em"}
     fill={props.color || "currentcolor"}
-		style={props.style || {}}
-		className={props.className || ""}
+    style={props.style || {}}
+    className={props.className || ""}
   >
     <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
   </svg>
@@ -32,7 +32,7 @@ export const ListView = (props: {
       viewBox="0 -960 960 960"
       width={props.width || "1.5em"}
       fill={props.color || "currentColor"}
-			style={props.style || {}}
+      style={props.style || {}}
     >
       <path d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z" />
     </svg>
@@ -327,8 +327,8 @@ export const GitHubIcon = (props: {
   height?: string;
   width?: string;
   color?: string;
-	className?: string;
-	style?: React.CSSProperties;
+  className?: string;
+  style?: React.CSSProperties;
 }) => {
   return (
     <svg
@@ -337,8 +337,8 @@ export const GitHubIcon = (props: {
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-			className={props.className || ""}
-			style={props.style || {}}
+      className={props.className || ""}
+      style={props.style || {}}
     >
       <path
         d="M18.0001 3.59998C10.0477 3.59998 3.6001 10.0476 3.6001 18C3.6001 24.7476 8.2465 30.3936 14.5105 31.956C14.4433 31.7616 14.4001 31.536 14.4001 31.2564V28.7952C13.8157 28.7952 12.8365 28.7952 12.5905 28.7952C11.6053 28.7952 10.7293 28.3716 10.3045 27.5844C9.8329 26.7096 9.7513 25.3716 8.5825 24.5532C8.2357 24.2808 8.4997 23.97 8.8993 24.012C9.6373 24.2208 10.2493 24.7272 10.8253 25.4784C11.3989 26.2308 11.6689 26.4012 12.7405 26.4012C13.2601 26.4012 14.0377 26.3712 14.7697 26.256C15.1633 25.2564 15.8437 24.336 16.6753 23.9016C11.8801 23.4084 9.5917 21.0228 9.5917 17.784C9.5917 16.3896 10.1857 15.0408 11.1949 13.9044C10.8637 12.7764 10.4473 10.476 11.3221 9.59998C13.4797 9.59998 14.7841 10.9992 15.0973 11.3772C16.1725 11.0088 17.3533 10.8 18.5941 10.8C19.8373 10.8 21.0229 11.0088 22.1005 11.3796C22.4101 11.004 23.7157 9.59998 25.8781 9.59998C26.7565 10.4772 26.3353 12.7872 26.0005 13.9128C27.0037 15.0468 27.5941 16.392 27.5941 17.784C27.5941 21.0204 25.3093 23.4048 20.5213 23.9004C21.8389 24.588 22.8001 26.52 22.8001 27.9756V31.2564C22.8001 31.3812 22.7725 31.4712 22.7581 31.578C28.3693 29.6112 32.4001 24.2832 32.4001 18C32.4001 10.0476 25.9525 3.59998 18.0001 3.59998Z"
@@ -1491,15 +1491,15 @@ export const SQLServerIcon = (props: {
   height?: string;
   width?: string;
   color?: string;
-	className?: string
+  className?: string
 }) => {
-	return (
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
       width={props.width || "1.5em"}
       height={props.height || "1.5em"}
-			className={props.className || ""}
+      className={props.className || ""}
     >
       <path
         fill="#cfd8dc"

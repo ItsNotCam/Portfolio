@@ -22,7 +22,7 @@ import { Blue, Light, LightGreen, Orange, Red, Yellow } from "../components/util
 import { Skill, SkillType, StartingSkills } from "../data/skills_list";
 
 export default function About() {
-	const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
+  const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
   const [compactView, setCompactView] = useState<boolean>(true);
   const [skills, setSkills] = useState<Skill[]>(StartingSkills);
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
@@ -65,7 +65,7 @@ export default function About() {
   ]);
 
   const filterSkills = (type: SkillType) => {
-		setSelectedFilter(type);
+    setSelectedFilter(type);
     if (type === SkillType.ALL) {
       setDirectoryTree((oldTree) => updateSelectedItem(oldTree, "all_skills"));
       setSkills(StartingSkills);
@@ -123,34 +123,34 @@ export default function About() {
                 </div>
               ))}
             {/* </div> */}
-						{/* <div className="border-l-2 border-custom-text-300 px-4 mt-4 w-[40%]">
-							<CodeSegment keyPrefix="skills">
-								<br />
-								<br />
-								<Red className="font-bold italic">{"<skills>"}</Red>
-								<br />
-								<br />
-								<Orange>def</Orange>
-								<Yellow> skills</Yellow>
-								<Orange>()</Orange>
-								<Light>:</Light>
-								<br />
-								<CodeIndent>
-									These are the <Blue>technologies</Blue>,{" "}
-									<Blue>languages</Blue>, and <Blue>methodologies </Blue>
-									that I am <Yellow>familiar with</Yellow>.
-									<br />
-									<br />
-									Each of these <Blue>technologies</Blue> has played a{" "}
-									<Red>key role</Red> in <LightGreen>one </LightGreen>
-									or <LightGreen> multiple</LightGreen> of the{" "}
-									<Red>projects</Red> that I have worked on.
-								</CodeIndent>
-								<br />
-								<br />
-							</CodeSegment>
-						</div> */}
-						{/* <img src="/public/images/2001.jpg" className="w-[300px]"></img> */}
+            {/* <div className="border-l-2 border-custom-text-300 px-4 mt-4 w-[40%]">
+              <CodeSegment keyPrefix="skills">
+                <br />
+                <br />
+                <Red className="font-bold italic">{"<skills>"}</Red>
+                <br />
+                <br />
+                <Orange>def</Orange>
+                <Yellow> skills</Yellow>
+                <Orange>()</Orange>
+                <Light>:</Light>
+                <br />
+                <CodeIndent>
+                  These are the <Blue>technologies</Blue>,{" "}
+                  <Blue>languages</Blue>, and <Blue>methodologies </Blue>
+                  that I am <Yellow>familiar with</Yellow>.
+                  <br />
+                  <br />
+                  Each of these <Blue>technologies</Blue> has played a{" "}
+                  <Red>key role</Red> in <LightGreen>one </LightGreen>
+                  or <LightGreen> multiple</LightGreen> of the{" "}
+                  <Red>projects</Red> that I have worked on.
+                </CodeIndent>
+                <br />
+                <br />
+              </CodeSegment>
+            </div> */}
+            {/* <img src="/public/images/2001.jpg" className="w-[300px]"></img> */}
           </div>
         </div>
       </div>

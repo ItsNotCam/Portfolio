@@ -1,116 +1,116 @@
 #project-list:has(.project-item:hover) > :not(:hover) {
-	opacity: 0.5;
+  opacity: 0.5;
 }
 
 .project-item-temp-selected {
-	@apply bg-custom-off-dark-300/35 !important;
+  @apply bg-custom-off-dark-300/35 !important;
 }
 
 /* #project-list >:hover {
-	@apply max-w-[900px];
+  @apply max-w-[900px];
 } */
 
 .project-skill-item-list {
-	gap: 0.5rem 0;
-	@apply flex flex-row flex-wrap rounded-lg h-min;
+  gap: 0.5rem 0;
+  @apply flex flex-row flex-wrap rounded-lg h-min;
 }
 
 .project-item-expand-icon {
-	transition: transform 100ms;
-	transform: translate(-0.1rem, -0.1rem);
+  transition: transform 100ms;
+  transform: translate(-0.1rem, -0.1rem);
 }
 
 .project-skill-item {
-	transition: all 350ms;
-	/* transition: bg-opacity 500ms, bg-color 500ms, opacity 500ms, margin 200ms; */
-	@apply overflow-hidden flex flex-row items-center text-sm h-[1.5rem] mr-2;
+  transition: all 350ms;
+  /* transition: bg-opacity 500ms, bg-color 500ms, opacity 500ms, margin 200ms; */
+  @apply overflow-hidden flex flex-row items-center text-sm h-[1.5rem] mr-2;
 }
 
 .project-item__circle {
-	@apply shadow-xl;
-	box-shadow: 0 0 1rem orange;
+  @apply shadow-xl;
+  box-shadow: 0 0 1rem orange;
 }
 
 .project-skill-title {
-	transition: all 350ms;
-	@apply max-w-0 ml-1;
+  transition: all 350ms;
+  @apply max-w-0 ml-1;
 }
 
 .project-item__header-link:hover {
-	@apply hover:text-blue-300 ;
+  @apply hover:text-blue-300 ;
 
-	& h2 {
-		@apply underline;
-	}
+  & h2 {
+    @apply underline;
+  }
 
-	& .project-item-expand-icon {
-		transform: translate(0.2rem, -0.35rem);
-	}
+  & .project-item-expand-icon {
+    transform: translate(0.2rem, -0.35rem);
+  }
 }
 
 .project-item:hover {
-	/* & .project-item-expand-icon {
-		transform: translate(0.35rem, -0.35rem);
-	} */
+  /* & .project-item-expand-icon {
+    transform: translate(0.35rem, -0.35rem);
+  } */
 
-	@apply bg-custom-off-dark-300/35 shadow-xl;
+  @apply bg-custom-off-dark-300/35 shadow-xl;
 
-	& .project-skill-title {
-		@apply max-w-[32rem];
-	}
+  & .project-skill-title {
+    @apply max-w-[32rem];
+  }
 
-	& .project-skill-item {
-		@apply mr-4;
-	}
+  & .project-skill-item {
+    @apply mr-4;
+  }
 
-	& .project-item {
-		position: absolute;
-		transition: height 0.3s ease;
-	}
+  & .project-item {
+    position: absolute;
+    transition: height 0.3s ease;
+  }
 }
 
 .project-grid {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	/* grid-template-columns: repeat(7, 1fr); */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(7, 1fr); */
 }
 
 .project-grid__projects {
-	/* grid-column: span 4; */
-	grid-column: span 1;
+  /* grid-column: span 4; */
+  grid-column: span 1;
 }
 
 .project-grid__markdown {
-	grid-column: span 1;
-	/* grid-column: span 3; */
+  grid-column: span 1;
+  /* grid-column: span 3; */
 }
 
 /* Media query for 1370px (85.625rem) */
 @media (max-width: 85.625rem) {
-	#timeframe,
-	#divider {
-		display: none;
-	}
+  #timeframe,
+  #divider {
+    display: none;
+  }
 
-	.project-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-	.project-grid__projects {
-		grid-column: span 1;
-	}
-	
-	.project-grid__markdown {
-		grid-column: span 1;
-	}
+  .project-grid__projects {
+    grid-column: span 1;
+  }
+  
+  .project-grid__markdown {
+    grid-column: span 1;
+  }
 }
 
 
 .markdown > div {
-	/* background-color: #1a1a1a; */
+  /* background-color: #1a1a1a; */
 }
 .markdown * {
-	font-size: 0.9rem;
+  font-size: 0.9rem;
   /* letter-spacing: 0.025rem; */
   /* text-size-adjust: 200%; */
 }
@@ -142,8 +142,8 @@
   padding-block: 0.25rem;
   /* font-size: 0.9rem; */
   /* font-family: "Space Mono", monospace; */
-	/* font-weight: 500; */
-	line-height: 1.8;
+  /* font-weight: 500; */
+  line-height: 1.8;
 }
 
 .markdown table {
@@ -181,7 +181,7 @@
 
 .markdown ul,
 ol {
-	list-style: normal;
+  list-style: normal;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -230,11 +230,11 @@ ol {
 }
 
 .markdown a {
-	@apply text-custom-blue underline;
+  @apply text-custom-blue underline;
 }
 
 .markdown a:hover {
-	@apply text-blue-300;
+  @apply text-blue-300;
 }
 
 .md-icon-button {

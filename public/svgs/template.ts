@@ -1,7 +1,7 @@
 export const ICONHEADER = (props: {
-	height?: string,
-	width?: string,
-	color?: string
+  height?: string,
+  width?: string,
+  color?: string
 }) => {
-	return (`BODY`)
+  return (`BODY`)
 }

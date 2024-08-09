@@ -14,21 +14,21 @@ export type DirectoryItem = {
 export default function SideBar(props: {
   tree: DirectoryItem[];
   title: string;
-	fontSize?: string;
-	alwaysVisible?: boolean;
+  fontSize?: string;
+  alwaysVisible?: boolean;
 }): ReactNode {
-	const alwaysVisible: boolean = true;
-	// const alwaysVisible: boolean = (props.alwaysVisible === undefined) ? true : props.alwaysVisible;
+  const alwaysVisible: boolean = true;
+  // const alwaysVisible: boolean = (props.alwaysVisible === undefined) ? true : props.alwaysVisible;
   const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(alwaysVisible);
 
-	useEffect(() => {
-		const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-		document.addEventListener("click", (e) => {
-			if (e.clientX > (13 * fontSize) && sidebarFoldedOut) {
-				setSidebarFoldedOut(false);
-			}
-		});
-	},[])
+  useEffect(() => {
+    const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    document.addEventListener("click", (e) => {
+      if (e.clientX > (13 * fontSize) && sidebarFoldedOut) {
+        setSidebarFoldedOut(false);
+      }
+    });
+  },[])
 
 
   return (
@@ -44,11 +44,11 @@ export default function SideBar(props: {
           transform: sidebarFoldedOut ? "translateX(10rem)" : "translateX(0)",
         }}
       >
-				<Chevron style={{ rotate: sidebarFoldedOut ? "180deg" : "0deg", }}
-					height="1.5em"
-					width="1.5em"
-					className="z-30"
-				/>
+        <Chevron style={{ rotate: sidebarFoldedOut ? "180deg" : "0deg", }}
+          height="1.5em"
+          width="1.5em"
+          className="z-30"
+        />
       </div>
       <div className="sidebar" id="sidebar" data-always-visible={alwaysVisible} >
         <div className="sidebar-content" data-folded-out={sidebarFoldedOut} style={{fontSize: props.fontSize || "1rem"}}>
