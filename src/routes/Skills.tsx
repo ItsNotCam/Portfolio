@@ -78,7 +78,7 @@ export default function About() {
   return (
     <>
       <div id="skills" className="flex flex-grow overflow-auto">
-        <SideBar tree={directoryTree} title="~/skills/" />
+        <SideBar tree={directoryTree} title="~/skills/" fontSize="0.9rem"/>
         <div className="p-4 w-full h-full flex-grow">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl italic text-custom-red uppercase max-[750px]:text-center flex-grow">
