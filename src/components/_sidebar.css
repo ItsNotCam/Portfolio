@@ -1,5 +1,5 @@
 .sidebar {
-	@apply flex flex-row flex-shrink-0 z-30 sticky my-1 top-[0.25rem] overflow-auto bg-custom-off-dark-800;
+	@apply flex flex-row flex-shrink-0 z-30 sticky my-1 top-[0.25rem] overflow-x-hidden overflow-y-auto bg-custom-off-dark-800;
 }
 
 .sidebar-content {

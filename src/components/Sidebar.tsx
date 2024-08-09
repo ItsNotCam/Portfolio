@@ -16,7 +16,7 @@ export default function SideBar(props: {
   title: string;
 	fontSize?: string
 }): ReactNode {
-  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(true);
+  const [sidebarFoldedOut, setSidebarFoldedOut] = useState<boolean>(false);
 
 	useEffect(() => {
 		const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);

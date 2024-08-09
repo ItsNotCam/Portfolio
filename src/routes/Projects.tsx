@@ -52,12 +52,13 @@ export default function About() {
         <SideBar tree={sidebarItems} title="~/projects/" fontSize="0.9rem" />
         <div className="flex flex-col gap-4 text-custom-text-300 mx-4 my-8 cursor-default" id="project-list">
           {ProjectList.map((project, index) => (
-						<div className="flex flex-row gap-2 max-w-[800px]  rounded-lg" id={`project-item-${project.name}`}>
-							<div className="flex flex-col justify-center items-center gap-2 pt-2">
+						<div className="flex flex-row gap-4 max-w-[800px]  rounded-lg" id={`project-item-${project.name}`}>
+							<div className="text-custom-text-200 pl-4 mt-1">{project.timeframe || "2024"}</div>
+							<div id="divider" className="flex flex-col justify-center items-center gap-2 pt-2">
 								<div className="project-item__circle w-4 h-4 bg-custom-orange rounded-full shadow-xl" />
 								<div className="w-[2px] h-auto flex-grow bg-custom-text-100" />
 							</div>
-							<div className="p-4 project-item cursor-pointer flex flex-col gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`} onClick={() => updateSelection(project.name)}>
+							<div id="card" className="p-4 project-item cursor-pointer flex flex-col gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`} onClick={() => updateSelection(project.name)}>
 								<div className="flex flex-row items-center gap-1">
 									<a target="_blank" href={project.githubLink} className="text-custom-text-100" style={{ display: project.githubLink ? "block" : "none" }}>
 										<GitHubIcon height="2rem" width="2rem" />

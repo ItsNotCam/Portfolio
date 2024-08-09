@@ -9,13 +9,13 @@
 	overflow: hidden;
 	width: max-content;
 	cursor: default;
-	border-radius: 0.5rem;
+	border-radius: 0.25rem;
 	border-width: 1px;
 	/* flex-grow: 1; */
 
-	transition: color 200ms, border-color 200ms, background-color 200ms;
+	transition: scale 200ms, color 200ms, border-color 200ms, background-color 200ms;
 
-	@apply text-custom-text-300 border-custom-text-300 bg-custom-dark/80;
+	@apply text-custom-text-300 border-custom-text-300/40 bg-custom-dark/80;
 
 	&::after {
 		content: '';
@@ -38,6 +38,8 @@
 	}
 
 	&:hover {
+		scale: 1.2;
+		z-index: 25;
 		@apply text-custom-orange border-custom-orange;
 	}
 }
@@ -52,6 +54,7 @@
 	/* border-width: 1px; */
 
 	@apply border-custom-text-300/40 rounded-sm;
+
 
 	&:hover::after {
 		content: none;

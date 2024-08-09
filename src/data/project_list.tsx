@@ -1,6 +1,7 @@
 import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, FolderIcon, HTML5Icon, CSS3Icon, JQueryIcon, JavascriptIcon, NodeJSIcon, DockerIcon, MySQLIconSmall, CSharpIcon, Python3Icon, JavaIcon, SQLiteIcon, FlaskIcon, PostgreSQLIcon, SQLServerIcon, Material_UIIcon } from "../components/utilities/Icons";
 
 export type Project = {
+	timeframe?: string;
 	name: string;
 	githubLink?: string;
 	demoLink?: string;
@@ -12,6 +13,7 @@ export type Project = {
 export const ProjectList: Project[] = [{
 	name: "😊This Website",
 	githubLink: "https://github.com/ItsNotCam/PortfolioV2",
+	timeframe: "2024",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -31,6 +33,7 @@ export const ProjectList: Project[] = [{
 	content: <span>This website was designed and written by me.It was developed using ReactJS with Typescript and TailwindCSS.</span>
 }, {
 	name: "🚨CyberArk Insights",
+	timeframe: "2024",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -59,6 +62,7 @@ export const ProjectList: Project[] = [{
 	content: <span>A full stack web application built for BAE Systems, Inc. It displays critical information and statistics for an internal account management application.</span>
 }, {
 	name: "🙉CodeMonkey",
+	timeframe: "2024",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -76,6 +80,7 @@ export const ProjectList: Project[] = [{
 }, {
 	name: "🚀Pokescrape",
 	githubLink: "https://github.com/ItsNotCam/Pokescrape",
+	timeframe: "2024",
 	skills: [{
 		name: "Python",
 		icon: <Python3Icon />,
@@ -88,6 +93,7 @@ export const ProjectList: Project[] = [{
 	name: "💸Pico",
 	githubLink: "https://github.com/ItsNotCam/Pico",
 	demoLink: "https://mason.gmu.edu/~cyoung35/index.html",
+	timeframe: "2024",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -112,6 +118,7 @@ export const ProjectList: Project[] = [{
 	githubLink: "https://github.com/ItsNotCam/GoogleDriveClone",
 	readmeLink: "https://github.com/ItsNotCam/GoogleDriveClone",
 	demoLink: "https://streamable.com/e/c7hyo6",
+	timeframe: "2024",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -139,17 +146,10 @@ export const ProjectList: Project[] = [{
 	},],
 	content: <span>A containerized full stack web application that performs a large portion of the base functionality of a cloud file sharing application.<br />
 		Users can create an account to which they can upload and download files, as well as can grant and revoke access permissions to those files for other users.</span>
-}, {
-	name: "⌚Bitwatch VR",
-	githubLink: "https://github.com/ItsNotCam/BitwatchVR",
-	skills: [{
-		name: "C#",
-		icon: <CSharpIcon />,
-	}],
-	content: <span>A virtual reality smart watch that connects the real world to the virtual world. It displays in real time a user's local time and weather, their heart rate, and more.</span>
-}, {
+},{
 	name: "🔥HeaterPi",
 	githubLink: "https://github.com/ItsNotCam/HeaterPi-Server",
+	timeframe: "2024",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -168,9 +168,19 @@ export const ProjectList: Project[] = [{
 	}],
 	content: <span>Full stack web application that controls the temperature in a room using a Raspberry Pi and a standard space heater.<br />
 		Uses websockets for real-time communication between the client and the device.</span>
+},  {
+	name: "⌚Bitwatch VR",
+	githubLink: "https://github.com/ItsNotCam/BitwatchVR",
+	timeframe: "2023",
+	skills: [{
+		name: "C#",
+		icon: <CSharpIcon />,
+	}],
+	content: <span>A virtual reality smart watch that connects the real world to the virtual world. It displays in real time a user's local time and weather, their heart rate, and more.</span>
 }, {
 	name: "📦Coordinates Book",
 	githubLink: "https://github.com/ItsNotCam/MC-Coordinates-Book",
+	timeframe: "2020",
 	skills: [{
 		name: "Java",
 		icon: <JavaIcon />,
@@ -183,6 +193,7 @@ export const ProjectList: Project[] = [{
 }, {
 	name: "📑Home File Server",
 	githubLink: "https://github.com/ItsNotCam/File-Server",
+	timeframe: "2019",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
@@ -209,6 +220,7 @@ export const ProjectList: Project[] = [{
 }, {
 	name: "🐼Racoon",
 	githubLink: "https://github.com/ItsNotCam/File-Server",
+	timeframe: "2019",
 	skills: [{
 		name: "HTML",
 		icon: <HTML5Icon />,
