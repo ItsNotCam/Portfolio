@@ -1,4 +1,5 @@
 .footer {
+	z-index: 1000;
   @apply w-full h-header flex flex-row gap-1 items-center;
 }
 

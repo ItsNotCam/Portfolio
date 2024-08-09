@@ -87,6 +87,7 @@ export const ProjectList: Project[] = [{
 }, {
 	name: "🚀Pokescrape",
 	githubLink: "https://github.com/ItsNotCam/Pokescrape",
+	readmeLink: "https://raw.githubusercontent.com/ItsNotCam/Pokescrape/master/README.md",
 	timeframe: "2024",
 	skills: [{
 		name: "Python",
@@ -126,8 +127,8 @@ export const ProjectList: Project[] = [{
 }, {
 	name: "🌏Cloud File Share",
 	githubLink: "https://github.com/ItsNotCam/GoogleDriveClone",
-	readmeLink: "https://github.com/ItsNotCam/GoogleDriveClone",
 	demoLink: "https://streamable.com/e/c7hyo6",
+	readmeLink: "https://raw.githubusercontent.com/ItsNotCam/GoogleDriveClone/master/README.md",
 	timeframe: "2024",
 	skills: [{
 		name: "HTML",
@@ -161,6 +162,7 @@ export const ProjectList: Project[] = [{
 },{
 	name: "🔥HeaterPi",
 	githubLink: "https://github.com/ItsNotCam/HeaterPi-Server",
+	readmeLink: "https://raw.githubusercontent.com/ItsNotCam/HeaterPi-Server/master/README.md",
 	timeframe: "2024",
 	skills: [{
 		name: "HTML",
@@ -183,6 +185,7 @@ export const ProjectList: Project[] = [{
 },  {
 	name: "⌚Bitwatch VR",
 	githubLink: "https://github.com/ItsNotCam/BitwatchVR",
+	readmeLink: "https://raw.githubusercontent.com/ItsNotCam/BitwatchVR/master/README.md",
 	timeframe: "2023",
 	skills: [{
 		name: "C#",
@@ -194,6 +197,7 @@ export const ProjectList: Project[] = [{
 }, {
 	name: "📦Coordinates Book",
 	githubLink: "https://github.com/ItsNotCam/MC-Coordinates-Book",
+	readmeLink: "https://raw.githubusercontent.com/ItsNotCam/MC-Coordinates-Book/master/README.md",
 	timeframe: "2020",
 	skills: [{
 		name: "Java",
@@ -233,7 +237,6 @@ export const ProjectList: Project[] = [{
 	content: <span>Containerized full stack web application that allows me to manipulate the file system of my home server.<br/><br/></span>
 }, {
 	name: "🐼Racoon",
-	githubLink: "https://github.com/ItsNotCam/File-Server",
 	timeframe: "2019",
 	skills: [{
 		name: "HTML",
