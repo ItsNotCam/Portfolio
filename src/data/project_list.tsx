@@ -105,33 +105,6 @@ export const ProjectList: Project[] = [{
 	The data is structured with complex relationships, allowing for highly detailed filtering and searching. <br/><br/>
 	For more information, including the Entity Relationship Diagram (ERD) and additional documentation, refer to the README by clicking on the title of this card.<br/></span>
 }, {
-	name: "💸Pico",
-	githubLink: "https://github.com/ItsNotCam/Pico",
-	demoLink: "https://mason.gmu.edu/~cyoung35/index.html",
-	additionalContent: `No additional information available - see demo here: [Pico](https://mason.gmu.edu/~cyoung35/index.html)`,
-	timeframe: "2024",
-	skills: [{
-		name: "HTML",
-		icon: <HTML5Icon />,
-	}, {
-		name: "CSS",
-		icon: <CSS3Icon />,
-	}, {
-		name: "JQuery",
-		icon: <JQueryIcon />,
-	}, {
-		name: "JavaScript",
-		icon: <JavascriptIcon />,
-	}, {
-		name: "TypeScript",
-		icon: <TypeScriptIcon />,
-	}],
-	content: <span>This project is an HTML, CSS, and jQuery-based website showcasing a mock smartphone advertisement.<br/><br/>
-	It represents my first attempt at creating a purely static site with a strong emphasis on CSS, including some responsive features.<br/><br/>
-	The website was developed as part of a school project, and during my class presentation the professor stopped my presentation twice
-	to confirm that I had actually created the site myself, as they believed that it was too professional to have been made by a student.<br/>
-	</span>
-}, {
 	name: "🌏Cloud File Share",
 	githubLink: "https://github.com/ItsNotCam/GoogleDriveClone",
 	demoLink: "https://streamable.com/e/c7hyo6",
@@ -166,6 +139,34 @@ export const ProjectList: Project[] = [{
 		A containerized full-stack web application that replicates the core functionality found in cloud file-sharing platforms like Google Drive.<br/><br/> 
 		It features a very sleek UI, allowing users to create accounts, upload and download files, and manage file access by granting or revoking permissions to other users.<br/><br/>
 	 	To see the demo, click the globe icon at the top of the card.<br/></span>
+
+}, {
+	name: "💸Pico",
+	githubLink: "https://github.com/ItsNotCam/Pico",
+	demoLink: "https://mason.gmu.edu/~cyoung35/index.html",
+	additionalContent: `No additional information available - see demo here: [Pico](https://mason.gmu.edu/~cyoung35/index.html)`,
+	timeframe: "2024",
+	skills: [{
+		name: "HTML",
+		icon: <HTML5Icon />,
+	}, {
+		name: "CSS",
+		icon: <CSS3Icon />,
+	}, {
+		name: "JQuery",
+		icon: <JQueryIcon />,
+	}, {
+		name: "JavaScript",
+		icon: <JavascriptIcon />,
+	}, {
+		name: "TypeScript",
+		icon: <TypeScriptIcon />,
+	}],
+	content: <span>This project is an HTML, CSS, and jQuery-based website showcasing a mock smartphone advertisement.<br/><br/>
+	It represents my first attempt at creating a purely static site with a strong emphasis on CSS, including some responsive features.<br/><br/>
+	The website was developed as part of a school project, and during my class presentation the professor stopped my presentation twice
+	to confirm that I had actually created the site myself, as they believed that it was too professional to have been made by a student.<br/>
+	</span>
 },{
 	name: "🔥HeaterPi",
 	githubLink: "https://github.com/ItsNotCam/HeaterPi-Server",

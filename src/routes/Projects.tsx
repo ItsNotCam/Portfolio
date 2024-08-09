@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer";
 import SideBar, {
   DirectoryItem,
@@ -12,16 +12,18 @@ import {
 import { Project, ProjectList } from '../data/project_list.tsx';
 
 import "./_projects.css";
-import { DocumentScanner, NorthEast, Note, NoteAddTwoTone, NoteAlt, NoteOutlined, SummarizeOutlined } from "@mui/icons-material";
+import { NorthEast, SummarizeOutlined } from "@mui/icons-material";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 
-export default function About() {
+export default function About(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<string>("");
 	const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
 	const [editedProjects, setEditedProjects] = useState<(Project & {commit_count?: string})[]>([]);
 	const [data, setData] = useState<string>(`# ${ProjectList[0].name}\n` + "No additional information available.");
+
+	const readmeRef = useRef(null);
 
 	useEffect(() => {
 		let items: DirectoryItem[] = [{
@@ -71,6 +73,10 @@ export default function About() {
 		fetchCommits();
 	}, []);
 
+  // useEffect(() => {
+  //   (readmeRef as any).current.scrollTo({ top: 0 });
+  // }, [data])
+
 	const fetchReadme = async (url: string): Promise<void> => {
 		try {
 			const response = await fetch(url);
@@ -82,6 +88,8 @@ export default function About() {
 	};
 
   const updateSelection = (project: Project): void => {
+		(readmeRef as any).current.scrollTop = 0;
+
 		const projectName: string = project.name;
 		const readmeLink: string | undefined = project.readmeLink;
 		const additionalContent: string | undefined = project.additionalContent;
@@ -125,7 +133,7 @@ export default function About() {
 									<div className="flex flex-row items-center gap-1" onClick={() => updateSelection(project)}>
 										{project.githubLink &&
 											<a target="_blank" href={project.githubLink} className="relative text-custom-text-300 ">
-												{project.commit_count && <span className="absolute -top-4 text-xs text-center w-full">{project.commit_count}</span>}
+												{project.commit_count && parseInt(project.commit_count) > 0 && <span className="absolute -top-4 text-xs text-center w-full">{project.commit_count}</span>}
 												<GitHubIcon height="1.5em" width="1.5em" className="hover:text-custom-text-100 transition-colors"/>
 											</a>
 										}
@@ -135,9 +143,9 @@ export default function About() {
 											</a>
 										}
 										{project.readmeLink &&
-											<button className="text-custom-text-300 hover:text-custom-text-100 transition-colors" onClick={() => fetchReadme(project.readmeLink!)}>
+											// <button className="text-custom-text-300 hover:text-custom-text-100 transition-colors" onClick={() => fetchReadme(project.readmeLink!)}>
 												<SummarizeOutlined style={{height: "1em", width: "1em"}}/>
-											</button>
+											// </button>
 										}
 										<div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
 											<h2 className="text-lg text-custom-blue transition-colors duration-200 hover:underline ">{project.name}</h2>
@@ -159,7 +167,7 @@ export default function About() {
 							</div>
 						))}
 					</div>
-					<div className={`project-grid__markdown top-0 text-custom-text-300 z-50 mr-8 bg-custom-off-dark-300/5 backdrop-blur-lg my-4 max-h-screen overflow-auto p-4 markdown `}>
+					<div ref={readmeRef} className={`project-grid__markdown top-0 text-custom-text-300 z-50 mr-8 bg-custom-off-dark-300/5 backdrop-blur-lg my-4 max-h-screen overflow-auto p-4 markdown `}>
 						<Markdown remarkPlugins={[remarkGfm]}>{data}</Markdown>
 					</div>
 				</div>
