@@ -46,7 +46,7 @@
 /* 750px */
 @media screen and (max-width: 46.875rem) {
 	.sidebar {
-		@apply absolute mt-[3rem] h-[calc(100%-6.5rem)];
+		@apply absolute mt-[3rem] h-[calc(100%-6.5rem)] overflow-hidden;
 	}
 
 	.sidebar__foldout-button {
@@ -54,7 +54,7 @@
 	}
 
 	.sidebar-content[data-folded-out="false"] {
-		@apply w-0 bg-transparent;
+		@apply w-0 bg-transparent -ml-8;
 
 		& * {
 			opacity: 0;

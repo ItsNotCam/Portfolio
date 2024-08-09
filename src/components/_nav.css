@@ -82,6 +82,7 @@
 	}
 
 	.nav-item {
+		border-top: none;
 		@apply flex-grow-0 h-[4rem] text-base flex flex-col justify-center items-center border-r-[5px] border-transparent;
 	}
 

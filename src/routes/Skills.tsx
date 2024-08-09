@@ -85,7 +85,7 @@ export default function About() {
               [ {selectedFilter} ]
             </h1>
             <div
-              className="flex flex-row items-center gap-2 font-bold cursor-pointer text-custom-text-300 relative overflow-hidden w-32 h-10"
+              className="flex flex-row justify-end items-center gap-2 font-bold cursor-pointer text-custom-text-300 relative overflow-hidden w-32 h-10"
               onClick={() => setCompactView(!compactView)}
             >
               <div
@@ -106,9 +106,9 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="flex flex-row gap-1 mt-4">
+          {/* <div className="flex flex-row gap-1 mt-4 max-w-[100%]"> */}
             <div
-              className={`grid grid-cols-4 gap-2`}
+              className={`flex flex-row flex-wrap flex-grow-0 gap-2 mt-4`}
               style={{ fontSize: compactView ? "1.25em" : "2em" }}
             >
               {skills.map((skill, index) => (
@@ -122,7 +122,7 @@ export default function About() {
                   <span className="skills-item-title">{skill.name}</span>
                 </div>
               ))}
-            </div>
+            {/* </div> */}
 						{/* <div className="border-l-2 border-custom-text-300 px-4 mt-4 w-[40%]">
 							<CodeSegment keyPrefix="skills">
 								<br />
