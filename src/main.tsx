@@ -87,7 +87,7 @@ const router = createBrowserRouter([
   ...routes,
   {
     path: "/",
-    element: <Navigate to="/home" replace />,
+    element: <Navigate to="/Home" replace />,
     errorElement: <ErrorPage />,
   },
 ]);
