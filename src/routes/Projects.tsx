@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, Suspense, useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer";
 import SideBar, {
   DirectoryItem,
@@ -19,12 +19,10 @@ import remarkGfm from "remark-gfm";
 export default function About(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<string>("");
   const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
-  const [editedProjects, setEditedProjects] = useState<Project[]>([]);
-  const [readmeData, setReadmeData] = useState<string>(
-    `# ${ProjectList[0].name}\n` + "No additional information available."
-  );
+	const [selectedReadmeContent, setSelectedReadme] = useState<string>("");
 
-  const readmeRef = useRef(null);
+  const readmeDomRef = useRef(null);
+	const cachedReadmes = useRef({} as any);
 
   useEffect(() => {
     setSidebarItems([
@@ -37,79 +35,25 @@ export default function About(): ReactNode {
         icon: undefined,
         name: project.name,
         onClick: () => updateSelection(project),
-        selected: selectedProject === project.name,
+        selected: selectedProject === project.id,
       })),
     ]);
-
-    /*
-    async function fetchCommits() {
-      const extractUsernameAndRepoName = (githubLink: string): {username: string, repoName: string} => {
-        const regex = /github\.com\/(?<username>[^/]+)\/(?<repoName>[^/]+)/;
-        const match = githubLink.match(regex);
-        const { username, repoName } = match?.groups || {};
-        return { username, repoName };
-      }
-  
-      const extractPageCountFromLinkHeader = (linkHeader: string | null): string => {
-        const regex = /&page=(?<page_count>\d+)>; rel="last"/;
-        const match = linkHeader?.match(regex);
-        const pageCount = match?.groups?.page_count || "0";
-        return pageCount;
-      }
-      // return
-      // const updatedProjects: ProjectTypeDisplay = await Promise.all(
-      //   ProjectList.map(async (project) => {
-      //     if(project.githubLink === undefined) 
-      //       return project as ProjectTypeDisplay;
-
-      //     // const { username, repoName } = extractUsernameAndRepoName(project.githubLink);
-      //     // const url = `https://api.github.com/repos/${username}/${repoName}/commits?sha=master&per_page=1&page=1`;
-      //     // const response = await fetch(url);
-      //     // const linkHeader = response.headers.get("link");
-      //     // const pageCount = extractPageCountFromLinkHeader(linkHeader);
-      //     // return { ...project, commit_count: pageCount };
-      //     return { ...project, commit_count: 0 };
-      //   })
-      // );
-      setEditedProjects(ProjectList);
-    }
-    fetchCommits();
-    */
-
-    async function fetchReadmes() {
-      const updatedProjects = await Promise.all(
-        ProjectList.map(async (project) => {
-          if (project.readmeLink) {
-            try {
-              console.log("Fetching readme:", project.readmeLink);
-              const response = await fetch(project.readmeLink);
-              const readmeContent = await response.text();
-              console.log(readmeContent);
-              return { ...project, readmeContent: readmeContent };
-            } catch (error) {
-              console.error("Error fetching readme:", error);
-              return project;
-            }
-          } else {
-            return project;
-          }
-        })
-      );
-      setEditedProjects(updatedProjects);
-    }
-
-    fetchReadmes();
   }, []);
 
   const updateSelection = (project: Project): void => {
     // (readmeRef as any).current.scrollTop = 0;
 
-    const projectName: string = project.name;
+		if(selectedProject === project.id) {
+			console.log("Project already selected:", project.id);
+			return;
+		}
+
+    const projectID: string = project.id;
     const additionalContent: string | undefined = project.additionalContent;
 
-    setSelectedProject(projectName);
-    setSidebarItems((old) => updateSelectedItem(old, projectName));
-    const element = document.getElementById(`project-item-${projectName}`);
+    setSelectedProject(projectID);
+    setSidebarItems((old) => updateSelectedItem(old, projectID));
+    const element = document.getElementById(`project-item-${projectID}`);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
 
@@ -123,17 +67,28 @@ export default function About(): ReactNode {
       }
     }
 
-    if (project.readmeLink) {
-      setReadmeData(`# ${projectName}\n` + `Loading Content...`);
+		if (cachedReadmes.current[projectID]) {
+			console.log("Using cached readme:", projectID);
+			setSelectedReadme(cachedReadmes.current[projectID]);
+		} else if (project.readmeLink) {
+			console.log(`Fetching readme for ${project.id}:${project.readmeLink}`);
+			cachedReadmes.current[projectID] = `# ${projectID}\nLoading Content...`;
       fetch(project.readmeLink)
-        .then((r) => r.text())
-        .then((t) => setReadmeData(t));
+        .then((res) => res.text())
+        .then((readmeData) => {
+					cachedReadmes.current[projectID] = readmeData;
+					setSelectedReadme(readmeData);
+				});
     } else if (additionalContent) {
-      setReadmeData(`# ${projectName}\n` + (additionalContent || ""));
+			console.log("No readme available - using additional content:", projectID);
+			const readmeData = `# ${project.name}\n` + (additionalContent || "");
+			cachedReadmes.current[projectID] = readmeData;
+			setSelectedReadme(readmeData);
     } else {
-      setReadmeData(
-        `# ${projectName}\n` + "No additional information available."
-      );
+			console.log("No readme or additional content available, using default content", projectID);
+			const readmeData = `# ${project.name}\n` + "No additional information available.";
+			cachedReadmes.current[projectID] = readmeData;
+			setSelectedReadme(readmeData);
     }
   };
 
@@ -145,12 +100,6 @@ export default function About(): ReactNode {
         href={props.project.githubLink}
         className="relative text-custom-text-300"
       >
-        {/* {props.project.commit_count &&
-          parseInt(props.project.commit_count) > 0 && (
-            <span className="absolute -top-4 w-full text-xs text-center">
-              {props.project.commit_count}
-            </span>
-          )} */}
         <GitHubIcon
           height="1.75em"
           width="1.75em"
@@ -230,21 +179,21 @@ export default function About(): ReactNode {
         <div className="project-grid grid gap-1 w-full overflow-x-hidden">
           <div
             id="project-list"
-            className={`flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default `}
+            className="flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default"
           >
-            {editedProjects.map((project, index) => (
+            {ProjectList.map((project, index) => (
               <div
-                id={`project-item-${project.name}`}
+                id={`project-item-${project.id}`}
                 className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
               >
                 <ProjectBefore project={project} />
                 <div
-                  id={`card=${project.name}`}
+                  id={`card=${project.id}`}
                   key={`project-${index}`}
                   className="project-content"
                 >
                   <div
-                    id={`project-header-${project.name}`}
+                    id={`project-header-${project.id}`}
                     className="flex flex-row gap-1 items-center"
                     onClick={() => updateSelection(project)}
                   >
@@ -262,10 +211,12 @@ export default function About(): ReactNode {
             ))}
           </div>
           <div
-            ref={readmeRef}
-            className={`z-50 markdown top-0 max-h-screen mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg`}
+            ref={readmeDomRef}
+            className="z-50 markdown top-0 max-h-screen mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
           >
-            <Markdown remarkPlugins={[remarkGfm]}>{readmeData}</Markdown>
+						<Suspense>
+            	<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
+						</Suspense>
           </div>
         </div>
       </div>

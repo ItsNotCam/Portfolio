@@ -107,15 +107,13 @@ export default function About() {
           </div>
           {/* <div className="flex flex-row gap-1 mt-4 max-w-[100%]"> */}
             <div
-              className={`flex flex-row flex-wrap flex-grow-0 gap-2 mt-4`}
+              className="flex flex-row flex-wrap flex-grow-0 gap-2 mt-4"
               style={{ fontSize: compactView ? "1.25em" : "2em" }}
             >
               {skills.map((skill, index) => (
                 <div
                   key={`skills-item-${index}`}
-                  className={`skills-item ${
-                    compactView ? "skills-item-compact" : ""
-                  }`}
+                  className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
                 >
                   {skill.icon}
                   <span className="skills-item-title">{skill.name}</span>

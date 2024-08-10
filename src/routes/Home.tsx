@@ -80,9 +80,6 @@ const CodeMessage = (): ReactNode => (
   </div>
 );
 
-//flex flex-row max-ok:flex-col gap-4 items-center">
-//p-2 max-ok:flex max-ok:flex-col max-ok:justify-center max-ok:items-center">
-
 export default function Home() {
   return (
     <>

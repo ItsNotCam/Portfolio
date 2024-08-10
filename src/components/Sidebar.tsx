@@ -115,9 +115,9 @@ const Span = (props: {
       } ${props.selected && "bg-custom-off-dark-300"}`}
     >
       <span
-        className={`flex flex-row items-center gap-1 relative ${
+        className={`relative flex flex-row items-center gap-1 p-1 ${
           props.className
-        } p-1 ${
+        } ${
           !props.disabled && props.functional && "hover:text-custom-orange"
         } ${props.disabled ? "text-custom-off-dark-300" : color}`}
         style={{ marginLeft: props.indent || "0px" }}
