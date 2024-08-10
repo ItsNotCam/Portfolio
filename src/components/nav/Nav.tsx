@@ -23,7 +23,8 @@ export default function Nav() {
         {routes.map((route) => (
           <Link
             key={`nav-${route.path.replace("/", "")}`}
-            className={`nav-item lowercase ${route.path === pathname ? "nav-item-selected" : ""}`}
+            className={`nav-item lowercase ${route.path.toLowerCase() === pathname.toLowerCase() 
+							? "nav-item-selected" : ""}`}
             to={route.path}
             onClick={() => setDroppedDown(false)}
           >

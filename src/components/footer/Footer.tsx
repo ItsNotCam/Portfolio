@@ -31,7 +31,7 @@ export default function Footer(props: { children: ReactNode }) {
       >
         <GitHubIcon height="2.25rem" width="2.25rem" />
       </a>
-      <div className="footer-path flex-grow pl-4 max-w-[100%] justify-start overflow-hidden bg-custom-off-dark-800 ">
+      <div className="footer-path flex-grow pl-4 max-w-full justify-start overflow-hidden bg-custom-off-dark-800 ">
         <div className="flex w-full text-nowrap">{props.children}</div>
       </div>
     </div>

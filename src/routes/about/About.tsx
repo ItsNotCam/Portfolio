@@ -23,7 +23,7 @@ import {
 } from "../../components/ColoredText";
 import CodeSegment, { Breakpoint, CodeIndent } from "../../components/code_segment/CodeSegment";
 
-import "./_about.css";
+import "./about.css";
 
 const AboutText = (props: { page: string }): ReactNode => {
   const page = props.page.replace(/\.[^/.]+$/, "");

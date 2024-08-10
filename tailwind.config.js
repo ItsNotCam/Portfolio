@@ -7,8 +7,6 @@ export default {
         'custom-orange-flare': "0 0 1rem custom-orange"
       },
       screens: {
-        ok: "1400px",
-        nav: "1060px",
       },
       colors: {
         custom: {

@@ -18,7 +18,7 @@ import remarkGfm from "remark-gfm";
 import { ScaleLoader } from "react-spinners";
 
 export default function About(): ReactNode {
-  const [selectedProject, setSelectedProject] = useState<string>("");
+  const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
   const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
   const [selectedReadmeContent, setSelectedReadme] = useState<string>("");
   const [downloadingReadme, setDownloadingReadme] = useState<boolean>(false);
@@ -38,14 +38,14 @@ export default function About(): ReactNode {
         icon: undefined,
         name: project.name,
         onClick: () => updateSelection(project),
-        selected: selectedProject === project.id,
+        selected: selectedProject?.id === project.id,
         id: project.id
       })),
     ]);
   }, []);
 
   const updateSelection = (project: Project): void => {
-    if(selectedProject === project.id) {
+    if(selectedProject?.id === project.id) {
       console.log("Project already selected:", project.id);
       return;
     }
@@ -53,7 +53,7 @@ export default function About(): ReactNode {
     const projectID: string = project.id;
     const additionalContent: string | undefined = project.additionalContent;
 
-    setSelectedProject(projectID);
+    setSelectedProject(project);
     setSidebarItems((old) => updateSelectedItem(old, projectID));
     const element = document.getElementById(`project-item-${projectID}`);
     if (element) {
@@ -127,7 +127,7 @@ export default function About(): ReactNode {
       <h2 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
         {props.project.name}
       </h2>
-      <div className="project-item-expand-icon ml-2text-sm transition-colors">
+      <div className="project-item-expand-icon ml-2 text-sm transition-colors">
         <NorthEast style={{ height: "1rem", width: "1rem" }} />
       </div>
     </div>
@@ -217,7 +217,14 @@ export default function About(): ReactNode {
               <div className="flex flex-row justify-center items-center h-full">
                 <ScaleLoader color="#F16D70" />
               </div>
-            ) : <Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
+            ) : (<>
+							<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+								{selectedProject && selectedProject.skills.map((skill) => (<>
+									<span className="text-3xl">{skill.icon}</span>
+								</>))}
+							</div>
+							<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
+						</>)
             }
           </div>
         </div>

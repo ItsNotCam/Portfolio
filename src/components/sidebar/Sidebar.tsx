@@ -1,6 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
-import "./sidebar.css";
 import { Chevron } from "../Icons";
+import Tree from "./Tree";
+
+import "./sidebar.css";
 
 export type DirectoryItem = {
   name: string | undefined;
@@ -62,76 +64,6 @@ export default function SideBar(props: {
     </>
   );
 }
-
-export const Tree = (props: {
-  tree: DirectoryItem[];
-  depth?: number;
-}): ReactNode => {
-  const depth: number = props.depth || 1;
-  return props.tree.map((item) => (
-    <div
-      className="flex flex-col gap-1"
-      onClick={item.onClick}
-      key={`tree-${item.name}`}
-    >
-      <Span
-        icon={item.icon}
-        name={item.name}
-        indent={`${depth}rem`}
-        disabled={item.disabled}
-        selected={item.selected}
-        functional={item.onClick !== undefined}
-      />
-      {item.children &&
-        item.children.map((child) => (
-          <Tree
-            tree={[child]}
-            depth={depth + 1}
-            key={`tree-child-${child.name}`}
-          />
-        ))}
-    </div>
-  ));
-};
-
-const Span = (props: {
-  icon: JSX.Element | undefined;
-  name: string | undefined;
-  className?: string;
-  color?: string;
-  selected?: boolean;
-  indent?: string;
-  disabled?: boolean;
-  functional?: boolean;
-}) => {
-  let color: string = props.color || "text-custom-text-300";
-  color = props.selected ? "text-custom-orange" : color;
-
-  return (
-    <div
-      className={`cursor-default ${
-        !props.disabled &&
-        props.functional &&
-        "hover:bg-custom-off-dark-300 cursor-pointer"
-      } ${props.selected && "bg-custom-off-dark-300"}`}
-    >
-      <span
-        className={`relative flex flex-row items-center gap-1 p-1 ${
-          props.className
-        } ${
-          !props.disabled && props.functional && "hover:text-custom-orange"
-        } ${props.disabled ? "text-custom-off-dark-300" : color}`}
-        style={{ marginLeft: props.indent || "0px" }}
-      >
-        {props.selected && (
-          <div className="absolute -left-1 h-[80%] w-[0.18rem] bg-custom-red"></div>
-        )}
-        {props.icon}
-        {props.name}
-      </span>
-    </div>
-  );
-};
 
 export const updateSelectedItem = (
   dirTree: DirectoryItem[],

@@ -42,13 +42,13 @@ export default function About() {
       icon: <Python3Icon />,
       name: "languages",
       id: "languages",
-      onClick: () => filterSkills(SkillType.Languages),
+      onClick: () => filterSkills(SkillType.Language),
     },
     {
       icon: <NextJSIcon />,
       name: "frameworks",
       id: "frameworks",
-      onClick: () => filterSkills(SkillType.Frameworks),
+      onClick: () => filterSkills(SkillType.Framework),
     },
     {
       icon: <JiraIcon />,
