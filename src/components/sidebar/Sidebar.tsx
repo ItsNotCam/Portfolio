@@ -1,12 +1,13 @@
 import { ReactNode, useEffect, useState } from "react";
-import "./_sidebar.css";
-import { Chevron } from "./utilities/Icons";
+import "./sidebar.css";
+import { Chevron } from "../Icons";
 
 export type DirectoryItem = {
   name: string | undefined;
   icon: JSX.Element | undefined;
   disabled?: boolean;
   selected?: boolean;
+  id: string;
   onClick?: () => void;
   children?: DirectoryItem[];
 };
@@ -134,11 +135,11 @@ const Span = (props: {
 
 export const updateSelectedItem = (
   dirTree: DirectoryItem[],
-  selectionName: string,
+  selectionId: string,
   setSelectedPage?: (newPage: DirectoryItem) => void
 ): DirectoryItem[] => {
   for (let i = 0; i < dirTree.length; i++) {
-    dirTree[i].selected = dirTree[i].name === selectionName;
+    dirTree[i].selected = dirTree[i].id === selectionId;
     if (dirTree[i].selected && setSelectedPage !== undefined) {
       setSelectedPage(dirTree[i]);
     }
@@ -146,7 +147,7 @@ export const updateSelectedItem = (
     if (dirTree[i].children !== undefined) {
       dirTree[i].children = updateSelectedItem(
         dirTree[i].children as DirectoryItem[],
-        selectionName,
+        selectionId,
         setSelectedPage
       );
     }

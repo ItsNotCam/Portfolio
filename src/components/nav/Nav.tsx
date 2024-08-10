@@ -1,9 +1,9 @@
-import { routes } from "../main";
+import { routes } from "../../main";
 import { Link, useLocation } from "react-router-dom";
 
-import "./_nav.css";
+import "./nav.css";
 import { useState } from "react";
-import { Hamburger } from "./utilities/Icons";
+import { Hamburger } from "../Icons";
 
 export default function Nav() {
   const location = useLocation();

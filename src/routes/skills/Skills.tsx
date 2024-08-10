@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Footer from "../components/Footer";
+import Footer from "../../components/footer/Footer";
 import SideBar, {
   DirectoryItem,
   updateSelectedItem,
-} from "../components/Sidebar";
+} from "../../components/sidebar/Sidebar";
 import {
   FolderIcon,
   GridView,
@@ -14,11 +14,11 @@ import {
   NextJSIcon,
   Python3Icon,
   UbuntuIcon,
-} from "../components/utilities/Icons";
+} from "../../components/Icons";
 
-import "./_skills.css";
-import { Orange } from "../components/utilities/ColoredText";
-import { Skill, SkillType, StartingSkills } from "../data/skills_list";
+import "./skills.css";
+import { Orange } from "../../components/ColoredText";
+import { Skill, SkillType, StartingSkills } from "../../data/skills_list";
 
 export default function About() {
   const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
@@ -29,36 +29,43 @@ export default function About() {
       icon: <FolderIcon />,
       name: "..",
       disabled: true,
+      id: "root"
     },
     {
       icon: <M365Icon />,
       name: "all_skills",
+      id: "all_skills",
       selected: true,
       onClick: () => filterSkills(SkillType.ALL),
     },
     {
       icon: <Python3Icon />,
       name: "languages",
+      id: "languages",
       onClick: () => filterSkills(SkillType.Languages),
     },
     {
       icon: <NextJSIcon />,
       name: "frameworks",
+      id: "frameworks",
       onClick: () => filterSkills(SkillType.Frameworks),
     },
     {
       icon: <JiraIcon />,
       name: "software",
+      id: "software",
       onClick: () => filterSkills(SkillType.Software),
     },
     {
       icon: <MongoDBIcon />,
       name: "database",
+      id: "database",
       onClick: () => filterSkills(SkillType.Database),
     },
     {
       icon: <UbuntuIcon />,
       name: "platforms",
+      id: "platforms",
       onClick: () => filterSkills(SkillType.OS),
     },
   ]);

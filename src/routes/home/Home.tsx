@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import Footer from "../components/Footer";
-import "./_common.css";
-import "./_home.css";
-import CodeSegment, { CodeIndent } from "../components/utilities/CodeSegment";
+import Footer from "../../components/footer/Footer";
+import "../common.css";
+import "./home.css";
+import CodeSegment, { CodeIndent } from "../../components/code_segment/CodeSegment";
 import {
   Blue,
   Yellow,
@@ -12,7 +12,7 @@ import {
   LightGreen,
   OffBlue,
   Light,
-} from "../components/utilities/ColoredText";
+} from "../../components/ColoredText";
 
 const PageTitle = (): ReactNode => (
   <>

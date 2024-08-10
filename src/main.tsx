@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./routes/Home.tsx";
+import Home from "./routes/home/Home.tsx";
 
 import {
   createBrowserRouter,
@@ -10,14 +10,14 @@ import {
 
 import ErrorPage from "./error-page.tsx";
 import Header from "./components/Header.tsx";
-import Nav from "./components/Nav.tsx";
-import About from "./routes/About.tsx";
-import Skills from "./routes/Skills.tsx";
-import Work from "./routes/Work.tsx";
-import Resume from "./routes/Resume.tsx";
+import Nav from "./components/nav/Nav.tsx";
+import About from "./routes/about/About.tsx";
+import Skills from "./routes/skills/Skills.tsx";
+import Work from "./routes/work/Work.tsx";
+import Resume from "./routes/resume/Resume.tsx";
 
 import "./globals.css";
-import Projects from "./routes/Projects.tsx";
+import Projects from "./routes/projects/Projects.tsx";
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="h-full w-full flex justify-between flex-col">

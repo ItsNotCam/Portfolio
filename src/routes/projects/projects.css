@@ -130,13 +130,24 @@
   padding: 0.5rem;
 }
 
-.markdown ul,
-ol {
-  list-style: normal;
+.markdown ul, ol {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.markdown strong, b {
+  color: #dbdbdb;  
+}
+
+.markdown ol {
+  list-style: decimal;
+}
+
+.markdown ul {
+  list-style: disc;
 }
 
 .overlay-dark {

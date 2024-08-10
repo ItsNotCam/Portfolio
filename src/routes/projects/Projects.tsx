@@ -1,28 +1,30 @@
-import { ReactNode, Suspense, useEffect, useRef, useState } from "react";
-import Footer from "../components/Footer";
+import { ReactNode, useEffect, useRef, useState } from "react";
+import Footer from "../../components/footer/Footer";
 import SideBar, {
   DirectoryItem,
   updateSelectedItem,
-} from "../components/Sidebar";
+} from "../../components/sidebar/Sidebar.tsx";
 import {
   ExploreIcon,
   FolderIcon,
   GitHubIcon,
-} from "../components/utilities/Icons";
-import { Project, ProjectList } from "../data/project_list.tsx";
+} from "../../components/Icons.tsx";
+import { Project, ProjectList } from "../../data/project_list.tsx";
 
-import "./_projects.css";
+import "./projects.css";
 import { NorthEast, SummarizeOutlined } from "@mui/icons-material";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { ScaleLoader } from "react-spinners";
 
 export default function About(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<string>("");
   const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
-	const [selectedReadmeContent, setSelectedReadme] = useState<string>("");
+  const [selectedReadmeContent, setSelectedReadme] = useState<string>("");
+  const [downloadingReadme, setDownloadingReadme] = useState<boolean>(false);
 
   const readmeDomRef = useRef(null);
-	const cachedReadmes = useRef({} as any);
+  const cachedReadmes = useRef({} as any);
 
   useEffect(() => {
     setSidebarItems([
@@ -30,23 +32,23 @@ export default function About(): ReactNode {
         icon: <FolderIcon />,
         name: "..",
         disabled: true,
+        id: "root"
       },
       ...ProjectList.map((project) => ({
         icon: undefined,
         name: project.name,
         onClick: () => updateSelection(project),
         selected: selectedProject === project.id,
+        id: project.id
       })),
     ]);
   }, []);
 
   const updateSelection = (project: Project): void => {
-    // (readmeRef as any).current.scrollTop = 0;
-
-		if(selectedProject === project.id) {
-			console.log("Project already selected:", project.id);
-			return;
-		}
+    if(selectedProject === project.id) {
+      console.log("Project already selected:", project.id);
+      return;
+    }
 
     const projectID: string = project.id;
     const additionalContent: string | undefined = project.additionalContent;
@@ -56,39 +58,35 @@ export default function About(): ReactNode {
     const element = document.getElementById(`project-item-${projectID}`);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
-
       const content = element.getElementsByClassName("project-content")[0];
       if (content) {
         content.classList.toggle("project-item-temp-selected");
-        setTimeout(
-          () => content.classList.toggle("project-item-temp-selected"),
-          750
-        );
+        setTimeout(() => content.classList.toggle("project-item-temp-selected"), 750);
       }
     }
 
-		if (cachedReadmes.current[projectID]) {
-			console.log("Using cached readme:", projectID);
-			setSelectedReadme(cachedReadmes.current[projectID]);
-		} else if (project.readmeLink) {
-			console.log(`Fetching readme for ${project.id}:${project.readmeLink}`);
-			cachedReadmes.current[projectID] = `# ${projectID}\nLoading Content...`;
+    if (cachedReadmes.current[projectID]) {
+      console.log("Using cached readme:", projectID);
+      setSelectedReadme(cachedReadmes.current[projectID]);
+    } else if (project.readmeLink) {
+      setDownloadingReadme(true);
+      console.log(`Fetching readme for ${project.id}:${project.readmeLink}`);
       fetch(project.readmeLink)
         .then((res) => res.text())
         .then((readmeData) => {
-					cachedReadmes.current[projectID] = readmeData;
-					setSelectedReadme(readmeData);
-				});
+          cachedReadmes.current[projectID] = readmeData;
+          setSelectedReadme(readmeData);
+        }).finally(() => setDownloadingReadme(false));
     } else if (additionalContent) {
-			console.log("No readme available - using additional content:", projectID);
-			const readmeData = `# ${project.name}\n` + (additionalContent || "");
-			cachedReadmes.current[projectID] = readmeData;
-			setSelectedReadme(readmeData);
+      console.log("No readme available - using additional content:", projectID);
+      const readmeData = `# ${project.name}\n` + (additionalContent || "");
+      cachedReadmes.current[projectID] = readmeData;
+      setSelectedReadme(readmeData);
     } else {
-			console.log("No readme or additional content available, using default content", projectID);
-			const readmeData = `# ${project.name}\n` + "No additional information available.";
-			cachedReadmes.current[projectID] = readmeData;
-			setSelectedReadme(readmeData);
+      console.log("No readme or additional content available, using default content", projectID);
+      const readmeData = `# ${project.name}\n` + "No additional information available.";
+      cachedReadmes.current[projectID] = readmeData;
+      setSelectedReadme(readmeData);
     }
   };
 
@@ -213,11 +211,14 @@ export default function About(): ReactNode {
           </div>
           <div
             ref={readmeDomRef}
-            className="z-50 markdown top-0 max-h-screen mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
+            className="z-50 markdown top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
           >
-						<Suspense>
-            	<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
-						</Suspense>
+            {downloadingReadme ? (
+              <div className="flex flex-row justify-center items-center h-full">
+                <ScaleLoader color="#F16D70" />
+              </div>
+            ) : <Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
+            }
           </div>
         </div>
       </div>

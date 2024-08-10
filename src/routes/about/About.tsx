@@ -1,16 +1,16 @@
 import { ReactNode, useState } from "react";
-import Footer from "../components/Footer";
+import Footer from "../../components/footer/Footer";
 import SideBar, {
   DirectoryItem,
   updateSelectedItem,
-} from "../components/Sidebar";
+} from "../../components/sidebar/Sidebar";
 import {
   CSharpIcon,
   FolderIcon,
   InfoIcon,
   Python3Icon,
   TypeScriptIcon,
-} from "../components/utilities/Icons";
+} from "../../components/Icons";
 import {
   Blue,
   Green,
@@ -20,8 +20,8 @@ import {
   Pink,
   Red,
   Yellow,
-} from "../components/utilities/ColoredText";
-import CodeSegment, { Breakpoint, CodeIndent } from "../components/utilities/CodeSegment";
+} from "../../components/ColoredText";
+import CodeSegment, { Breakpoint, CodeIndent } from "../../components/code_segment/CodeSegment";
 
 import "./_about.css";
 
@@ -248,29 +248,35 @@ export default function About(): ReactNode {
       name: "..",
       icon: <FolderIcon />,
       disabled: true,
+      id: "root"
     },
     {
       name: "_me",
+      id: "me_root",
       icon: <FolderIcon />,
       children: [
         {
           name: "passion.py",
+          id: "passion",
           icon: <Python3Icon />,
           selected: true,
           onClick: () => updateSelection("passion.py"),
         },
         {
           name: "hobbies.ts",
+          id: "hobbies",
           icon: <TypeScriptIcon />,
           onClick: () => updateSelection("hobbies.ts"),
         },
         {
           name: "goals.cs",
+          id: "goals",
           icon: <CSharpIcon />,
           onClick: () => updateSelection("goals.cs"),
         },
         {
           name: "..",
+          id: "me_back",
           icon: <FolderIcon />,
           disabled: true,
         },
@@ -279,24 +285,29 @@ export default function About(): ReactNode {
     {
       name: "_site",
       icon: <FolderIcon />,
+      id: "site_root",
       children: [
         {
           name: "credits.md",
+          id: "credits",
           icon: <InfoIcon color="#68A9F6" />,
           onClick: () => updateSelection("credits.md"),
         },
         {
           name: "inspiration.md",
+          id: "inspiration",
           onClick: () => updateSelection("inspiration.md"),
           icon: <InfoIcon color="#68A9F6" />,
         },
         {
           name: "design.md",
+          id: "design",
           icon: <InfoIcon color="#68A9F6" />,
           onClick: () => updateSelection("design.md"),
         },
         {
           name: "..",
+          id: "site_back",
           icon: <FolderIcon />,
           disabled: true,
         },

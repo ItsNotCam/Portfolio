@@ -1,4 +1,4 @@
-import Footer from "../components/Footer";
+import Footer from "../../components/footer/Footer";
 
 export default function Resume() {
   return (

@@ -2,7 +2,7 @@ import useResizeObserver from "@react-hook/resize-observer";
 import React, { useState } from "react";
 import { ReactNode, useEffect, useRef } from "react";
 
-import "./_code-segment.css";
+import "./code-segment.css";
 
 const useSize = (target: any) => {
   const [size, setSize] = React.useState();

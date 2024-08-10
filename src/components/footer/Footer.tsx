@@ -1,9 +1,9 @@
 // import MailIcon from '../assets/icon-Mail.svg';
 import { ReactNode } from "react";
-import { GitHubIcon as GitHubIcon, LinkedInIcon, MailIcon } from "./utilities/Icons";
+import { GitHubIcon as GitHubIcon, LinkedInIcon, MailIcon } from "../Icons";
 
-import links from "../data/links";
-import "./_footer.css";
+import links from "../../data/links";
+import "./footer.css";
 
 export default function Footer(props: { children: ReactNode }) {
   return (
