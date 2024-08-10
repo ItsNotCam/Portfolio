@@ -184,6 +184,7 @@ export default function About(): ReactNode {
             {ProjectList.map((project, index) => (
               <div
                 id={`project-item-${project.id}`}
+                key={`project-item-${project.id}`}
                 className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
               >
                 <ProjectBefore project={project} />
