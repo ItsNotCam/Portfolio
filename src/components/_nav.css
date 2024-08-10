@@ -1,5 +1,5 @@
 .nav-wrapper {
-  @apply w-full flex flex-row gap-1;
+  @apply flex flex-row gap-1 w-full;
 }
 
 .nav {
@@ -78,12 +78,12 @@
   }
 
   .nav-dropdown {
-    @apply block absolute top-2 right-4 rounded-full hover:bg-custom-off-dark-300 p-1;
+    @apply block absolute top-2 right-4 p-1 rounded-full hover:bg-custom-off-dark-300 ;
   }
 
   .nav-item {
     border-top: none;
-    @apply flex-grow-0 h-[4rem] text-base flex flex-col justify-center items-center border-r-[5px] border-transparent;
+    @apply flex flex-col flex-grow-0 justify-center items-center h-[4rem] text-base border-r-[5px] border-transparent;
   }
 
   .nav-item-selected,

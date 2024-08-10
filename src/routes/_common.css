@@ -1,6 +1,7 @@
 .blinking-text {
   animation: blinking-text 1s infinite;
 }
+
 .bg-img {
   background: url("/images/background.png") no-repeat center center fixed;
   background-size: cover;
@@ -23,11 +24,4 @@
   100% {
     opacity: 0;
   }
-}
-
-.row > * {
-  display: flex;
-  flex-direction: row;
-  gap: 0.15rem;
-  align-items: center;
 }

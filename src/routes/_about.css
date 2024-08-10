@@ -4,7 +4,7 @@
 
 .about-sidebar {
   transition: width 200ms;
-  @apply w-52 flex-shrink-0 overflow-hidden bg-custom-off-dark-800/85;
+  @apply flex-shrink-0 w-52 overflow-hidden bg-custom-off-dark-800/85;
 }
 
 /* 850px */

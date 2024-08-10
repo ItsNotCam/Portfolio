@@ -122,7 +122,7 @@ export default function About(): ReactNode {
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      const content = element.getElementsByClassName("project-item")[0];
+      const content = element.getElementsByClassName("project-content")[0];
       if (content) {
         content.classList.toggle("project-item-temp-selected");
         setTimeout(
@@ -148,11 +148,18 @@ export default function About(): ReactNode {
       <a target="_blank" href={props.project.githubLink} className="relative text-custom-text-300">
         {props.project.commit_count &&
           parseInt(props.project.commit_count) > 0 && (
-            <span className="absolute -top-4 text-xs text-center w-full">
+            <span className="absolute -top-4 w-full text-xs text-center">
               {props.project.commit_count}
             </span>
           )}
         <GitHubIcon height="1.75em" width="1.75em" className="hover:text-custom-text-100 transition-colors"/>
+      </a>
+    ) : null;
+
+  const DemoLink = (props: { project: ProjectTypeDisplay }): ReactNode =>
+    props.project.demoLink ? (
+      <a target="_blank" href={props.project.demoLink} className="relative text-custom-text-300 hover:text-custom-text-100 transition-colors">
+        <ExploreIcon height="1.75em" width="1.75em" />
       </a>
     ) : null;
 
@@ -163,10 +170,10 @@ export default function About(): ReactNode {
 
   const ProjectTitle = (props: { project: ProjectTypeDisplay }): ReactNode => (
     <div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
-      <h2 className="text-lg text-custom-blue transition-colors duration-200 hover:underline ">
+      <h2 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
         {props.project.name}
       </h2>
-      <div className="project-item-expand-icon text-sm ml-2 transition-colors">
+      <div className="project-item-expand-icon ml-2text-sm transition-colors">
         <NorthEast style={{ height: "1rem", width: "1rem" }} />
       </div>
     </div>
@@ -175,14 +182,14 @@ export default function About(): ReactNode {
   const ProjectBefore = (props: { project: ProjectTypeDisplay }): ReactNode => (
     <>
       <div id="timeframe" className="text-custom-text-200 pl-4 mt-1">
-        {props.project.timeframe || "2024"}
+        {props.project.timeframe || ""}
       </div>
       <div
         id="divider"
         className="flex flex-col justify-center items-center gap-2 pt-2"
       >
-        <div className="project-item__circle w-4 h-4 bg-custom-orange rounded-full shadow-xl" />
-        <div className="w-[2px] h-auto flex-grow bg-custom-text-100" />
+        <div className="orange-flare w-4 h-4 rounded-full bg-custom-orange" />
+        <div className="flex-grow w-[2px] h-auto bg-custom-text-100" />
       </div>
     </>
   );
@@ -213,18 +220,21 @@ export default function About(): ReactNode {
           fontSize="0.9rem"
           alwaysVisible={false}
         />
-        <div className="project-grid gap-1 w-full overflow-x-hidden">
-        <div id="project-list" className={`project-grid__projects overflow-y-scroll flex flex-col flex-grow-0 gap-4 text-custom-text-300 p-2 mr-2 cursor-default `}>
+        <div className="project-grid grid gap-1 w-full overflow-x-hidden">
+        <div id="project-list" className={` flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default `}>
           {editedProjects.map((project, index) => (
-            <div id={`project-item-${project.name}`} className="transition-opacity duration-300 flex flex-row flex-grow gap-4 rounded-md">
+            <div id={`project-item-${project.name}`} className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300">
               <ProjectBefore project={project} />
-              <div id={`card=${project.name}`} className="p-4 project-item transition-all rounded-sm flex flex-col flex-grow gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg" key={`project-${index}`}>
-                <div id={`project-header-${project.name}`} className="flex flex-row items-center gap-1" onClick={() => updateSelection(project)}>
+              <div id={`card=${project.name}`} key={`project-${index}`} className="project-content">
+                <div id={`project-header-${project.name}`} className="flex flex-row gap-1 items-center" 
+                  onClick={() => updateSelection(project)}
+                >
                   <GitHubLink project={project} />
+                  <DemoLink project={project} />
                   <ReadmeLink project={project} />
                   <ProjectTitle project={project} />
                 </div>
-                <div className="project-item-content transition-colors duration-1000 text-sm">
+                <div className="text-sm transition-colors duration-1000">
                   {project.content}
                 </div>
                 <ProjectSkills project={project} />
@@ -232,7 +242,7 @@ export default function About(): ReactNode {
             </div>
           ))}
         </div>
-          <div ref={readmeRef} className={`project-grid__markdown top-0 text-custom-text-300 z-50 mr-8 bg-custom-off-dark-300/5 backdrop-blur-lg my-4 max-h-screen overflow-auto p-4 markdown `}>
+          <div ref={readmeRef} className={`markdown top-0 max-h-screen z-50 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg`}>
             <Markdown remarkPlugins={[remarkGfm]}>{data}</Markdown>
           </div>
         </div>

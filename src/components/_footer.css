@@ -1,10 +1,10 @@
 .footer {
   z-index: 1000;
-  @apply w-full h-header flex flex-row gap-1 items-center;
+  @apply flex flex-row gap-1 w-full h-header items-center;
 }
 
 .footer > * {
-  @apply h-full flex text-center items-center justify-center bg-custom-off-dark-800;
+  @apply flex items-center justify-center h-full text-center bg-custom-off-dark-800;
 }
 
 /* 640px */

@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      dropShadow: {
+        'custom-orange-flare': "0 0 1rem custom-orange"
+      },
       screens: {
         ok: "1400px",
         nav: "1060px",

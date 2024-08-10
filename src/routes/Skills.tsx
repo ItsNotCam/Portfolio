@@ -17,8 +17,7 @@ import {
 } from "../components/utilities/Icons";
 
 import "./_skills.css";
-import CodeSegment, { CodeIndent } from "../components/utilities/CodeSegment";
-import { Blue, Light, LightGreen, Orange, Red, Yellow } from "../components/utilities/ColoredText";
+import { Orange } from "../components/utilities/ColoredText";
 import { Skill, SkillType, StartingSkills } from "../data/skills_list";
 
 export default function About() {
