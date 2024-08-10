@@ -18,13 +18,28 @@ export type Skill = {
 
 export const StartingSkills: Skill[] = [
   {
-    icon: <Tailwind_CSSIcon />,
-    name: "Tailwind",
+    icon: <Adobe_CCIcon />,
+    name: "Adobe CC",
+    skillType: SkillType.Software,
+  },
+  {
+    icon: <BashIcon />,
+    name: "Bash",
+    skillType: SkillType.Languages,
+  },
+  {
+    icon: <BlenderIcon />,
+    name: "Blender",
+    skillType: SkillType.Software,
+  },
+  {
+    icon: <BootstrapIcon />,
+    name: "Bootstrap",
     skillType: SkillType.Frameworks,
   },
   {
-    icon: <HTML5Icon />,
-    name: "HTML",
+    icon: <CSharpIcon />,
+    name: "C#",
     skillType: SkillType.Languages,
   },
   {
@@ -33,23 +48,18 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.Languages,
   },
   {
-    icon: <JavascriptIcon />,
-    name: "JavaScript",
-    skillType: SkillType.Languages,
+    icon: <DockerIcon />,
+    name: "Docker",
+    skillType: SkillType.Software,
   },
   {
-    icon: <TypeScriptIcon />,
-    name: "TypeScript",
-    skillType: SkillType.Languages,
-  },
-  {
-    icon: <ReactJSIcon />,
-    name: "React",
+    icon: <ExpressJSIcon />,
+    name: "Express",
     skillType: SkillType.Frameworks,
   },
   {
-    icon: <NextJSIcon />,
-    name: "NextJS",
+    icon: <FlaskIcon />,
+    name: "Flask",
     skillType: SkillType.Frameworks,
   },
   {
@@ -58,44 +68,69 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.Software,
   },
   {
-    icon: <DockerIcon />,
-    name: "Docker",
+    icon: <GitHubIcon color="currentColor" />,
+    name: "GitHub",
     skillType: SkillType.Software,
   },
   {
-    icon: <WindowsIcon />,
-    name: "Windows",
-    skillType: SkillType.OS,
-  },
-  {
-    icon: <UbuntuIcon />,
-    name: "Ubuntu",
-    skillType: SkillType.OS,
-  },
-  {
-    icon: <Visual_StudioIcon />,
-    name: "Visual Studio",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <BashIcon />,
-    name: "Shell",
+    icon: <HTML5Icon />,
+    name: "HTML",
     skillType: SkillType.Languages,
   },
   {
-    icon: <CSharpIcon />,
-    name: "C#",
+    icon: <JavaIcon />,
+    name: "Java",
     skillType: SkillType.Languages,
   },
   {
-    icon: <VMWareIcon />,
-    name: "VMWare",
+    icon: <JavascriptIcon />,
+    name: "JavaScript",
+    skillType: SkillType.Languages,
+  },
+  {
+    icon: <JiraIcon />,
+    name: "Atlassian Suite",
     skillType: SkillType.Software,
+  },
+  {
+    icon: <JQueryIcon color="#68A9F6" />,
+    name: "JQuery",
+    skillType: SkillType.Frameworks,
+  },
+  {
+    icon: <Material_UIIcon />,
+    name: "Material UI",
+    skillType: SkillType.Frameworks,
+  },
+  {
+    icon: <MongoDBIcon />,
+    name: "MongoDB",
+    skillType: SkillType.Database,
+  },
+  {
+    icon: <MySQLIconSmall />,
+    name: "MySQL",
+    skillType: SkillType.Database,
+  },
+  {
+    icon: <NextJSIcon />,
+    name: "NextJS",
+    skillType: SkillType.Frameworks,
   },
   {
     icon: <NodeJSIcon />,
     name: "NodeJS",
     skillType: SkillType.Frameworks,
+  },
+  {
+    icon: <PostCSSIcon />,
+    name: "PostCSS",
+    skillType: SkillType.Tools,
+  },
+  {
+    icon: <PostgreSQLIcon />,
+    name: "PostgreSQL",
+    skillType: SkillType.Database,
   },
   {
     icon: <PowerShellIcon />,
@@ -108,67 +143,9 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.Languages,
   },
   {
-    icon: <FlaskIcon />,
-    name: "Flask",
+    icon: <ReactJSIcon />,
+    name: "React",
     skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <JiraIcon />,
-    name: "Atlassian Products",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <MongoDBIcon />,
-    name: "MongoDB",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: (
-      <span className="text-custom-text-100">
-        <GitHubIcon color="currentColor" />
-      </span>
-    ),
-    name: "GitHub",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: (
-      <span className="text-custom-blue">
-        <JQueryIcon color="currentColor" />
-      </span>
-    ),
-    name: "JQuery",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <Material_UIIcon />,
-    name: "Material UI",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <BootstrapIcon />,
-    name: "Bootstrap",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <BlenderIcon />,
-    name: "Blender",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <ExpressJSIcon />,
-    name: "Express",
-    skillType: SkillType.Frameworks,
-  },
-  {
-    icon: <MySQLIconSmall />,
-    name: "MySQL",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: <PostgreSQLIcon />,
-    name: "PostgreSQL",
-    skillType: SkillType.Database,
   },
   {
     icon: <SQLiteIcon />,
@@ -176,9 +153,34 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.Database,
   },
   {
-    icon: <PostCSSIcon />,
-    name: "PostCSS",
-    skillType: SkillType.Tools,
+    icon: <Tailwind_CSSIcon />,
+    name: "Tailwind",
+    skillType: SkillType.Frameworks,
+  },
+  {
+    icon: <TypeScriptIcon />,
+    name: "TypeScript",
+    skillType: SkillType.Languages,
+  },
+  {
+    icon: <UbuntuIcon />,
+    name: "Ubuntu",
+    skillType: SkillType.OS,
+  },
+  {
+    icon: <UnityIcon />,
+    name: "Unity",
+    skillType: SkillType.Software,
+  },
+  {
+    icon: <VMWareIcon />,
+    name: "VMWare",
+    skillType: SkillType.Software,
+  },
+  {
+    icon: <Visual_StudioIcon />,
+    name: "Visual Studio",
+    skillType: SkillType.Software,
   },
   {
     icon: <WebpackIcon />,
@@ -186,28 +188,8 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.Tools,
   },
   {
-    icon: <JavaIcon />,
-    name: "Java",
-    skillType: SkillType.Languages,
+    icon: <WindowsIcon />,
+    name: "Windows",
+    skillType: SkillType.OS,
   },
-  {
-    icon: <SQLServerIcon />,
-    name: "SQL Server",
-    skillType: SkillType.Database,
-  },
-  {
-    icon: <Adobe_CCIcon />,
-    name: "Adobe CC",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <M365Icon />,
-    name: "M365",
-    skillType: SkillType.Software,
-  },
-  {
-    icon: <UnityIcon />,
-    name: "Unity",
-    skillType: SkillType.Software,
-  },
-].sort((a, b) => (a.name > b.name ? 1 : -1));
+]

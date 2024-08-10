@@ -16,39 +16,30 @@ import { NorthEast, SummarizeOutlined } from "@mui/icons-material";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-type ProjectTypeDisplay = Project & {
-  commit_count?: string;
-  readmeContent?: string;
-};
-
 export default function About(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<string>("");
   const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
-  const [editedProjects, setEditedProjects] = useState<ProjectTypeDisplay[]>(
-    []
-  );
-  const [data, setData] = useState<string>(
+  const [editedProjects, setEditedProjects] = useState<Project[]>([]);
+  const [readmeData, setReadmeData] = useState<string>(
     `# ${ProjectList[0].name}\n` + "No additional information available."
   );
 
   const readmeRef = useRef(null);
 
   useEffect(() => {
-    let items: DirectoryItem[] = [{
-      icon: <FolderIcon />,
-      name: "..",
-      disabled: true,
-    }];
-
-    ProjectList.forEach((project) => {
-      items.push({
+    setSidebarItems([
+      {
+        icon: <FolderIcon />,
+        name: "..",
+        disabled: true,
+      },
+      ...ProjectList.map((project) => ({
         icon: undefined,
         name: project.name,
         onClick: () => updateSelection(project),
         selected: selectedProject === project.name,
-      });
-    });
-    setSidebarItems(items);
+      })),
+    ]);
 
     /*
     async function fetchCommits() {
@@ -93,7 +84,7 @@ export default function About(): ReactNode {
               console.log("Fetching readme:", project.readmeLink);
               const response = await fetch(project.readmeLink);
               const readmeContent = await response.text();
-              console.log(readmeContent)
+              console.log(readmeContent);
               return { ...project, readmeContent: readmeContent };
             } catch (error) {
               console.error("Error fetching readme:", error);
@@ -110,7 +101,7 @@ export default function About(): ReactNode {
     fetchReadmes();
   }, []);
 
-  const updateSelection = (project: ProjectTypeDisplay): void => {
+  const updateSelection = (project: Project): void => {
     // (readmeRef as any).current.scrollTop = 0;
 
     const projectName: string = project.name;
@@ -132,43 +123,59 @@ export default function About(): ReactNode {
       }
     }
 
-    if(project.readmeLink) {
-      setData(`# ${projectName}\n` + `Loading Content...`);
-      fetch(project.readmeLink).then(r => r.text()).then(t => setData(t));
+    if (project.readmeLink) {
+      setReadmeData(`# ${projectName}\n` + `Loading Content...`);
+      fetch(project.readmeLink)
+        .then((r) => r.text())
+        .then((t) => setReadmeData(t));
     } else if (additionalContent) {
-      setData(`# ${projectName}\n` + (additionalContent || ""));
+      setReadmeData(`# ${projectName}\n` + (additionalContent || ""));
     } else {
-      setData(`# ${projectName}\n` + "No additional information available.");
+      setReadmeData(
+        `# ${projectName}\n` + "No additional information available."
+      );
     }
   };
 
   /* Components */
-  const GitHubLink = (props: { project: ProjectTypeDisplay }): ReactNode =>
+  const GitHubLink = (props: { project: Project }): ReactNode =>
     props.project.githubLink ? (
-      <a target="_blank" href={props.project.githubLink} className="relative text-custom-text-300">
-        {props.project.commit_count &&
+      <a
+        target="_blank"
+        href={props.project.githubLink}
+        className="relative text-custom-text-300"
+      >
+        {/* {props.project.commit_count &&
           parseInt(props.project.commit_count) > 0 && (
             <span className="absolute -top-4 w-full text-xs text-center">
               {props.project.commit_count}
             </span>
-          )}
-        <GitHubIcon height="1.75em" width="1.75em" className="hover:text-custom-text-100 transition-colors"/>
+          )} */}
+        <GitHubIcon
+          height="1.75em"
+          width="1.75em"
+          className="hover:text-custom-text-100 transition-colors"
+        />
       </a>
     ) : null;
 
-  const DemoLink = (props: { project: ProjectTypeDisplay }): ReactNode =>
+  const DemoLink = (props: { project: Project }): ReactNode =>
     props.project.demoLink ? (
-      <a target="_blank" href={props.project.demoLink} className="relative text-custom-text-300 hover:text-custom-text-100 transition-colors">
+      <a
+        target="_blank"
+        href={props.project.demoLink}
+        className="relative text-custom-text-300 hover:text-custom-text-100 transition-colors"
+      >
         <ExploreIcon height="1.75em" width="1.75em" />
       </a>
     ) : null;
 
-  const ReadmeLink = (props: { project: ProjectTypeDisplay }): ReactNode =>
+  const ReadmeLink = (props: { project: Project }): ReactNode =>
     props.project.readmeLink ? (
       <SummarizeOutlined style={{ height: "1.2em", width: "1.2em" }} />
     ) : null;
 
-  const ProjectTitle = (props: { project: ProjectTypeDisplay }): ReactNode => (
+  const ProjectTitle = (props: { project: Project }): ReactNode => (
     <div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
       <h2 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
         {props.project.name}
@@ -179,10 +186,10 @@ export default function About(): ReactNode {
     </div>
   );
 
-  const ProjectBefore = (props: { project: ProjectTypeDisplay }): ReactNode => (
+  const ProjectBefore = (props: { project: Project }): ReactNode => (
     <>
       <div id="timeframe" className="text-custom-text-200 pl-4 mt-1">
-        {props.project.timeframe || ""}
+        {props.project.year || ""}
       </div>
       <div
         id="divider"
@@ -194,7 +201,7 @@ export default function About(): ReactNode {
     </>
   );
 
-  const ProjectSkills = (props: { project: ProjectTypeDisplay }): ReactNode => (
+  const ProjectSkills = (props: { project: Project }): ReactNode => (
     <ul className="project-skill-item-list">
       {props.project.skills.map((skill, index) => (
         <li
@@ -221,29 +228,44 @@ export default function About(): ReactNode {
           alwaysVisible={false}
         />
         <div className="project-grid grid gap-1 w-full overflow-x-hidden">
-        <div id="project-list" className={` flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default `}>
-          {editedProjects.map((project, index) => (
-            <div id={`project-item-${project.name}`} className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300">
-              <ProjectBefore project={project} />
-              <div id={`card=${project.name}`} key={`project-${index}`} className="project-content">
-                <div id={`project-header-${project.name}`} className="flex flex-row gap-1 items-center" 
-                  onClick={() => updateSelection(project)}
+          <div
+            id="project-list"
+            className={`flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default `}
+          >
+            {editedProjects.map((project, index) => (
+              <div
+                id={`project-item-${project.name}`}
+                className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
+              >
+                <ProjectBefore project={project} />
+                <div
+                  id={`card=${project.name}`}
+                  key={`project-${index}`}
+                  className="project-content"
                 >
-                  <GitHubLink project={project} />
-                  <DemoLink project={project} />
-                  <ReadmeLink project={project} />
-                  <ProjectTitle project={project} />
+                  <div
+                    id={`project-header-${project.name}`}
+                    className="flex flex-row gap-1 items-center"
+                    onClick={() => updateSelection(project)}
+                  >
+                    <GitHubLink project={project} />
+                    <DemoLink project={project} />
+                    <ReadmeLink project={project} />
+                    <ProjectTitle project={project} />
+                  </div>
+                  <div className="text-sm transition-colors duration-1000">
+                    {project.content}
+                  </div>
+                  <ProjectSkills project={project} />
                 </div>
-                <div className="text-sm transition-colors duration-1000">
-                  {project.content}
-                </div>
-                <ProjectSkills project={project} />
               </div>
-            </div>
-          ))}
-        </div>
-          <div ref={readmeRef} className={`markdown top-0 max-h-screen z-50 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg`}>
-            <Markdown remarkPlugins={[remarkGfm]}>{data}</Markdown>
+            ))}
+          </div>
+          <div
+            ref={readmeRef}
+            className={`z-50 markdown top-0 max-h-screen mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg`}
+          >
+            <Markdown remarkPlugins={[remarkGfm]}>{readmeData}</Markdown>
           </div>
         </div>
       </div>

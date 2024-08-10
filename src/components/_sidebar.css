@@ -12,9 +12,7 @@
   & .sidebar-content[data-folded-out="false"] {
     @apply w-0 -ml-8 bg-transparent ;
 
-    & * {
-      opacity: 0;
-    }
+    & * { opacity: 0; }
   }
 }
 
@@ -63,7 +61,7 @@
 /* 750px */
 @media screen and (max-width: 750px) {
   .sidebar {
-    @apply absolute h-[calc(100%-6.5rem)]mt-[3rem] overflow-hidden;
+    @apply absolute h-[calc(100%-6.5rem)] mt-[3rem] overflow-hidden;
   }
 
   .sidebar__foldout-button {
