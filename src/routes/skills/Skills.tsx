@@ -96,13 +96,17 @@ export default function About() {
             >
               <div
                 className="flex flex-row items-center gap-2 absolute transition-transform"
-                style={{ transform: compactView ? "translateY(0)" : "translateY(-5em)" }}
+                style={{
+                  transform: compactView ? "translateY(0)" : "translateY(-5em)",
+                }}
               >
                 List <ListView height="3em" width="3em" />
               </div>
               <div
                 className="flex flex-row items-center gap-2 absolute transition-transform"
-                style={{ transform: compactView ? "translateY(-5em)" : "translateY(0)" }}
+                style={{
+                  transform: compactView ? "translateY(-5em)" : "translateY(0)",
+                }}
               >
                 Grid <GridView height="3em" width="3em" />
               </div>
@@ -118,9 +122,9 @@ export default function About() {
                   key={`skills-item-${index}`}
                   className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
                 >
-                  {skill.icon}
-                  <span className="skills-item-title__static text-base">{skill.name}</span>
-                  <span className="skills-item-title">{skill.name}</span>
+									{skill.icon}
+									<span className="skills-item-title__static text-base">{skill.name}</span>
+									<span className="skills-item-title">{skill.name}</span>
                 </div>
               ))}
             {/* </div> */}
@@ -157,7 +161,14 @@ export default function About() {
       </div>
       <Footer>
         <span className="text-custom-text-300">
-          cam@portfolio:/home/cam/_skills/{" "}<strong>{` > cat `}<Orange className="lowercase">{selectedFilter.replace(" ", "_")}</Orange>{" "} | {compactView ? "as-list" : "as-grid"}</strong>
+          cam@portfolio:/home/cam/_skills/{" "}
+          <strong>
+            {` > cat `}
+            <Orange className="lowercase">
+              {selectedFilter.replace(" ", "_")}
+            </Orange>{" "}
+            | {`as-${compactView ? "list" : "grid"} `}
+          </strong>
           <strong className="blinking-text">_</strong>
         </span>
       </Footer>
