@@ -4,6 +4,11 @@ import { ReactNode, useEffect, useRef } from "react";
 
 import "./code-segment.css";
 
+/**
+ * Custom hook that calculates the size of a target element.
+ * @param target - The target element to calculate the size for.
+ * @returns The size of the target element.
+ */
 const useSize = (target: any) => {
   const [size, setSize] = React.useState();
 
