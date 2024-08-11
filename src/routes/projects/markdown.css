@@ -1,0 +1,160 @@
+@media (max-width: 1150px) {
+	.markdown {
+		display: none;
+	}
+}
+
+.markdown * {
+  font-size: 0.9rem;
+}
+
+.markdown h1 {
+  border-bottom: 2px solid rgba(195, 195, 195, 0.7);
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.markdown h2 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #E3B252;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid rgba(195, 195, 195, 0.7);
+}
+
+.markdown pre:has(code) {
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 0.25rem 1rem;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+
+	& code {
+		background-color: transparent;
+	}
+}
+
+.markdown code {
+	border-radius: 5px;
+	padding-inline: 0.4rem;
+	padding-block: 0.25rem;
+	line-height: 2;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.markdown table {
+  padding: -0.2rem;
+  justify-content: left;
+  text-align: left;
+}
+
+.markdown th {
+  align-self: left;
+  padding: 5px;
+  border: 2px solid rgb(89, 88, 88);
+}
+
+.markdown table tr:nth-child(odd) td{
+  background-color: rgb(47, 47, 47);
+}
+
+.markdown td {
+  padding: -5px;
+}
+
+.markdown td {
+  border: 2px solid rgb(89, 88, 88);
+  padding: 0.5rem;
+}
+
+.markdown ul, ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.markdown strong, b {
+  color: #dbdbdb;  
+}
+
+.markdown ol {
+  list-style: decimal;
+}
+
+.markdown ul {
+  list-style: disc;
+}
+
+.overlay-dark {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(12, 12, 12, 0.8);
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-inline: 8vw;
+
+  z-index: 50;
+
+  animation: fade-in 0.25s normal ease;
+}
+
+.markdown img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+}
+
+.markdown p {
+  margin: 0 1rem;
+}
+
+.markdown li {
+  color: rgb(181, 181, 181);
+}
+
+.markdown a {
+  @apply text-custom-blue underline;
+}
+
+.markdown a:hover {
+  @apply text-blue-300;
+}
+
+.md-icon-button {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+
+  border-radius: 50%;
+  border: none;
+
+  background-color: rgb(25, 25, 25);
+
+  padding: 0.5rem;
+
+  cursor: pointer;
+  z-index: 999;
+
+  user-select: none;
+}
+
+.mid-icon-button:hover {
+  color: var(--color-alt);
+}
+
+/* .language-sql {
+	@apply text-orange-50;
+} */
