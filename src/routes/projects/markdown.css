@@ -1,7 +1,23 @@
+.markdown-container {
+	/* position: relative; */
+}
+
 @media (max-width: 1150px) {
-  .markdown {
-    display: none;
-  }
+  .markdown-container {
+		display: none;
+		/* top: 50%; */
+		/* position: absolute;
+		top: -20rem;
+		height: 100%;
+		width: 80%;
+		margin-block: 50rem; */
+		/* top: 0;
+		height: 90%;
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%); */
+		/* transform: translate(-50%, -50%); */
+	}
 }
 
 .markdown * {
@@ -70,26 +86,31 @@
   padding: 0.5rem;
 }
 
+.markdown li {
+	margin-block-start: 0.35rem;
+}
+
 .markdown ol {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* margin-left: 2rem; */
-  margin-top: 0.5rem;
+  list-style: decimal;
+	margin-inline-start: 1.5rem;
+	padding-inline-start: 1.5rem;
+}
+
+.markdown ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: disc;
+	margin-inline-start: 1.5rem;
+	padding-inline-start: 1.5rem;
 }
 
 .markdown strong, b {
   color: #dbdbdb;  
 }
-
-.markdown ol {
-  list-style: decimal;
-	margin-left: 3rem;
-}
-
-/* .markdown ul {
-  list-style: disc;
-} */
 
 .overlay-dark {
   position: fixed;
