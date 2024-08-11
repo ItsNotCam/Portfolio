@@ -186,7 +186,7 @@ export const ProjectList: Project[] = [{
   githubLink: "https://github.com/ItsNotCam/HeaterPi-Server",
   readmeLink: "https://raw.githubusercontent.com/ItsNotCam/HeaterPi-Server/master/README.md",
   year: "2024",
-  id: "heaterpi",
+  id: "heater_pi",
   skills: [{
     name: "HTML",
     icon: <HTML5Icon />,
