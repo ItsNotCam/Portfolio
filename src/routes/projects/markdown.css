@@ -70,11 +70,11 @@
   padding: 0.5rem;
 }
 
-.markdown ul, ol {
+.markdown ol {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   margin-top: 0.5rem;
 }
 
@@ -84,11 +84,12 @@
 
 .markdown ol {
   list-style: decimal;
+	margin-left: 3rem;
 }
 
-.markdown ul {
+/* .markdown ul {
   list-style: disc;
-}
+} */
 
 .overlay-dark {
   position: fixed;
