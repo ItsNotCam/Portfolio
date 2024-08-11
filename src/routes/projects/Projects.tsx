@@ -47,6 +47,32 @@ export default function About(): ReactNode {
     ]);
   }, []);
 
+	/**
+	 * Updates and sets the readme for a project.
+	 * 
+	 * @param readmeLink - The link to the readme file.
+	 * @param projectID - The ID of the project.
+	 * @returns A promise that resolves to `true` if the readme is successfully updated and set, or `false` if there is an error.
+	 */
+	const updateAndSetReadme = (readmeLink: string, projectID: string) => {
+		return new Promise((resolve, reject) => {
+			fetch(readmeLink)
+			.then((res) => res.text())
+			.then((readmeData) => {
+				cachedReadmes.current[projectID] = readmeData;
+				setSelectedReadme(readmeData);
+				resolve(true);
+			})
+			.catch(() => reject(false));
+		});
+	};
+
+	/**
+	 * Updates the selection of a project.
+	 * 
+	 * @param project - The project to be selected.
+	 * @returns void
+	 */
   const updateSelection = (project: Project): void => {
     if(selectedProject?.id === project.id) {
       console.log("Project already selected:", project.id);
@@ -68,19 +94,15 @@ export default function About(): ReactNode {
       }
     }
 
-		// setDownloadingReadme(true);
+		// Now choose what to do with the readme
     if (cachedReadmes.current[projectID]) {
       console.log("Using cached readme:", projectID);
       setSelectedReadme(cachedReadmes.current[projectID]);
     } else if (project.readmeLink) {
-      setDownloadingReadme(true);
       console.log(`Fetching readme for ${project.id}:${project.readmeLink}`);
-      fetch(project.readmeLink)
-        .then((res) => res.text())
-        .then((readmeData) => {
-          cachedReadmes.current[projectID] = readmeData;
-          setSelectedReadme(readmeData);
-        }).finally(() => setDownloadingReadme(false));
+      setDownloadingReadme(true);
+      updateAndSetReadme(project.readmeLink, projectID)
+				.finally(() => setDownloadingReadme(false));
     } else if (additionalContent) {
       console.log("No readme available - using additional content:", projectID);
       const readmeData = `# ${project.name}\n` + (additionalContent || "");
@@ -93,6 +115,7 @@ export default function About(): ReactNode {
       setSelectedReadme(readmeData);
     }
 
+		// Scroll to the top of the readme div
 		if(readmeDomRef !== null && readmeDomRef.current) {
 			(readmeDomRef.current as unknown as any).scrollIntoView();
 		}
