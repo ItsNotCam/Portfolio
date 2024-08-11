@@ -5,6 +5,7 @@ import SideBar, {
   updateSelectedItem,
 } from "../../components/sidebar/Sidebar";
 import {
+	DockerIcon,
   FolderIcon,
   GridView,
   JiraIcon,
@@ -12,8 +13,10 @@ import {
   M365Icon,
   MongoDBIcon,
   NextJSIcon,
+  PostCSSIcon,
   Python3Icon,
   UbuntuIcon,
+	WebpackIcon,
 } from "../../components/Icons";
 
 import "./skills.css";
@@ -61,6 +64,12 @@ export default function About() {
       name: "database",
       id: "database",
       onClick: () => filterSkills(SkillType.Database),
+    },
+    {
+      icon: <DockerIcon />,
+      name: "tools",
+      id: "tools",
+      onClick: () => filterSkills(SkillType.Tools),
     },
     {
       icon: <UbuntuIcon />,
