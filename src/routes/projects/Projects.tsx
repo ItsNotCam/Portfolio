@@ -95,6 +95,10 @@ export default function About(): ReactNode {
     }
 
 		// Now choose what to do with the readme
+		// 1. Cached readme ? Use it
+		// 2. Readme link ? Fetch it
+		// 3. Additional content ? Use it
+		// 4. Default content
     if (cachedReadmes.current[projectID]) {
       console.log("Using cached readme:", projectID);
       setSelectedReadme(cachedReadmes.current[projectID]);
