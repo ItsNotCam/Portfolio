@@ -260,19 +260,19 @@ export default function About(): ReactNode {
           id: "passion",
           icon: <Python3Icon />,
           selected: true,
-          onClick: () => updateSelection("passion.py"),
+          onClick: () => updateSelection("passion"),
         },
         {
           name: "hobbies.ts",
           id: "hobbies",
           icon: <TypeScriptIcon />,
-          onClick: () => updateSelection("hobbies.ts"),
+          onClick: () => updateSelection("hobbies"),
         },
         {
           name: "goals.cs",
           id: "goals",
           icon: <CSharpIcon />,
-          onClick: () => updateSelection("goals.cs"),
+          onClick: () => updateSelection("goals"),
         },
         {
           name: "..",
@@ -291,19 +291,19 @@ export default function About(): ReactNode {
           name: "credits.md",
           id: "credits",
           icon: <InfoIcon color="#68A9F6" />,
-          onClick: () => updateSelection("credits.md"),
+          onClick: () => updateSelection("credits"),
         },
         {
           name: "inspiration.md",
           id: "inspiration",
-          onClick: () => updateSelection("inspiration.md"),
+          onClick: () => updateSelection("inspiration"),
           icon: <InfoIcon color="#68A9F6" />,
         },
         {
           name: "design.md",
           id: "design",
           icon: <InfoIcon color="#68A9F6" />,
-          onClick: () => updateSelection("design.md"),
+          onClick: () => updateSelection("design"),
         },
         {
           name: "..",
@@ -314,10 +314,10 @@ export default function About(): ReactNode {
       ],
     },
   ]);
-
   const [selectedPage, setSelectedPage] = useState<DirectoryItem>(
     (directoryTree[1].children as DirectoryItem[])[1]
   );
+
   // temporary solution - get all pages that are in the "me" section
   // this is used so that the footer text can be updated with the correct pathing
   // automatically with the use of the directory tree object
