@@ -70,6 +70,11 @@ export default function About() {
     },
   ]);
 
+	/**
+	 * Filters the skills based on the provided type.
+	 * 
+	 * @param type - The type of skill to filter.
+	 */
   const filterSkills = (type: SkillType) => {
     setSelectedFilter(type);
     if (type === SkillType.ALL) {
@@ -122,9 +127,9 @@ export default function About() {
                   key={`skills-item-${index}`}
                   className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
                 >
-									{skill.icon}
-									<span className="skills-item-title__static text-base">{skill.name}</span>
-									<span className="skills-item-title">{skill.name}</span>
+                  {skill.icon}
+                  <span className="skills-item-title">{skill.name}</span>
+                  <span className="skills-item-title__static text-base	">{skill.name}</span>
                 </div>
               ))}
             {/* </div> */}
