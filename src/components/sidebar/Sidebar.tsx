@@ -65,6 +65,14 @@ export default function SideBar(props: {
   );
 }
 
+/**
+ * Updates the selected item in the directory tree and optionally sets the selected page.
+ * 
+ * @param dirTree - The directory tree to update.
+ * @param selectionId - The ID of the item to select.
+ * @param setSelectedPage - Optional callback function to set the selected page.
+ * @returns The updated directory tree.
+ */
 export const updateSelectedItem = (
   dirTree: DirectoryItem[],
   selectionId: string,
