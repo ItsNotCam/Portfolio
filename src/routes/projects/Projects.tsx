@@ -11,16 +11,19 @@ import {
 } from "../../components/Icons.tsx";
 import { Project, ProjectList } from "../../data/project_list.tsx";
 
-import "./projects.css";
 import { NorthEast, SummarizeOutlined } from "@mui/icons-material";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ScaleLoader } from "react-spinners";
 
+import "./projects.css";
+import "./markdown.css";
+import { Orange } from "../../components/ColoredText.tsx";
+
 export default function About(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
   const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
-  const [selectedReadmeContent, setSelectedReadme] = useState<string>("");
+  const [selectedReadmeContent, setSelectedReadme] = useState<string>("# Click on a Project!");
   const [downloadingReadme, setDownloadingReadme] = useState<boolean>(false);
 
   const readmeDomRef = useRef(null);
@@ -170,7 +173,7 @@ export default function About(): ReactNode {
       <div id="projects" className="flex flex-grow overflow-auto">
         <SideBar
           tree={sidebarItems}
-          title="~/projects/"
+          title="~/_projects/"
           fontSize="0.9rem"
           alwaysVisible={false}
         />
@@ -189,12 +192,12 @@ export default function About(): ReactNode {
                 <div
                   id={`card=${project.id}`}
                   key={`project-${index}`}
-                  className="project-content"
+                  className="project-content cursor-pointer"
+									onClick={() => updateSelection(project)}
                 >
                   <div
                     id={`project-header-${project.id}`}
                     className="flex flex-row gap-1 items-center"
-                    onClick={() => updateSelection(project)}
                   >
                     <GitHubLink project={project} />
                     <DemoLink project={project} />
@@ -211,27 +214,33 @@ export default function About(): ReactNode {
           </div>
           <div
             ref={readmeDomRef}
-            className="z-50 markdown top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
+            className="z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
           >
             {downloadingReadme ? (
               <div className="flex flex-row justify-center items-center h-full">
                 <ScaleLoader color="#F16D70" />
               </div>
             ) : (<>
-              <div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
-                {selectedProject && selectedProject.skills.map((skill) => (<>
-                  <span className="text-3xl">{skill.icon}</span>
-                </>))}
-              </div>
-              <Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
-            </>)
+							{selectedProject?.githubLink && 
+								<span className="flex flex-row items-center gap-2 text-custom-text-100 text-xl ">
+									<GitHubLink project={selectedProject as Project}/> GitHub
+								</span>}
+							<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+								{selectedProject && selectedProject.skills.map((skill) => (<>
+									<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
+								</>))}
+							</div>
+							<div className="markdown max-w-100%">
+								<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
+							</div>
+						</>)
             }
           </div>
         </div>
       </div>
       <Footer>
         <span className="text-custom-text-300">
-          cam@portfolio:/home/cam/_projects/<strong>{` > `}</strong>
+          cam@portfolio:/home/cam/_projects/<Orange>{selectedProject ? selectedProject.id : ""}</Orange><strong>{` > `}</strong>
           <strong className="blinking-text">_</strong>
         </span>
       </Footer>
