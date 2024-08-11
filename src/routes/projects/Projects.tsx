@@ -68,6 +68,7 @@ export default function About(): ReactNode {
       }
     }
 
+		// setDownloadingReadme(true);
     if (cachedReadmes.current[projectID]) {
       console.log("Using cached readme:", projectID);
       setSelectedReadme(cachedReadmes.current[projectID]);
@@ -91,6 +92,10 @@ export default function About(): ReactNode {
       cachedReadmes.current[projectID] = readmeData;
       setSelectedReadme(readmeData);
     }
+
+		if(readmeDomRef !== null && readmeDomRef.current) {
+			(readmeDomRef.current as unknown as any).scrollIntoView();
+		}
   };
 
   /* Components */
@@ -213,7 +218,6 @@ export default function About(): ReactNode {
             ))}
           </div>
           <div
-            ref={readmeDomRef}
             className="z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
           >
             {downloadingReadme ? (
@@ -230,7 +234,7 @@ export default function About(): ReactNode {
 									<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
 								</>))}
 							</div>
-							<div className="markdown max-w-100%">
+							<div className="markdown max-w-100%" ref={readmeDomRef}>
 								<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
 							</div>
 						</>)
