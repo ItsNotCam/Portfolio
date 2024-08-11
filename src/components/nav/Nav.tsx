@@ -24,7 +24,7 @@ export default function Nav() {
           <Link
             key={`nav-${route.path.replace("/", "")}`}
             className={`nav-item lowercase ${route.path.toLowerCase() === pathname.toLowerCase() 
-							? "nav-item-selected" : ""}`}
+              ? "nav-item-selected" : ""}`}
             to={route.path}
             onClick={() => setDroppedDown(false)}
           >

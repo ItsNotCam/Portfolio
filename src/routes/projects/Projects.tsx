@@ -218,13 +218,13 @@ export default function About(): ReactNode {
                 <ScaleLoader color="#F16D70" />
               </div>
             ) : (<>
-							<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
-								{selectedProject && selectedProject.skills.map((skill) => (<>
-									<span className="text-3xl">{skill.icon}</span>
-								</>))}
-							</div>
-							<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
-						</>)
+              <div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+                {selectedProject && selectedProject.skills.map((skill) => (<>
+                  <span className="text-3xl">{skill.icon}</span>
+                </>))}
+              </div>
+              <Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent || "No data"}</Markdown>
+            </>)
             }
           </div>
         </div>

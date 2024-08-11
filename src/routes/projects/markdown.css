@@ -1,7 +1,7 @@
 @media (max-width: 1150px) {
-	.markdown {
-		display: none;
-	}
+  .markdown {
+    display: none;
+  }
 }
 
 .markdown * {
@@ -27,22 +27,22 @@
 }
 
 .markdown pre:has(code) {
-	background-color: rgba(255, 255, 255, 0.1);
-	padding: 0.25rem 1rem;
-	margin-bottom: 1rem;
-	border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
 
-	& code {
-		background-color: transparent;
-	}
+  & code {
+    background-color: transparent;
+  }
 }
 
 .markdown code {
-	border-radius: 5px;
-	padding-inline: 0.4rem;
-	padding-block: 0.25rem;
-	line-height: 2;
-	background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding-inline: 0.4rem;
+  padding-block: 0.25rem;
+  line-height: 2;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .markdown table {
@@ -156,5 +156,5 @@
 }
 
 /* .language-sql {
-	@apply text-orange-50;
+  @apply text-orange-50;
 } */

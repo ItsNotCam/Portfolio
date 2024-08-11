@@ -112,7 +112,7 @@ export const ProjectList: Project[] = [{
     icon: <PostgreSQLIcon />,
   }],
   content: <span>This is a web scraper designed to extract Pokémon data from 'pokemondb.net' and store it in a PostgreSQL database.</span>
-	// <br/><br/> 
+  // <br/><br/> 
   // The data is structured with complex relationships, allowing for highly detailed filtering and searching. <br/><br/>
   // For more information, including the Entity Relationship Diagram (ERD) and additional documentation, refer to the README by clicking on the title of this card.<br/></span>
 }, {
@@ -149,7 +149,7 @@ export const ProjectList: Project[] = [{
   },],
   content: <span>
     A containerized full-stack web application that replicates the core functionality found in cloud file-sharing platforms like Google Drive.</span>
-		// <br/><br/> 
+    // <br/><br/> 
     // It features a very sleek UI, allowing users to create accounts, upload and download files, and manage file access by granting or revoking permissions to other users.<br/><br/>
     //  To see the demo, click the globe icon at the top of the card.<br/></span>
 }, {
@@ -176,7 +176,7 @@ export const ProjectList: Project[] = [{
     icon: <TypeScriptIcon />,
   }],
   content: <span>This project is my first attempt at creating an HTML, CSS, and jQuery-based website. Completed for a school project.</span>
-	// <br/><br/>
+  // <br/><br/>
   // It represents my first attempt at creating a purely static site with a strong emphasis on CSS, including some responsive features.<br/><br/>
   // The website was developed as part of a school project, and during my class presentation the professor stopped my presentation twice
   // to confirm that I had actually created the site myself, as they believed that it was too professional to have been made by a student.<br/>
@@ -204,7 +204,7 @@ export const ProjectList: Project[] = [{
     icon: <ReactJSIcon />,
   }],
   content: <span>A full-stack web application that manages room temperature using a Raspberry Pi and a standard space heater.</span>
-	// <br/><br/> 
+  // <br/><br/> 
   // It features a sleek front end for easy viewing of live information and uses WebSockets for real-time communication between the client and the device.<br/></span>
 },  {
   name: "⌚Bitwatch VR",
@@ -217,7 +217,7 @@ export const ProjectList: Project[] = [{
     icon: <CSharpIcon />,
   }],
   content: <span>A virtual reality smartwatch that bridges the real and virtual worlds, displaying real-time information such as the user's local time, weather, heart rate, and more directly on their virtual wrist.</span>
-	// <br/><br/>
+  // <br/><br/>
   // Fully interactive within a virtual reality environment, the project involved numerous challenges whose solutions showcase both my creativity and problem-solving skills.<br/><br/> 
   // For a detailed overview including explanations for some of these challenges and my solutions, click the title of this card.<br/></span>
 }, {
@@ -234,7 +234,7 @@ export const ProjectList: Project[] = [{
     icon: <SQLiteIcon />,
   }],
   content: <span>A modification for the popular video game Minecraft that automates the process of saving your favorite locations within the game, replacing traditional (and literal) pen-and-paper methods.</span>
-	// <br/><br/> 
+  // <br/><br/> 
   // It utilizes the game's limited resources to create a user interface that seamlessly integrates with the game's existing interfaces, providing a faster and more intuitive way for players to store this important information.<br/></span>
 }, {
   name: "📑Home File Server",
