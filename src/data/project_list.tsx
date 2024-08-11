@@ -1,3 +1,4 @@
+import { Orange, Red } from "../components/ColoredText";
 import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, HTML5Icon, CSS3Icon, JQueryIcon, JavascriptIcon, NodeJSIcon, DockerIcon, MySQLIconSmall, CSharpIcon, Python3Icon, JavaIcon, SQLiteIcon, FlaskIcon, PostgreSQLIcon, SQLServerIcon, Material_UIIcon } from "../components/Icons";
 
 export type Skill = {
@@ -39,7 +40,7 @@ export const ProjectList: Project[] = [{
     icon: <Tailwind_CSSIcon />,
   }],
   content: <span>
-    This fully responsive website was designed and written by me from scratch.
+    This fully responsive <Orange>website</Orange> was designed and written by me from scratch.
     It was designed 
     in <a target="_blank" href="https://www.figma.com/design/nkOThbhroZHoa0L8h44F5v/Portfolio-v2?node-id=0-1&t=awrN6I3LWpUGJbK9-1" 
       className="text-custom-blue/90 underline hover:text-blue-300 transition-colors duration-200">Figma</a> and 
@@ -75,7 +76,7 @@ export const ProjectList: Project[] = [{
     name: "SQL Server",
     icon: <SQLServerIcon />,
   }],
-  content: <span>A full stack web application built for BAE Systems, Inc.
+  content: <span>This <Orange>front-end web application</Orange> was developed for <Red>BAE Systems, Inc. </Red>
   It displays essential information and statistics for an internal account and password management application.<br/>
   </span>
 }, {
@@ -96,7 +97,7 @@ export const ProjectList: Project[] = [{
     name: "Tailwind",
     icon: <Tailwind_CSSIcon />,
   }],
-  content: <span>This front-end web application was developed for BAE Systems, Inc.
+  content: <span>This <Orange>front-end web application</Orange> was developed for <Red>BAE Systems, Inc. </Red>
   It integrates with an internal AI chatbot LLM to assist software developers by offering feedback, generating code snippets, and more.<br/></span>
 }, {
   name: "🚀Pokescrape",
@@ -111,7 +112,7 @@ export const ProjectList: Project[] = [{
     name: "PostgreSQL",
     icon: <PostgreSQLIcon />,
   }],
-  content: <span>This is a web scraper designed to extract Pokémon data from 'pokemondb.net' and store it in a PostgreSQL database.</span>
+  content: <span>This is a <Orange>web scraper</Orange> designed to extract Pokémon data from 'pokemondb.net' and store it in a <Orange>PostgreSQL database</Orange>.</span>
   // <br/><br/> 
   // The data is structured with complex relationships, allowing for highly detailed filtering and searching. <br/><br/>
   // For more information, including the Entity Relationship Diagram (ERD) and additional documentation, refer to the README by clicking on the title of this card.<br/></span>
@@ -148,7 +149,7 @@ export const ProjectList: Project[] = [{
     icon: <MySQLIconSmall height="2rem" width="2rem"/>,
   },],
   content: <span>
-    A containerized full-stack web application that replicates the core functionality found in cloud file-sharing platforms like Google Drive.</span>
+    A containerized <Orange>full-stack web application</Orange> that replicates the core functionality found in cloud file-sharing platforms like Google Drive.</span>
     // <br/><br/> 
     // It features a very sleek UI, allowing users to create accounts, upload and download files, and manage file access by granting or revoking permissions to other users.<br/><br/>
     //  To see the demo, click the globe icon at the top of the card.<br/></span>
@@ -175,7 +176,7 @@ export const ProjectList: Project[] = [{
     name: "TypeScript",
     icon: <TypeScriptIcon />,
   }],
-  content: <span>This project is my first attempt at creating an HTML, CSS, and jQuery-based website. Completed for a school project.</span>
+  content: <span>This project is my first attempt at creating an HTML, CSS, and jQuery-based <Orange>website</Orange>. Completed for a school project.</span>
   // <br/><br/>
   // It represents my first attempt at creating a purely static site with a strong emphasis on CSS, including some responsive features.<br/><br/>
   // The website was developed as part of a school project, and during my class presentation the professor stopped my presentation twice
@@ -203,7 +204,7 @@ export const ProjectList: Project[] = [{
     name: "ReactJS",
     icon: <ReactJSIcon />,
   }],
-  content: <span>A full-stack web application that manages room temperature using a Raspberry Pi and a standard space heater.</span>
+  content: <span>A <Orange>full-stack web application</Orange> that manages room temperature using a Raspberry Pi and a standard space heater.</span>
   // <br/><br/> 
   // It features a sleek front end for easy viewing of live information and uses WebSockets for real-time communication between the client and the device.<br/></span>
 },  {
@@ -216,7 +217,7 @@ export const ProjectList: Project[] = [{
     name: "C#",
     icon: <CSharpIcon />,
   }],
-  content: <span>A virtual reality smartwatch that bridges the real and virtual worlds, displaying real-time information such as the user's local time, weather, heart rate, and more directly on their virtual wrist.</span>
+  content: <span>A <Orange>virtual reality smartwatch</Orange> app that bridges the real and virtual worlds, displaying real-time information such as the user's local time, weather, heart rate, and more directly on their virtual wrist.</span>
   // <br/><br/>
   // Fully interactive within a virtual reality environment, the project involved numerous challenges whose solutions showcase both my creativity and problem-solving skills.<br/><br/> 
   // For a detailed overview including explanations for some of these challenges and my solutions, click the title of this card.<br/></span>
@@ -233,7 +234,7 @@ export const ProjectList: Project[] = [{
     name: "SQLite",
     icon: <SQLiteIcon />,
   }],
-  content: <span>A modification for the popular video game Minecraft that automates the process of saving your favorite locations within the game, replacing traditional (and literal) pen-and-paper methods.</span>
+  content: <span>A <Orange>video game mod</Orange> for the popular video game Minecraft that automates the process of saving your favorite locations within the game, replacing traditional (and literal) pen-and-paper methods.</span>
   // <br/><br/> 
   // It utilizes the game's limited resources to create a user interface that seamlessly integrates with the game's existing interfaces, providing a faster and more intuitive way for players to store this important information.<br/></span>
 }, {
@@ -263,7 +264,7 @@ export const ProjectList: Project[] = [{
     name: "Docker",
     icon: <DockerIcon />,
   }],
-  content: <span>Containerized full stack web application that allows me to manipulate the file system of my home server.<br/></span>
+  content: <span>Containerized <Orange>full-stack web application</Orange> that allows me to manipulate the file system of my home server.<br/></span>
 }, {
   name: "🐼Racoon",
   year: "2019",
@@ -297,6 +298,6 @@ export const ProjectList: Project[] = [{
     name: "SQLite",
     icon: <SQLiteIcon />,
   }],
-  content: <span>A full-stack web application developed for BAE Systems, Inc. that is currently (2024) deployed within their cyber threat detection pipeline.<br/><br/>
+  content: <span>A <Orange>full-stack web application</Orange> developed for BAE Systems, Inc. that is currently (2024) deployed within their cyber threat detection pipeline.<br/><br/>
   Raccoon extracts information from packet capture files, stores it in a SQLite database, provides a user interface to view the data, and exposes a REST API for integration with other internal tools.<br/></span>
 },];
