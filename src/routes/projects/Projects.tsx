@@ -20,7 +20,7 @@ import "./projects.css";
 import "./markdown.css";
 import { Orange } from "../../components/ColoredText.tsx";
 
-export default function About(): ReactNode {
+export default function Projects(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
   const [sidebarItems, setSidebarItems] = useState<DirectoryItem[]>([]);
   const [selectedReadmeContent, setSelectedReadme] = useState<string>("# Click on a Project!");
@@ -187,7 +187,7 @@ export default function About(): ReactNode {
     <ul className="project-skill-item-list">
       {props.project.skills.map((skill, index) => (
         <li
-          key={index}
+          key={`skills-${skill.name}-${index}`}
           className="project-skill-item"
           title={skill.name}
           id={skill.name}
