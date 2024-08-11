@@ -199,6 +199,33 @@ export default function Projects(): ReactNode {
     </ul>
   );
 
+	const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
+		<div
+			className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
+			>
+			{downloadingReadme ? (
+				<div className="flex flex-row justify-center items-center h-full">
+					<ScaleLoader color="#F16D70" />
+				</div>
+			) : (<>
+				<div className="absolute top-0 invisible" id="readme-scroll-ref" ref={readmeScrollRef}/>
+				{props.project?.githubLink && 
+					<span className="flex flex-row items-center gap-2 text-custom-text-100 text-xl ">
+						<GitHubLink project={props.project as Project}/> GitHub
+					</span>}
+					<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+					{props.project && props.project.skills.map((skill) => (<>
+						<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
+					</>))}
+				</div>
+				<div className="markdown max-w-100%">
+					<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
+				</div>
+			</>)
+			}
+		</div>
+	)
+
   /* Output */
   return (
     <>
@@ -240,34 +267,12 @@ export default function Projects(): ReactNode {
                     {project.content}
                   </div>
                   <ProjectSkills project={project} />
+									{/* <MarkdownSection project={project} /> */}
                 </div>
               </div>
             ))}
           </div>
-          <div
-            className="relative z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
-          >
-            {downloadingReadme ? (
-              <div className="flex flex-row justify-center items-center h-full">
-                <ScaleLoader color="#F16D70" />
-              </div>
-            ) : (<>
-							<div className="absolute top-0 invisible" id="readme-scroll-ref" ref={readmeScrollRef}/>
-							{selectedProject?.githubLink && 
-								<span className="flex flex-row items-center gap-2 text-custom-text-100 text-xl ">
-									<GitHubLink project={selectedProject as Project}/> GitHub
-								</span>}
-								<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
-								{selectedProject && selectedProject.skills.map((skill) => (<>
-									<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
-								</>))}
-							</div>
-							<div className="markdown max-w-100%">
-								<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
-							</div>
-						</>)
-            }
-          </div>
+					<MarkdownSection project={selectedProject}/>
         </div>
       </div>
       <Footer>
