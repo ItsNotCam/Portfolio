@@ -15,9 +15,9 @@ import About from "./routes/about/About.tsx";
 import Skills from "./routes/skills/Skills.tsx";
 import Work from "./routes/work/Work.tsx";
 import Resume from "./routes/resume/Resume.tsx";
+import Projects from "./routes/projects/Projects.tsx";
 
 import "./globals.css";
-import Projects from "./routes/projects/Projects.tsx";
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="h-full w-full flex justify-between flex-col">
