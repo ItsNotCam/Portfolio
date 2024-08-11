@@ -26,7 +26,7 @@ export default function Projects(): ReactNode {
   const [selectedReadmeContent, setSelectedReadme] = useState<string>("# Click on a Project!");
   const [downloadingReadme, setDownloadingReadme] = useState<boolean>(false);
 
-  const readmeDomRef = useRef(null);
+  const readmeScrollRef = useRef(null);
   const cachedReadmes = useRef({} as any);
 
   useEffect(() => {
@@ -120,8 +120,8 @@ export default function Projects(): ReactNode {
     }
 
 		// Scroll to the top of the readme div
-		if(readmeDomRef !== null && readmeDomRef.current) {
-			(readmeDomRef.current as unknown as any).scrollIntoView();
+		if(readmeScrollRef !== null && readmeScrollRef.current) {
+			(readmeScrollRef.current as unknown as any).scrollIntoView();
 		}
   };
 
@@ -245,23 +245,24 @@ export default function Projects(): ReactNode {
             ))}
           </div>
           <div
-            className="z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
+            className="relative z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
           >
             {downloadingReadme ? (
               <div className="flex flex-row justify-center items-center h-full">
                 <ScaleLoader color="#F16D70" />
               </div>
             ) : (<>
+							<div className="absolute top-0 invisible" id="readme-scroll-ref" ref={readmeScrollRef}/>
 							{selectedProject?.githubLink && 
 								<span className="flex flex-row items-center gap-2 text-custom-text-100 text-xl ">
 									<GitHubLink project={selectedProject as Project}/> GitHub
 								</span>}
-							<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+								<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
 								{selectedProject && selectedProject.skills.map((skill) => (<>
 									<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
 								</>))}
 							</div>
-							<div className="markdown max-w-100%" ref={readmeDomRef}>
+							<div className="markdown max-w-100%">
 								<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
 							</div>
 						</>)
