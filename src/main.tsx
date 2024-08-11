@@ -20,7 +20,7 @@ import Projects from "./routes/projects/Projects.tsx";
 import "./globals.css";
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
-  <div className="h-full w-full flex justify-between flex-col">
+  <div className="flex flex-col justify-between h-full w-full">
     <Header />
     <Nav />
     {props.children}
