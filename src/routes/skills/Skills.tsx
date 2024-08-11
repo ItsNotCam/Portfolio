@@ -42,13 +42,13 @@ export default function About() {
       icon: <Python3Icon />,
       name: "languages",
       id: "languages",
-      onClick: () => filterSkills(SkillType.Language),
+      onClick: () => filterSkills(SkillType.Languages),
     },
     {
       icon: <NextJSIcon />,
       name: "frameworks",
       id: "frameworks",
-      onClick: () => filterSkills(SkillType.Framework),
+      onClick: () => filterSkills(SkillType.Frameworks),
     },
     {
       icon: <JiraIcon />,
@@ -122,8 +122,9 @@ export default function About() {
                   key={`skills-item-${index}`}
                   className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
                 >
-                  {skill.icon}
-                  <span className="skills-item-title">{skill.name}</span>
+									{skill.icon}
+									<span className="skills-item-title__static text-base">{skill.name}</span>
+									<span className="skills-item-title">{skill.name}</span>
                 </div>
               ))}
             {/* </div> */}
