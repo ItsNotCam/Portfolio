@@ -239,6 +239,12 @@ export const StartingSkills: Skill[] = [
 		subSkillTypes: [SubSkillType.Backend]
   },
   {
+    icon: <SQLServerIcon />,
+    name: "SQL Server",
+    skillType: SkillType.Database,
+		subSkillTypes: [SubSkillType.Backend]
+  },
+  {
     icon: <Tailwind_CSSIcon />,
     name: "Tailwind",
     skillType: SkillType.Frameworks,
