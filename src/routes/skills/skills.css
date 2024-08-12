@@ -27,9 +27,13 @@
   }
 
   &:hover {
-    scale: 1.1;
+		scale: 1.05;
     z-index: 35;
     @apply text-custom-orange border-custom-orange;
+
+		&:not(.skills-item-compact) {
+			scale: 1.1;
+		}
 
     & .skills-item-title {
       transform: translateY(0);
@@ -37,7 +41,7 @@
     }
     
     &::after {
-      @apply bg-black/70;
+			background-color: rgba(0, 0, 0, 0.7);
     }
   }
 }
