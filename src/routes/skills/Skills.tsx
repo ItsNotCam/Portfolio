@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../../components/footer/Footer";
 import SideBar, {
   DirectoryItem,
@@ -21,7 +21,7 @@ import {
 
 import "./skills.css";
 import { Orange } from "../../components/ColoredText";
-import { Skill, SkillType, StartingSkills } from "../../data/skills_list";
+import { Skill, SkillMap, SkillType, StartingSkills, SubSkillType } from "../../data/skills_list";
 
 export default function About() {
   const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
@@ -78,6 +78,18 @@ export default function About() {
       onClick: () => filterSkills(SkillType.OS),
     },
   ]);
+	const [selectedSubFilter, setSelectedSubFilter] = useState<SubSkillType>(SubSkillType.All);
+
+	const updateSubFilter = (subFilter: SubSkillType) => {
+		console.log("changed")
+		if (selectedFilter !== SkillType.ALL) {
+			setSkills(StartingSkills.filter((skill) => 
+				skill.skillType === selectedFilter && (skill.subSkillTypes?.includes(subFilter) || subFilter === SubSkillType.All)
+			));
+		} else {
+			setSkills(StartingSkills.filter((skill) => skill.skillType === selectedFilter));
+		}
+	}
 
 	/**
 	 * Filters the skills based on the provided type.
@@ -95,6 +107,13 @@ export default function About() {
     }
   };
 
+	const mapSubSkills = () => {
+		const out = Object.values(SubSkillType).map(sst => SkillMap[sst]).map((subSkill) => (
+			<option value={subSkill}>{subSkill}</option>
+		));
+		return out;
+	}
+
   return (
     <>
       <div id="skills" className="flex flex-grow overflow-auto">
@@ -104,6 +123,9 @@ export default function About() {
             <h1 className="text-2xl italic text-custom-red uppercase max-[750px]:text-center flex-grow">
               [ {selectedFilter} ]
             </h1>
+						<select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)}>
+							{mapSubSkills()}
+						</select>
             <div
               className="flex flex-row justify-end items-center gap-2 font-bold cursor-pointer text-custom-text-300 relative overflow-hidden w-32 h-10"
               onClick={() => setCompactView(!compactView)}
