@@ -1,4 +1,4 @@
-import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, WindowsIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, MongoDBIcon, GitHubIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, WebpackIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon } from "../components/Icons";
+import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, WindowsIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, MongoDBIcon, GitHubIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, WebpackIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon } from "../components/Icons";
 
 export enum SkillType {
   Languages = "languages",
@@ -11,13 +11,15 @@ export enum SkillType {
 }
 
 export enum SubSkillType {
-	Frontend = "frontend",
-	Backend = "backend",
-	Creative = "creative",
-	Collaborative = "collaborative",
-	Scripting = "scripting",
-	Admin = "administrative",
+	All = "All",
+	Admin = "Administrative",
+	Backend = "Backend",
+	Collaborative = "Collaborative",
+	Creative = "Creative",
+	Frontend = "Frontend",
+	Scripting = "Scripting",
 }
+
 
 export type Skill = {
   icon: JSX.Element;
@@ -216,13 +218,19 @@ export const StartingSkills: Skill[] = [
     icon: <Python3Icon />,
     name: "Python 3",
     skillType: SkillType.Languages,
-		subSkillTypes: [SubSkillType.Backend]
+		subSkillTypes: [SubSkillType.Backend, SubSkillType.Scripting]
   },
   {
     icon: <ReactJSIcon />,
     name: "React",
     skillType: SkillType.Frameworks,
 		subSkillTypes: [SubSkillType.Frontend]
+  },
+  {
+    icon: <RedisIcon />,
+    name: "Redis",
+    skillType: SkillType.Database,
+		subSkillTypes: [SubSkillType.Backend]
   },
   {
     icon: <SQLiteIcon />,
@@ -274,3 +282,21 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.OS,
   },
 ]
+
+export type SkillMapType = {
+	[key: string]: SubSkillType[];
+}
+
+export const SkillMap: SkillMapType = StartingSkills.reduce((skillMap: SkillMapType, skill) => {
+	if (skill.subSkillTypes) {
+		skill.subSkillTypes.forEach(subSkillType => {
+			const str = skill.skillType.toString();
+			if (skillMap[str]) {
+				skillMap[str].push(subSkillType);
+			} else {
+				skillMap[str] = [subSkillType];
+			}
+		});
+	}
+	return skillMap;
+}, {});
