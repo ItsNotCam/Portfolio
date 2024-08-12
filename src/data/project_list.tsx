@@ -1,5 +1,5 @@
 import { Orange, Red } from "../components/ColoredText";
-import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, HTML5Icon, CSS3Icon, JQueryIcon, JavascriptIcon, NodeJSIcon, DockerIcon, MySQLIconSmall, CSharpIcon, Python3Icon, JavaIcon, SQLiteIcon, FlaskIcon, PostgreSQLIcon, SQLServerIcon, Material_UIIcon } from "../components/Icons";
+import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, HTML5Icon, CSS3Icon, JQueryIcon, JavascriptIcon, NodeJSIcon, DockerIcon, MySQLIconSmall, CSharpIcon, Python3Icon, JavaIcon, SQLiteIcon, FlaskIcon, PostgreSQLIcon, SQLServerIcon, Material_UIIcon, UnityIcon } from "../components/Icons";
 
 export type Skill = {
   name: string;
@@ -24,12 +24,6 @@ export const ProjectList: Project[] = [{
   githubLink: "https://github.com/ItsNotCam/PortfolioV2",
   year: "2024",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "React",
     icon: <ReactJSIcon />,
   }, {
@@ -52,12 +46,6 @@ export const ProjectList: Project[] = [{
   id: "cybearark_insights",
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "NodeJS",
     icon: <NodeJSIcon />,
   }, {
@@ -85,12 +73,9 @@ export const ProjectList: Project[] = [{
   id: "code_monkey",
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
+    name: "Docker",
+    icon: <DockerIcon />,
   }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "React",
     icon: <ReactJSIcon />,
   }, {
@@ -124,12 +109,6 @@ export const ProjectList: Project[] = [{
   year: "2024",
   id: "cloud_file_share",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "TypeScript",
     icon: <TypeScriptIcon />,
   }, {
@@ -160,15 +139,9 @@ export const ProjectList: Project[] = [{
   additionalContent: `No additional information available - see demo here: [Pico](https://mason.gmu.edu/~cyoung35/index.html)`,
   year: "2024",
   id: "pico",
-  skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  }, {
+  skills: [ {
     name: "JQuery",
-    icon: <JQueryIcon />,
+    icon: <JQueryIcon color="#68A9F6" />,
   }, {
     name: "JavaScript",
     icon: <JavascriptIcon />,
@@ -189,12 +162,6 @@ export const ProjectList: Project[] = [{
   year: "2024",
   id: "heater_pi",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "Python",
     icon: <Python3Icon />,
   }, {
@@ -216,6 +183,9 @@ export const ProjectList: Project[] = [{
   skills: [{
     name: "C#",
     icon: <CSharpIcon />,
+  },{
+    name: "Unity",
+    icon: <UnityIcon />,
   }],
   content: <span>A <Orange>virtual reality smartwatch</Orange> app that bridges the real and virtual worlds, displaying real-time information such as the user's local time, weather, heart rate, and more directly on their virtual wrist.</span>
   // <br/><br/>
@@ -243,12 +213,6 @@ export const ProjectList: Project[] = [{
   year: "2019",
   id: "home_file_server",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "Python",
     icon: <Python3Icon />,
   }, {
@@ -271,12 +235,6 @@ export const ProjectList: Project[] = [{
   id: "racoon",
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [{
-    name: "HTML",
-    icon: <HTML5Icon />,
-  }, {
-    name: "CSS",
-    icon: <CSS3Icon />,
-  },{
     name: "Python",
     icon: <Python3Icon />,
   }, {
@@ -298,6 +256,6 @@ export const ProjectList: Project[] = [{
     name: "SQLite",
     icon: <SQLiteIcon />,
   }],
-  content: <span>A <Orange>full-stack web application</Orange> developed for BAE Systems, Inc. that is currently (2024) deployed within their cyber threat detection pipeline.<br/><br/>
+  content: <span>A <Orange>full-stack web application</Orange> developed for <Red>BAE Systems, Inc.</Red> that is <strong>currently (2024) deployed within their cyber threat detection pipeline.</strong><br/><br/>
   Raccoon extracts information from packet capture files, stores it in a SQLite database, provides a user interface to view the data, and exposes a REST API for integration with other internal tools.<br/></span>
 },];
