@@ -60,10 +60,6 @@
   }
 
   & .skills-item-title {
-    /* position: inherit;
-    transform: translateY(0em);
-    transition: transform 0ms;
-    @apply text-custom-text-100 text-base z-20; */
 		display: none;
   }
 

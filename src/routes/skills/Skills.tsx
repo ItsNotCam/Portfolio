@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Footer from "../../components/footer/Footer";
 import SideBar, {
   DirectoryItem,
@@ -19,18 +19,18 @@ import {
 
 import "./skills.css";
 import { Orange } from "../../components/ColoredText";
-import { MappedSubSkills, Skill, SkillType, StartingSkills, SubSkillType } from "../../data/skills_list";
+import { MappedSubSkills, SkillListItem, SkillType, StartingSkills, SubSkillType } from "../../data/skills_list";
 
-enum SortMode {
-	ASCENDING = "ascending",
-	DESCENDING = "descending",
-}
+// enum SortMode {
+// 	ASCENDING = "ascending",
+// 	DESCENDING = "descending",
+// }
 
 export default function About() {
   const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
   const [selectedSubFilter, setSelectedSubFilter] = useState<SubSkillType>(SubSkillType.All);
   const [compactView, setCompactView] = useState<boolean>(true);
-  const [skills, setSkills] = useState<Skill[]>(StartingSkills);
+  const [skills, setSkills] = useState<SkillListItem[]>(StartingSkills);
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
     {
       icon: <FolderIcon />,
@@ -82,7 +82,7 @@ export default function About() {
       onClick: () => filterSkills(SkillType.OS),
     },
   ]);
-	const [sortMode, setSortMode] = useState<SortMode>(SortMode.ASCENDING);
+	// const [sortMode, setSortMode] = useState<SortMode>(SortMode.ASCENDING);
 
   const mappedSubSkills = useRef(MappedSubSkills);
 
@@ -103,14 +103,14 @@ export default function About() {
 		}
 	};
 
-	const sortSkills = (sortMode: SortMode) => {
-		if (sortMode === SortMode.ASCENDING) {
-			setSkills((oldSkills) => oldSkills.sort((a, b) => a.name.localeCompare(b.name)));
-		} else {
-			setSkills((oldSkills) => oldSkills.sort((a, b) => b.name.localeCompare(a.name)));
-		}
-		setSortMode(sortMode);
-	}
+	// const sortSkills = (sortMode: SortMode) => {
+	// 	if (sortMode === SortMode.ASCENDING) {
+	// 		setSkills((oldSkills) => oldSkills.sort((a, b) => a.name.localeCompare(b.name)));
+	// 	} else {
+	// 		setSkills((oldSkills) => oldSkills.sort((a, b) => b.name.localeCompare(a.name)));
+	// 	}
+	// 	setSortMode(sortMode);
+	// }
 
   /**
    * Filters the skills based on the provided type.
@@ -158,7 +158,7 @@ export default function About() {
     );
   };
 
-	const groupSkillsByType = () => {
+	const getSkillsByType = () => {
 		return Object.values(SkillType).filter(skillType => (
 			skillType !== SkillType.ALL 
 			&& skills.filter(s2 => s2.skillType === skillType).length > 0
@@ -189,17 +189,13 @@ export default function About() {
             >
               <div
                 className="flex flex-row items-center gap-2 absolute transition-transform"
-                style={{
-                  transform: compactView ? "translateY(0)" : "translateY(-5em)",
-                }}
+                style={{ transform: compactView ? "translateY(0)" : "translateY(-5em)" }}
               >
                 List <ListView height="3em" width="3em" />
               </div>
               <div
                 className="flex flex-row items-center gap-2 absolute transition-transform"
-                style={{
-                  transform: compactView ? "translateY(-5em)" : "translateY(0)",
-                }}
+                style={{ transform: compactView ? "translateY(-5em)" : "translateY(0)" }}
               >
                 Grid <GridView height="3em" width="3em" />
               </div>
@@ -209,7 +205,7 @@ export default function About() {
             className={`flex ${selectedFilter === SkillType.ALL ? "flex-col" : "flex-row"} flex-wrap flex-grow-0 gap-2 mt-4`}
             style={{ fontSize: compactView ? "1.25em" : "2em" }}
           >
-						{selectedFilter === SkillType.ALL && groupSkillsByType().map((skillType: SkillType) => (
+						{selectedFilter === SkillType.ALL && getSkillsByType().map((skillType: SkillType) => (
 							<div className="mt-4 mb-2">
 								<span className="text-xl text-custom-text-100">{skillType}</span>
 								<div className="flex flex-row flex-wrap gap-2">
