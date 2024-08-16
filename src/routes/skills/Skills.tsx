@@ -158,6 +158,13 @@ export default function About() {
     );
   };
 
+	const groupSkillsByType = () => {
+		return Object.values(SkillType).filter(skillType => (
+			skillType !== SkillType.ALL 
+			&& skills.filter(s2 => s2.skillType === skillType).length > 0
+		));
+	}
+
   return (
     <>
       <div id="skills" className="flex flex-grow overflow-auto">
@@ -165,13 +172,13 @@ export default function About() {
         <div className="p-4 w-full h-full flex-grow">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl italic text-custom-red uppercase flex-grow">
-              [ {selectedFilter} ]
+              [ {selectedFilter} / {selectedSubFilter}]
             </h1>
 						{/* <select value={sortMode} onChange={(e) => sortSkills(e.target.value as SortMode)}>
 							<option value={SortMode.ASCENDING}>Ascending</option>
 							<option value={SortMode.DESCENDING}>Descending</option>
 						</select> */}
-						{(mappedSubSkills.current[selectedFilter]?.length > 1) && (
+						{(mappedSubSkills.current[selectedFilter]?.length > 1 || selectedFilter === SkillType.ALL) && (
 							<select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)} className="ml-auto">
 								<MappedSubSkillsOptions />
 							</select>
@@ -202,7 +209,7 @@ export default function About() {
             className={`flex ${selectedFilter === SkillType.ALL ? "flex-col" : "flex-row"} flex-wrap flex-grow-0 gap-2 mt-4`}
             style={{ fontSize: compactView ? "1.25em" : "2em" }}
           >
-						{selectedFilter === SkillType.ALL && Object.values(SkillType).filter(s => s !== SkillType.ALL).map((skillType: SkillType) => (
+						{selectedFilter === SkillType.ALL && groupSkillsByType().map((skillType: SkillType) => (
 							<div className="mt-4 mb-2">
 								<span className="text-xl text-custom-text-100">{skillType}</span>
 								<div className="flex flex-row flex-wrap gap-2">
