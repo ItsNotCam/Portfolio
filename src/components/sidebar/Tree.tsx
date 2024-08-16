@@ -21,7 +21,8 @@ export default function Tree(props: TreeProps): ReactNode {
         indent={`${depth}rem`}
         disabled={item.disabled}
         selected={item.selected}
-        functional={item.onClick !== undefined} />
+        functional={item.onClick !== undefined} 
+			/>
       {item.children &&
         item.children.map((child) => (
           <Tree
