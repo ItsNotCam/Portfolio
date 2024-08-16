@@ -4,6 +4,7 @@ import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, HTML5Icon, C
 export type Skill = {
   name: string;
   icon: JSX.Element;
+	visible?: boolean;
 };
 
 export type Project = {
@@ -24,6 +25,14 @@ export const ProjectList: Project[] = [{
   githubLink: "https://github.com/ItsNotCam/PortfolioV2",
   year: "2024",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "React",
     icon: <ReactJSIcon />,
   }, {
@@ -46,6 +55,14 @@ export const ProjectList: Project[] = [{
   id: "cybearark_insights",
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "NodeJS",
     icon: <NodeJSIcon />,
   }, {
@@ -64,8 +81,10 @@ export const ProjectList: Project[] = [{
     name: "SQL Server",
     icon: <SQLServerIcon />,
   }],
-  content: <span>This <Orange>front-end web application</Orange> was developed for <Red>BAE Systems, Inc. </Red>
-  It displays essential information and statistics for an internal account and password management application.<br/>
+  content: <span>This <Orange>full-stack web application</Orange> was developed for <Red>BAE Systems, Inc. </Red> and is 
+	<strong> currently (2024) deployed in BAE Systems' internal network.</strong>
+  <br/> <br/> It displays essential information and statistics for an internal account and password management application, and 
+	utilizes existing smart-card SSO infrastructure to provide fully secure admin and user dashboards.<br/>
   </span>
 }, {
   name: "🙉CodeMonkey",
@@ -73,6 +92,14 @@ export const ProjectList: Project[] = [{
   id: "code_monkey",
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "Docker",
     icon: <DockerIcon />,
   }, {
@@ -109,6 +136,14 @@ export const ProjectList: Project[] = [{
   year: "2024",
   id: "cloud_file_share",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "TypeScript",
     icon: <TypeScriptIcon />,
   }, {
@@ -140,6 +175,14 @@ export const ProjectList: Project[] = [{
   year: "2024",
   id: "pico",
   skills: [ {
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "JQuery",
     icon: <JQueryIcon color="#68A9F6" />,
   }, {
@@ -162,6 +205,14 @@ export const ProjectList: Project[] = [{
   year: "2024",
   id: "heater_pi",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "Python",
     icon: <Python3Icon />,
   }, {
@@ -213,6 +264,14 @@ export const ProjectList: Project[] = [{
   year: "2019",
   id: "home_file_server",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "Python",
     icon: <Python3Icon />,
   }, {
@@ -235,6 +294,14 @@ export const ProjectList: Project[] = [{
   id: "racoon",
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [{
+    name: "HTML5",
+    icon: <HTML5Icon />,
+		visible: false
+  }, {
+    name: "CSS3",
+    icon: <CSS3Icon />,
+		visible: false
+  }, {
     name: "Python",
     icon: <Python3Icon />,
   }, {
