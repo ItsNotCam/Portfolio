@@ -1,4 +1,4 @@
-import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, WindowsIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, MongoDBIcon, GitHubIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, WebpackIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon } from "../components/Icons";
+import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, WindowsIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, MongoDBIcon, GitHubIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, WebpackIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon } from "../components/Icons";
 
 export enum SkillType {
   Languages = "languages",
@@ -92,7 +92,8 @@ export const StartingSkills: Skill[] = [
   {
     icon: <DockerIcon />,
     name: "Docker",
-    skillType: SkillType.Tools
+    skillType: SkillType.Tools,
+		subSkillTypes: [SubSkillType.Backend]
   },
   {
     icon: <ExpressJSIcon />,
@@ -131,6 +132,12 @@ export const StartingSkills: Skill[] = [
 		subSkillTypes: [SubSkillType.Frontend]
   },
   {
+    icon: <IISIcon />,
+    name: "Windows IIS",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.Backend]
+  },
+  {
     icon: <JavaIcon />,
     name: "Java",
     skillType: SkillType.Languages,
@@ -149,14 +156,14 @@ export const StartingSkills: Skill[] = [
 		subSkillTypes: [SubSkillType.Collaborative]
   },
   {
-    icon: <JQueryIcon color="#68A9F6" />,
+    icon: <JQueryIcon />,
     name: "JQuery",
     skillType: SkillType.Frameworks,
 		subSkillTypes: [SubSkillType.Frontend]
   },
   {	
 		icon: <M365Icon />,
-    name: "Microsoft Products",
+    name: "Microsoft 365",
     skillType: SkillType.Software,
 		subSkillTypes: [SubSkillType.Admin]
   },
@@ -167,11 +174,23 @@ export const StartingSkills: Skill[] = [
 		subSkillTypes: [SubSkillType.Frontend]
   },
   {
-    icon: <MongoDBIcon />,
-    name: "MongoDB",
-    skillType: SkillType.Database,
-		subSkillTypes: [SubSkillType.Backend]
+    icon: <ExcelIcon />,
+    name: "Excel",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.Admin]
   },
+  {
+    icon: <WordIcon />,
+    name: "Word",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.Admin]
+  },
+  // {
+  //   icon: <MongoDBIcon />,
+  //   name: "MongoDB",
+  //   skillType: SkillType.Database,
+	// 	subSkillTypes: [SubSkillType.Backend]
+  // },
   {
     icon: <MySQLIconSmall />,
     name: "MySQL",
@@ -182,7 +201,7 @@ export const StartingSkills: Skill[] = [
     icon: <NextJSIcon />,
     name: "NextJS",
     skillType: SkillType.Frameworks,
-		subSkillTypes: [SubSkillType.Backend, SubSkillType.Frontend]
+		subSkillTypes: [SubSkillType.Backend]
   },
   {
     icon: <NodeJSIcon />,
@@ -216,7 +235,7 @@ export const StartingSkills: Skill[] = [
   },
   {
     icon: <Python3Icon />,
-    name: "Python 3",
+    name: "Python",
     skillType: SkillType.Languages,
 		subSkillTypes: [SubSkillType.Backend, SubSkillType.Scripting]
   },
@@ -264,12 +283,14 @@ export const StartingSkills: Skill[] = [
   {
     icon: <UnityIcon />,
     name: "Unity",
-    skillType: SkillType.Software
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.Creative]
   },
   {
     icon: <VMWareIcon />,
     name: "VMWare",
     skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.Backend]
   },
   // {
   //   icon: <Visual_StudioIcon />,
@@ -285,7 +306,7 @@ export const StartingSkills: Skill[] = [
   {
     icon: <WindowsIcon />,
     name: "Windows",
-    skillType: SkillType.OS,
+    skillType: SkillType.OS
   },
 ]
 
@@ -293,16 +314,27 @@ export type SkillMapType = {
 	[key: string]: SubSkillType[];
 }
 
-export const SkillMap: SkillMapType = StartingSkills.reduce((skillMap: SkillMapType, skill) => {
-	if (skill.subSkillTypes) {
-		skill.subSkillTypes.forEach(subSkillType => {
-			const str = skill.skillType.toString();
-			if (skillMap[str]) {
-				skillMap[str].push(subSkillType);
-			} else {
-				skillMap[str] = [subSkillType];
-			}
-		});
-	}
-	return skillMap;
-}, {});
+
+let mappedSubSkills: any = {} as any;
+Object.values(SkillType).forEach((skillType: SkillType) => {
+	StartingSkills.filter((skill) =>
+		(skill.skillType === skillType) &&
+		(skill.subSkillTypes || []).length > 0
+	).forEach((skill) => {
+		const subSkillTypes = skill.subSkillTypes || [];
+		if (subSkillTypes.length < 1) return;
+
+		if (mappedSubSkills[skillType] === undefined) {
+			mappedSubSkills[skillType] = [...subSkillTypes];
+		} else {
+			subSkillTypes.forEach((subSkillType) => {
+				if (
+					mappedSubSkills[skillType].indexOf(subSkillType) === -1
+				) {
+					mappedSubSkills[skillType].push(subSkillType);
+				}
+			});
+		}
+	});
+});
+export const MappedSubSkills: SkillMapType = mappedSubSkills;
