@@ -1527,7 +1527,7 @@ export const SQLServerIcon = (props: {
   height?: string;
   width?: string;
   color?: string;
-  className?: string
+  className?: string;
 }) => {
   return (
     <svg
@@ -1575,7 +1575,7 @@ export const SQLServerIcon = (props: {
       />
     </svg>
   );
-}
+};
 
 export const Tailwind_CSSIcon = (props: {
   height?: string;
@@ -1654,11 +1654,384 @@ export const DockerIcon = (props: {
   );
 };
 
-export const ExcelIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
+export const IntelliJLogo = (props: { height?: string; width?: string }) => {	
 	return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
+      viewBox="0 0 70 70"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_26_19)">
+        <path
+          d="M17.7 54.6L0.799988 41.2L9.19999 25.6L33.3 35L17.7 54.6Z"
+          fill="url(#paint0_linear_26_19)"
+        />
+        <path
+          d="M70 18.7L68.7 59.2L41.8 70L25.6 59.6L49.3 35L38.9 12.3L48.2 1.10001L70 18.7Z"
+          fill="url(#paint1_linear_26_19)"
+        />
+        <path
+          d="M70 18.7L48.7 43.9L38.9 12.3L48.2 1.10001L70 18.7Z"
+          fill="url(#paint2_linear_26_19)"
+        />
+        <path
+          d="M33.7 58.1L5.6 68.3L10.1 52.5L16 33.1L0 27.7L10.1 0L32.1 2.7L53.7 27.4L33.7 58.1Z"
+          fill="url(#paint3_linear_26_19)"
+        />
+        <path d="M56.9 13.5H13.7V56.7H56.9V13.5Z" fill="black" />
+        <path d="M33.9 48.6H17.7V51.3H33.9V48.6Z" fill="white" />
+        <path
+          d="M29.4 22.4V19.1H20.4V22.4H23V33.7H20.4V37H29.4V33.7H26.9V22.4H29.4Z"
+          fill="white"
+        />
+        <path
+          d="M38 37.3C36.6 37.3 35.4 37 34.5 36.5C33.6 36 32.8 35.3 32.2 34.6L34.7 31.8C35.2 32.4 35.7 32.8 36.2 33.1C36.7 33.4 37.3 33.6 37.9 33.6C38.6 33.6 39.2 33.4 39.7 32.9C40.1 32.4 40.3 31.7 40.3 30.6V19.1H44.3V30.8C44.3 31.9 44.2 32.8 43.9 33.6C43.6 34.4 43.2 35 42.6 35.6C42.1 36.1 41.4 36.6 40.6 36.8C39.8 37.1 39 37.3 38 37.3Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <linearGradient
+          id="paint0_linear_26_19"
+          x1="0.789788"
+          y1="40.0893"
+          x2="33.3172"
+          y2="40.0893"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.2581" stop-color="#F97A12" />
+          <stop offset="0.4591" stop-color="#B07B58" />
+          <stop offset="0.7241" stop-color="#577BAE" />
+          <stop offset="0.9105" stop-color="#1E7CE5" />
+          <stop offset="1" stop-color="#087CFA" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_26_19"
+          x1="25.7674"
+          y1="24.88"
+          x2="79.424"
+          y2="54.57"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#F97A12" />
+          <stop offset="0.0717995" stop-color="#CB7A3E" />
+          <stop offset="0.1541" stop-color="#9E7B6A" />
+          <stop offset="0.242" stop-color="#757B91" />
+          <stop offset="0.3344" stop-color="#537BB1" />
+          <stop offset="0.4324" stop-color="#387CCC" />
+          <stop offset="0.5381" stop-color="#237CE0" />
+          <stop offset="0.6552" stop-color="#147CEF" />
+          <stop offset="0.7925" stop-color="#0B7CF7" />
+          <stop offset="1" stop-color="#087CFA" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_26_19"
+          x1="63.2277"
+          y1="42.9153"
+          x2="48.2903"
+          y2="-1.71909"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FE315D" />
+          <stop offset="0.0784025" stop-color="#CB417E" />
+          <stop offset="0.1601" stop-color="#9E4E9B" />
+          <stop offset="0.2474" stop-color="#755BB4" />
+          <stop offset="0.3392" stop-color="#5365CA" />
+          <stop offset="0.4365" stop-color="#386DDB" />
+          <stop offset="0.5414" stop-color="#2374E9" />
+          <stop offset="0.6576" stop-color="#1478F3" />
+          <stop offset="0.794" stop-color="#0B7BF8" />
+          <stop offset="1" stop-color="#087CFA" />
+        </linearGradient>
+        <linearGradient
+          id="paint3_linear_26_19"
+          x1="10.7204"
+          y1="16.473"
+          x2="55.5237"
+          y2="90.58"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FE315D" />
+          <stop offset="0.0402328" stop-color="#F63462" />
+          <stop offset="0.1037" stop-color="#DF3A71" />
+          <stop offset="0.1667" stop-color="#C24383" />
+          <stop offset="0.2912" stop-color="#AD4A91" />
+          <stop offset="0.5498" stop-color="#755BB4" />
+          <stop offset="0.9175" stop-color="#1D76ED" />
+          <stop offset="1" stop-color="#087CFA" />
+        </linearGradient>
+        <clipPath id="clip0_26_19">
+          <rect width="70" height="70" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
+export const PyCharmLogo = (props: { height?: string; width?: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
+      viewBox="0 0 70 70"
+      fill="none"
+    >
+      <path
+        d="M49.1 11L69.5 28.1L62.2 43L49.8 39.6H39.2L49.1 11Z"
+        fill="url(#paint0_linear_25_4)"
+      />
+      <path
+        d="M28.5 22.1L24.5 43L24.1 50.2L14.2 54.5L0 56L4.3 10.7L29.9 0L45.7 10.4L28.5 22.1Z"
+        fill="url(#paint1_linear_25_4)"
+      />
+      <path
+        d="M28.5 22.1L30.4 62.5L24 70L0 56L19.7 26.6L28.5 22.1Z"
+        fill="url(#paint2_linear_25_4)"
+      />
+      <path
+        d="M54.9 19.1H30.6L52.1 0L54.9 19.1Z"
+        fill="url(#paint3_linear_25_4)"
+      />
+      <path
+        d="M70 62.6L48.6 69.9L20.2 61.9L28.5 22.1L31.8 19.1L49.1 17.5L47.5 34.9L61.3 29.6L70 62.6Z"
+        fill="url(#paint4_linear_25_4)"
+      />
+      <path d="M56.6 13.4H13.4V56.6H56.6V13.4Z" fill="black" />
+      <path d="M33.7 48.5H17.5V51.2H33.7V48.5Z" fill="white" />
+      <path
+        d="M17.3 19.1H24.6C28.9 19.1 31.5 21.6 31.5 25.3V25.4C31.5 29.5 28.3 31.7 24.3 31.7H21.3V37H17.4V19.1H17.3ZM24.4 28.1C26.4 28.1 27.5 26.9 27.5 25.4V25.3C27.5 23.5 26.3 22.6 24.3 22.6H21.3V28.1H24.4Z"
+        fill="white"
+      />
+      <path
+        d="M33.1 28.1C33.1 23.0001 36.9 18.8 42.4 18.8C45.8 18.8 47.8 19.9 49.5 21.6L47 24.5C45.6 23.2 44.2 22.5 42.4 22.5C39.4 22.5 37.2 25.0001 37.2 28.1V28C37.2 31.1 39.3 33.6 42.4 33.6C44.4 33.6 45.7 32.8 47.1 31.5L49.6 34C47.8 36 45.7 37.2001 42.3 37.2001C37 37.3001 33.1 33.2 33.1 28.1Z"
+        fill="white"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_25_4"
+          x1="24.9985"
+          y1="27.0461"
+          x2="66.6565"
+          y2="27.0461"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#21D789" />
+          <stop offset="1" stop-color="#07C3F2" />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_25_4"
+          x1="-24.5594"
+          y1="59.0806"
+          x2="61.2196"
+          y2="-4.24131"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.0107527" stop-color="#FCF84A" />
+          <stop offset="0.1116" stop-color="#A7EB62" />
+          <stop offset="0.2056" stop-color="#5FE077" />
+          <stop offset="0.2727" stop-color="#32DA84" />
+          <stop offset="0.3065" stop-color="#21D789" />
+          <stop offset="0.5768" stop-color="#21D789" />
+          <stop offset="0.5968" stop-color="#21D789" />
+          <stop offset="0.686" stop-color="#20D68C" />
+          <stop offset="0.7627" stop-color="#1ED497" />
+          <stop offset="0.8348" stop-color="#19D1A9" />
+          <stop offset="0.904" stop-color="#13CCC2" />
+          <stop offset="0.9707" stop-color="#0BC6E1" />
+          <stop offset="1" stop-color="#07C3F2" />
+        </linearGradient>
+        <linearGradient
+          id="paint2_linear_25_4"
+          x1="9.3301"
+          y1="77.6536"
+          x2="23.6369"
+          y2="32.7598"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#21D789" />
+          <stop offset="0.1638" stop-color="#24D788" />
+          <stop offset="0.3047" stop-color="#2FD886" />
+          <stop offset="0.4371" stop-color="#41DA82" />
+          <stop offset="0.5644" stop-color="#5ADC7D" />
+          <stop offset="0.6881" stop-color="#7AE077" />
+          <stop offset="0.809" stop-color="#A1E36E" />
+          <stop offset="0.9254" stop-color="#CFE865" />
+          <stop offset="1" stop-color="#F1EB5E" />
+        </linearGradient>
+        <linearGradient
+          id="paint3_linear_25_4"
+          x1="28.2753"
+          y1="38.6231"
+          x2="59.4088"
+          y2="-3.2358"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#21D789" />
+          <stop offset="0.0608105" stop-color="#24D788" />
+          <stop offset="0.1131" stop-color="#2FD886" />
+          <stop offset="0.1622" stop-color="#41DA82" />
+          <stop offset="0.2094" stop-color="#5ADD7D" />
+          <stop offset="0.2548" stop-color="#79E077" />
+          <stop offset="0.2581" stop-color="#7CE076" />
+          <stop offset="0.4986" stop-color="#8CE173" />
+          <stop offset="0.9247" stop-color="#B2E56B" />
+        </linearGradient>
+        <linearGradient
+          id="paint4_linear_25_4"
+          x1="75.8893"
+          y1="43.9496"
+          x2="13.1579"
+          y2="43.3687"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0.3871" stop-color="#FCF84A" />
+          <stop offset="0.5358" stop-color="#ECF451" />
+          <stop offset="0.8259" stop-color="#C2E964" />
+          <stop offset="0.9247" stop-color="#B2E56B" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+export const VSCodeIcon = (props: { height?: string; width?: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
+      viewBox="0 0 100 100"
+      fill="none"
+    >
+      <mask
+        id="mask0"
+        mask-type="alpha"
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width="100"
+        height="100"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M70.9119 99.3171C72.4869 99.9307 74.2828 99.8914 75.8725 99.1264L96.4608 89.2197C98.6242 88.1787 100 85.9892 100 83.5872V16.4133C100 14.0113 98.6243 11.8218 96.4609 10.7808L75.8725 0.873756C73.7862 -0.130129 71.3446 0.11576 69.5135 1.44695C69.252 1.63711 69.0028 1.84943 68.769 2.08341L29.3551 38.0415L12.1872 25.0096C10.589 23.7965 8.35363 23.8959 6.86933 25.2461L1.36303 30.2549C-0.452552 31.9064 -0.454633 34.7627 1.35853 36.417L16.2471 50.0001L1.35853 63.5832C-0.454633 65.2374 -0.452552 68.0938 1.36303 69.7453L6.86933 74.7541C8.35363 76.1043 10.589 76.2037 12.1872 74.9905L29.3551 61.9587L68.769 97.9167C69.3925 98.5406 70.1246 99.0104 70.9119 99.3171ZM75.0152 27.2989L45.1091 50.0001L75.0152 72.7012V27.2989Z"
+          fill="white"
+        />
+      </mask>
+      <g mask="url(#mask0)">
+        <path
+          d="M96.4614 10.7962L75.8569 0.875542C73.4719 -0.272773 70.6217 0.211611 68.75 2.08333L1.29858 63.5832C-0.515693 65.2373 -0.513607 68.0937 1.30308 69.7452L6.81272 74.754C8.29793 76.1042 10.5347 76.2036 12.1338 74.9905L93.3609 13.3699C96.086 11.3026 100 13.2462 100 16.6667V16.4275C100 14.0265 98.6246 11.8378 96.4614 10.7962Z"
+          fill="#0065A9"
+        />
+        <g filter="url(#filter0_d)">
+          <path
+            d="M96.4614 89.2038L75.8569 99.1245C73.4719 100.273 70.6217 99.7884 68.75 97.9167L1.29858 36.4169C-0.515693 34.7627 -0.513607 31.9063 1.30308 30.2548L6.81272 25.246C8.29793 23.8958 10.5347 23.7964 12.1338 25.0095L93.3609 86.6301C96.086 88.6974 100 86.7538 100 83.3334V83.5726C100 85.9735 98.6246 88.1622 96.4614 89.2038Z"
+            fill="#007ACC"
+          />
+        </g>
+        <g filter="url(#filter1_d)">
+          <path
+            d="M75.8578 99.1263C73.4721 100.274 70.6219 99.7885 68.75 97.9166C71.0564 100.223 75 98.5895 75 95.3278V4.67213C75 1.41039 71.0564 -0.223106 68.75 2.08329C70.6219 0.211402 73.4721 -0.273666 75.8578 0.873633L96.4587 10.7807C98.6234 11.8217 100 14.0112 100 16.4132V83.5871C100 85.9891 98.6234 88.1786 96.4586 89.2196L75.8578 99.1263Z"
+            fill="#1F9CF0"
+          />
+        </g>
+        <g style={{ "mix-blend-mode": "overlay" } as any} opacity="0.25">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M70.8511 99.3171C72.4261 99.9306 74.2221 99.8913 75.8117 99.1264L96.4 89.2197C98.5634 88.1787 99.9392 85.9892 99.9392 83.5871V16.4133C99.9392 14.0112 98.5635 11.8217 96.4001 10.7807L75.8117 0.873695C73.7255 -0.13019 71.2838 0.115699 69.4527 1.44688C69.1912 1.63705 68.942 1.84937 68.7082 2.08335L29.2943 38.0414L12.1264 25.0096C10.5283 23.7964 8.29285 23.8959 6.80855 25.246L1.30225 30.2548C-0.513334 31.9064 -0.515415 34.7627 1.29775 36.4169L16.1863 50L1.29775 63.5832C-0.515415 65.2374 -0.513334 68.0937 1.30225 69.7452L6.80855 74.754C8.29285 76.1042 10.5283 76.2036 12.1264 74.9905L29.2943 61.9586L68.7082 97.9167C69.3317 98.5405 70.0638 99.0104 70.8511 99.3171ZM74.9544 27.2989L45.0483 50L74.9544 72.7012V27.2989Z"
+            fill="url(#paint0_linear)"
+          />
+        </g>
+      </g>
+      <defs>
+        <filter
+          id="filter0_d"
+          x="-8.39411"
+          y="15.8291"
+          width="116.727"
+          height="92.2456"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          />
+          <feOffset />
+          <feGaussianBlur stdDeviation="4.16667" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="overlay"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow"
+            result="shape"
+          />
+        </filter>
+        <filter
+          id="filter1_d"
+          x="60.4167"
+          y="-8.07558"
+          width="47.9167"
+          height="116.151"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+          />
+          <feOffset />
+          <feGaussianBlur stdDeviation="4.16667" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="overlay"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow"
+            result="shape"
+          />
+        </filter>
+        <linearGradient
+          id="paint0_linear"
+          x1="49.9392"
+          y1="0.257812"
+          x2="49.9392"
+          y2="99.7423"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="white" />
+          <stop offset="1" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+export const ExcelIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width || "1.5em"}
@@ -1724,13 +2097,10 @@ export const ExcelIcon = (props: {
       </defs>
     </svg>
   );
-}
+};
 
-export const WordIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const WordIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width || "1.5em"}
@@ -1798,49 +2168,33 @@ export const WordIcon = (props: {
       </defs>
     </svg>
   );
-}
+};
 
-export const IISIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const IISIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width || "1.5em"}
       height={props.height || "1.5em"}
-      viewBox="0 0 432 333"
+      viewBox="0 0 100 100"
       fill="none"
     >
+      <path d="M17.0203 17H48.5192V48.4989H17.0203V17Z" fill="#F25022" />
+      <path d="M51.726 17H83.2247V48.4989H51.726V17Z" fill="#7FBA00" />
       <path
-        d="M206.764 80.4933V251.499H228.768V80.4933H206.764ZM267.614 80.4933V251.499H289.618V80.4933H267.614ZM319.228 243.214C328.329 249.19 346.258 254.216 363.1 254.216C403.305 254.216 423 231.397 423 204.775C423 179.647 408.331 165.385 379.128 154.519C355.358 145.419 345.307 137.541 345.307 121.649C345.307 109.696 354 95.9775 377.77 95.9775C393.254 95.9775 404.799 101.003 410.232 104.263L416.209 86.4697C408.466 82.3949 396.106 78.1842 378.313 78.1842C344.9 78.1842 323.031 97.8791 323.031 124.773C323.031 148.95 340.417 163.212 368.262 173.263C391.624 181.956 400.724 191.056 400.724 207.084C400.724 224.47 387.413 236.422 365.002 236.422C349.925 236.422 335.256 231.397 325.205 225.42L319.228 243.214Z"
-        fill="white"
-      />
-      <path
-        d="M8.99994 78.7275H91.7185V161.446H8.99994V78.7275Z"
-        fill="#F25022"
-      />
-      <path
-        d="M100.14 78.7275H182.858V161.446H100.14V78.7275Z"
-        fill="#7FBA00"
-      />
-      <path
-        d="M8.99994 170.275H91.7185V252.857H8.99994V170.275Z"
+        d="M17.0203 51.8608H48.5192V83.3077H17.0203V51.8608Z"
         fill="#00A4EF"
       />
       <path
-        d="M100.14 170.275H182.858V252.857H100.14V170.275Z"
+        d="M51.726 51.8608H83.2247V83.3077H51.726V51.8608Z"
         fill="#FFB900"
       />
     </svg>
   );
-}
+};
 
-export const XDIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const XDIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -1858,13 +2212,10 @@ export const XDIcon = (props: {
       </g>
     </svg>
   );
-}
+};
 
-export const RedisIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const RedisIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width || "1.5em"}
@@ -1910,17 +2261,14 @@ export const RedisIcon = (props: {
       />
     </svg>
   );
-}
+};
 
-export const IllustratorIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const IllustratorIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-			height={props.height || "1.5em"}
-			width={props.width || "1.5em"}
+      height={props.height || "1.5em"}
+      width={props.width || "1.5em"}
       viewBox="0 0 240 234"
     >
       <path
@@ -1933,13 +2281,10 @@ export const IllustratorIcon = (props: {
       />
     </svg>
   );
-}
+};
 
-export const FigmaIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const FigmaIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height={props.height || "1.5em"}
@@ -1983,13 +2328,10 @@ export const FigmaIcon = (props: {
       </g>
     </svg>
   );
-}
+};
 
-export const PSIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const PSIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width || "1.5em"}
@@ -2011,13 +2353,10 @@ export const PSIcon = (props: {
       />
     </svg>
   );
-}
+};
 
-export const NPMIcon = (props: {
-	height?: string;
-	width?: string;
-}) => {
-	return (
+export const NPMIcon = (props: { height?: string; width?: string }) => {
+  return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={props.width || "1.5em"}
@@ -2043,7 +2382,7 @@ export const NPMIcon = (props: {
       />
     </svg>
   );
-}
+};
 
 export const MySQLIconSmall = (props: {
   height?: string;
