@@ -185,7 +185,9 @@ export default function Projects(): ReactNode {
 
   const ProjectSkills = (props: { project: Project }): ReactNode => (
     <ul className="project-skill-item-list">
-      {props.project.skills.map((skill, index) => (
+      {props.project.skills
+				.filter(skill => (skill.visible === undefined) ? true : skill.visible)
+				.map((skill, index) => (	
         <li
           key={`skills-${skill.name}-${index}`}
           className="project-skill-item"
@@ -210,13 +212,27 @@ export default function Projects(): ReactNode {
 			) : (<>
 				<div className="absolute top-0 invisible" id="readme-scroll-ref" ref={readmeScrollRef}/>
 				{props.project?.githubLink && 
-					<span className="flex flex-row items-center gap-2 text-custom-text-100 text-xl ">
-						<GitHubLink project={props.project as Project}/> GitHub
-					</span>}
-					<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
-					{props.project && props.project.skills.map((skill) => (<>
-						<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
-					</>))}
+						<a
+							target="_blank"
+							href={props.project.githubLink}
+							className="relative"
+						>
+							<span className="flex flex-row items-center gap-2 text-custom-text-300 hover:text-custom-text-100 text-xl transition-colors">
+								<GitHubIcon
+									height="1.75em"
+									width="1.75em"
+								/>
+								GitHub Repo
+							</span>
+					</a>
+				}
+				<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+					{props.project && props.project.skills
+						.filter(skill => (skill.visible === undefined) ? true : skill.visible)
+						.map((skill) => (
+							<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
+						))
+					}
 				</div>
 				<div className="markdown max-w-100%">
 					<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
@@ -249,7 +265,7 @@ export default function Projects(): ReactNode {
               >
                 <ProjectBefore project={project} />
                 <div
-                  id={`card=${project.id}`}
+                  id={`card-${project.id}`}
                   key={`project-${index}`}
                   className="project-content cursor-pointer"
 									onClick={() => updateSelection(project)}
