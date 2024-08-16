@@ -1,4 +1,4 @@
-import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, WindowsIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, MongoDBIcon, GitHubIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, WebpackIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon } from "../components/Icons";
+import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, WindowsIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, MongoDBIcon, GitHubIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, WebpackIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, VSCodeIcon, PyCharmLogo, IntelliJLogo } from "../components/Icons";
 
 export enum SkillType {
   Languages = "languages",
@@ -16,19 +16,71 @@ export enum SubSkillType {
 	Backend = "Backend",
 	Collaborative = "Collaborative",
 	Creative = "Creative",
+	DevTool = "Dev Tool",
 	Frontend = "Frontend",
 	Scripting = "Scripting",
 }
 
+export enum Skill {
+	Adobe_CC = "Adobe CC",
+	Illustrator = "Illustrator",
+	XD = "Experience Designer",
+	PS = "Photoshop",
+	Bash = "Bash",
+	BitBucket = "BitBucket",
+	Blender = "Blender",
+	Bootstrap = "Bootstrap",
+	CSharp = "C#",
+	CSS = "CSS",
+	Docker = "Docker",
+	Express = "Express",
+	Figma = "Figma",
+	Flask = "Flask",
+	Git = "Git",
+	HTML = "HTML",
+	IIS = "Windows IIS",
+	Java = "Java",
+	JavaScript = "JavaScript",
+	Jira = "Jira",
+	JQuery = "JQuery",
+	IntelliJ = "IntelliJ",
+	M365 = "Microsoft 365",
+	MUI = "Material UI",
+	Excel = "Excel",
+	Word = "Word",
+	MySQL = "MySQL",
+	NextJS = "NextJS",
+	NodeJS = "NodeJS",
+	NPM = "NPM",
+	PostCSS = "PostCSS",
+	PostgreSQL = "PostgreSQL",
+	PowerShell = "PowerShell",
+	PyCharm = "PyCharm",
+	Python = "Python",
+	React = "React",
+	Redis = "Redis",
+	SQLite = "SQLite",
+	SQL_Server = "SQL Server",
+	Tailwind = "Tailwind",
+	TypeScript = "TypeScript",
+	Ubuntu = "Ubuntu",
+	Unity = "Unity",
+	VMWare = "VMWare",
+	Visual_Studio = "Visual Studio",
+	Visual_Studio_Code = "Visual Studio Code",
+	Webpack = "Webpack",
+	Windows = "Windows",
+}
 
-export type Skill = {
+
+export type SkillListItem = {
   icon: JSX.Element;
   name: string;
   skillType: SkillType;
 	subSkillTypes?: SubSkillType[];
 };
 
-export const StartingSkills: Skill[] = [
+export const StartingSkills: SkillListItem[] = [
   {
 		icon: <Adobe_CCIcon />,
 		name: "Adobe CC",
@@ -93,7 +145,7 @@ export const StartingSkills: Skill[] = [
     icon: <DockerIcon />,
     name: "Docker",
     skillType: SkillType.Tools,
-		subSkillTypes: [SubSkillType.Backend]
+		subSkillTypes: [SubSkillType.DevTool,SubSkillType.Backend]
   },
   {
     icon: <ExpressJSIcon />,
@@ -160,6 +212,12 @@ export const StartingSkills: Skill[] = [
     name: "JQuery",
     skillType: SkillType.Frameworks,
 		subSkillTypes: [SubSkillType.Frontend]
+  },
+  {
+    icon: <IntelliJLogo height="1.25em" width="1.25em"/>,
+    name: "IntelliJ",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.DevTool]
   },
   {	
 		icon: <M365Icon />,
@@ -234,6 +292,12 @@ export const StartingSkills: Skill[] = [
 		subSkillTypes: [SubSkillType.Scripting]
   },
   {
+    icon: <PyCharmLogo height="1.25em" width="1.25em"/>,
+    name: "PyCharm",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.DevTool]
+  },
+  {
     icon: <Python3Icon />,
     name: "Python",
     skillType: SkillType.Languages,
@@ -290,13 +354,20 @@ export const StartingSkills: Skill[] = [
     icon: <VMWareIcon />,
     name: "VMWare",
     skillType: SkillType.Software,
-		subSkillTypes: [SubSkillType.Backend]
+		subSkillTypes: [SubSkillType.DevTool]
   },
-  // {
-  //   icon: <Visual_StudioIcon />,
-  //   name: "Visual Studio",
-  //   skillType: SkillType.Software,
-  // },
+  {
+    icon: <Visual_StudioIcon />,
+    name: "Visual Studio",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.DevTool]
+  },
+  {
+    icon: <VSCodeIcon height="1.25em" width="1.25em"/>,
+    name: "Visual Studio Code",
+    skillType: SkillType.Software,
+		subSkillTypes: [SubSkillType.DevTool]
+  },
   {
     icon: <WebpackIcon />,
     name: "Webpack",
@@ -314,8 +385,8 @@ export type SkillMapType = {
 	[key: string]: SubSkillType[];
 }
 
-
-let mappedSubSkills: any = {} as any;
+// something to map subskills to their respective skill types automatically
+let mappedSubSkills: SkillMapType = {} as SkillMapType;
 Object.values(SkillType).forEach((skillType: SkillType) => {
 	StartingSkills.filter((skill) =>
 		(skill.skillType === skillType) &&
