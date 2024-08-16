@@ -172,7 +172,7 @@ export default function About() {
         <div className="p-4 w-full h-full flex-grow">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl italic text-custom-red uppercase flex-grow">
-              [ {selectedFilter} / {selectedSubFilter}]
+              [ {selectedFilter} / {selectedSubFilter} ]
             </h1>
 						{/* <select value={sortMode} onChange={(e) => sortSkills(e.target.value as SortMode)}>
 							<option value={SortMode.ASCENDING}>Ascending</option>
