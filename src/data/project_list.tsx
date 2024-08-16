@@ -1,5 +1,5 @@
 import { Orange, Red } from "../components/ColoredText";
-import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, HTML5Icon, CSS3Icon, JQueryIcon, JavascriptIcon, NodeJSIcon, DockerIcon, MySQLIconSmall, CSharpIcon, Python3Icon, JavaIcon, SQLiteIcon, FlaskIcon, PostgreSQLIcon, SQLServerIcon, Material_UIIcon, UnityIcon } from "../components/Icons";
+import { ReactJSIcon, TypeScriptIcon, Tailwind_CSSIcon, NextJSIcon, HTML5Icon, CSS3Icon, JQueryIcon, JavascriptIcon, NodeJSIcon, DockerIcon, MySQLIconSmall, CSharpIcon, Python3Icon, JavaIcon, SQLiteIcon, FlaskIcon, PostgreSQLIcon, SQLServerIcon, Material_UIIcon, UnityIcon, IISIcon } from "../components/Icons";
 
 export type Skill = {
   name: string;
@@ -80,6 +80,9 @@ export const ProjectList: Project[] = [{
   }, {
     name: "SQL Server",
     icon: <SQLServerIcon />,
+  }, {
+    name: "Windows IIS",
+    icon: <IISIcon />,
   }],
   content: <span>This <Orange>full-stack web application</Orange> was developed for <Red>BAE Systems, Inc. </Red> and is 
 	<strong> currently (2024) deployed in BAE Systems' internal network.</strong>
