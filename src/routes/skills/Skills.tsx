@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "../../components/footer/Footer";
 import SideBar, {
   DirectoryItem,
@@ -13,18 +13,22 @@ import {
   M365Icon,
   MongoDBIcon,
   NextJSIcon,
-  PostCSSIcon,
   Python3Icon,
   UbuntuIcon,
-	WebpackIcon,
 } from "../../components/Icons";
 
 import "./skills.css";
 import { Orange } from "../../components/ColoredText";
-import { Skill, SkillMap, SkillType, StartingSkills, SubSkillType } from "../../data/skills_list";
+import { MappedSubSkills, Skill, SkillType, StartingSkills, SubSkillType } from "../../data/skills_list";
+
+enum SortMode {
+	ASCENDING = "ascending",
+	DESCENDING = "descending",
+}
 
 export default function About() {
   const [selectedFilter, setSelectedFilter] = useState<SkillType>(SkillType.ALL);
+  const [selectedSubFilter, setSelectedSubFilter] = useState<SubSkillType>(SubSkillType.All);
   const [compactView, setCompactView] = useState<boolean>(true);
   const [skills, setSkills] = useState<Skill[]>(StartingSkills);
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
@@ -32,7 +36,7 @@ export default function About() {
       icon: <FolderIcon />,
       name: "..",
       disabled: true,
-      id: "root"
+      id: "root",
     },
     {
       icon: <M365Icon />,
@@ -78,25 +82,43 @@ export default function About() {
       onClick: () => filterSkills(SkillType.OS),
     },
   ]);
-	const [selectedSubFilter, setSelectedSubFilter] = useState<SubSkillType>(SubSkillType.All);
+	const [sortMode, setSortMode] = useState<SortMode>(SortMode.ASCENDING);
+
+  const mappedSubSkills = useRef(MappedSubSkills);
 
 	const updateSubFilter = (subFilter: SubSkillType) => {
-		console.log("changed")
+		setSelectedSubFilter(subFilter);
+	
 		if (selectedFilter !== SkillType.ALL) {
-			setSkills(StartingSkills.filter((skill) => 
-				skill.skillType === selectedFilter && (skill.subSkillTypes?.includes(subFilter) || subFilter === SubSkillType.All)
+			setSkills(StartingSkills.filter((skill) =>
+				(skill.skillType === selectedFilter) &&
+				(skill.subSkillTypes!.includes(subFilter) || subFilter === SubSkillType.All)
 			));
+		} else if(subFilter === SubSkillType.All) {
+			setSkills(StartingSkills);
 		} else {
-			setSkills(StartingSkills.filter((skill) => skill.skillType === selectedFilter));
+			setSkills(StartingSkills.filter(
+				(skill) => skill.subSkillTypes?.includes(subFilter)
+			));
 		}
+	};
+
+	const sortSkills = (sortMode: SortMode) => {
+		if (sortMode === SortMode.ASCENDING) {
+			setSkills((oldSkills) => oldSkills.sort((a, b) => a.name.localeCompare(b.name)));
+		} else {
+			setSkills((oldSkills) => oldSkills.sort((a, b) => b.name.localeCompare(a.name)));
+		}
+		setSortMode(sortMode);
 	}
 
-	/**
-	 * Filters the skills based on the provided type.
-	 * 
-	 * @param type - The type of skill to filter.
-	 */
+  /**
+   * Filters the skills based on the provided type.
+   *
+   * @param type - The type of skill to filter.
+   */
   const filterSkills = (type: SkillType) => {
+		setSelectedSubFilter(SubSkillType.All);
     setSelectedFilter(type);
     if (type === SkillType.ALL) {
       setDirectoryTree((oldTree) => updateSelectedItem(oldTree, "all_skills"));
@@ -107,25 +129,53 @@ export default function About() {
     }
   };
 
-	const mapSubSkills = () => {
-		const out = Object.values(SubSkillType).map(sst => SkillMap[sst]).map((subSkill) => (
-			<option value={subSkill}>{subSkill}</option>
-		));
-		return out;
-	}
+  const MappedSubSkillsOptions = () => {
+    return (
+      <>
+        {selectedFilter === SkillType.ALL ? (
+          Object.values(SubSkillType).map((sst: SubSkillType) => (
+            <option key={`option-${sst}`} value={sst} selected={sst === selectedSubFilter}>
+              {sst}
+            </option>
+          ))
+        ) : (
+          <>
+            <option value={SubSkillType.All}>{SubSkillType.All}</option>
+            {mappedSubSkills.current[selectedFilter]?.map(
+              (subSkillType: SubSkillType) => (
+                <option
+                  key={`option-${subSkillType}`}
+                  value={subSkillType}
+                  selected={subSkillType === selectedSubFilter}
+                >
+                  {subSkillType}
+                </option>
+              )
+            )}
+          </>
+        )}
+      </>
+    );
+  };
 
   return (
     <>
       <div id="skills" className="flex flex-grow overflow-auto">
-        <SideBar tree={directoryTree} title="~/skills/" fontSize="0.9rem"/>
+        <SideBar tree={directoryTree} title="~/skills/" fontSize="0.9rem" />
         <div className="p-4 w-full h-full flex-grow">
           <div className="flex flex-row justify-between items-center">
-            <h1 className="text-2xl italic text-custom-red uppercase max-[750px]:text-center flex-grow">
+            <h1 className="text-2xl italic text-custom-red uppercase flex-grow">
               [ {selectedFilter} ]
             </h1>
-						<select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)}>
-							{mapSubSkills()}
-						</select>
+						{/* <select value={sortMode} onChange={(e) => sortSkills(e.target.value as SortMode)}>
+							<option value={SortMode.ASCENDING}>Ascending</option>
+							<option value={SortMode.DESCENDING}>Descending</option>
+						</select> */}
+						{(mappedSubSkills.current[selectedFilter]?.length > 1 || selectedFilter === SkillType.ALL) && (
+							<select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)} className="ml-auto">
+								<MappedSubSkillsOptions />
+							</select>
+						)}
             <div
               className="flex flex-row justify-end items-center gap-2 font-bold cursor-pointer text-custom-text-300 relative overflow-hidden w-32 h-10"
               onClick={() => setCompactView(!compactView)}
@@ -148,50 +198,22 @@ export default function About() {
               </div>
             </div>
           </div>
-          {/* <div className="flex flex-row gap-1 mt-4 max-w-[100%]"> */}
-            <div
-              className="flex flex-row flex-wrap flex-grow-0 gap-2 mt-4"
-              style={{ fontSize: compactView ? "1.25em" : "2em" }}
-            >
-              {skills.map((skill, index) => (
-                <div
-                  key={`skills-item-${index}`}
-                  className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
-                >
-                  {skill.icon}
-                  <span className="skills-item-title">{skill.name}</span>
-                  <span className="skills-item-title__static text-base	">{skill.name}</span>
-                </div>
-              ))}
-            {/* </div> */}
-            {/* <div className="border-l-2 border-custom-text-300 px-4 mt-4 w-[40%]">
-              <CodeSegment keyPrefix="skills">
-                <br />
-                <br />
-                <Red className="font-bold italic">{"<skills>"}</Red>
-                <br />
-                <br />
-                <Orange>def</Orange>
-                <Yellow> skills</Yellow>
-                <Orange>()</Orange>
-                <Light>:</Light>
-                <br />
-                <CodeIndent>
-                  These are the <Blue>technologies</Blue>,{" "}
-                  <Blue>languages</Blue>, and <Blue>methodologies </Blue>
-                  that I am <Yellow>familiar with</Yellow>.
-                  <br />
-                  <br />
-                  Each of these <Blue>technologies</Blue> has played a{" "}
-                  <Red>key role</Red> in <LightGreen>one </LightGreen>
-                  or <LightGreen> multiple</LightGreen> of the{" "}
-                  <Red>projects</Red> that I have worked on.
-                </CodeIndent>
-                <br />
-                <br />
-              </CodeSegment>
-            </div> */}
-            {/* <img src="/public/images/2001.jpg" className="w-[300px]"></img> */}
+          <div
+            className="flex flex-row flex-wrap flex-grow-0 gap-2 mt-4"
+            style={{ fontSize: compactView ? "1.25em" : "2em" }}
+          >
+            {skills.map((skill, index) => (
+              <div
+                key={`skills-item-${index}`}
+                className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
+              >
+                {skill.icon}
+                <span className="skills-item-title">{skill.name}</span>
+                <span className="skills-item-title__static text-base	">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
