@@ -171,7 +171,7 @@ export default function About() {
 							<option value={SortMode.ASCENDING}>Ascending</option>
 							<option value={SortMode.DESCENDING}>Descending</option>
 						</select> */}
-						{(mappedSubSkills.current[selectedFilter]?.length > 1 || selectedFilter === SkillType.ALL) && (
+						{(mappedSubSkills.current[selectedFilter]?.length > 1) && (
 							<select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)} className="ml-auto">
 								<MappedSubSkillsOptions />
 							</select>
@@ -199,21 +199,40 @@ export default function About() {
             </div>
           </div>
           <div
-            className="flex flex-row flex-wrap flex-grow-0 gap-2 mt-4"
+            className={`flex ${selectedFilter === SkillType.ALL ? "flex-col" : "flex-row"} flex-wrap flex-grow-0 gap-2 mt-4`}
             style={{ fontSize: compactView ? "1.25em" : "2em" }}
           >
-            {skills.map((skill, index) => (
-              <div
-                key={`skills-item-${index}`}
-                className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
-              >
-                {skill.icon}
-                <span className="skills-item-title">{skill.name}</span>
-                <span className="skills-item-title__static text-base	">
-                  {skill.name}
-                </span>
-              </div>
-            ))}
+						{selectedFilter === SkillType.ALL && Object.values(SkillType).filter(s => s !== SkillType.ALL).map((skillType: SkillType) => (
+							<div className="mt-4 mb-2">
+								<span className="text-xl text-custom-text-100">{skillType}</span>
+								<div className="flex flex-row flex-wrap gap-2">
+									{skills.filter(skill => skill.skillType === skillType).map((skill, index) => (
+										<div
+											key={`skills-item-${index}`}
+											className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
+										>
+											{skill.icon}
+											<span className="skills-item-title">{skill.name}</span>
+											<span className="skills-item-title__static text-base	">
+												{skill.name}
+											</span>
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+						{selectedFilter !== SkillType.ALL && skills.map((skill, index) => (
+							<div
+								key={`skills-item-${index}`}
+								className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
+							>
+								{skill.icon}
+								<span className="skills-item-title">{skill.name}</span>
+								<span className="skills-item-title__static text-base	">
+									{skill.name}
+								</span>
+							</div>
+						))}
           </div>
         </div>
       </div>

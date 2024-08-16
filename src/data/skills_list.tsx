@@ -167,7 +167,7 @@ export const StartingSkills: Skill[] = [
     skillType: SkillType.Software,
 		subSkillTypes: [SubSkillType.Admin]
   },
-  {
+  { 
     icon: <Material_UIIcon />,
     name: "Material UI",
     skillType: SkillType.Frameworks,
