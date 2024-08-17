@@ -19,7 +19,8 @@ import {
 
 import "./skills.css";
 import { Orange } from "../../components/ColoredText";
-import { MappedSubSkills, SkillListItem, SkillType, StartingSkills, SubSkillType } from "../../data/skills_list";
+import { SkillListItem, SkillType, SubSkillType } from "../../data/skills";
+import { MappedSubSkills, StartingSkills } from "../../data/skills_list";
 
 // enum SortMode {
 // 	ASCENDING = "ascending",
@@ -92,7 +93,7 @@ export default function About() {
 		if (selectedFilter !== SkillType.ALL) {
 			setSkills(StartingSkills.filter((skill) =>
 				(skill.skillType === selectedFilter) &&
-				(skill.subSkillTypes!.includes(subFilter) || subFilter === SubSkillType.All)
+				(skill.subSkillTypes?.includes(subFilter) || subFilter === SubSkillType.All)
 			));
 		} else if(subFilter === SubSkillType.All) {
 			setSkills(StartingSkills);
