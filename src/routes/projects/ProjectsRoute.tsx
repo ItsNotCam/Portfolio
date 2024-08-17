@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footer/Footer.tsx";
 import SideBar, {
   DirectoryItem,
   updateSelectedItem,

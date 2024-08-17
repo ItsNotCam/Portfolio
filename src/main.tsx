@@ -12,10 +12,10 @@ import ErrorPage from "./error-page.tsx";
 import Header from "./components/Header.tsx";
 import Nav from "./components/nav/Nav.tsx";
 import About from "./routes/about/About.tsx";
-import Skills from "./routes/skills/Skills.tsx";
+import Skills from "./routes/skills/SkillsRoute.tsx";
 import Work from "./routes/work/Work.tsx";
-import Resume from "./routes/resume/Resume.tsx";
-import Projects from "./routes/projects/Projects.tsx";
+import Resume from "./routes/resume/ResumeRoute.tsx";
+import Projects from "./routes/projects/ProjectsRoute.tsx";
 
 import "./globals.css";
 
