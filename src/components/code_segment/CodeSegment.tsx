@@ -29,7 +29,7 @@ export default function CodeSegment(props: {
   keyPrefix: string;
 }): ReactNode {
   const [lineHeight, setLineHeight] = useState<number>(24);
-  const [fontSize, setfontSize] = useState<string>("1rem");
+  const [fontSize, setFontSize] = useState<string>("1rem");
 
   const codeRef = useRef(null);
   const size = useSize(codeRef) || ({} as any);
@@ -39,7 +39,7 @@ export default function CodeSegment(props: {
       (codeRef.current as any).firstChild as Element
     );
     setLineHeight(parseFloat(style.lineHeight.replace("px", "")));
-    setfontSize(style.fontSize);
+    setFontSize(style.fontSize);
   }, [size]);
 
   const GetLineCount = (): number[] =>
@@ -71,7 +71,7 @@ export default function CodeSegment(props: {
         <LineNumbers />
       </div>
       <div
-        style={{ fontSize: fontSize, order: align === "right" ? 0 : 1 }}
+        style={{ fontSize: fontSize, order: align === "left" ? 1 : 0 }}
         className="h-max"
         ref={codeRef}
       >

@@ -202,9 +202,7 @@ export default function Projects(): ReactNode {
   );
 
 	const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
-		<div
-			className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg"
-			>
+		<div className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
 			{downloadingReadme ? (
 				<div className="flex flex-row justify-center items-center h-full">
 					<ScaleLoader color="#F16D70" />

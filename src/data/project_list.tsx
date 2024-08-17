@@ -26,9 +26,9 @@ export const ProjectList: Project[] = [{
   year: "2024",
   skills: [
 		{ ...Skills.HtmlSkill, visible: false }, 
-		{ ...Skills.CssSkill,  visible: false }, 
-		Skills.ReactSkill, 
+		{ ...Skills.CssSkill,  visible: false },  
 		Skills.TypeScriptSkill, 
+		Skills.ReactSkill,
 		Skills.TailwindSkill 
 	],
   content: <span>
@@ -46,9 +46,11 @@ export const ProjectList: Project[] = [{
   skills: [
 		{ ...Skills.HtmlSkill, visible: false }, 
 		{ ...Skills.CssSkill,  visible: false }, 
-		Skills.NodeJSSkill, 
-		Skills.ReactSkill, 
 		Skills.TypeScriptSkill,
+		Skills.JavascriptSkill,
+		Skills.NodeJSSkill, 
+		Skills.NextJSSkill, 
+		Skills.ReactSkill, 
 		Skills.TailwindSkill,
 		Skills.SqlServerSkill,
 		Skills.IisSkill
@@ -66,6 +68,7 @@ export const ProjectList: Project[] = [{
   skills: [
 		{ ...Skills.HtmlSkill, visible: false }, 
 		{ ...Skills.CssSkill,  visible: false }, 
+		Skills.TypeScriptSkill,
 		Skills.DockerSkill,
 		Skills.ReactSkill,
 		Skills.TailwindSkill
@@ -109,9 +112,9 @@ export const ProjectList: Project[] = [{
   skills: [ 
 		{ ...Skills.HtmlSkill, visible: false }, 
 		{ ...Skills.CssSkill,  visible: false }, 
-		Skills.JquerySkill,
+		Skills.TypeScriptSkill,
 		Skills.JavascriptSkill,
-		Skills.TypeScriptSkill
+		Skills.JquerySkill,
 	],
   content: <span>This project is my first attempt at creating an HTML, CSS, and jQuery-based <Orange>website</Orange>. Completed for a school project.</span>
 },{
@@ -154,6 +157,7 @@ export const ProjectList: Project[] = [{
 		{ ...Skills.CssSkill,  visible: false }, 
 		Skills.PythonSkill,
 		Skills.JavascriptSkill,
+		Skills.BootstrapSkill, 
 		Skills.FlaskSkill,
 		Skills.ReactSkill,
 		Skills.DockerSkill
@@ -168,12 +172,13 @@ export const ProjectList: Project[] = [{
 		{ ...Skills.HtmlSkill, visible: false }, 
 		{ ...Skills.CssSkill,  visible: false }, 
 		Skills.PythonSkill,
-		Skills.MaterialUISkill,
 		Skills.JavascriptSkill,
+		Skills.BootstrapSkill, 
 		Skills.FlaskSkill,
 		Skills.ReactSkill,
 		Skills.DockerSkill, 
-		Skills.SqliteSkill
+		Skills.SqliteSkill,
+		Skills.MaterialUISkill,
 	],
   content: <span>A <Orange>full-stack web application</Orange> developed for <Red>BAE Systems, Inc.</Red> that is <strong>currently (2024) deployed within their cyber threat detection pipeline.</strong><br/><br/>
   Raccoon extracts information from packet capture files, stores it in a SQLite database, provides a user interface to view the data, and exposes a REST API for integration with other internal tools.<br/></span>

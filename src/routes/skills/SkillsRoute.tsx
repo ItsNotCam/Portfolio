@@ -48,9 +48,9 @@ export default function About() {
     },
     {
       icon: <Python3Icon />,
-      name: "languages",
-      id: "languages",
-      onClick: () => filterSkills(SkillType.Languages),
+      name: "programming",
+      id: "programming",
+      onClick: () => filterSkills(SkillType.Programming),
     },
     {
       icon: <NextJSIcon />,

@@ -1,7 +1,7 @@
-import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, PyCharmLogo, IntelliJLogo, WindowsIcon, RegexIcon } from "../components/Icons";
+import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, PyCharmLogo, IntelliJLogo, WindowsIcon, RegexIcon, VSCodeIcon } from "../components/Icons";
 
 export enum SkillType {
-  Languages = "languages",
+  Programming = "programming",
   Frameworks = "frameworks",
   Software = "software",
   Database = "database",
@@ -64,7 +64,7 @@ export const PhotoshopSkill: SkillListItem = {
 export const BashSkill: SkillListItem = {
 	icon: <BashIcon />,
 	name: "Bash",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Scripting]
 };
 
@@ -92,14 +92,14 @@ export const BootstrapSkill: SkillListItem = {
 export const CSharpSkill: SkillListItem = {
 	icon: <CSharpIcon />,
 	name: "C#",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Backend]
 };
 
 export const CssSkill: SkillListItem = {
 	icon: <CSS3Icon />,
 	name: "CSS",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Frontend]
 };
 
@@ -135,13 +135,13 @@ export const GitSkill: SkillListItem = {
 	icon: <GitIcon />,
 	name: "Git",
 	skillType: SkillType.Tools,
-	subSkillTypes: [SubSkillType.Collaborative]
+	subSkillTypes: [SubSkillType.Collaborative, SubSkillType.DevTool]
 };
 
 export const HtmlSkill: SkillListItem = {
 	icon: <HTML5Icon />,
 	name: "HTML",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Frontend]
 };
 
@@ -155,14 +155,14 @@ export const IisSkill: SkillListItem = {
 export const JavaSkill: SkillListItem = {
 	icon: <JavaIcon />,
 	name: "Java",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Backend]
 };
 
 export const JavascriptSkill: SkillListItem = {
 	icon: <JavascriptIcon />,
 	name: "JavaScript",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Frontend, SubSkillType.Backend]
 };
 
@@ -181,7 +181,7 @@ export const JquerySkill: SkillListItem = {
 };
 
 export const IntelliJSkill: SkillListItem = {
-	icon: <IntelliJLogo height="1.25em" width="1.25em" />,
+	icon: <IntelliJLogo />,
 	name: "IntelliJ",
 	skillType: SkillType.Software,
 	subSkillTypes: [SubSkillType.DevTool]
@@ -267,12 +267,12 @@ export const PostgreSQLSkill: SkillListItem = {
 export const PowerShellSkill: SkillListItem = {
 	icon: <PowerShellIcon />,
 	name: "PowerShell",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Scripting]
 };
 
 export const PyCharmSkill: SkillListItem = {
-	icon: <PyCharmLogo height="1.25em" width="1.25em" />,
+	icon: <PyCharmLogo />,
 	name: "PyCharm",
 	skillType: SkillType.Software,
 	subSkillTypes: [SubSkillType.DevTool]
@@ -281,7 +281,7 @@ export const PyCharmSkill: SkillListItem = {
 export const PythonSkill: SkillListItem = {
 	icon: <Python3Icon />,
 	name: "Python",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Backend, SubSkillType.Scripting]
 };
 
@@ -301,8 +301,8 @@ export const RedisSkill: SkillListItem = {
 
 export const RegexSkill: SkillListItem = {
 	icon: <RegexIcon color="#FFFFFF"/>,
-	name: "Regex",
-	skillType: SkillType.Languages,
+	name: "Regex❤️",
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Scripting]
 };
 
@@ -330,7 +330,7 @@ export const TailwindSkill: SkillListItem = {
 export const TypeScriptSkill: SkillListItem = {
 	icon: <TypeScriptIcon />,
 	name: "TypeScript",
-	skillType: SkillType.Languages,
+	skillType: SkillType.Programming,
 	subSkillTypes: [SubSkillType.Frontend, SubSkillType.Backend]
 };
 
@@ -363,5 +363,13 @@ export const VmWareSkill: SkillListItem = {
 export const VisualStudioSkill: SkillListItem = {
 	icon: <Visual_StudioIcon />,
 	name: "Visual Studio",
-	skillType: SkillType.Software
+	skillType: SkillType.Software,
+	subSkillTypes: [SubSkillType.DevTool]
+}
+
+export const VisualStudioCodeSkill: SkillListItem = {
+	icon: <VSCodeIcon />,
+	name: "Visual Studio Code",
+	skillType: SkillType.Software,
+	subSkillTypes: [SubSkillType.DevTool]
 }
