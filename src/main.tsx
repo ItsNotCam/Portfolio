@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./routes/home/Home.tsx";
+import Home from "./routes/home/HomeRoute.tsx";
 
 import {
   createBrowserRouter,
@@ -11,9 +11,9 @@ import {
 import ErrorPage from "./error-page.tsx";
 import Header from "./components/Header.tsx";
 import Nav from "./components/nav/Nav.tsx";
-import About from "./routes/about/About.tsx";
+import About from "./routes/about/AboutRoute.tsx";
 import Skills from "./routes/skills/SkillsRoute.tsx";
-import Work from "./routes/work/Work.tsx";
+import Work from "./routes/work/WorkRoute.tsx";
 import Resume from "./routes/resume/ResumeRoute.tsx";
 import Projects from "./routes/projects/ProjectsRoute.tsx";
 
