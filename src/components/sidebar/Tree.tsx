@@ -28,12 +28,12 @@ export default function Tree(props: TreeProps): ReactNode {
       <Branch
         icon={item.icon}
         name={item.name}
-				color={item.color}
+        color={item.color}
         indent={`${depth}rem`}
         disabled={item.disabled}
         selected={item.selected}
         functional={item.onClick !== undefined} 
-			/>
+      />
       {item.children &&
         item.children.map((child) => (
           <Tree

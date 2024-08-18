@@ -49,32 +49,32 @@ export default function Projects(): ReactNode {
     ]);
   }, []);
 
-	/**
-	 * Updates and sets the readme for a project.
-	 * 
-	 * @param readmeLink - The link to the readme file.
-	 * @param projectID - The ID of the project.
-	 * @returns A promise that resolves to `true` if the readme is successfully updated and set, or `false` if there is an error.
-	 */
-	const updateAndSetReadme = (readmeLink: string, projectID: string) => {
-		return new Promise((resolve, reject) => {
-			fetch(readmeLink)
-			.then((res) => res.text())
-			.then((readmeData) => {
-				cachedReadmes.current[projectID] = readmeData;
-				setSelectedReadme(readmeData);
-				resolve(true);
-			})
-			.catch(() => reject(false));
-		});
-	};
+  /**
+   * Updates and sets the readme for a project.
+   * 
+   * @param readmeLink - The link to the readme file.
+   * @param projectID - The ID of the project.
+   * @returns A promise that resolves to `true` if the readme is successfully updated and set, or `false` if there is an error.
+   */
+  const updateAndSetReadme = (readmeLink: string, projectID: string) => {
+    return new Promise((resolve, reject) => {
+      fetch(readmeLink)
+      .then((res) => res.text())
+      .then((readmeData) => {
+        cachedReadmes.current[projectID] = readmeData;
+        setSelectedReadme(readmeData);
+        resolve(true);
+      })
+      .catch(() => reject(false));
+    });
+  };
 
-	/**
-	 * Updates the selection of a project.
-	 * 
-	 * @param project - The project to be selected.
-	 * @returns void
-	 */
+  /**
+   * Updates the selection of a project.
+   * 
+   * @param project - The project to be selected.
+   * @returns void
+   */
   const updateSelection = (project: Project): void => {
     if(selectedProject?.id === project.id) {
       console.log("Project already selected:", project.id);
@@ -96,11 +96,11 @@ export default function Projects(): ReactNode {
       }
     }
 
-		// Now choose what to do with the readme
-		// 1. Cached readme ? Use it
-		// 2. Readme link ? Fetch it
-		// 3. Additional content ? Use it
-		// 4. Default content
+    // Now choose what to do with the readme
+    // 1. Cached readme ? Use it
+    // 2. Readme link ? Fetch it
+    // 3. Additional content ? Use it
+    // 4. Default content
     if (cachedReadmes.current[projectID]) {
       console.log("Using cached readme:", projectID);
       setSelectedReadme(cachedReadmes.current[projectID]);
@@ -108,7 +108,7 @@ export default function Projects(): ReactNode {
       console.log(`Fetching readme for ${project.id}:${project.readmeLink}`);
       setDownloadingReadme(true);
       updateAndSetReadme(project.readmeLink, projectID)
-				.finally(() => setDownloadingReadme(false));
+        .finally(() => setDownloadingReadme(false));
     } else if (additionalContent) {
       console.log("No readme available - using additional content:", projectID);
       const readmeData = `# ${project.name}\n` + (additionalContent || "");
@@ -121,10 +121,10 @@ export default function Projects(): ReactNode {
       setSelectedReadme(readmeData);
     }
 
-		// Scroll to the top of the readme div
-		if(readmeScrollRef !== null && readmeScrollRef.current) {
-			(readmeScrollRef.current as unknown as any).scrollIntoView();
-		}
+    // Scroll to the top of the readme div
+    if(readmeScrollRef !== null && readmeScrollRef.current) {
+      (readmeScrollRef.current as unknown as any).scrollIntoView();
+    }
   };
 
   /* Components */
@@ -170,45 +170,45 @@ export default function Projects(): ReactNode {
     </div>
   );
 
-	const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
-		<div className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
-			{downloadingReadme ? (
-				<div className="flex flex-col gap-2 justify-center items-center h-full">
-					Downloading Readme
-					<ScaleLoader color="#F16D70" />
-				</div>
-			) : (<>
-				<div className="absolute top-0 invisible" id="readme-scroll-ref" ref={readmeScrollRef}/>
-				{props.project?.githubLink && 
-						<a
-							target="_blank"
-							href={props.project.githubLink}
-							className="relative"
-						>
-							<span className="flex flex-row items-center gap-2 text-custom-text-300 hover:text-custom-text-100 text-xl transition-colors">
-								<GitHubIcon
-									height="1.75em"
-									width="1.75em"
-								/>
-								GitHub Repo
-							</span>
-					</a>
-				}
-				<div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
-					{props.project && props.project.skills
-						.filter(skill => (skill.visible === undefined) ? true : skill.visible)
-						.map((skill) => (
-							<span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
-						))
-					}
-				</div>
-				<div className="markdown max-w-100%">
-					<Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
-				</div>
-			</>)
-			}
-		</div>
-	)
+  const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
+    <div className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
+      {downloadingReadme ? (
+        <div className="flex flex-col gap-2 justify-center items-center h-full">
+          Downloading Readme
+          <ScaleLoader color="#F16D70" />
+        </div>
+      ) : (<>
+        <div className="absolute top-0 invisible" id="readme-scroll-ref" ref={readmeScrollRef}/>
+        {props.project?.githubLink && 
+            <a
+              target="_blank"
+              href={props.project.githubLink}
+              className="relative"
+            >
+              <span className="flex flex-row items-center gap-2 text-custom-text-300 hover:text-custom-text-100 text-xl transition-colors">
+                <GitHubIcon
+                  height="1.75em"
+                  width="1.75em"
+                />
+                GitHub Repo
+              </span>
+          </a>
+        }
+        <div className="flex flex-row gap-2 justify-center w-full mt-4 text-3xl">
+          {props.project && props.project.skills
+            .filter(skill => (skill.visible === undefined) ? true : skill.visible)
+            .map((skill) => (
+              <span className="text-3xl flex items-center" title={skill.name}>{skill.icon}</span>
+            ))
+          }
+        </div>
+        <div className="markdown max-w-100%">
+          <Markdown remarkPlugins={[remarkGfm]}>{selectedReadmeContent}</Markdown>
+        </div>
+      </>)
+      }
+    </div>
+  )
 
   /* Output */
   return (
@@ -236,7 +236,7 @@ export default function Projects(): ReactNode {
                   id={`card-${project.id}`}
                   key={`project-${index}`}
                   className="project-content cursor-pointer"
-									onClick={() => updateSelection(project)}
+                  onClick={() => updateSelection(project)}
                 >
                   <div
                     id={`project-header-${project.id}`}
@@ -251,12 +251,12 @@ export default function Projects(): ReactNode {
                     {project.content}
                   </div>
                   <SkillsListComponent skills={project.skills} />
-									{/* <MarkdownSection project={project} /> */}
+                  {/* <MarkdownSection project={project} /> */}
                 </div>
               </div>
             ))}
           </div>
-					<MarkdownSection project={selectedProject}/>
+          <MarkdownSection project={selectedProject}/>
         </div>
       </div>
       <Footer>

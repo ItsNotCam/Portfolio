@@ -27,13 +27,13 @@
   }
 
   &:hover {
-		scale: 1.05;
+    scale: 1.05;
     z-index: 35;
     @apply text-custom-orange border-custom-orange;
 
-		&:not(.skills-item-compact) {
-			scale: 1.1;
-		}
+    &:not(.skills-item-compact) {
+      scale: 1.1;
+    }
 
     & .skills-item-title {
       transform: translateY(0);
@@ -41,7 +41,7 @@
     }
     
     &::after {
-			background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.7);
     }
   }
 }
@@ -60,12 +60,12 @@
   }
 
   & .skills-item-title {
-		display: none;
+    display: none;
   }
 
-	& .skills-item-title__static {
-		display: block;
-	}
+  & .skills-item-title__static {
+    display: block;
+  }
 }
 
 .skills-item-title {

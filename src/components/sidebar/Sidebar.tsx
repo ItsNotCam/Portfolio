@@ -7,7 +7,7 @@ import "./sidebar.css";
 export type DirectoryItem = {
   name: string | undefined;
   icon: JSX.Element | undefined;
-	color?: string;
+  color?: string;
   disabled?: boolean;
   selected?: boolean;
   id: string;

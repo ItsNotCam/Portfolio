@@ -5,7 +5,7 @@ import SideBar, {
   updateSelectedItem,
 } from "../../components/sidebar/Sidebar";
 import {
-	DockerIcon,
+  DockerIcon,
   FolderIcon,
   GridView,
   JiraIcon,
@@ -23,8 +23,8 @@ import { SkillListItem, SkillType, SubSkillType } from "../../data/skills";
 import { MappedSubSkills, StartingSkills } from "../../data/skills_list";
 
 // enum SortMode {
-// 	ASCENDING = "ascending",
-// 	DESCENDING = "descending",
+//   ASCENDING = "ascending",
+//   DESCENDING = "descending",
 // }
 
 export default function About() {
@@ -83,35 +83,35 @@ export default function About() {
       onClick: () => filterSkills(SkillType.OS),
     },
   ]);
-	// const [sortMode, setSortMode] = useState<SortMode>(SortMode.ASCENDING);
+  // const [sortMode, setSortMode] = useState<SortMode>(SortMode.ASCENDING);
 
   const mappedSubSkills = useRef(MappedSubSkills);
 
-	const updateSubFilter = (subFilter: SubSkillType) => {
-		setSelectedSubFilter(subFilter);
-	
-		if (selectedFilter !== SkillType.ALL) {
-			setSkills(StartingSkills.filter((skill) =>
-				(skill.skillType === selectedFilter) &&
-				(skill.subSkillTypes?.includes(subFilter) || subFilter === SubSkillType.All)
-			));
-		} else if(subFilter === SubSkillType.All) {
-			setSkills(StartingSkills);
-		} else {
-			setSkills(StartingSkills.filter(
-				(skill) => skill.subSkillTypes?.includes(subFilter)
-			));
-		}
-	};
+  const updateSubFilter = (subFilter: SubSkillType) => {
+    setSelectedSubFilter(subFilter);
+  
+    if (selectedFilter !== SkillType.ALL) {
+      setSkills(StartingSkills.filter((skill) =>
+        (skill.skillType === selectedFilter) &&
+        (skill.subSkillTypes?.includes(subFilter) || subFilter === SubSkillType.All)
+      ));
+    } else if(subFilter === SubSkillType.All) {
+      setSkills(StartingSkills);
+    } else {
+      setSkills(StartingSkills.filter(
+        (skill) => skill.subSkillTypes?.includes(subFilter)
+      ));
+    }
+  };
 
-	// const sortSkills = (sortMode: SortMode) => {
-	// 	if (sortMode === SortMode.ASCENDING) {
-	// 		setSkills((oldSkills) => oldSkills.sort((a, b) => a.name.localeCompare(b.name)));
-	// 	} else {
-	// 		setSkills((oldSkills) => oldSkills.sort((a, b) => b.name.localeCompare(a.name)));
-	// 	}
-	// 	setSortMode(sortMode);
-	// }
+  // const sortSkills = (sortMode: SortMode) => {
+  //   if (sortMode === SortMode.ASCENDING) {
+  //     setSkills((oldSkills) => oldSkills.sort((a, b) => a.name.localeCompare(b.name)));
+  //   } else {
+  //     setSkills((oldSkills) => oldSkills.sort((a, b) => b.name.localeCompare(a.name)));
+  //   }
+  //   setSortMode(sortMode);
+  // }
 
   /**
    * Filters the skills based on the provided type.
@@ -119,7 +119,7 @@ export default function About() {
    * @param type - The type of skill to filter.
    */
   const filterSkills = (type: SkillType) => {
-		setSelectedSubFilter(SubSkillType.All);
+    setSelectedSubFilter(SubSkillType.All);
     setSelectedFilter(type);
     if (type === SkillType.ALL) {
       setDirectoryTree((oldTree) => updateSelectedItem(oldTree, "all_skills"));
@@ -159,12 +159,12 @@ export default function About() {
     );
   };
 
-	const getSkillsByType = () => {
-		return Object.values(SkillType).filter(skillType => (
-			skillType !== SkillType.ALL 
-			&& skills.filter(s2 => s2.skillType === skillType).length > 0
-		));
-	}
+  const getSkillsByType = () => {
+    return Object.values(SkillType).filter(skillType => (
+      skillType !== SkillType.ALL 
+      && skills.filter(s2 => s2.skillType === skillType).length > 0
+    ));
+  }
 
   return (
     <>
@@ -175,15 +175,15 @@ export default function About() {
             <h1 className="text-2xl italic text-custom-red uppercase flex-grow">
               [ {selectedFilter} / {selectedSubFilter} ]
             </h1>
-						{/* <select value={sortMode} onChange={(e) => sortSkills(e.target.value as SortMode)}>
-							<option value={SortMode.ASCENDING}>Ascending</option>
-							<option value={SortMode.DESCENDING}>Descending</option>
-						</select> */}
-						{(mappedSubSkills.current[selectedFilter]?.length > 1 || selectedFilter === SkillType.ALL) && (
-							<select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)} className="ml-auto">
-								<MappedSubSkillsOptions />
-							</select>
-						)}
+            {/* <select value={sortMode} onChange={(e) => sortSkills(e.target.value as SortMode)}>
+              <option value={SortMode.ASCENDING}>Ascending</option>
+              <option value={SortMode.DESCENDING}>Descending</option>
+            </select> */}
+            {(mappedSubSkills.current[selectedFilter]?.length > 1 || selectedFilter === SkillType.ALL) && (
+              <select onChange={(e) => updateSubFilter(e.target.value as SubSkillType)} className="ml-auto">
+                <MappedSubSkillsOptions />
+              </select>
+            )}
             <div
               className="flex flex-row justify-end items-center gap-2 font-bold cursor-pointer text-custom-text-300 relative overflow-hidden w-32 h-10"
               onClick={() => setCompactView(!compactView)}
@@ -206,37 +206,37 @@ export default function About() {
             className={`flex ${selectedFilter === SkillType.ALL ? "flex-col" : "flex-row"} flex-wrap flex-grow-0 gap-2 mt-4`}
             style={{ fontSize: compactView ? "1.25em" : "2em" }}
           >
-						{selectedFilter === SkillType.ALL && getSkillsByType().map((skillType: SkillType) => (
-							<div className="mt-4 mb-2">
-								<span className="text-xl text-custom-text-100">{skillType}</span>
-								<div className="flex flex-row flex-wrap gap-2">
-									{skills.filter(skill => skill.skillType === skillType).map((skill, index) => (
-										<div
-											key={`skills-item-${index}`}
-											className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
-										>
-											{skill.icon}
-											<span className="skills-item-title">{skill.name}</span>
-											<span className="skills-item-title__static text-base	">
-												{skill.name}
-											</span>
-										</div>
-									))}
-								</div>
-							</div>
-						))}
-						{selectedFilter !== SkillType.ALL && skills.map((skill, index) => (
-							<div
-								key={`skills-item-${index}`}
-								className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
-							>
-								{skill.icon}
-								<span className="skills-item-title">{skill.name}</span>
-								<span className="skills-item-title__static text-base	">
-									{skill.name}
-								</span>
-							</div>
-						))}
+            {selectedFilter === SkillType.ALL && getSkillsByType().map((skillType: SkillType) => (
+              <div className="mt-4 mb-2">
+                <span className="text-xl text-custom-text-100">{skillType}</span>
+                <div className="flex flex-row flex-wrap gap-2">
+                  {skills.filter(skill => skill.skillType === skillType).map((skill, index) => (
+                    <div
+                      key={`skills-item-${index}`}
+                      className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
+                    >
+                      {skill.icon}
+                      <span className="skills-item-title">{skill.name}</span>
+                      <span className="skills-item-title__static text-base  ">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+            {selectedFilter !== SkillType.ALL && skills.map((skill, index) => (
+              <div
+                key={`skills-item-${index}`}
+                className={`skills-item ${compactView ? "skills-item-compact" : ""}`}
+              >
+                {skill.icon}
+                <span className="skills-item-title">{skill.name}</span>
+                <span className="skills-item-title__static text-base  ">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
