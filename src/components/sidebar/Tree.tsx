@@ -1,10 +1,20 @@
 import { ReactNode } from "react";
 import { DirectoryItem } from "./Sidebar";
-import Branch from "./Branch";
 
 export type TreeProps = {
   tree: DirectoryItem[];
   depth?: number;
+}
+
+type BranchProps = {
+  icon: JSX.Element | undefined;
+  name: string | undefined;
+  className?: string;
+  color?: string;
+  selected?: boolean;
+  indent?: string;
+  disabled?: boolean;
+  functional?: boolean;
 }
 
 export default function Tree(props: TreeProps): ReactNode {
@@ -18,6 +28,7 @@ export default function Tree(props: TreeProps): ReactNode {
       <Branch
         icon={item.icon}
         name={item.name}
+				color={item.color}
         indent={`${depth}rem`}
         disabled={item.disabled}
         selected={item.selected}
@@ -32,4 +43,28 @@ export default function Tree(props: TreeProps): ReactNode {
         ))}
     </div>
   ));
+};
+
+function Branch(props: BranchProps){
+  let color: string = props.color || "text-custom-text-300";
+  color = props.selected ? "text-custom-orange" : color;
+
+  return (
+    <div
+      className={`cursor-default ${!props.disabled &&
+        props.functional &&
+        "hover:bg-custom-off-dark-300 cursor-pointer"} ${props.selected && "bg-custom-off-dark-300"}`}
+    >
+      <span
+        className={`relative flex flex-row items-center gap-1 p-1 ${props.className} ${!props.disabled && props.functional && "hover:text-custom-orange"} ${props.disabled ? "text-custom-off-dark-300" : color}`}
+        style={{ marginLeft: props.indent || "0px" }}
+      >
+        {props.selected && (
+          <div className="absolute -left-1 h-[80%] w-[0.18rem] bg-custom-red"></div>
+        )}
+        {props.icon}
+        {props.name}
+      </span>
+    </div>
+  );
 };
