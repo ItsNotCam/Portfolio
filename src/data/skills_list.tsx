@@ -1,4 +1,4 @@
-import { SkillListItem, AdobeCCSkill, BashSkill, BitBucketSkill, BlenderSkill, BootstrapSkill, CSharpSkill, CssSkill, DockerSkill, ExpressSkill, FigmaSkill, FlaskSkill, GitSkill, HtmlSkill, IisSkill, IllustratorSkill, IntelliJSkill, JavaSkill, JavascriptSkill, JiraSkill, JquerySkill, MaterialUISkill, M365Skill, ExcelSkill, WordSkill, MySQLSkill, NextJSSkill, NodeJSSkill, NpmSkill, PostCSSSkill, PostgreSQLSkill, PowerShellSkill, PyCharmSkill, PythonSkill, ReactSkill, RedisSkill, PhotoshopSkill, SqliteSkill, SqlServerSkill, TailwindSkill, TypeScriptSkill, UbuntuSkill, UnitySkill, VmWareSkill, VisualStudioSkill, SkillType, SkillMapType, WindowsSkill, RegexSkill, VisualStudioCodeSkill } from "./skills";
+import { SkillListItem, AdobeCCSkill, BashSkill, BitBucketSkill, BlenderSkill, BootstrapSkill, CSharpSkill, CssSkill, DockerSkill, ExpressSkill, FigmaSkill, FlaskSkill, GitSkill, HtmlSkill, IisSkill, IllustratorSkill, IntelliJSkill, JavaSkill, JavascriptSkill, JiraSkill, JquerySkill, MaterialUISkill, M365Skill, ExcelSkill, WordSkill, MySQLSkill, NextJSSkill, NodeJSSkill, NpmSkill, PostCSSSkill, PostgreSQLSkill, PowerShellSkill, PyCharmSkill, PythonSkill, ReactSkill, RedisSkill, PhotoshopSkill, SqliteSkill, SqlServerSkill, TailwindSkill, TypeScriptSkill, UbuntuSkill, UnitySkill, VmWareSkill, VisualStudioSkill, SkillType, SkillMapType, WindowsSkill, RegexSkill, VisualStudioCodeSkill, PhpSkill } from "./skills";
 
 
 export const StartingSkills: SkillListItem[] = [
@@ -30,6 +30,7 @@ export const StartingSkills: SkillListItem[] = [
 	NextJSSkill,
 	NodeJSSkill,
 	NpmSkill,
+	PhpSkill,
 	PostCSSSkill,
 	PostgreSQLSkill,
 	PowerShellSkill,

@@ -1,4 +1,4 @@
-import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, PyCharmLogo, IntelliJLogo, WindowsIcon, RegexIcon, VSCodeIcon } from "../components/Icons";
+import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, PyCharmLogo, IntelliJLogo, WindowsIcon, RegexIcon, VSCodeIcon, PHPIcon } from "../components/Icons";
 
 export enum SkillType {
   Programming = "programming",
@@ -373,3 +373,10 @@ export const VisualStudioCodeSkill: SkillListItem = {
 	skillType: SkillType.Software,
 	subSkillTypes: [SubSkillType.DevTool]
 }
+
+export const PhpSkill: SkillListItem = {
+	icon: <PHPIcon />,
+	name: "PHP",
+	skillType: SkillType.Programming,
+	subSkillTypes: [SubSkillType.Backend, SubSkillType.Frontend]
+};
