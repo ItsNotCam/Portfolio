@@ -7,6 +7,7 @@ import "./sidebar.css";
 export type DirectoryItem = {
   name: string | undefined;
   icon: JSX.Element | undefined;
+	color?: string;
   disabled?: boolean;
   selected?: boolean;
   id: string;
@@ -55,7 +56,7 @@ export default function SideBar(props: {
       </div>
       <div className="sidebar" id="sidebar" data-always-visible={alwaysVisible} >
         <div className="sidebar-content" data-folded-out={sidebarFoldedOut} style={{fontSize: props.fontSize || "1rem"}}>
-          <h1 className="w-max mx-auto text-custom-off-dark-300 text-center mb-2">
+          <h1 className={`w-max mx-auto text-custom-off-dark-300 text-center mb-2`}>
             {props.title}
           </h1>
           <Tree tree={props.tree} />
