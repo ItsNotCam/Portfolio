@@ -19,6 +19,7 @@ import { ScaleLoader } from "react-spinners";
 import "./projects.css";
 import "./markdown.css";
 import { Orange } from "../../components/ColoredText.tsx";
+import { ListBefore } from "../../components/ListBefore.tsx";
 
 export default function Projects(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
@@ -168,20 +169,6 @@ export default function Projects(): ReactNode {
     </div>
   );
 
-  const ProjectBefore = (props: { project: Project }): ReactNode => (
-    <>
-      <div id="timeframe" className="text-custom-text-200 pl-4 mt-1">
-        {props.project.year || ""}
-      </div>
-      <div
-        id="divider"
-        className="flex flex-col justify-center items-center gap-2 pt-2"
-      >
-        <div className="orange-flare w-4 h-4 rounded-full bg-custom-orange" />
-        <div className="flex-grow w-[2px] h-auto bg-custom-text-100" />
-      </div>
-    </>
-  );
 
   const ProjectSkills = (props: { project: Project }): ReactNode => (
     <ul className="project-skill-item-list">
@@ -204,7 +191,8 @@ export default function Projects(): ReactNode {
 	const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
 		<div className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
 			{downloadingReadme ? (
-				<div className="flex flex-row justify-center items-center h-full">
+				<div className="flex flex-col gap-2 justify-center items-center h-full">
+					Downloading Readme
 					<ScaleLoader color="#F16D70" />
 				</div>
 			) : (<>
@@ -261,7 +249,7 @@ export default function Projects(): ReactNode {
                 key={`project-item-${project.id}`}
                 className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
               >
-                <ProjectBefore project={project} />
+                <ListBefore text={project.year} />
                 <div
                   id={`card-${project.id}`}
                   key={`project-${index}`}
