@@ -242,7 +242,7 @@ export default function About(): ReactNode {
     setDirectoryTree((old) => updateSelectedItem(old, selectionName, setSelectedPage));
   };
 
-  const [selectedName, setSelectedName] = useState<string>("passion.py");
+  const [selectedName, setSelectedName] = useState<string>("passion");
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
     {
       name: "..",
