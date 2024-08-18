@@ -6,24 +6,7 @@ import SideBar, { DirectoryItem } from "../../components/sidebar/Sidebar";
 import { WorkList } from "../../data/work_list";
 import { Skill } from "../../data/project_list";
 import { ReactNode } from "react";
-
-const ProjectSkills = (props: { skills: Skill[] }): ReactNode => (
-	<ul className="project-skill-item-list">
-		{props.skills
-			.filter(skill => (skill.visible === undefined) ? true : skill.visible)
-			.map((skill, index) => (	
-			<li
-				key={`skills-${skill.name}-${index}`}
-				className="project-skill-item"
-				title={skill.name}
-				id={skill.name}
-			>
-				<span className="project-skill-icon">{skill.icon}</span>
-				<span className="project-skill-title">{skill.name}</span>
-			</li>
-		))}
-	</ul>
-);
+import SkillsListComponent from "../../components/SkillsList";
 
 const ProjectTitle = (props: { title: string }): ReactNode => (
 	<div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
@@ -83,14 +66,6 @@ export default function About() {
 				name: "Summer Classes",
 				id: "Summer_Classes_2024",
 			},{
-				icon: <FileIcon />,
-				name: "Covid Family Support",
-				id: "Covid_Family_Support",
-			},{
-				icon: <FileIcon />,
-				name: "Moved Out",
-				id: "Moved_Out",
-			},{
 				icon: <FolderIcon />,
 				name: "..",
 				id: "..2",
@@ -114,7 +89,7 @@ export default function About() {
 				icon: <FileIcon />,
 				name: "College Prep",
 				id: "College_Prep",
-				color: "text-custom-blue/85"
+				// color: "text-custom-blue/85"
 			},{
 				icon: <FolderIcon />,
 				name: "..",
@@ -127,28 +102,6 @@ export default function About() {
     <>
       <div id="work" className="flex flex-grow overflow-auto">
         <SideBar tree={tree} title="~/Responsibilities/" fontSize="0.85rem"/>
-        {/* <div className="p-4 flex-grow flex flex-col w-full gap-8 justify-center items-center">
-					<h1 className="text-3xl text-custom-red">[ WORK_HISTORY ]</h1>
-          {WorkList.map((work) => (
-            <div className="flex flex-row gap-4 text-custom-text-100">
-							<div className="flex flex-row gap-2 text-custom-text-300">
-              	<ListBefore text={work.timeframe} />
-							</div>
-              <div className="max-w-[50rem] backdrop-blur-lg px-2 pb-2">
-                <h1 className="text-xl text-custom-blue">
-                  {work.title.map((title) => (<>{title}<br /></>))}
-                </h1>
-                <p className="mt-2 mb-4 text-lg">
-                  {work.company} {work.location}
-                </p>
-                <p>{work.description}</p>
-								<div className="flex flex-row gap-2 mt-2">
-									{work.skills.map((skill) => skill.icon)}
-								</div>
-              </div>
-            </div>
-          ))}
-        </div> */}
 				<div className="project-grid grid gap-1 w-full overflow-x-hidden">
           <div
             id="project-list"
@@ -165,14 +118,12 @@ export default function About() {
                   id={`card-${work.company}-${work.title.join("_")}`}
                   key={`project-${index}`}
                   className="project-content cursor-pointer"
-									// onClick={() => updateSelection(work)}
                 >
 									<ProjectTitle title={`${work.title.join("\n")} ${work.company} ${work.location}`}/>
                   <div className="text-sm transition-colors duration-1000">
                     {work.description}
                   </div>
-                  <ProjectSkills skills={work.skills} />
-									{/* <MarkdownSection project={project} /> */}
+                  <SkillsListComponent skills={work.skills} />
                 </div>
               </div>
             ))}

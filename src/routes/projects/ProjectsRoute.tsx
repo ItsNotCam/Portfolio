@@ -20,6 +20,7 @@ import "./projects.css";
 import "./markdown.css";
 import { Orange } from "../../components/ColoredText.tsx";
 import { ListBefore } from "../../components/ListBefore.tsx";
+import SkillsListComponent from "../../components/SkillsList.tsx";
 
 export default function Projects(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
@@ -169,25 +170,6 @@ export default function Projects(): ReactNode {
     </div>
   );
 
-
-  const ProjectSkills = (props: { project: Project }): ReactNode => (
-    <ul className="project-skill-item-list">
-      {props.project.skills
-				.filter(skill => (skill.visible === undefined) ? true : skill.visible)
-				.map((skill, index) => (	
-        <li
-          key={`skills-${skill.name}-${index}`}
-          className="project-skill-item"
-          title={skill.name}
-          id={skill.name}
-        >
-          <span className="project-skill-icon">{skill.icon}</span>
-          <span className="project-skill-title">{skill.name}</span>
-        </li>
-      ))}
-    </ul>
-  );
-
 	const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
 		<div className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
 			{downloadingReadme ? (
@@ -241,13 +223,13 @@ export default function Projects(): ReactNode {
         <div className="project-grid grid gap-1 w-full overflow-x-hidden">
           <div
             id="project-list"
-            className="flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default"
+            className="mutex-hover-list flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default"
           >
             {ProjectList.map((project, index) => (
               <div
                 id={`project-item-${project.id}`}
                 key={`project-item-${project.id}`}
-                className="project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
+                className="mutex-hover-list-child project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
               >
                 <ListBefore text={project.year} />
                 <div
@@ -268,7 +250,7 @@ export default function Projects(): ReactNode {
                   <div className="text-sm transition-colors duration-1000">
                     {project.content}
                   </div>
-                  <ProjectSkills project={project} />
+                  <SkillsListComponent skills={project.skills} />
 									{/* <MarkdownSection project={project} /> */}
                 </div>
               </div>
