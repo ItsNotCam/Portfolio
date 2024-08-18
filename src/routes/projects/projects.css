@@ -1,4 +1,4 @@
-#project-list:has(.project-content:hover) > :not(:hover) {
+.mutex-hover-list:has(.mutex-hover-list-child:hover) > :not(:hover) {
   opacity: 0.5;
 }
 
