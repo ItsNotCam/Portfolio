@@ -2,8 +2,8 @@ import Footer from "../../components/footer/Footer";
 import { FileIcon, FolderIcon } from "../../components/Icons";
 import { ListBefore } from "../../components/ListBefore";
 import SideBar, { DirectoryItem } from "../../components/sidebar/Sidebar";
-import { WorkList } from "../../data/work_list";
 import SkillsListComponent from "../../components/SkillsList";
+import { WorkList } from "../../data/work_list";
 
 export default function About() {
   const tree: DirectoryItem[] = [
