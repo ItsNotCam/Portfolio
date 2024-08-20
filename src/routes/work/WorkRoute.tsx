@@ -1,4 +1,3 @@
-import CardTitle from "../../components/card_list/CardTitle";
 import Footer from "../../components/footer/Footer";
 import { FileIcon, FolderIcon } from "../../components/Icons";
 import { ListBefore } from "../../components/ListBefore";
