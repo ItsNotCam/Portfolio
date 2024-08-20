@@ -91,10 +91,10 @@ export default function Projects(): ReactNode {
     const element = document.getElementById(`project-item-${projectID}`);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
-      const content = element.getElementsByClassName("project-content")[0];
+      const content = element.getElementsByClassName("card-content")[0];
       if (content) {
-        content.classList.toggle("project-item-temp-selected");
-        setTimeout(() => content.classList.toggle("project-item-temp-selected"), 750);
+        content.classList.toggle("card-item-temp-selected");
+        setTimeout(() => content.classList.toggle("card-item-temp-selected"), 750);
       }
     }
 
@@ -200,8 +200,13 @@ export default function Projects(): ReactNode {
                   >
                     {project.githubLink && <GitHubLink githubLink={project.githubLink} /> }
                     {project.demoLink   && <DemoLink demoLink={project.demoLink} />       }
-                    {project.readmeLink && <ReadmeLink readmeLink={project.readmeLink} /> }
-                    <CardTitle title={project.name} />
+                    {/* {project.readmeLink && <ReadmeLink readmeLink={project.readmeLink} /> } */}
+                    <CardTitle>
+											<div className="flex flex-row items-center gap-2">
+												<span className="text-lg text-custom-blue">{project.name}</span> 
+												<span className="text-custom-text-300 text-sm">| {project.year}</span>
+											</div>
+										</CardTitle>
                   </div>
                   <div className="text-sm transition-colors duration-1000">
                     {project.content}
