@@ -21,6 +21,8 @@ import "./markdown.css";
 import { Orange } from "../../components/ColoredText.tsx";
 import { ListBefore } from "../../components/ListBefore.tsx";
 import SkillsListComponent from "../../components/SkillsList.tsx";
+import { DemoLink, GitHubLink, ReadmeLink } from "../../components/card_list/CardLinks.tsx";
+import CardTitle from "../../components/card_list/CardTitle.tsx";
 
 export default function Projects(): ReactNode {
   const [selectedProject, setSelectedProject] = useState<Project | undefined>(undefined);
@@ -127,51 +129,8 @@ export default function Projects(): ReactNode {
     }
   };
 
-  /* Components */
-  const GitHubLink = (props: { project: Project }): ReactNode =>
-    props.project.githubLink ? (
-      <a
-        target="_blank"
-        href={props.project.githubLink}
-        className="relative text-custom-text-300"
-      >
-        <GitHubIcon
-          height="1.75em"
-          width="1.75em"
-          className="hover:text-custom-text-100 transition-colors"
-        />
-      </a>
-    ) : null;
-
-  const DemoLink = (props: { project: Project }): ReactNode =>
-    props.project.demoLink ? (
-      <a
-        target="_blank"
-        href={props.project.demoLink}
-        className="relative text-custom-text-300 hover:text-custom-text-100 transition-colors"
-      >
-        <ExploreIcon height="1.75em" width="1.75em" />
-      </a>
-    ) : null;
-
-  const ReadmeLink = (props: { project: Project }): ReactNode =>
-    props.project.readmeLink ? (
-      <SummarizeOutlined style={{ height: "1.2em", width: "1.2em" }} />
-    ) : null;
-
-  const ProjectTitle = (props: { project: Project }): ReactNode => (
-    <div className="project-item__header-link flex flex-row flex-grow cursor-pointer">
-      <h2 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
-        {props.project.name}
-      </h2>
-      <div className="project-item-expand-icon ml-2 text-sm transition-colors">
-        <NorthEast style={{ height: "1rem", width: "1rem" }} />
-      </div>
-    </div>
-  );
-
   const MarkdownSection = (props: { project: Project | undefined }): ReactNode => (
-    <div className="markdown-container  z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
+    <div className="markdown-container z-50 top-0 mr-8 my-4 p-4 overflow-auto text-custom-text-300 bg-custom-off-dark-300/5 backdrop-blur-lg">
       {downloadingReadme ? (
         <div className="flex flex-col gap-2 justify-center items-center h-full">
           Downloading Readme
@@ -221,37 +180,33 @@ export default function Projects(): ReactNode {
           alwaysVisible={false}
         />
         <div className="project-grid grid gap-1 w-full overflow-x-hidden">
-          <div
-            id="project-list"
-            className="mutex-hover-list flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default"
-          >
+          <div id="project-list" className="mutex-hover-list card-list">
             {ProjectList.map((project, index) => (
               <div
                 id={`project-item-${project.id}`}
                 key={`project-item-${project.id}`}
-                className="mutex-hover-list-child project-item flex flex-row gap-4 rounded-md transition-opacity duration-300"
+                className="mutex-hover-list-child card"
               >
                 <ListBefore text={project.year} />
                 <div
                   id={`card-${project.id}`}
                   key={`project-${index}`}
-                  className="project-content cursor-pointer"
+                  className="card-content cursor-pointer"
                   onClick={() => updateSelection(project)}
                 >
                   <div
                     id={`project-header-${project.id}`}
                     className="flex flex-row gap-1 items-center"
                   >
-                    <GitHubLink project={project} />
-                    <DemoLink project={project} />
-                    <ReadmeLink project={project} />
-                    <ProjectTitle project={project} />
+                    {project.githubLink && <GitHubLink githubLink={project.githubLink} /> }
+                    {project.demoLink   && <DemoLink demoLink={project.demoLink} />       }
+                    {project.readmeLink && <ReadmeLink readmeLink={project.readmeLink} /> }
+                    <CardTitle title={project.name} />
                   </div>
                   <div className="text-sm transition-colors duration-1000">
                     {project.content}
                   </div>
                   <SkillsListComponent skills={project.skills} />
-                  {/* <MarkdownSection project={project} /> */}
                 </div>
               </div>
             ))}
