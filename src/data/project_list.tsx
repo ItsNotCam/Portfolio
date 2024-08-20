@@ -20,12 +20,12 @@ export type Project = {
 };
 
 export const ProjectList: Project[] = [{
-  name: "😊This Website",
+  name: "😎This Website",
   id: "this_website",
   githubLink: "https://github.com/ItsNotCam/PortfolioV2",
   demoLink: undefined,
-  readmeLink: undefined,
-  additionalContent: undefined,
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/PortfolioV2/master/README.md",
+  additionalContent: "",
   year: "2024",
   skills: [
     { ...Skills.HtmlSkill, visible: false },
@@ -45,9 +45,9 @@ export const ProjectList: Project[] = [{
   name: "🚨CyberArk Insights",
   year: "2024",
   id: "cybearark_insights",
-  additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
+  additionalContent: undefined,//"This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   demoLink: undefined,
-  readmeLink: undefined,
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/CyberArkInsights/master/README.md",
   githubLink: undefined,
   skills: [
     { ...Skills.HtmlSkill, visible: false },
@@ -55,6 +55,7 @@ export const ProjectList: Project[] = [{
     Skills.TypeScriptSkill,
     Skills.JavascriptSkill,
     Skills.NodeJSSkill,
+    Skills.ExpressSkill,
     Skills.NextJSSkill,
     Skills.ReactSkill,
     Skills.TailwindSkill,
@@ -70,9 +71,9 @@ export const ProjectList: Project[] = [{
   name: "🙉CodeMonkey",
   year: "2024",
   id: "code_monkey",
-  additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
+  additionalContent: undefined,//"This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   demoLink: undefined,
-  readmeLink: undefined,
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/CodeMonkey/master/README.md",
   githubLink: undefined,
   skills: [
     { ...Skills.HtmlSkill, visible: false }, 
@@ -96,9 +97,9 @@ export const ProjectList: Project[] = [{
   content: <span>This is a <Orange>web scraper</Orange> designed to extract Pokémon data from 'pokemondb.net' and store it in a <Orange>PostgreSQL database</Orange>.</span>,
 }, {
   name: "🌏Cloud File Share",
-  githubLink: "https://github.com/ItsNotCam/GoogleDriveClone",
+  githubLink: "https://github.com/ItsNotCam/Cloud-File-Share",
   demoLink: "https://streamable.com/e/c7hyo6",
-  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/GoogleDriveClone/master/README.md",
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/Cloud-File-Share/master/README.md",
   additionalContent: undefined,
   year: "2024",
   id: "cloud_file_share",
@@ -118,7 +119,7 @@ export const ProjectList: Project[] = [{
   name: "💸Pico",
   githubLink: "https://github.com/ItsNotCam/Pico",
   demoLink: "https://mason.gmu.edu/~cyoung35/index.html",
-  readmeLink: undefined,
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/Pico/master/README.md",
   additionalContent: `No additional information available - see demo here: [Pico](https://mason.gmu.edu/~cyoung35/index.html)`,
   year: "2024",
   id: "pico",
@@ -141,6 +142,7 @@ export const ProjectList: Project[] = [{
   skills: [
     { ...Skills.HtmlSkill, visible: false },
     { ...Skills.CssSkill, visible: false },
+    Skills.RaspberryPiSkill,
     Skills.PythonSkill,
     Skills.TypeScriptSkill,
     Skills.ReactSkill
@@ -171,7 +173,7 @@ export const ProjectList: Project[] = [{
   githubLink: "https://github.com/ItsNotCam/File-Server",
   demoLink: undefined,
   additionalContent: undefined,
-  readmeLink: undefined,
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/File-Server/master/README.md",
   year: "2019",
   id: "home_file_server",
   skills: [
@@ -190,7 +192,7 @@ export const ProjectList: Project[] = [{
   year: "2019",
   id: "racoon",
   githubLink: undefined,
-  readmeLink: undefined,
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/Racoon/master/README.md",
   demoLink: undefined,
   additionalContent: "This was developed for BAE Systems, Inc.\n" + "No additional information can be shared.",
   skills: [
