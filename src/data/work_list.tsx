@@ -40,8 +40,8 @@ export const WorkList: WorkListItem[] = [
       Skills.PowerShellSkill
     ]
   },{
-    title: ["Freelance Game Developer"],
-    company: "",
+    title: ["Game Developer"],
+    company: "Freelance",
     location: "My Apartment, VA",
     description: (
       <>
@@ -54,18 +54,7 @@ export const WorkList: WorkListItem[] = [
     timeframe: "2020-2024",
     skills: [Skills.CSharpSkill, Skills.UnitySkill]
   },{
-    title: ["Software Engineering Intern"],
-    company: "ScienceLogic,",
-    location: "Remote",
-    description: (
-      <>
-        Added a new feature into an existing tool to display changes in account activity.
-      </>
-    ),
-    timeframe: "2021-2021",
-    skills: [Skills.PhpSkill]
-  },{
-    title: ["Cyber DevOps Software Engineering Intern IT","Sys. Admin Intern II"],
+    title: ["Cyber DevOps Software Engineering Intern II","Sys. Admin Intern II"],
     company: "BAE Systems Inc.",
     location: "Reston, VA",
     description: (

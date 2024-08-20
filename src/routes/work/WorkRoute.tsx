@@ -1,8 +1,10 @@
+import CardTitle from "../../components/card_list/CardTitle";
 import Footer from "../../components/footer/Footer";
 import { FileIcon, FolderIcon } from "../../components/Icons";
 import { ListBefore } from "../../components/ListBefore";
 import SideBar, { DirectoryItem } from "../../components/sidebar/Sidebar";
 import SkillsListComponent from "../../components/SkillsList";
+import { ProjectList } from "../../data/project_list";
 import { WorkList } from "../../data/work_list";
 
 export default function About() {
@@ -91,24 +93,43 @@ export default function About() {
   return (
     <>
       <div id="work" className="flex flex-grow overflow-auto">
-        <SideBar tree={tree} title="~/Responsibilities/" fontSize="0.85rem"/>
-          <div className="mutex-hover-list flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default">
+        <SideBar
+          tree={tree}
+          title="~/_projects/"
+          fontSize="0.9rem"
+          alwaysVisible={false}
+        />
+        <div className="project-grid grid gap-1 w-full overflow-x-hidden">
+          <div id="project-list" className="mutex-hover-list card-list">
             {WorkList.map((work, index) => (
               <div
-                id={`project-item-${work.company}-${work.title.join("_")}`}
-                key={`project-item-${work.company}-${work.title.join("_")}`}
-                className="flex flex-row gap-4 rounded-md transition-opacity duration-300"
+                id={`work-item-${index}`}
+                key={`work-item-${index}`}
+                className="mutex-hover-list-child card"
               >
                 <ListBefore text={work.timeframe} />
                 <div
-                  id={`card-${work.company}-${work.title.join("_")}`}
-                  key={`project-${index}`}
-                  className="mutex-hover-list-child flex flex-col p-4 transition-all rounded-sm flex-grow gap-2 bg-custom-off-dark-300/5 backdrop-blur-lg"
+                  id={`card-${index}`}
+                  key={`work-${index}`}
+                  className="card-content cursor-pointer"
+                  // onClick={() => updateSelection(work)}
                 >
-                  <p className="transition-colors duration-200">
-                    <ul className="text-xl text-custom-blue hover:underline">{work.title.map(t => <li>{t}</li>)}</ul>
-                    <span className="text-lg text-custom-text-300">{work.company} {work.location}</span>
-                  </p>
+                  <div
+                    id={`project-header-${index}`}
+                    className="flex flex-row gap-1 items-center"
+                  >
+                    <CardTitle>
+											<h1 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
+												{work.company}
+											</h1>
+											<p className="text-sm text-custom-text-100">
+												{work.title.map((t, i) => ( i !== 0 
+													? <span><br/>{t}</span> 
+													: <span>{t}</span>)
+												)}
+											</p>
+										</CardTitle>
+                  </div>
                   <div className="text-sm transition-colors duration-1000">
                     {work.description}
                   </div>
@@ -117,6 +138,10 @@ export default function About() {
               </div>
             ))}
           </div>
+					<div>
+						Hello
+					</div>
+        </div>
       </div>
       <Footer>
         <span className="text-custom-text-300">
