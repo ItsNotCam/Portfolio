@@ -115,19 +115,22 @@ export default function About() {
                 >
                   <div
                     id={`project-header-${index}`}
-                    className="flex flex-row gap-1 items-center"
+                    className="flex flex-row justify-between items-center"
                   >
-                    <CardTitle>
-                      <h1 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
-                        {work.company}
-                      </h1>
-                      <p className="text-sm text-custom-text-100">
-                        {work.title.map((t, i) => ( i !== 0 
-                          ? <span><br/>{t}</span> 
-                          : <span>{t}</span>)
-                        )}
-                      </p>
-                    </CardTitle>
+										<div>
+											<h1 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
+												{work.company}
+											</h1>
+											<p className="text-sm text-custom-text-100">
+												{work.title.map((t, i) => ( i !== 0 
+													? <span><br/>{t}</span> 
+													: <span>{t}</span>)
+												)}
+											</p>
+										</div>
+										<span className="text-sm">
+											{work.timeframe}
+										</span>
                   </div>
                   <div className="text-sm transition-colors duration-1000">
                     {work.description}
