@@ -12,7 +12,7 @@ type BranchProps = {
 export default function Branch(props: BranchProps){
   // let color: string = props.color || "text-custom-text-300";
   // color = props.selected ? "text-custom-orange" : color;
-	let color: string = props.color || "text-red-200";
+  let color: string = props.color || "text-red-200";
 
   return (
     <div

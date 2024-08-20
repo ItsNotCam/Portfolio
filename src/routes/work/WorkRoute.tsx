@@ -4,7 +4,6 @@ import { FileIcon, FolderIcon } from "../../components/Icons";
 import { ListBefore } from "../../components/ListBefore";
 import SideBar, { DirectoryItem } from "../../components/sidebar/Sidebar";
 import SkillsListComponent from "../../components/SkillsList";
-import { ProjectList } from "../../data/project_list";
 import { WorkList } from "../../data/work_list";
 
 export default function About() {
@@ -119,16 +118,16 @@ export default function About() {
                     className="flex flex-row gap-1 items-center"
                   >
                     <CardTitle>
-											<h1 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
-												{work.company}
-											</h1>
-											<p className="text-sm text-custom-text-100">
-												{work.title.map((t, i) => ( i !== 0 
-													? <span><br/>{t}</span> 
-													: <span>{t}</span>)
-												)}
-											</p>
-										</CardTitle>
+                      <h1 className="text-lg text-custom-blue hover:underline transition-colors duration-200">
+                        {work.company}
+                      </h1>
+                      <p className="text-sm text-custom-text-100">
+                        {work.title.map((t, i) => ( i !== 0 
+                          ? <span><br/>{t}</span> 
+                          : <span>{t}</span>)
+                        )}
+                      </p>
+                    </CardTitle>
                   </div>
                   <div className="text-sm transition-colors duration-1000">
                     {work.description}
@@ -138,9 +137,9 @@ export default function About() {
               </div>
             ))}
           </div>
-					<div>
-						Hello
-					</div>
+          <div>
+            Hello
+          </div>
         </div>
       </div>
       <Footer>

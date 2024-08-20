@@ -3,11 +3,11 @@
 }
 
 .card {
-	@apply flex flex-row gap-4 rounded-md transition-opacity duration-300;
+  @apply flex flex-row gap-4 rounded-md transition-opacity duration-300;
 }
 
 .card-list {
-	@apply flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default;
+  @apply flex flex-col flex-grow-0 gap-4 p-2 mr-2 overflow-y-auto text-custom-text-300 cursor-default;
 }
 
 .card-item-temp-selected {
