@@ -132,23 +132,6 @@ export const ProjectList: Project[] = [{
   ],
   content: <span>This project is my first attempt at creating an HTML, CSS, and jQuery-based <Orange>website</Orange>. Completed for a school project.</span>
 },{
-  name: "🔥HeaterPi",
-  githubLink: "https://github.com/ItsNotCam/HeaterPi-Server",
-  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/HeaterPi-Server/master/README.md",
-  demoLink: undefined,
-  additionalContent: undefined,
-  year: "2024",
-  id: "heater_pi",
-  skills: [
-    { ...Skills.HtmlSkill, visible: false },
-    { ...Skills.CssSkill, visible: false },
-    Skills.RaspberryPiSkill,
-    Skills.PythonSkill,
-    Skills.TypeScriptSkill,
-    Skills.ReactSkill
-  ],
-  content: <span>A <Orange>full-stack web application</Orange> that manages room temperature using a Raspberry Pi and a standard space heater.</span>
-},  {
   name: "⌚Bitwatch VR",
   githubLink: "https://github.com/ItsNotCam/BitwatchVR",
   readmeLink: "https://raw.githubusercontent.com/ItsNotCam/BitwatchVR/master/README.md",
@@ -164,11 +147,28 @@ export const ProjectList: Project[] = [{
   readmeLink: "https://raw.githubusercontent.com/ItsNotCam/MC-Coordinates-Book/master/README.md",
   demoLink: undefined,
   additionalContent: undefined,
-  year: "2020",
+  year: "2020 - 2024",
   id: "coordinates_book",
   skills: [Skills.JavaSkill, Skills.SqliteSkill],
   content: <span>A <Orange>video game mod</Orange> for the popular video game Minecraft that automates the process of saving your favorite locations within the game, replacing traditional (and literal) pen-and-paper methods.</span>
 }, {
+  name: "🔥HeaterPi",
+  githubLink: "https://github.com/ItsNotCam/HeaterPi-Server",
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/HeaterPi-Server/master/README.md",
+  demoLink: undefined,
+  additionalContent: undefined,
+  year: "2019-2024",
+  id: "heater_pi",
+  skills: [
+    { ...Skills.HtmlSkill, visible: false },
+    { ...Skills.CssSkill, visible: false },
+    Skills.RaspberryPiSkill,
+    Skills.PythonSkill,
+    Skills.TypeScriptSkill,
+    Skills.ReactSkill
+  ],
+  content: <span>A <Orange>full-stack web application</Orange> that manages room temperature using a Raspberry Pi and a standard space heater.</span>
+},  {
   name: "📑Home File Server",
   githubLink: "https://github.com/ItsNotCam/File-Server",
   demoLink: undefined,

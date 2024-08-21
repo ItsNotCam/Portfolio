@@ -28,76 +28,70 @@ import "./about.css";
 const AboutText = (props: { page: string }): ReactNode => {
   const page = props.page.replace(/\.[^/.]+$/, "");
   switch (page) {
-    case "passion":
+    case "about_me":
       return (
-        <div className="about-code-segment bg-custom-dark/50 rounded-md backdrop-blur-sm">
-          <CodeSegment keyPrefix="passion">
-            <span className="font-normal">
+        <div className="about-code-segment bg-custom-dark/50 rounded-md backdrop-blur-sm text-custom-text-300">
+          <CodeSegment keyPrefix="ABOUT ME">
+						<article>
               <br />
-              <Red className="font-bold italic">{`<about_me>`}</Red>
-              <br />
-              <br />
+              <Red className="font-bold italic">{`<info>`}</Red>
+              <br /><br />
               <Orange>def</Orange>
               <Yellow> passion</Yellow>
               <Orange>()</Orange>
               <Light>:</Light>
-              <br />
-              <div className="ml-4 text-custom-text-300">
-                I am a <Pink>lifelong programmer</Pink> and <Pink>learner</Pink>{" "}
-                with a deep-rooted <LightGreen>passion </LightGreen>
-                for <Pink>problem solving</Pink>, <Pink>coding</Pink>, and{" "}
-                <Pink>computers</Pink>. I began writing code when I was{" "}
-                <Blue>12 years old</Blue> starting with <Red>C++</Red>, and I
-                have <Blue>never</Blue> looked back.
+							<CodeIndent>
+                I am a <Pink>lifelong programmer</Pink> and <Pink>learner </Pink>
+                with a deep-rooted passion for problem solving, coding, and
+                computers. I began writing code when I was 12 years old starting 
+								with C++, and I have never looked back.
                 <br />
                 <br />
-                Over the years, I have honed my <Pink>skills</Pink> and expanded
-                my
-                <Blue> knowledge</Blue> by continuously{" "}
-                <LightGreen>self-studying</LightGreen> the{" "}
-                <Red>latest tech</Red> that I catch wind of.
-                <br />
-                <br />I have always been{" "}
-                <Blue>eager to tackle new challenges </Blue>
-                and projects, from <LightGreen>
-                  web development
-                </LightGreen> to <LightGreen>Minecraft modding</LightGreen> to{" "}
-                <LightGreen>Unity scripting</LightGreen> to{" "}
-                <LightGreen>3D modeling</LightGreen> and <Red>more</Red> ...
-                Whenever and wherever I see a chance to{" "}
-                <Yellow>automate</Yellow> or <Yellow>innovate</Yellow>, I take
-                it and <Red>run</Red>.
+                Over the years, I have honed my skills and expanded
+                my knowledge by continuously self-studying the
+                latest tech that I catch wind of.
                 <br />
                 <br />
-                <Blue>while</Blue>
-                <Orange>{`(self.`}</Orange>
-                <Red>is_alive</Red>
-                <Orange>{`)`}</Orange>
-                <Light>:</Light>
-                <br />
-                <div className="ml-4">
-                  <Yellow>print</Yellow>
-                  <Orange>{`(`}</Orange>
-                  <Green>"experience"</Green>
-                  <Orange>{`)`}</Orange>
-                  <br />
-                  <Yellow>print</Yellow>
-                  <Orange>{`(`}</Orange>
-                  <Green>"learn"</Green>
-                  <Orange>{`)`}</Orange>
-                  <br />
-                  <Yellow>sleep</Yellow>
-                  <Orange>{`(`}</Orange>
-                  <LightGreen>24</LightGreen>
-                  <Light> * </Light>
-                  <LightGreen>60</LightGreen>
-                  <Light> * </Light>
-                  <LightGreen>60</LightGreen>
-                  <Orange>{`)`}</Orange>
-                </div>
-              </div>
-              <br />
-            </span>
+								I have always been eager to tackle new challenges and projects, 
+								from <Pink> web development </Pink> to <Pink> Minecraft modding </Pink> 
+								to <Pink> Unity scripting </Pink> to <Pink> 3D modeling </Pink> and more.
+							</CodeIndent>
+						</article>
+						<br />
+						<br />
+						<article>
+						<Orange>def</Orange>
+						<Yellow> hobbies</Yellow><Orange>()</Orange>:
+							<br />
+							<CodeIndent>
+								I love <Red>riding my motorcycle</Red> as much as possible,
+								enjoying the escape and freedom that it gives me.
+								<br />
+								<br />
+								<Red>Building computers</Red> is another hobby of
+								mine, where I get to play one of the several forms of{" "}
+								“adult Legos” out there. I built my first computer at 14 and fell
+								in love with the research, planning,
+								and process that comes with the territory.
+								<br />
+								<br />
+								<Red>Coding</Red> is also a never-ending learning journey 
+								for me. I’m always on the lookout for new ways to{" "}
+								create, innovate, and{" "}
+								solve problems using code.
+								<br />
+								<br />I also take pride in <Red> maintaining and upgrading my
+								home server</Red> and network, making sure my media storage,{" "}
+								personal projects, and
+								Dockerized video game servers are all running smoothly.
+								<br />
+								<br />
+								Finally, I have a passion for the 3D modelling, texturing, and
+								 programming sides of <Red>game development</Red>.
+								<br />
+							</CodeIndent>
+							<br />
+						</article>
           </CodeSegment>
         </div>
       );
@@ -239,10 +233,11 @@ const AboutText = (props: { page: string }): ReactNode => {
 export default function About(): ReactNode {
   const updateSelection = (selectionName: string): void => {
     setSelectedName(selectionName);
-    setDirectoryTree((old) => updateSelectedItem(old, selectionName, setSelectedPage));
+    // setDirectoryTree((old) => updateSelectedItem(old, selectionName, setSelectedPage));
+    setDirectoryTree((old) => updateSelectedItem(old, selectionName, undefined));
   };
 
-  const [selectedName, setSelectedName] = useState<string>("passion");
+  const [selectedName, setSelectedName] = useState<string>("about_me");
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
     {
       name: "..",
@@ -250,73 +245,79 @@ export default function About(): ReactNode {
       disabled: true,
       id: "root"
     },
-    {
-      name: "_me",
-      id: "me_root",
-      icon: <FolderIcon />,
-      children: [
-        {
-          name: "passion.py",
-          id: "passion",
-          icon: <Python3Icon />,
-          selected: true,
-          onClick: () => updateSelection("passion"),
-        },
-        {
-          name: "hobbies.ts",
-          id: "hobbies",
-          icon: <TypeScriptIcon />,
-          onClick: () => updateSelection("hobbies"),
-        },
-        {
-          name: "goals.cs",
-          id: "goals",
-          icon: <CSharpIcon />,
-          onClick: () => updateSelection("goals"),
-        },
-        {
-          name: "..",
-          id: "me_back",
-          icon: <FolderIcon />,
-          disabled: true,
-        },
-      ],
-    },
-    {
-      name: "_site",
-      icon: <FolderIcon />,
-      id: "site_root",
-      children: [
+		{
+			name: "about_me.py",
+			id: "about_me",
+			icon: <Python3Icon />,
+			selected: true,
+			onClick: () => updateSelection("about_me"),
+		},
+		// {
+		// 	name: "goals.cs",
+		// 	id: "goals",
+		// 	icon: <CSharpIcon />,
+		// 	onClick: () => updateSelection("goals"),
+		// },
+    // {
+    //   name: "_me",
+    //   id: "me_root",
+    //   icon: <FolderIcon />,
+    //   children: [
+    //     // {
+    //     //   name: "hobbies.ts",
+    //     //   id: "hobbies",
+    //     //   icon: <TypeScriptIcon />,
+    //     //   onClick: () => updateSelection("hobbies"),
+    //     // },
+    //     {
+    //       name: "goals.cs",
+    //       id: "goals",
+    //       icon: <CSharpIcon />,
+    //       onClick: () => updateSelection("goals"),
+    //     },
+    //     {
+    //       name: "..",
+    //       id: "me_back",
+    //       icon: <FolderIcon />,
+    //       disabled: true,
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "_site",
+    //   icon: <FolderIcon />,
+    //   id: "site_root",
+    //   children: [
         {
           name: "credits.md",
           id: "credits",
           icon: <InfoIcon color="#68A9F6" />,
           onClick: () => updateSelection("credits"),
         },
-        {
-          name: "inspiration.md",
-          id: "inspiration",
-          onClick: () => updateSelection("inspiration"),
-          icon: <InfoIcon color="#68A9F6" />,
-        },
+        // {
+        //   name: "inspiration.md",
+        //   id: "inspiration",
+        //   onClick: () => updateSelection("inspiration"),
+        //   icon: <InfoIcon color="#68A9F6" />,
+        // },
         {
           name: "design.md",
           id: "design",
           icon: <InfoIcon color="#68A9F6" />,
           onClick: () => updateSelection("design"),
         },
-        {
-          name: "..",
-          id: "site_back",
-          icon: <FolderIcon />,
-          disabled: true,
-        },
-      ],
-    },
+        // {
+        //   name: "..",
+        //   id: "site_back",
+        //   icon: <FolderIcon />,
+        //   disabled: true,
+        // },
+      // ],
+    // },
   ]);
-  const [selectedPage, setSelectedPage] = useState<DirectoryItem>(
-    (directoryTree[1].children as DirectoryItem[])[1]
-  );
+  // const [selectedPage, setSelectedPage] = useState<DirectoryItem>(
+  //   (directoryTree[2].children as DirectoryItem[])[1]
+  // );
 
   // temporary solution - get all pages that are in the "me" section
   // this is used so that the footer text can be updated with the correct pathing

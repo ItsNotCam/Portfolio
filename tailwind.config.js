@@ -30,9 +30,9 @@ export default {
         },
       },
       spacing: {
-        "window-buttons": "0.9rem",
-        "header": "3rem",
-        "footer": "3.5rem",
+        "window-buttons": "0.7rem",
+        "header": "2.5rem",
+        "footer": "2.5rem",
       },
     },
   },
