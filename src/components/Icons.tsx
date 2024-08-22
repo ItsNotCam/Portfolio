@@ -152,7 +152,7 @@ export const FileIcon = (props: {
       viewBox="0 0 24 25"
       fill={props.color || "currentColor"}
     >
-      <g clip-path="url(#clip0_216_147)">
+      <g clipPath="url(#clip0_216_147)">
         <path
           d="M8 16.6968H16V18.6612H8V16.6968ZM8 12.7682H16V14.7325H8V12.7682ZM14 2.94653H6C4.9 2.94653 4 3.83048 4 4.91086V20.6255C4 21.7059 4.89 22.5898 5.99 22.5898H18C19.1 22.5898 20 21.7059 20 20.6255V8.83953L14 2.94653ZM18 20.6255H6V4.91086H13V9.82169H18V20.6255Z"
           fill={props.color || "currentColor"}
@@ -1777,7 +1777,7 @@ export const IntelliJLogo = (props: { height?: string; width?: string }) => {
       viewBox="0 0 70 70"
       fill="none"
     >
-      <g clip-path="url(#clip0_26_19)">
+      <g clipPath="url(#clip0_26_19)">
         <path
           d="M17.7 54.6L0.799988 41.2L9.19999 25.6L33.3 35L17.7 54.6Z"
           fill="url(#paint0_linear_26_19)"
@@ -1814,11 +1814,11 @@ export const IntelliJLogo = (props: { height?: string; width?: string }) => {
           y2="40.0893"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.2581" stop-color="#F97A12" />
-          <stop offset="0.4591" stop-color="#B07B58" />
-          <stop offset="0.7241" stop-color="#577BAE" />
-          <stop offset="0.9105" stop-color="#1E7CE5" />
-          <stop offset="1" stop-color="#087CFA" />
+          <stop offset="0.2581" stopColor="#F97A12" />
+          <stop offset="0.4591" stopColor="#B07B58" />
+          <stop offset="0.7241" stopColor="#577BAE" />
+          <stop offset="0.9105" stopColor="#1E7CE5" />
+          <stop offset="1" stopColor="#087CFA" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_26_19"
@@ -1828,16 +1828,16 @@ export const IntelliJLogo = (props: { height?: string; width?: string }) => {
           y2="54.57"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F97A12" />
-          <stop offset="0.0717995" stop-color="#CB7A3E" />
-          <stop offset="0.1541" stop-color="#9E7B6A" />
-          <stop offset="0.242" stop-color="#757B91" />
-          <stop offset="0.3344" stop-color="#537BB1" />
-          <stop offset="0.4324" stop-color="#387CCC" />
-          <stop offset="0.5381" stop-color="#237CE0" />
-          <stop offset="0.6552" stop-color="#147CEF" />
-          <stop offset="0.7925" stop-color="#0B7CF7" />
-          <stop offset="1" stop-color="#087CFA" />
+          <stop stopColor="#F97A12" />
+          <stop offset="0.0717995" stopColor="#CB7A3E" />
+          <stop offset="0.1541" stopColor="#9E7B6A" />
+          <stop offset="0.242" stopColor="#757B91" />
+          <stop offset="0.3344" stopColor="#537BB1" />
+          <stop offset="0.4324" stopColor="#387CCC" />
+          <stop offset="0.5381" stopColor="#237CE0" />
+          <stop offset="0.6552" stopColor="#147CEF" />
+          <stop offset="0.7925" stopColor="#0B7CF7" />
+          <stop offset="1" stopColor="#087CFA" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_26_19"
@@ -1847,16 +1847,16 @@ export const IntelliJLogo = (props: { height?: string; width?: string }) => {
           y2="-1.71909"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FE315D" />
-          <stop offset="0.0784025" stop-color="#CB417E" />
-          <stop offset="0.1601" stop-color="#9E4E9B" />
-          <stop offset="0.2474" stop-color="#755BB4" />
-          <stop offset="0.3392" stop-color="#5365CA" />
-          <stop offset="0.4365" stop-color="#386DDB" />
-          <stop offset="0.5414" stop-color="#2374E9" />
-          <stop offset="0.6576" stop-color="#1478F3" />
-          <stop offset="0.794" stop-color="#0B7BF8" />
-          <stop offset="1" stop-color="#087CFA" />
+          <stop stopColor="#FE315D" />
+          <stop offset="0.0784025" stopColor="#CB417E" />
+          <stop offset="0.1601" stopColor="#9E4E9B" />
+          <stop offset="0.2474" stopColor="#755BB4" />
+          <stop offset="0.3392" stopColor="#5365CA" />
+          <stop offset="0.4365" stopColor="#386DDB" />
+          <stop offset="0.5414" stopColor="#2374E9" />
+          <stop offset="0.6576" stopColor="#1478F3" />
+          <stop offset="0.794" stopColor="#0B7BF8" />
+          <stop offset="1" stopColor="#087CFA" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_26_19"
@@ -1866,14 +1866,14 @@ export const IntelliJLogo = (props: { height?: string; width?: string }) => {
           y2="90.58"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FE315D" />
-          <stop offset="0.0402328" stop-color="#F63462" />
-          <stop offset="0.1037" stop-color="#DF3A71" />
-          <stop offset="0.1667" stop-color="#C24383" />
-          <stop offset="0.2912" stop-color="#AD4A91" />
-          <stop offset="0.5498" stop-color="#755BB4" />
-          <stop offset="0.9175" stop-color="#1D76ED" />
-          <stop offset="1" stop-color="#087CFA" />
+          <stop stopColor="#FE315D" />
+          <stop offset="0.0402328" stopColor="#F63462" />
+          <stop offset="0.1037" stopColor="#DF3A71" />
+          <stop offset="0.1667" stopColor="#C24383" />
+          <stop offset="0.2912" stopColor="#AD4A91" />
+          <stop offset="0.5498" stopColor="#755BB4" />
+          <stop offset="0.9175" stopColor="#1D76ED" />
+          <stop offset="1" stopColor="#087CFA" />
         </linearGradient>
         <clipPath id="clip0_26_19">
           <rect width="70" height="70" fill="white" />
@@ -1931,8 +1931,8 @@ export const PyCharmLogo = (props: { height?: string; width?: string }) => {
           y2="27.0461"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#21D789" />
-          <stop offset="1" stop-color="#07C3F2" />
+          <stop stopColor="#21D789" />
+          <stop offset="1" stopColor="#07C3F2" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_25_4"
@@ -1942,19 +1942,19 @@ export const PyCharmLogo = (props: { height?: string; width?: string }) => {
           y2="-4.24131"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0107527" stop-color="#FCF84A" />
-          <stop offset="0.1116" stop-color="#A7EB62" />
-          <stop offset="0.2056" stop-color="#5FE077" />
-          <stop offset="0.2727" stop-color="#32DA84" />
-          <stop offset="0.3065" stop-color="#21D789" />
-          <stop offset="0.5768" stop-color="#21D789" />
-          <stop offset="0.5968" stop-color="#21D789" />
-          <stop offset="0.686" stop-color="#20D68C" />
-          <stop offset="0.7627" stop-color="#1ED497" />
-          <stop offset="0.8348" stop-color="#19D1A9" />
-          <stop offset="0.904" stop-color="#13CCC2" />
-          <stop offset="0.9707" stop-color="#0BC6E1" />
-          <stop offset="1" stop-color="#07C3F2" />
+          <stop offset="0.0107527" stopColor="#FCF84A" />
+          <stop offset="0.1116" stopColor="#A7EB62" />
+          <stop offset="0.2056" stopColor="#5FE077" />
+          <stop offset="0.2727" stopColor="#32DA84" />
+          <stop offset="0.3065" stopColor="#21D789" />
+          <stop offset="0.5768" stopColor="#21D789" />
+          <stop offset="0.5968" stopColor="#21D789" />
+          <stop offset="0.686" stopColor="#20D68C" />
+          <stop offset="0.7627" stopColor="#1ED497" />
+          <stop offset="0.8348" stopColor="#19D1A9" />
+          <stop offset="0.904" stopColor="#13CCC2" />
+          <stop offset="0.9707" stopColor="#0BC6E1" />
+          <stop offset="1" stopColor="#07C3F2" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_25_4"
@@ -1964,15 +1964,15 @@ export const PyCharmLogo = (props: { height?: string; width?: string }) => {
           y2="32.7598"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#21D789" />
-          <stop offset="0.1638" stop-color="#24D788" />
-          <stop offset="0.3047" stop-color="#2FD886" />
-          <stop offset="0.4371" stop-color="#41DA82" />
-          <stop offset="0.5644" stop-color="#5ADC7D" />
-          <stop offset="0.6881" stop-color="#7AE077" />
-          <stop offset="0.809" stop-color="#A1E36E" />
-          <stop offset="0.9254" stop-color="#CFE865" />
-          <stop offset="1" stop-color="#F1EB5E" />
+          <stop stopColor="#21D789" />
+          <stop offset="0.1638" stopColor="#24D788" />
+          <stop offset="0.3047" stopColor="#2FD886" />
+          <stop offset="0.4371" stopColor="#41DA82" />
+          <stop offset="0.5644" stopColor="#5ADC7D" />
+          <stop offset="0.6881" stopColor="#7AE077" />
+          <stop offset="0.809" stopColor="#A1E36E" />
+          <stop offset="0.9254" stopColor="#CFE865" />
+          <stop offset="1" stopColor="#F1EB5E" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_25_4"
@@ -1982,15 +1982,15 @@ export const PyCharmLogo = (props: { height?: string; width?: string }) => {
           y2="-3.2358"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#21D789" />
-          <stop offset="0.0608105" stop-color="#24D788" />
-          <stop offset="0.1131" stop-color="#2FD886" />
-          <stop offset="0.1622" stop-color="#41DA82" />
-          <stop offset="0.2094" stop-color="#5ADD7D" />
-          <stop offset="0.2548" stop-color="#79E077" />
-          <stop offset="0.2581" stop-color="#7CE076" />
-          <stop offset="0.4986" stop-color="#8CE173" />
-          <stop offset="0.9247" stop-color="#B2E56B" />
+          <stop stopColor="#21D789" />
+          <stop offset="0.0608105" stopColor="#24D788" />
+          <stop offset="0.1131" stopColor="#2FD886" />
+          <stop offset="0.1622" stopColor="#41DA82" />
+          <stop offset="0.2094" stopColor="#5ADD7D" />
+          <stop offset="0.2548" stopColor="#79E077" />
+          <stop offset="0.2581" stopColor="#7CE076" />
+          <stop offset="0.4986" stopColor="#8CE173" />
+          <stop offset="0.9247" stopColor="#B2E56B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_25_4"
@@ -2000,10 +2000,10 @@ export const PyCharmLogo = (props: { height?: string; width?: string }) => {
           y2="43.3687"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.3871" stop-color="#FCF84A" />
-          <stop offset="0.5358" stop-color="#ECF451" />
-          <stop offset="0.8259" stop-color="#C2E964" />
-          <stop offset="0.9247" stop-color="#B2E56B" />
+          <stop offset="0.3871" stopColor="#FCF84A" />
+          <stop offset="0.5358" stopColor="#ECF451" />
+          <stop offset="0.8259" stopColor="#C2E964" />
+          <stop offset="0.9247" stopColor="#B2E56B" />
         </linearGradient>
       </defs>
     </svg>
@@ -2029,8 +2029,8 @@ export const VSCodeIcon = (props: { height?: string; width?: string }) => {
         height="100"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M70.9119 99.3171C72.4869 99.9307 74.2828 99.8914 75.8725 99.1264L96.4608 89.2197C98.6242 88.1787 100 85.9892 100 83.5872V16.4133C100 14.0113 98.6243 11.8218 96.4609 10.7808L75.8725 0.873756C73.7862 -0.130129 71.3446 0.11576 69.5135 1.44695C69.252 1.63711 69.0028 1.84943 68.769 2.08341L29.3551 38.0415L12.1872 25.0096C10.589 23.7965 8.35363 23.8959 6.86933 25.2461L1.36303 30.2549C-0.452552 31.9064 -0.454633 34.7627 1.35853 36.417L16.2471 50.0001L1.35853 63.5832C-0.454633 65.2374 -0.452552 68.0938 1.36303 69.7453L6.86933 74.7541C8.35363 76.1043 10.589 76.2037 12.1872 74.9905L29.3551 61.9587L68.769 97.9167C69.3925 98.5406 70.1246 99.0104 70.9119 99.3171ZM75.0152 27.2989L45.1091 50.0001L75.0152 72.7012V27.2989Z"
           fill="white"
         />
@@ -2052,10 +2052,11 @@ export const VSCodeIcon = (props: { height?: string; width?: string }) => {
             fill="#1F9CF0"
           />
         </g>
-        <g style={{ "mix-blend-mode": "overlay" } as any} opacity="0.25">
+        {/* <g style={{ "mix-blend-mode": "overlay" } as any} opacity="0.25"> */}
+        <g opacity="0.25">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M70.8511 99.3171C72.4261 99.9306 74.2221 99.8913 75.8117 99.1264L96.4 89.2197C98.5634 88.1787 99.9392 85.9892 99.9392 83.5871V16.4133C99.9392 14.0112 98.5635 11.8217 96.4001 10.7807L75.8117 0.873695C73.7255 -0.13019 71.2838 0.115699 69.4527 1.44688C69.1912 1.63705 68.942 1.84937 68.7082 2.08335L29.2943 38.0414L12.1264 25.0096C10.5283 23.7964 8.29285 23.8959 6.80855 25.246L1.30225 30.2548C-0.513334 31.9064 -0.515415 34.7627 1.29775 36.4169L16.1863 50L1.29775 63.5832C-0.515415 65.2374 -0.513334 68.0937 1.30225 69.7452L6.80855 74.754C8.29285 76.1042 10.5283 76.2036 12.1264 74.9905L29.2943 61.9586L68.7082 97.9167C69.3317 98.5405 70.0638 99.0104 70.8511 99.3171ZM74.9544 27.2989L45.0483 50L74.9544 72.7012V27.2989Z"
             fill="url(#paint0_linear)"
           />
@@ -2069,9 +2070,9 @@ export const VSCodeIcon = (props: { height?: string; width?: string }) => {
           width="116.727"
           height="92.2456"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2102,9 +2103,9 @@ export const VSCodeIcon = (props: { height?: string; width?: string }) => {
           width="47.9167"
           height="116.151"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2136,8 +2137,8 @@ export const VSCodeIcon = (props: { height?: string; width?: string }) => {
           y2="99.7423"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
@@ -2294,8 +2295,8 @@ export const RegexIcon = (props: { height?: string; width?: string, color?: stri
       fill={props.color || "currentColor"}
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M10.012 2h.976v3.113l2.56-1.557.486.885L11.47 6l2.564 1.559-.485.885-2.561-1.557V10h-.976V6.887l-2.56 1.557-.486-.885L9.53 6 6.966 4.441l.485-.885 2.561 1.557V2zM2 10h4v4H2v-4z"
       />
     </svg>
@@ -2903,14 +2904,14 @@ export const PHPIcon = (props: {
         fill="white"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M206.35 327H274.475C294.47 327.183 308.96 333.477 317.943 345.872C326.925 358.269 329.89 375.198 326.84 396.663C325.656 406.472 323.027 416.091 318.96 425.529C315.061 434.964 309.641 443.474 302.692 451.062C294.217 460.682 285.151 466.787 275.492 469.381C265.833 471.973 255.832 473.266 245.497 473.266H214.993L205.333 526H170L206.35 327ZM220.84 441.903L236.041 358.917H241.175C243.041 358.917 244.988 358.823 247.022 358.64C260.581 358.455 271.847 359.844 280.831 362.803C289.98 365.762 293.031 376.957 289.98 396.386C286.255 419.516 278.964 433.022 268.12 436.907C257.276 440.61 243.717 442.365 227.449 442.18H223.89C222.873 442.18 221.856 442.086 220.84 441.903Z"
         fill="white"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M576.475 327H508.35L472 526H507.333L516.994 473.266H547.498C557.833 473.266 567.833 471.973 577.492 469.381C587.153 466.787 596.217 460.682 604.692 451.062C611.641 443.474 617.061 434.964 620.959 425.529C625.027 416.091 627.656 406.472 628.839 396.663C631.89 375.198 628.927 358.269 619.943 345.872C610.96 333.477 596.471 327.183 576.475 327ZM538.041 358.917L522.841 441.903C523.857 442.086 524.874 442.18 525.891 442.18H529.449C545.719 442.365 559.276 440.61 570.121 436.907C580.964 433.022 588.255 419.516 591.982 396.386C595.033 376.957 591.982 365.762 582.831 362.803C573.848 359.844 562.581 358.455 549.022 358.64C546.988 358.823 545.042 358.917 543.175 358.917H538.041Z"
         fill="white"
       />
