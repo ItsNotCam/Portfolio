@@ -45,8 +45,8 @@ export const WorkList: WorkListItem[] = [
     location: "My Apartment, VA",
     description: (
       <>
-        Built out a freelance operation that, from year one, generated over <Orange>$100,000/yr</Orange> in personal revenue. 
-        Raised <Orange>over $50,000 for</Orange> <a href="" target='_blank'>charity</a>. Invited on to a studio to be a technical consultant. Demonstrated 
+        Built out a freelance operation that, from year one, generated over <Orange>$100,000/yr in personal revenue</Orange>. 
+        Raised <Orange>over $50,000 for <a href="" target='_blank'>charity</a></Orange>. Invited on to a studio to be a technical consultant. Demonstrated 
         excellent self-management skills and work ethic, maintained professional communication, and consistently 
         provided excellent customer service.
       </>
@@ -86,7 +86,7 @@ export const WorkList: WorkListItem[] = [
         Implemented a feature into an internal tool that allowed for the selection of specific key exchange algorithms for tunneling. 
       </>
     ),
-    timeframe: "2019-2020",
+    timeframe: "Summer 2018",
     skills: [Skills.PythonSkill]
   },
 ];

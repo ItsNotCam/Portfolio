@@ -32,6 +32,7 @@ export default function About() {
   const [selectedSubFilter, setSelectedSubFilter] = useState<SubSkillType>(SubSkillType.All);
   const [compactView, setCompactView] = useState<boolean>(true);
   const [skills, setSkills] = useState<SkillListItem[]>(StartingSkills);
+	const [searchTerm, setSearchTerm] = useState<string>("");
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
     {
       icon: <FolderIcon />,
@@ -104,6 +105,15 @@ export default function About() {
     }
   };
 
+	const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		console.log(`'${event.target.value}': ${event.target.value.length}`);
+		const term: string = event.target.value;
+		setSearchTerm(oldTerm => {
+			return term;
+		});
+		filterSkills(selectedFilter, term);
+	};
+
   // const sortSkills = (sortMode: SortMode) => {
   //   if (sortMode === SortMode.ASCENDING) {
   //     setSkills((oldSkills) => oldSkills.sort((a, b) => a.name.localeCompare(b.name)));
@@ -118,15 +128,22 @@ export default function About() {
    *
    * @param type - The type of skill to filter.
    */
-  const filterSkills = (type: SkillType) => {
+  const filterSkills = (type: SkillType, filterTerm?: string) => {
+		const includesSearchTerm = (name: string) => {
+			name = name.toLowerCase();
+			const filter = filterTerm ? filterTerm.toLowerCase() : searchTerm.toLowerCase();
+			// return name.includes(filter) || filter === "";
+			return filter === "";
+		};
+
     setSelectedSubFilter(SubSkillType.All);
     setSelectedFilter(type);
     if (type === SkillType.ALL) {
       setDirectoryTree((oldTree) => updateSelectedItem(oldTree, "all_skills"));
-      setSkills(StartingSkills);
+      setSkills(StartingSkills.filter(s => includesSearchTerm(s.name)));
     } else {
       setDirectoryTree((oldTree) => updateSelectedItem(oldTree, type));
-      setSkills(StartingSkills.filter((skill) => skill.skillType === type));
+      setSkills(StartingSkills.filter((skill) => (skill.skillType === type) && includesSearchTerm(skill.name)));
     }
   };
 
@@ -173,8 +190,9 @@ export default function About() {
         <div className="p-4 w-full h-full flex-grow">
           <div className="flex flex-row justify-between items-center">
             <h1 className="text-2xl italic text-custom-red uppercase flex-grow">
-              [ {selectedFilter} / {selectedSubFilter} ]
+              [ {selectedFilter} {selectedSubFilter !== SubSkillType.All && <>/ {selectedSubFilter}</>} ]
             </h1>
+						{/* <input type="text" placeholder="Search" value={searchTerm} onChange={handleSearchTermChange} /> */}
             {/* <select value={sortMode} onChange={(e) => sortSkills(e.target.value as SortMode)}>
               <option value={SortMode.ASCENDING}>Ascending</option>
               <option value={SortMode.DESCENDING}>Descending</option>
@@ -207,7 +225,7 @@ export default function About() {
             style={{ fontSize: compactView ? "1.25em" : "2em" }}
           >
             {selectedFilter === SkillType.ALL && getSkillsByType().map((skillType: SkillType) => (
-              <div className="mt-4 mb-2">
+              <div key={`skills-filter-parent-${skillType}`} className="mt-4 mb-2">
                 <span className="text-xl text-custom-text-100">{skillType}</span>
                 <div className="flex flex-row flex-wrap gap-2">
                   {skills.filter(skill => skill.skillType === skillType).map((skill, index) => (

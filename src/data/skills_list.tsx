@@ -1,8 +1,11 @@
-import { SkillListItem, AdobeCCSkill, BashSkill, BitBucketSkill, BlenderSkill, BootstrapSkill, CSharpSkill, CssSkill, DockerSkill, ExpressSkill, FigmaSkill, FlaskSkill, GitSkill, HtmlSkill, IisSkill, IllustratorSkill, IntelliJSkill, JavaSkill, JavascriptSkill, JiraSkill, JquerySkill, MaterialUISkill, M365Skill, ExcelSkill, WordSkill, MySQLSkill, NextJSSkill, NodeJSSkill, NpmSkill, PostCSSSkill, PostgreSQLSkill, PowerShellSkill, PyCharmSkill, PythonSkill, ReactSkill, RedisSkill, PhotoshopSkill, SqliteSkill, SqlServerSkill, TailwindSkill, TypeScriptSkill, UbuntuSkill, UnitySkill, VmWareSkill, VisualStudioSkill, SkillType, SkillMapType, WindowsSkill, RegexSkill, VisualStudioCodeSkill, PhpSkill, PostmanSkill, RaspberryPiSkill } from "./skills";
+import { SkillListItem, AdobeCCSkill, BashSkill, BitBucketSkill, BlenderSkill, BootstrapSkill, CSharpSkill, CssSkill, DockerSkill, ExpressSkill, FigmaSkill, FlaskSkill, GitSkill, HtmlSkill, IisSkill, IllustratorSkill, IntelliJSkill, JavaSkill, JavascriptSkill, JiraSkill, JquerySkill, MaterialUISkill, M365Skill, ExcelSkill, WordSkill, MySQLSkill, NextJSSkill, NodeJSSkill, NpmSkill, PostCSSSkill, PostgreSQLSkill, PowerShellSkill, PyCharmSkill, PythonSkill, ReactSkill, RedisSkill, PhotoshopSkill, SqliteSkill, SqlServerSkill, TailwindSkill, TypeScriptSkill, UbuntuSkill, UnitySkill, VmWareSkill, VisualStudioSkill, SkillType, SkillMapType, WindowsSkill, RegexSkill, VisualStudioCodeSkill, PhpSkill, PostmanSkill, RaspberryPiSkill, ExperienceDesignerSkill } from "./skills";
 
 
 export const StartingSkills: SkillListItem[] = [
   AdobeCCSkill,
+  ExperienceDesignerSkill,
+  IllustratorSkill,
+  PhotoshopSkill,
   BashSkill,
   BitBucketSkill,
   BlenderSkill,
@@ -16,7 +19,6 @@ export const StartingSkills: SkillListItem[] = [
   GitSkill,
   HtmlSkill,
   IisSkill,
-  IllustratorSkill,
   IntelliJSkill,
   JavaSkill,
   JavascriptSkill,
@@ -41,7 +43,6 @@ export const StartingSkills: SkillListItem[] = [
   ReactSkill,
   RedisSkill,
   RegexSkill,
-  PhotoshopSkill,
   SqliteSkill,
   SqlServerSkill,
   TailwindSkill,

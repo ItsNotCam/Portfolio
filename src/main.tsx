@@ -1,8 +1,7 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./routes/home/HomeRoute.tsx";
 
-import { useState } from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -15,9 +14,10 @@ import Nav from "./components/nav/Nav.tsx";
 import About from "./routes/about/AboutRoute.tsx";
 import Skills from "./routes/skills/SkillsRoute.tsx";
 import Work from "./routes/work/WorkRoute.tsx";
-import Resume from "./routes/resume/ResumeRoute.tsx";
 import Projects from "./routes/projects/ProjectsRoute.tsx";
 import CustomCursor from "./components/CustomCursor.tsx";
+
+import './globals.css';
 
 const Wrapper = (props: { children?: ReactNode }): ReactNode => (
   <div className="flex flex-col justify-between h-full w-full">
@@ -26,7 +26,6 @@ const Wrapper = (props: { children?: ReactNode }): ReactNode => (
     {props.children}
   </div>
 );
-
 
 export const routes = [
   {
@@ -73,15 +72,15 @@ export const routes = [
     ),
     errorElement: <ErrorPage />,
   },
-  {
-    path: "/Resume",
-    element: (
-      <Wrapper>
-        <Resume />
-      </Wrapper>
-    ),
-    errorElement: <ErrorPage />,
-  },
+  // {
+  //   path: "/Resume",
+  //   element: (
+  //     <Wrapper>
+  //       <Resume />
+  //     </Wrapper>
+  //   ),
+  //   errorElement: <ErrorPage />,
+  // },
 ];
 
 const router = createBrowserRouter([

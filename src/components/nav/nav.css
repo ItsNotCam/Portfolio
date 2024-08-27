@@ -78,7 +78,7 @@
   }
 
   .nav-dropdown {
-    @apply block absolute top-2 right-4 p-1 rounded-full hover:bg-custom-off-dark-300 ;
+    @apply block absolute top-1 right-4 p-1 rounded-full hover:bg-custom-off-dark-300 ;
   }
 
   .nav-item {

@@ -83,7 +83,7 @@ export const ProjectList: Project[] = [{
     Skills.ReactSkill,
     Skills.TailwindSkill
   ],
-  content: <span>This <Orange>front-end web application</Orange> was developed for <Red>BAE Systems, Inc. </Red>
+  content: <span>This <Orange>web application</Orange> was developed for <Red>BAE Systems, Inc. </Red>
   It integrates with an internal AI chatbot LLM to assist software developers by offering feedback, generating code snippets, and more.<br/></span>
 }, {
   name: "🚀Pokescrape",
@@ -157,7 +157,7 @@ export const ProjectList: Project[] = [{
   readmeLink: "https://raw.githubusercontent.com/ItsNotCam/HeaterPi-Server/master/README.md",
   demoLink: undefined,
   additionalContent: undefined,
-  year: "2019-2024",
+  year: "2019 - 2024",
   id: "heater_pi",
   skills: [
     { ...Skills.HtmlSkill, visible: false },
