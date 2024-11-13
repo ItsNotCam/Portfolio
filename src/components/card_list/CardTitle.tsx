@@ -1,4 +1,3 @@
-import { NorthEast } from "@mui/icons-material";
 import { ReactNode } from "react";
 
 export default function CardTitle(props: { title?: String, children?: ReactNode }): ReactNode {

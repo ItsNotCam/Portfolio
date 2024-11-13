@@ -42,6 +42,104 @@ export const ProjectList: Project[] = [{
     developed using ReactJS with Typescript and TailwindCSS.
   </span>,
 }, {
+  name: "💻Home Lab",
+  id: "homelab",
+  githubLink: undefined,
+  demoLink: undefined,
+  readmeLink: undefined,
+  additionalContent: "",
+  year: "2018 - 2024",
+  skills: [
+    Skills.UbuntuSkill,
+    Skills.WindowsSkill,
+		Skills.DockerSkill,
+		Skills.PostgreSQLSkill,
+		Skills.MySQLSkill,
+		Skills.HyperVSkill,
+  ],
+  content: <span>
+    I have built and currently maintain a <Orange>home lab</Orange> consisting of multiple physical machines and virtual machines utilizing technologies, softwares,
+		services, and operating systems such as Windows, Ubuntu, ZFS, HyperV, and OpenVPN. Click for more!
+		{/* I have
+		experience with both <Orange>Windows</Orange> and <Orange>Linux</Orange> operating systems, and I use <Orange>Docker </Orange> 
+		to manage and deploy services. My home lab serves many purposes such as hosting a <Orange>NAS</Orange> running on 
+		<Orange> Ubuntu</Orange> with <Orange>ZFS</Orange> (and multiple storage devices in RAID 1), a <Orange>VPN</Orange> server, multiple <Orange>web 
+		servers</Orange> running in Ubuntu, and a VM that hosts my video game servers. Unfortunately, I do not have access to ESXi, so I use 
+		<Orange> HyperV</Orange> to host my <Orange>VMs</Orange>. Additionally, I have configured my router to allow remote access through my VPN and 
+		I have set static IPs for my physical and virtual servers. */}
+  </span>,
+}, {
+  name: "✨XIVSuite",
+  id: "xivtracker",
+  githubLink: "https://github.com/ItsNotCam/XIVTracker",
+  demoLink: undefined,
+  readmeLink: "",
+  additionalContent: "",
+  year: "2024",
+  skills: [
+    Skills.NodeJSSkill,
+		Skills.ElectronSkill,
+    { ...Skills.HtmlSkill, visible: false },
+    { ...Skills.CssSkill, visible: false },
+    Skills.TypeScriptSkill,
+    Skills.ReactSkill,
+    Skills.TailwindSkill,
+		Skills.CSharpSkill,
+		Skills.SqliteSkill,
+		Skills.ViteSkill,
+  ],
+  content: <span>
+		XIVSuite is a suite of applications (<span className="italic">that is still in development</span>) consisting of {" "}
+    <a target="_blank" href="https://github.com/ItsNotCam/XIVTracker" className="text-custom-blue/90 underline hover:text-blue-300 transition-colors duration-200">
+			 XIVTracker
+		</a>, 
+		{" "}
+		<a target="_blank" href="https://github.com/ItsNotCam/XIVEvents" className="text-custom-blue/90 underline hover:text-blue-300 transition-colors duration-200">
+			XIVEvents
+		</a>
+		, and  {" "} 
+		<a target="_blank" href="https://github.com/ItsNotCam/XIVSocket" className="text-custom-blue/90 underline hover:text-blue-300 transition-colors duration-200">
+			XIVSocket
+		</a> 
+		{" "}
+		that are designed to enhance the player experience in the popular MMORPG Final Fantasy XIV by listening for relevant game events, capturing their data, and sending 
+		them across TCP and UDP sockets (socket chosen by sync rate and accuracy requirements) utilizing a <Orange>custom networking protocol and text encoding</Orange> to a desktop application that displays the data in a user-friendly way.
+		<br />
+		<br />
+		{/* Click for much more information - it is a big project! */}
+		{/* XIVTracker is a desktop application utilizing <Orange>Electron</Orange> that allows users to track their character's progress, view their gear, set goals, 
+		look up item crafting recipes, and more. 
+		<br />
+		<br />
+		XIVEvents is a library that runs within the game that watches for changes in game state. It then fires off events using its custom events api that any
+		game plugin can read from.
+		<br />
+		<br />
+		XIVSocket is a plugin that runs within the game that utilizes XIVEvents to send data over a TCP and UDP socket to the XIVTracker app. It makes use
+		of a <Orange>custom TCP protocol</Orange> and <Orange>6 bit text encoding</Orange> to send this data across the network. */}
+  </span>,
+}, {
+  name: "🌐Exo",
+  id: "exo",
+  githubLink: "https://github.com/ItsNotCam/EXO-Xportation",
+  demoLink: "https://mason.gmu.edu/~cyoung35/exo/",
+  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/EXO-Xportation/master/README.md",
+  additionalContent: "",
+  year: "2024",
+  skills: [
+    { ...Skills.HtmlSkill, visible: false },
+    { ...Skills.CssSkill, visible: false },
+    Skills.JavascriptSkill,
+    Skills.TailwindSkill,
+		Skills.JquerySkill,
+		Skills.ViteSkill,
+  ],
+  content: <span>
+		Exo is a responsive and robust <Orange>static site</Orange> that makes use of modern HTML, CSS, and Javascript. It was built as a 
+		school project and received commendations by the professor who has since <Orange>used it as reference material for students 
+		who are choosing their concentration.</Orange>
+  </span>,
+}, {
   name: "🚨CyberArk Insights",
   year: "2024",
   id: "cybearark_insights",
@@ -169,25 +267,25 @@ export const ProjectList: Project[] = [{
   ],
   content: <span>A <Orange>full-stack web application</Orange> that manages room temperature using a Raspberry Pi and a standard space heater.</span>
 },  {
-  name: "📑Home File Server",
-  githubLink: "https://github.com/ItsNotCam/File-Server",
-  demoLink: undefined,
-  additionalContent: undefined,
-  readmeLink: "https://raw.githubusercontent.com/ItsNotCam/File-Server/master/README.md",
-  year: "2019",
-  id: "home_file_server",
-  skills: [
-    { ...Skills.HtmlSkill, visible: false }, 
-    { ...Skills.CssSkill,  visible: false }, 
-    Skills.PythonSkill,
-    Skills.JavascriptSkill,
-    Skills.BootstrapSkill, 
-    Skills.FlaskSkill,
-    Skills.ReactSkill,
-    Skills.DockerSkill
-  ],
-  content: <span>Containerized <Orange>full-stack web application</Orange> that allows me to manipulate the file system of my home server.<br/></span>
-}, {
+//   name: "📑Home File Server",
+//   githubLink: "https://github.com/ItsNotCam/File-Server",
+//   demoLink: undefined,
+//   additionalContent: undefined,
+//   readmeLink: "https://raw.githubusercontent.com/ItsNotCam/File-Server/master/README.md",
+//   year: "2019",
+//   id: "home_file_server",
+//   skills: [
+//     { ...Skills.HtmlSkill, visible: false }, 
+//     { ...Skills.CssSkill,  visible: false }, 
+//     Skills.PythonSkill,
+//     Skills.JavascriptSkill,
+//     Skills.BootstrapSkill, 
+//     Skills.FlaskSkill,
+//     Skills.ReactSkill,
+//     Skills.DockerSkill
+//   ],
+//   content: <span>Containerized <Orange>full-stack web application</Orange> that allows me to manipulate the file system of my home server.<br/></span>
+// }, {
   name: "🐼Racoon",
   year: "2019",
   id: "racoon",

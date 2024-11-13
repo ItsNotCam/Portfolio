@@ -5,15 +5,11 @@ import SideBar, {
   updateSelectedItem,
 } from "../../components/sidebar/Sidebar";
 import {
-  CSharpIcon,
   FolderIcon,
-  InfoIcon,
   Python3Icon,
-  TypeScriptIcon,
 } from "../../components/Icons";
 import {
   Blue,
-  Green,
   Light,
   LightGreen,
   Orange,
@@ -288,24 +284,24 @@ export default function About(): ReactNode {
     //   icon: <FolderIcon />,
     //   id: "site_root",
     //   children: [
-        {
-          name: "credits.md",
-          id: "credits",
-          icon: <InfoIcon color="#68A9F6" />,
-          onClick: () => updateSelection("credits"),
-        },
+        // {
+        //   name: "credits.md",
+        //   id: "credits",
+        //   icon: <InfoIcon color="#68A9F6" />,
+        //   onClick: () => updateSelection("credits"),
+        // },
         // {
         //   name: "inspiration.md",
         //   id: "inspiration",
         //   onClick: () => updateSelection("inspiration"),
         //   icon: <InfoIcon color="#68A9F6" />,
         // },
-        {
-          name: "design.md",
-          id: "design",
-          icon: <InfoIcon color="#68A9F6" />,
-          onClick: () => updateSelection("design"),
-        },
+        // {
+        //   name: "design.md",
+        //   id: "design",
+        //   icon: <InfoIcon color="#68A9F6" />,
+        //   onClick: () => updateSelection("design"),
+        // },
         // {
         //   name: "..",
         //   id: "site_back",

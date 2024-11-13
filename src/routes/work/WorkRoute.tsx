@@ -93,11 +93,11 @@ export default function About() {
       <div id="work" className="flex flex-grow overflow-auto">
         <SideBar
           tree={tree}
-          title="~/_projects/"
+          title="~/_work/"
           fontSize="0.9rem"
           alwaysVisible={false}
         />
-        <div className="project-grid grid gap-1 w-full overflow-x-hidden">
+        <div className="project-grid grid grid-cols-1 gap-1 w-full overflow-x-hidden">
           <div id="project-list" className="mutex-hover-list card-list">
             {WorkList.map((work, index) => (
               <div
@@ -105,7 +105,7 @@ export default function About() {
                 key={`work-item-${index}`}
                 className="mutex-hover-list-child card"
               >
-                <ListBefore text={work.timeframe} />
+                <ListBefore />
                 <div
                   id={`card-${index}`}
                   key={`work-${index}`}

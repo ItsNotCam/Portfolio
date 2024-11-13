@@ -32,7 +32,7 @@ export default function About() {
   const [selectedSubFilter, setSelectedSubFilter] = useState<SubSkillType>(SubSkillType.All);
   const [compactView, setCompactView] = useState<boolean>(true);
   const [skills, setSkills] = useState<SkillListItem[]>(StartingSkills);
-	const [searchTerm, setSearchTerm] = useState<string>("");
+	const [searchTerm, _] = useState<string>("");
   const [directoryTree, setDirectoryTree] = useState<DirectoryItem[]>([
     {
       icon: <FolderIcon />,
@@ -105,14 +105,14 @@ export default function About() {
     }
   };
 
-	const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		console.log(`'${event.target.value}': ${event.target.value.length}`);
-		const term: string = event.target.value;
-		setSearchTerm(oldTerm => {
-			return term;
-		});
-		filterSkills(selectedFilter, term);
-	};
+	// const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	// 	console.log(`'${event.target.value}': ${event.target.value.length}`);
+	// 	const term: string = event.target.value;
+	// 	setSearchTerm(oldTerm => {
+	// 		return term;
+	// 	});
+	// 	filterSkills(selectedFilter, term);
+	// };
 
   // const sortSkills = (sortMode: SortMode) => {
   //   if (sortMode === SortMode.ASCENDING) {

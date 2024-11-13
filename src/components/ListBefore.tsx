@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export const ListBefore = (props: { text: string }): ReactNode => (
+export const ListBefore = (): ReactNode => (
   <>
     {/* <div id="timeframe" className="text-custom-text-200 pl-4 mt-1">
       {props.text || ""}

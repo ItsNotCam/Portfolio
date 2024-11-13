@@ -5,13 +5,11 @@ import SideBar, {
   updateSelectedItem,
 } from "../../components/sidebar/Sidebar.tsx";
 import {
-  ExploreIcon,
   FolderIcon,
   GitHubIcon,
 } from "../../components/Icons.tsx";
 import { Project, ProjectList } from "../../data/project_list.tsx";
 
-import { NorthEast, SummarizeOutlined } from "@mui/icons-material";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ScaleLoader } from "react-spinners";
@@ -21,7 +19,7 @@ import "./markdown.css";
 import { Orange } from "../../components/ColoredText.tsx";
 import { ListBefore } from "../../components/ListBefore.tsx";
 import SkillsListComponent from "../../components/SkillsList.tsx";
-import { DemoLink, GitHubLink, ReadmeLink } from "../../components/card_list/CardLinks.tsx";
+import { DemoLink, GitHubLink } from "../../components/card_list/CardLinks.tsx";
 import CardTitle from "../../components/card_list/CardTitle.tsx";
 
 export default function Projects(): ReactNode {
@@ -118,7 +116,7 @@ export default function Projects(): ReactNode {
       setSelectedReadme(readmeData);
     } else {
       console.log("No readme or additional content available, using default content", projectID);
-      const readmeData = `# ${project.name}\n` + "No additional information available.";
+      const readmeData = `# ${project.name}\n` + "No additional information available... yet";
       cachedReadmes.current[projectID] = readmeData;
       setSelectedReadme(readmeData);
     }
@@ -187,7 +185,7 @@ export default function Projects(): ReactNode {
                 key={`project-item-${project.id}`}
                 className="mutex-hover-list-child card"
               >
-                <ListBefore text={project.year} />
+                <ListBefore />
                 <div
                   id={`card-${project.id}`}
                   key={`project-${index}`}

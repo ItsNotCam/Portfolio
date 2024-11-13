@@ -1,4 +1,3 @@
-import React from 'react';
 import { Orange } from '../components/ColoredText';
 import * as Skills from './skills';
 

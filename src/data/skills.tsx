@@ -1,4 +1,4 @@
-import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, PyCharmLogo, IntelliJLogo, WindowsIcon, RegexIcon, VSCodeIcon, PHPIcon, PostmanIcon, RaspberryPiIcon } from "../components/Icons";
+import { Tailwind_CSSIcon, HTML5Icon, CSS3Icon, JavascriptIcon, TypeScriptIcon, ReactJSIcon, NextJSIcon, GitIcon, DockerIcon, UbuntuIcon, BashIcon, CSharpIcon, VMWareIcon, NodeJSIcon, PowerShellIcon, Python3Icon, FlaskIcon, JiraIcon, JQueryIcon, Material_UIIcon, BootstrapIcon, ExpressJSIcon, MySQLIconSmall, PostgreSQLIcon, SQLiteIcon, PostCSSIcon, JavaIcon, SQLServerIcon, UnityIcon, Visual_StudioIcon, BlenderIcon, Adobe_CCIcon, M365Icon, NPMIcon, BitBucketIcon, PSIcon, FigmaIcon, IllustratorIcon, XDIcon, RedisIcon, WordIcon, ExcelIcon, IISIcon, PyCharmLogo, IntelliJLogo, WindowsIcon, RegexIcon, VSCodeIcon, PHPIcon, PostmanIcon, RaspberryPiIcon, ElectronIcon, HyperVLogo, ViteLogo } from "../components/Icons";
 
 export enum SkillType {
   Programming = "programming",
@@ -187,6 +187,19 @@ export const IntelliJSkill: SkillListItem = {
   subSkillTypes: [SubSkillType.DevTool]
 };
 
+export const HyperVSkill: SkillListItem = {
+	icon: <HyperVLogo />,
+	name: "Hyper-V",
+	skillType: SkillType.OS
+}
+
+export const ElectronSkill: SkillListItem = {
+  icon: <ElectronIcon />,
+  name: "Electron",
+  skillType: SkillType.Frameworks,
+  subSkillTypes: [SubSkillType.Backend]
+};
+
 export const M365Skill: SkillListItem = {
   icon: <M365Icon />,
   name: "Microsoft 365",
@@ -295,8 +308,7 @@ export const PythonSkill: SkillListItem = {
 export const RaspberryPiSkill: SkillListItem = {
   icon: <RaspberryPiIcon />,
   name: "Raspberry Pi",
-  skillType: SkillType.OS,
-  subSkillTypes: [SubSkillType.Backend]
+  skillType: SkillType.OS
 };
 
 export const ReactSkill: SkillListItem = {
@@ -385,6 +397,13 @@ export const VisualStudioCodeSkill: SkillListItem = {
   icon: <VSCodeIcon />,
   name: "Visual Studio Code",
   skillType: SkillType.Software,
+  subSkillTypes: [SubSkillType.DevTool]
+}
+
+export const ViteSkill: SkillListItem = {
+  icon: <ViteLogo />,
+  name: "Vite",
+  skillType: SkillType.Tools,
   subSkillTypes: [SubSkillType.DevTool]
 }
 

@@ -64,6 +64,7 @@
 
 .project-grid {
   grid-template-columns: clamp(200px, 50%, 800px) 1fr;
+  /* grid-template-columns: 1fr; */
 }
 
 .card-content {
