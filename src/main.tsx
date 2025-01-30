@@ -88,7 +88,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/Home" replace />,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
   },
 ]);
 
