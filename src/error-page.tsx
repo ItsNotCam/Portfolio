@@ -7,7 +7,7 @@ interface RouterError {
 
 export default function ErrorPage() {
   const error: RouterError = useRouteError() as RouterError;
-	console.log(`Error: ${error}`);
+	console.log(error);
   return (
     <div id="error-page" className="text-custom-text-100">
       <h1 className="text-light-gray">Oops!</h1>
