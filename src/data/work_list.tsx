@@ -39,15 +39,28 @@ export const WorkList: WorkListItem[] = [
       Skills.PowerShellSkill
     ]
   },{
+  //   title: ["Game Developer"],
+  //   company: "Freelance",
+  //   location: "My Apartment, VA",
+  //   description: (
+  //     <>
+  //       Built out a freelance operation that, from year one, generated over <Orange>$100,000/yr in personal revenue</Orange>. 
+  //       Raised <Orange>over $50,000 for <a href="" target='_blank'>charity</a></Orange>. Invited on to a studio to be a technical consultant. Demonstrated 
+  //       excellent self-management skills and work ethic, maintained professional communication, and consistently 
+  //       provided excellent customer service.
+  //     </>
+  //   ),
+  //   timeframe: "2020-2024",
+  //   skills: [Skills.CSharpSkill, Skills.UnitySkill]
+  // },{
     title: ["Game Developer"],
     company: "Freelance",
     location: "My Apartment, VA",
     description: (
       <>
-        Built out a freelance operation that, from year one, generated over <Orange>$100,000/yr in personal revenue</Orange>. 
-        Raised <Orange>over $50,000 for <a href="" target='_blank'>charity</a></Orange>. Invited on to a studio to be a technical consultant. Demonstrated 
-        excellent self-management skills and work ethic, maintained professional communication, and consistently 
-        provided excellent customer service.
+        Built out a freelance operation that raised <Orange>over $50,000 for <a href="" target='_blank'>charity</a></Orange>. 
+				Invited on to a studio to be a technical consultant. Demonstrated excellent self-management skills and work ethic, 
+				maintained professional communication, and consistently provided excellent customer service.
       </>
     ),
     timeframe: "2020-2024",
