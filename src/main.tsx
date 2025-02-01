@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Home from "./routes/home/HomeRoute.tsx";
 
 import {
-  createBrowserRouter,
+  createHashRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
@@ -83,7 +83,7 @@ export const routes = [
   // },
 ];
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   ...routes,
   {
     path: "/",
